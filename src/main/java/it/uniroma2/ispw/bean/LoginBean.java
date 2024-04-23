@@ -1,8 +1,13 @@
 package it.uniroma2.ispw.bean;
 
+import javax.management.relation.Role;
+
 public class  LoginBean {
     private String email;
     private String password;
+
+    private String role;
+
 
     public LoginBean() {
     }
@@ -26,5 +31,9 @@ public class  LoginBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }

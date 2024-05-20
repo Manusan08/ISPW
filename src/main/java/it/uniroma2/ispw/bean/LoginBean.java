@@ -1,12 +1,12 @@
 package it.uniroma2.ispw.bean;
 
-import javax.management.relation.Role;
+import it.uniroma2.ispw.Enums.Role;
 
 public class  LoginBean {
     private String email;
     private String password;
 
-    private String role;
+    private Role role;
 
 
     public LoginBean() {

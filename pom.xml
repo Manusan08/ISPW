@@ -16,6 +16,24 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
+<dependencies>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-graphics</artifactId>
+        <version>23-ea+3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-fxml</artifactId>
+        <version>21-ea+24</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>23-ea+3</version>
+    </dependency>
 
 
+
+</dependencies>
 </project>

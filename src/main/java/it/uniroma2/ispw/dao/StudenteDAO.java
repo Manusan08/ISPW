@@ -10,13 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StudenteDAO {
-    public static StudenteModel getStudentebyEmail(String username) throws SystemException, SystemException {
-        String query = "SELECT * FROM Utenti where username = ?;";
+    public static StudenteModel getStudentebyEmail(String email) throws SystemException, SystemException {
+        String query = "SELECT * FROM Utenti where email = ?;";
         StudenteModel studenteModel = null;
         Connection conn = ConnectionDB.getConnection();
 
         try (PreparedStatement ps = conn.prepareStatement(query);) {
-            ps.setString(1, username);
+            ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             rs.next();
 

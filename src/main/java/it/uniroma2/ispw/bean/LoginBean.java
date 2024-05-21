@@ -5,9 +5,16 @@ import it.uniroma2.ispw.Enums.Role;
 public class  LoginBean {
     private String email;
     private String password;
-
+    private int idSession;
     private Role role;
 
+    public void setIdSession(int idSession) {
+        this.idSession = idSession;
+    }
+
+    public int getIdSession() {
+        return idSession;
+    }
 
     public LoginBean() {
     }

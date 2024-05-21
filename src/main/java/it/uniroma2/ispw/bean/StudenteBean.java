@@ -1,5 +1,16 @@
 package it.uniroma2.ispw.bean;
 
-public class StudenteBean {
+import it.uniroma2.ispw.Model.StudenteModel;
 
+public class StudenteBean extends UserBean {
+    private final String corso;
+    private final int matricola;
+
+
+    public StudenteBean(StudenteModel studente) {
+        super(studente.getEmail(), studente.getNome(), studente.getCognome());
+        this.corso=studente.getCorso();
+        this.matricola=studente.getMatricola();
+
+    }
 }

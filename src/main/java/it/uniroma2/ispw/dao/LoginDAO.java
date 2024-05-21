@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class LoginDAO {
     public boolean checkIfExists(LoginModel credentialsModel) throws SystemException {
-        String query = "SELECT * FROM Utenti WHERE Email = ? AND pass = ? AND ruolo = ?";
+        String query = "SELECT * FROM Utenti WHERE maeil = ? AND password = ? AND role = ?";
         Connection conn = ConnectionDB.getConnection();
         try (PreparedStatement ps = conn.prepareStatement(query);) {
 

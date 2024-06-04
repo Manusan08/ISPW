@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.Controller.controllerGrafico;
+package it.uniroma2.ispw.Controller.controllerGrafico1;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.IdSessioneBean;

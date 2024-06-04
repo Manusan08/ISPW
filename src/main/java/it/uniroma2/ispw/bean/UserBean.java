@@ -1,8 +1,27 @@
 package it.uniroma2.ispw.bean;
 
+import it.uniroma2.ispw.Enums.Role;
+
 public class UserBean {
     private String nome;
     private String cognome;
+    private Role ruolo;
+    private String email;
+
+    public UserBean(String cognome, String email, String nome) {
+        this.cognome = cognome;
+        this.email = email;
+        this.nome = nome;
+    }
+
+    public UserBean(String email, Role ruolo) {
+        this.email = email;
+        this.ruolo = ruolo;
+    }
+
+    public Role getRuolo() {
+        return ruolo;
+    }
 
     public String getCognome() {
         return cognome;
@@ -28,11 +47,7 @@ public class UserBean {
         this.nome = nome;
     }
 
-    public UserBean(String cognome, String email, String nome) {
-        this.cognome = cognome;
-        this.email = email;
-        this.nome = nome;
-    }
 
-    private String email;
+
+
 }

@@ -1,5 +1,6 @@
-package it.uniroma2.ispw.Controller.controllerGrafico1;
+package it.uniroma2.ispw.utils;
 
+import it.uniroma2.ispw.Controller.controllerGrafico1.ControllerGrafico;
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.IdSessioneBean;
 import it.uniroma2.ispw.bean.LoginBean;

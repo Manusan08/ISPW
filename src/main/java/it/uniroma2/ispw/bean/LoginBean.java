@@ -8,20 +8,26 @@ public class  LoginBean {
     private int idSession;
     private Role role;
 
+    public LoginBean() {}
+    public LoginBean(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    public LoginBean(String email, String password, Role role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     public void setIdSession(int idSession) {
         this.idSession = idSession;
     }
 
     public int getIdSession() {
         return idSession;
-    }
-
-    public LoginBean() {
-    }
-
-    public LoginBean(String email, String password) {
-        this.email = email;
-        this.password = password;
     }
 
     public String getEmail() {

@@ -1,18 +1,18 @@
-package it.uniroma2.ispw.Controller.controllerGrafico;
+package it.uniroma2.ispw.Controller.controllerGrafico1;
 
 import it.uniroma2.ispw.Controller.controllerApplicativo.LoginController;
 import it.uniroma2.ispw.Enums.Role;
 import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.GestoreEccezioni;
 import it.uniroma2.ispw.utils.exception.RuoloNonSelezionatoException;
 import it.uniroma2.ispw.utils.exception.SystemException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import javax.security.auth.login.LoginException;
 
-public class LoginViewController {
+public class LoginViewController1 {
     @FXML
     private ToggleButton studente;
     @FXML
@@ -22,8 +22,11 @@ public class LoginViewController {
     private TextField email;
     @FXML
     private PasswordField password;
+    @FXML
+    private Button login;
 
-    private void onAccediBtnClick(ActionEvent event) {
+    @FXML
+    private void clickLogin() {
         LoginBean loginBean = new LoginBean(email.getText(), password.getText());
         try {
             if (studente.isSelected()) {
@@ -42,7 +45,7 @@ public class LoginViewController {
         }
         LoginController loginController = new LoginController();
         try {
-            loginController.Login(loginBean);
+            loginController.login(loginBean);
 
             if (loginBean != null) {
                 //navigate to new page
@@ -58,4 +61,5 @@ public class LoginViewController {
             GestoreEccezioni.getInstance().handleException(e);
         }
     }
+
 }

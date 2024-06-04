@@ -15,7 +15,7 @@ import java.util.Properties;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class App extends Application {
+public class Main extends Application {
     private static TypesOfPersistenceLayer persistenceLayer;
     private static TypesOfUIs ui;
 
@@ -25,7 +25,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         setPersistenceLayerAndUi();
-        if (App.ui.equals(TypesOfUIs.JAVAFX))
+        if (Main.ui.equals(TypesOfUIs.JAVAFX))
             launch();
         else
             new CliController().start();
@@ -36,7 +36,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/LoginProva.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/LoginProva.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 500);
         ChangePage istanza = ChangePage.getChangePage();
         istanza.setStage(stage);
@@ -46,29 +46,29 @@ public class App extends Application {
     }
 
     private static void setPersistenceLayerAndUi() {
-        try (InputStream input = App.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream input = Main.class.getClassLoader().getResourceAsStream("application.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
             //persistence layer
             if (properties.getProperty("persistence.layer").equals("FileSystem")) {
-                App.persistenceLayer = TypesOfPersistenceLayer.FILE_SYSTEM;
+                Main.persistenceLayer = TypesOfPersistenceLayer.FILE_SYSTEM;
             } else {
-                App.persistenceLayer = TypesOfPersistenceLayer.JDBC;
+                Main.persistenceLayer = TypesOfPersistenceLayer.JDBC;
             }
 
             //user interface
             if (properties.getProperty("ui").equals("javafx")) {
-                App.ui = TypesOfUIs.JAVAFX;
+                Main.ui = TypesOfUIs.JAVAFX;
             } else {
-                App.ui = TypesOfUIs.CLI;
+                Main.ui = TypesOfUIs.CLI;
             }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        App.persistenceLayer = TypesOfPersistenceLayer.JDBC;
-        App.ui = TypesOfUIs.JAVAFX;
+        Main.persistenceLayer = TypesOfPersistenceLayer.JDBC;
+        Main.ui = TypesOfUIs.JAVAFX;
     }
 }
 

@@ -1,13 +1,13 @@
-package it.uniroma2.dicii.ispw.utils.factory;
+package it.uniroma2.ispw.utils.factory;
 
-import it.uniroma2.dicii.ispw.utils.exceptions.SystemException;
 
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 public class Factory {
 
     public DialogBox getBox(Exception e){
         if(e instanceof SystemException){
-            return new Error();
+            return (DialogBox) new java.lang.Error();
         }
         else{
             return new Notification();

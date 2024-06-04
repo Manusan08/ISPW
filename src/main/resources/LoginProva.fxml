@@ -2,16 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TextField layoutX="192.0" layoutY="139.0" />
-      <Text layoutX="192.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="97.33670043945312" />
-      <TextField layoutX="192.0" layoutY="200.0" />
-      <Text layoutX="192.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <Button layoutX="244.0" layoutY="243.0" mnemonicParsing="false" text="Login" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.Controller.controllerApplicativo.LoginController">
+   <ToggleButton layoutX="188.0" layoutY="75.0" mnemonicParsing="false" text="Studente" />
+   <ToggleButton layoutX="266.0" layoutY="75.0" mnemonicParsing="false" text="Docente" />
+   <TextField layoutX="192.0" layoutY="139.0" />
+   <Text layoutX="192.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="97.33670043945312" />
+   <TextField layoutX="192.0" layoutY="200.0" />
+   <Text layoutX="192.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+   <Button fx:id="login" layoutX="244.0" layoutY="243.0" mnemonicParsing="false" onAction="clickLogin" text="Login" />
 </AnchorPane>

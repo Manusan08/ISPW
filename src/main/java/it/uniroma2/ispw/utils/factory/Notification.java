@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.ispw.utils.factory;
+package it.uniroma2.ispw.utils.factory;
 
 import javafx.scene.control.Alert;
 

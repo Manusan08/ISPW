@@ -14,7 +14,7 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 import javax.security.auth.login.LoginException;
 
 public class LoginController {
-    public void Login(LoginBean cred) throws SystemException, LoginException {
+    public void login(LoginBean cred) throws SystemException, LoginException {
         LoginDAO loginDAO = new LoginDAO();
 
         switch (cred.getRole()) {

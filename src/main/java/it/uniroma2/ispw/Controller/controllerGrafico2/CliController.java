@@ -1,22 +1,19 @@
 package it.uniroma2.ispw.Controller.controllerGrafico2;
 
-package it.uniroma2.dicii.ispw.view.cli;
 
-import it.uniroma2.dicii.ispw.bean.UtenteBean;
-import it.uniroma2.dicii.ispw.view.cli.segreteria.SegreteriaView;
-import it.uniroma2.dicii.ispw.view.cli.utente.IstruttoreView;
+import it.uniroma2.ispw.bean.UserBean;
 
 public class CliController {
 
     public void start() {
-        UtenteBean authUsr;
+        UserBean authUsr;
         boolean loopCond= false;
-        LoginView loginView = new LoginView();
+        LoginViewController2 loginView = new LoginViewController2();
 
         do {
             loginView.control();
             authUsr = loginView.getUsrBean();
-            if(authUsr != null && authUsr.getRuolo() != null)
+            if(authUsr != null)
                 loopCond = false;
             else if (loginView.userChoice() == 1) {
                 loopCond = true;
@@ -26,12 +23,9 @@ public class CliController {
         } while (loopCond);
 
         switch (authUsr.getRuolo()) {
-            case SEGRETERIA -> new SegreteriaView(authUsr).control();
-            case ISTRUTTORE -> new IstruttoreView(authUsr).control();
-            case UTENTE -> {
-                System.out.println("Utente work in progress...");
-                System.exit(0);
-            }
+           // case DOCENTE -> new StudenteView(authUsr).control();
+            //case STUDENTE -> new docenteView(authUsr).control();
+
         }
 
     }

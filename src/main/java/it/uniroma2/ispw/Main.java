@@ -29,9 +29,6 @@ public class Main extends Application {
             launch();
         else
             new CliController().start();
-
-        launch();
-
     }
 
     @Override
@@ -46,7 +43,7 @@ public class Main extends Application {
     }
 
     private static void setPersistenceLayerAndUi() {
-        try (InputStream input = Main.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
@@ -67,8 +64,7 @@ public class Main extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Main.persistenceLayer = TypesOfPersistenceLayer.JDBC;
-        Main.ui = TypesOfUIs.JAVAFX;
+
     }
 }
 

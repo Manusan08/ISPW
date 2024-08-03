@@ -13,5 +13,5 @@
    <Text layoutX="192.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="97.33670043945312" />
    <TextField layoutX="192.0" layoutY="200.0" />
    <Text layoutX="192.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-   <Button fx:id="login" layoutX="244.0" layoutY="243.0" mnemonicParsing="false" onAction="clickLogin" text="Login" />
+   <Button fx:id="login" layoutX="244.0" layoutY="243.0" mnemonicParsing="false"  text="Login" />
 </AnchorPane>

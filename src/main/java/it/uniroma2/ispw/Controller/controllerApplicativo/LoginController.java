@@ -10,10 +10,13 @@ import it.uniroma2.ispw.bean.StudenteBean;
 import it.uniroma2.ispw.dao.LoginDAO;
 import it.uniroma2.ispw.dao.StudenteDAO;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import javafx.scene.control.Button;
 
 import javax.security.auth.login.LoginException;
 
 public class LoginController {
+    public Button login;
+
     public void login(LoginBean cred) throws SystemException, LoginException {
         LoginDAO loginDAO = new LoginDAO();
 

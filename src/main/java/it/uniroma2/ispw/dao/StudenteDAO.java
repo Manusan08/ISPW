@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.dao;
 
-import it.uniroma2.ispw.Model.StudenteModel;
+import it.uniroma2.ispw.model.StudenteModel;
 import it.uniroma2.ispw.utils.db.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 

@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.bean;
 
 import java.sql.Date;
-import java.sql.Time;
+
 
 public class AulaBean {
 

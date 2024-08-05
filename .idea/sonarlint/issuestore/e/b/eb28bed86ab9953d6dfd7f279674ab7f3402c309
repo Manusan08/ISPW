@@ -1,0 +1,7 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΙΉΫτ
+E	java:S1061"+Replace this use of System.out by a logger.(ήÒκϋÿÿÿÿ
+@	java:S1064"+Replace this use of System.out by a logger.(β²€κ
+E	java:S1067"+Replace this use of System.out by a logger.(ξΩΫϊÿÿÿÿ

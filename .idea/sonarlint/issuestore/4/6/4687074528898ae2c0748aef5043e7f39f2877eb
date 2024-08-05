@@ -1,0 +1,30 @@
+
+`	java:S112n"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(É¹Ûô
+E	java:S106'"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106("+Replace this use of System.out by a logger.(„şğ•øÿÿÿÿ
+@	java:S106+"+Replace this use of System.out by a logger.(×•œ²
+E	java:S106-"+Replace this use of System.out by a logger.(Óû¶Êûÿÿÿÿ
+?	java:S106."+Replace this use of System.out by a logger.(ºçy
+E	java:S1065"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S1066"+Replace this use of System.out by a logger.(©Í–úÿÿÿÿ
+@	java:S1068"+Replace this use of System.out by a logger.(â¤†
+E	java:S106<"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S106="+Replace this use of System.out by a logger.(‘âÙ•
+E	java:S106B"+Replace this use of System.out by a logger.(¬È°»ùÿÿÿÿ
+?	java:S106F"+Replace this use of System.out by a logger.(Ë¤Í
+@	java:S106R"+Replace this use of System.out by a logger.(Î¬Åõ
+E	java:S106X"+Replace this use of System.out by a logger.(ô¾µªúÿÿÿÿ
+V
+java:S3457{"AFormat specifiers should be used instead of string concatenation.(ı“‡\
+?	java:S106{"+Replace this use of System.out by a logger.(ı“‡\
+E	java:S106}"+Replace this use of System.out by a logger.(íîÓùÿÿÿÿ
+F	java:S106€"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+]
+java:S3457†"AFormat specifiers should be used instead of string concatenation.(Ü¼¯€şÿÿÿÿ
+F	java:S106†"+Replace this use of System.out by a logger.(Ü¼¯€şÿÿÿÿ
+F	java:S106ˆ"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+A	java:S106‹"+Replace this use of System.out by a logger.(‚ûÕÖ
+F	java:S106"+Replace this use of System.out by a logger.(§ï±¼øÿÿÿÿ
+W
+java:S1128"BRemove this unused import 'it.uniroma2.ispw.utils.SessionManager'.(„®–)

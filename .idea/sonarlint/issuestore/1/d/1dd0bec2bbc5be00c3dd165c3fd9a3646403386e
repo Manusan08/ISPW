@@ -1,0 +1,20 @@
+
+a
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½
+n
+java:S1104"QMake login a static final constant or non-public and provide accessors if needed.(ß‘û¸8•Ââ¼‘2
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü€¹È
+q
+java:S1845"ORename method "login" to prevent any misunderstanding/clash with field "login".(›ö—Êþÿÿÿÿ8±Ââ¼‘2
+n	java:S131"YComplete cases by adding the missing enum constants or add a default case to this switch.(°Ì±½
+Q	java:S125"<This block of commented-out lines of code should be removed.(†ýÌ°
+[
+java:S1854+"@Remove this useless assignment to local variable "studenteBean".(ž“‰þÿÿÿÿ
+Z
+java:S1854&"?Remove this useless assignment to local variable "studenteDAO".(Ú–¢Íýÿÿÿÿ
+F
+java:S2440&"+Remove this instantiation of "StudenteDAO".(Ú–¢Íýÿÿÿÿ
+K
+java:S1481&"0Remove this unused "studenteDAO" local variable.(Ú–¢Íýÿÿÿÿ
+L
+java:S1481+"1Remove this unused "studenteBean" local variable.(ž“‰þÿÿÿÿ

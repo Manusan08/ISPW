@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.bean;
 
-import it.uniroma2.ispw.Model.StudenteModel;
+import it.uniroma2.ispw.model.StudenteModel;
 
 public class StudenteBean extends UserBean {
     private final String corso;

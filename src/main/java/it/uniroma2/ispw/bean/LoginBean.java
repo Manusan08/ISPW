@@ -2,7 +2,7 @@ package it.uniroma2.ispw.bean;
 
 import it.uniroma2.ispw.Enums.Role;
 
-public class  LoginBean {
+public class  aLoginBean {
     private String email;
     private String password;
     private int idSession;

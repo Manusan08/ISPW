@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.Controller.controllerGrafico2;
 
+import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.utils.SessionManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public abstract class TemplateView {
     protected UserBean usrBean;
-    public abstract void control();
+    public abstract LoginBean control();
     protected abstract List<String> getOptions();
     protected abstract String getHeader();
 
@@ -147,4 +147,5 @@ public abstract class TemplateView {
                 .toList();
     }
 
+    public abstract void update(String... msg);
 }

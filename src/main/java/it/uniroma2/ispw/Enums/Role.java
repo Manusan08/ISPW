@@ -2,7 +2,7 @@ package it.uniroma2.ispw.Enums;
 
 public enum Role {
     DOCENTE(1),
-    STUDENTE(2);
+    Studente(2);
 
     private final int id;
 

@@ -3,7 +3,7 @@ package it.uniroma2.ispw.Model;
 public class UserModel {
     private String email;
     private int matricola;
-    private int role;
+    private int code;
     private String nome;
     private String cognome;
 
@@ -15,8 +15,8 @@ public class UserModel {
         return nome;
     }
 
-    public int getRole() {
-        return role;
+    public int getCode() {
+        return code;
     }
 
     public String getEmail() {

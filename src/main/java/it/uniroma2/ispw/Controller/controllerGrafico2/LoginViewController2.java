@@ -15,7 +15,7 @@ import java.util.List;
 public class LoginViewController2 extends TemplateView{
 
     @Override
-    public void control() {
+    public LoginBean control() {
         LoginBean loginBean;
         try {
             loginBean = this.show();
@@ -28,8 +28,7 @@ public class LoginViewController2 extends TemplateView{
         } catch (SystemException | LoginException e) {
             throw new RuntimeException(e);
         }
-
-
+        return loginBean;
     }
 
     @Override
@@ -40,6 +39,11 @@ public class LoginViewController2 extends TemplateView{
     @Override
     public String getHeader() {
         return "LOGIN";
+    }
+
+    @Override
+    public void update(String... msg) {
+
     }
 
     public LoginBean show() throws IOException {

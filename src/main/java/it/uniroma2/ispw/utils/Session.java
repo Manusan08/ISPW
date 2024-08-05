@@ -3,6 +3,7 @@ package it.uniroma2.ispw.utils;
 import it.uniroma2.ispw.bean.DocenteBean;
 import it.uniroma2.ispw.bean.IdSessioneBean;
 import it.uniroma2.ispw.bean.StudenteBean;
+import it.uniroma2.ispw.bean.UserBean;
 
 public class Session {
     private final DocenteBean docenteBean;
@@ -26,5 +27,9 @@ public class Session {
 
     public IdSessioneBean getIdSessionBean() {
         return idSession;
+    }
+
+    public UserBean getUserBean() {
+        return null;
     }
 }

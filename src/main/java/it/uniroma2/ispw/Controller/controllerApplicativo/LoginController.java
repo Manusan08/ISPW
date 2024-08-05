@@ -21,10 +21,8 @@ public class LoginController {
         LoginDAO loginDAO = new LoginDAO();
 
         switch (cred.getRole()) {
-            case STUDENTE -> loginStudente(cred, loginDAO);
+            case Studente -> loginStudente(cred, loginDAO);
             /*case DOCENTE ->loginDocente(cred,loginDAO);*/
-
-
         }
     }
 
@@ -37,16 +35,17 @@ public class LoginController {
 
             StudenteDAO studenteDAO = new StudenteDAO();
 
-            studente = StudenteDAO.getStudentebyEmail(cred.getEmail());
+            studente = studenteDAO.getStudentebyEmail(cred.getEmail());
         //istanziare la singleton
-            cred.setIdSession(studente.getRole());
+            cred.setIdSession(studente.getCode());
             StudenteBean studenteBean = new StudenteBean(studente);
             SessionManager manager = SessionManager.getSessionManager();
-            IdSessioneBean id = new IdSessioneBean(studente.getRole());
-            Session sessione = manager.createSession(null, null, id);
+            IdSessioneBean id = new IdSessioneBean(studente.getCode());
+            Session sessione = manager.createSession(null, studenteBean, id);
             manager.aggiungiSessione(sessione);
         } else {
             throw new LoginException();
+
         }
     }
 }

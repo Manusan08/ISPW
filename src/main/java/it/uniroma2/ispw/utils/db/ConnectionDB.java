@@ -20,7 +20,7 @@ public class ConnectionDB {
 
     public static Connection getConnection() throws SystemException {
         if (connection == null) {
-            try (InputStream input = new FileInputStream("/Users/marco/OneDrive/Desktop/ISPW/ISPW/src/main/resources/config.properties")) {
+            try (InputStream input = new FileInputStream("src/main/resources/config.properties")) {
                 Properties properties = new Properties();
                 properties.load(input);
 

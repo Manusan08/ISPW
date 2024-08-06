@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.bean;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public class AulaBean {
@@ -12,6 +13,25 @@ public class AulaBean {
     private String idAula;
     private int posti;
     private String descrizione;
+    private List<String> dispositivi;
+    public List<String> getDispositivi() {
+        return dispositivi;
+    }
+
+    public void setDispositivi(List<String> dispositivi) {
+        this.dispositivi = dispositivi;
+    }
+
+
+    private boolean prenotata;
+    public boolean isPrenotata() {
+        return prenotata;
+    }
+
+    public void setPrenotata(boolean prenotata) {
+        this.prenotata = prenotata;
+    }
+
 
     public String getDescrizione() {
         return descrizione;

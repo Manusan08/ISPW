@@ -10,7 +10,7 @@ public class DocenteView  extends TemplateView {
     CreaPrenotazioneAulaView creaPrenotazioneAulaView=new CreaPrenotazioneAulaView();
 
     MostraFiltriView mostraFiltriView = new MostraFiltriView();
-
+///
     PrendiDatiPrenotazioneView prendiDatiPrenotazioneView = new PrendiDatiPrenotazioneView();
     MostraClassiDisponibiliView mostraClassiDisponibiliView = new MostraClassiDisponibiliView();
     public DocenteView(UserBean usrBean) {

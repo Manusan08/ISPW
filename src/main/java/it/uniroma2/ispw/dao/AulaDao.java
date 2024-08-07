@@ -19,12 +19,13 @@ public class AulaDao {
         AulaModel aulaModel = null;
         Connection conn = ConnectionDB.getConnection();
 
-        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Aule  WHERE posti >= ? and prenotata='false';");) {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Aule  WHERE posti >= ?;");) {
             ps.setInt(1, aulaBean.getPosti());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 aulaModel = new AulaModel();
-                aulaModel.setIdAula(rs.getString("IdAula"));
+                aulaModel.setIdAula(rs.getString("idAula"));
+                aulaModel.setPosti(rs.getInt("posti"));
                 lista.add(aulaModel);
             }
             return lista;

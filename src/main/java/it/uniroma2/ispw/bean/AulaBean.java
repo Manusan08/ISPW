@@ -15,6 +15,11 @@ public class AulaBean {
     private String descrizione;
     private List<String> dispositivi;
     private boolean prenotata;
+
+    public AulaBean(){}
+    public AulaBean(int posti){
+        this.posti=posti;
+    }
     public List<String> getDispositivi() {
         return dispositivi;
     }

@@ -4,6 +4,7 @@ import it.uniroma2.ispw.controller.controllergrafico2.CliController;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.enums.TypesOfUIs;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ public class Main extends Application {
         return persistenceLayer;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SystemException {
         setPersistenceLayerAndUi();
         if (Main.ui.equals(TypesOfUIs.JAVAFX))
             launch();

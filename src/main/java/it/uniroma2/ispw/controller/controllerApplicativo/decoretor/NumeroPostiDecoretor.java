@@ -6,13 +6,14 @@ import it.uniroma2.ispw.dao.AulaDao;
 import it.uniroma2.ispw.model.AulaModel;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.util.ArrayList;
 import java.util.List;
 
     public class NumeroPostiDecoretor extends AulaComponent {
 
 
     private List<AulaBean> ControllaNumeroPosti(AulaBean aulaBean) throws SystemException {
-        List<AulaBean> auleBean = null;
+        List<AulaBean> auleBean = new ArrayList<>();
 
         AulaDao auleDao = new AulaDao();
         List<AulaModel> lista = auleDao.getAllAuleNumeroPosti(aulaBean);
@@ -21,6 +22,7 @@ import java.util.List;
         for (AulaModel aulaModel : lista) {
             aulaBean=new AulaBean();
             aulaBean.setIdAula(aulaModel.getIdAula());
+            aulaBean.setPosti(aulaModel.getPosti());
             auleBean.add(aulaBean);
         }
         return auleBean;

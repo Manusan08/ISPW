@@ -6,11 +6,12 @@ import it.uniroma2.ispw.controller.controllergrafico2.studente.StudenteView;
 
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 
 public class CliController {
 
-    public void start() {
+    public void start() throws SystemException {
         UserBean authUsr = null;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

@@ -3,6 +3,7 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.decoretor.AulaComponent;
 import it.uniroma2.ispw.controller.controllerApplicativo.decoretor.NumeroPostiDecoretor;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -12,10 +13,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MostraFiltriView {
-    public AulaBean mostraFiltri() {
-        AulaBean filtro = new AulaBean();
+    public List<AulaBean> mostraFiltri() throws SystemException {
+        AulaBean filtro =new AulaBean();
        // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
+        List<AulaBean> auleBean;
         Scanner scanner=new Scanner(System.in);
 
       /*  try {
@@ -30,8 +31,7 @@ public class MostraFiltriView {
         int posti = scanner.nextInt();
         filtro.setPosti(posti);
         NumeroPostiDecoretor numeroPostiDecoretor=new NumeroPostiDecoretor();
-
-        filtro.setPosti(posti);
+        auleBean=numeroPostiDecoretor.getAule(filtro);
 
         /*System.out.print("Inserisci i dispositivi richiesti (separati da virgola): ");
         String dispositiviInput = scanner.nextLine();
@@ -48,6 +48,6 @@ public class MostraFiltriView {
       //  prendiDatiPrenotazioneView.prendiDatiPrenotazione(filtro);
 
 
-        return filtro;
+        return auleBean;
     }
 }

@@ -1,12 +1,12 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
-import it.uniroma2.ispw.bean.Prenotazione;
+import it.uniroma2.ispw.bean.PrenotazioneBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class ConfermaPrenotazioneView {
-    public boolean confermaPrenotazione(Prenotazione prenotazione) {
+    public boolean confermaPrenotazione(PrenotazioneBean prenotazione) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         System.out.println("Conferma i dettagli della prenotazione:");
         System.out.println("Materia: " + prenotazione.getNomeMateria());

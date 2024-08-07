@@ -3,7 +3,7 @@ package it.uniroma2.ispw.bean;
 
 import java.util.Date;
 
-public class Prenotazione {
+public class PrenotazioneBean {
         private AulaBean aula;
         private String nomeMateria;
         private String nomeProfessore;

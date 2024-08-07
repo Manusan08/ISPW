@@ -5,7 +5,8 @@ import it.uniroma2.ispw.bean.AulaBean;
 import java.util.List;
 
 public class MostraClassiDisponibiliView {
-    public void mostraClassiDisponibili(List<AulaBean> classi) {
+    List<AulaBean> classi;
+    public void mostraClassiDisponibili() {
         System.out.println("Classi disponibili:");
         boolean hasAvailableClasses = false;
 

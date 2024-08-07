@@ -14,6 +14,7 @@ public class AulaBean {
     private int posti;
     private String descrizione;
     private List<String> dispositivi;
+    private boolean prenotata;
     public List<String> getDispositivi() {
         return dispositivi;
     }
@@ -23,7 +24,7 @@ public class AulaBean {
     }
 
 
-    private boolean prenotata;
+
     public boolean isPrenotata() {
         return prenotata;
     }

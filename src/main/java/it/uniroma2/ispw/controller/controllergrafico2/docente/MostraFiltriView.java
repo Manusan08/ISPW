@@ -35,6 +35,8 @@ public class MostraFiltriView {
         }
         filtro.setDispositivi(dispositivi);
 
+        PrendiDatiPrenotazioneView prendiDatiPrenotazioneView = new PrendiDatiPrenotazioneView();
+        prendiDatiPrenotazioneView.prendiDatiPrenotazione(filtro);
         return filtro;
     }
 }

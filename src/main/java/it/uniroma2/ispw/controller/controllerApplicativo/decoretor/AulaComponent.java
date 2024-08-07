@@ -8,4 +8,6 @@ import java.util.List;
 public abstract class AulaComponent {
     public abstract List<AulaBean> getAule();
     public abstract List<AulaBean> getAule(int numeroPosti) throws SystemException;
+
+    public abstract List<AulaBean> getAule(AulaBean aulaBean) throws SystemException;
 }

@@ -3,7 +3,6 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-
 import java.util.List;
 
 public class DocenteView  extends TemplateView {
@@ -34,7 +33,7 @@ public class DocenteView  extends TemplateView {
 
     @Override
     protected List<String> getOptions() {
-        return List.of("Crea Prenotazione",  "esci");
+        return List.of("Crea Prenotazione","mostra classi","mostra filtri" , "esci");
     }
 
     @Override

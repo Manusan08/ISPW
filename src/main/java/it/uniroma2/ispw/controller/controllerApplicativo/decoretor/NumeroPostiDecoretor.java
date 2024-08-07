@@ -8,20 +8,14 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.util.List;
 
-public class NumeroPostiDecoretor extends Decoretor {
+    public class NumeroPostiDecoretor extends AulaComponent {
 
 
-    public NumeroPostiDecoretor(AulaComponent component) {
-        super(component);
-
-    }
-
-    private List<AulaBean> ControllaNumeroPosti(int numeroPosti) throws SystemException {
-        AulaBean aulaBean = null;
+    private List<AulaBean> ControllaNumeroPosti(AulaBean aulaBean) throws SystemException {
         List<AulaBean> auleBean = null;
 
         AulaDao auleDao = new AulaDao();
-        List<AulaModel> lista = auleDao.getAllAuleNumeroPosti(numeroPosti);
+        List<AulaModel> lista = auleDao.getAllAuleNumeroPosti(aulaBean);
 
 
         for (AulaModel aulaModel : lista) {
@@ -33,9 +27,19 @@ public class NumeroPostiDecoretor extends Decoretor {
     }
 
     @Override
-    public List<AulaBean> getAule(int numeroPosti) throws SystemException {
+    public List<AulaBean> getAule() {
+        return List.of();
+    }
+
+        @Override
+        public List<AulaBean> getAule(int numeroPosti) throws SystemException {
+            return List.of();
+        }
+
+        @Override
+    public List<AulaBean> getAule(AulaBean aulaBean) throws SystemException {
         List<AulaBean> aule;
-        aule = this.ControllaNumeroPosti(numeroPosti);
+        aule = this.ControllaNumeroPosti(aulaBean);
         return aule;
     }
 

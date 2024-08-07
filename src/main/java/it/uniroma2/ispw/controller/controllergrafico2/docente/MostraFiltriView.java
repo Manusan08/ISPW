@@ -14,10 +14,10 @@ import java.util.Scanner;
 public class MostraFiltriView {
     public AulaBean mostraFiltri() {
         AulaBean filtro = new AulaBean();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+       // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-        Scanner scanner;
-        scanner = null;
+        Scanner scanner=new Scanner(System.in);
+
       /*  try {
             System.out.print("Inserisci l'orario della lezione (dd/MM/yyyy HH:mm): ");
             String orarioInput = scanner.nextLine();
@@ -27,8 +27,9 @@ public class MostraFiltriView {
         }*/
 
         System.out.print("Inserisci la capienza desiderata: ");
-        int posti = Integer.parseInt(scanner.nextLine());
-
+        int posti = scanner.nextInt();
+        filtro.setPosti(posti);
+        NumeroPostiDecoretor numeroPostiDecoretor=new NumeroPostiDecoretor();
 
         filtro.setPosti(posti);
 
@@ -43,8 +44,10 @@ public class MostraFiltriView {
         //AulaComponent controller = new NumeroPostiDecoretor();
  // chiamo il controller applicativo gli mando i dati appena presi dal filtro, mi ritorna l'ID delle aule poi
         // scelgo quella che voglio tra     quelle disponibili, chiamo la view  dati prenotazioneView
-        PrendiDatiPrenotazioneView prendiDatiPrenotazioneView = new PrendiDatiPrenotazioneView();
-        prendiDatiPrenotazioneView.prendiDatiPrenotazione(filtro);
+       // PrendiDatiPrenotazioneView prendiDatiPrenotazioneView = new PrendiDatiPrenotazioneView();
+      //  prendiDatiPrenotazioneView.prendiDatiPrenotazione(filtro);
+
+
         return filtro;
     }
 }

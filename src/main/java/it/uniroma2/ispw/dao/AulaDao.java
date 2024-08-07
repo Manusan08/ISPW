@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.dao;
 
+import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.model.AulaModel;
 import it.uniroma2.ispw.utils.db.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -12,15 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AulaDao {
-    public List<AulaModel> getAllAuleNumeroPosti(int numeroPosti) throws SystemException {
+    public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
 
-
-        String query = "SELECT * FROM Aule  WHERE posti >= numeroPosti and prenotata=false;";
         List<AulaModel> lista = new ArrayList<>();
         AulaModel aulaModel = null;
         Connection conn = ConnectionDB.getConnection();
 
-        try (PreparedStatement ps = conn.prepareStatement(query);) {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Aule  WHERE posti >= ? and prenotata='false';");) {
+            ps.setInt(1, aulaBean.getPosti());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 aulaModel = new AulaModel();

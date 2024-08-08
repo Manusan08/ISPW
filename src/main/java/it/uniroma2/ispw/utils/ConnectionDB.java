@@ -12,6 +12,7 @@ import java.util.Properties;
 
 
 public class ConnectionDB {
+    private static ConnectionDB instance = null;
     private static Connection connection;
 
     private ConnectionDB() {
@@ -37,7 +38,11 @@ public class ConnectionDB {
         }
         return connection;
     }
-
+    public static synchronized ConnectionDB getInstance() {
+        if (instance == null)
+            instance = new ConnectionDB();
+        return instance;
+    }
     public void closeConnection() throws SQLException {
         connection.close();
     }

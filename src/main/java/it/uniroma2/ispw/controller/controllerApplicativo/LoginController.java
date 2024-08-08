@@ -109,7 +109,7 @@ public class LoginController {
     }
 
 
-    private void loginStudenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException, ItemNotFoundException {
+    private void loginStudenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException, ItemNotFoundException, IOException {
         StudenteModel studente = null;
         LoginModel credentialsModel = new LoginModel(cred);
         if (loginFS.checkIfExists(credentialsModel)) {

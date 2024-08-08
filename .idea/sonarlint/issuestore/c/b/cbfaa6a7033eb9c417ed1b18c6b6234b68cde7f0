@@ -1,0 +1,10 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8€›Ñ‹“2
+I
+java:S1068",Remove this unused "loginDAO" private field.(¤¿ˆÿ8‹›Ñ‹“2
+M
+java:S1068"+Remove this unused "aulaDAO" private field.(ºïÍ¸ÿÿÿÿÿ8‹›Ñ‹“2
+P
+java:S1068".Remove this unused "docenteDAO" private field.(¢½±¬ýÿÿÿÿ8Œ›Ñ‹“2
+Q
+java:S1068"/Remove this unused "studenteDAO" private field.(ë­ô“üÿÿÿÿ8Œ›Ñ‹“2

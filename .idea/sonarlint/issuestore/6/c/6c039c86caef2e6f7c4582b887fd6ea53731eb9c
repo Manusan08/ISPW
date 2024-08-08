@@ -1,16 +1,24 @@
 
 h
-java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½8İÉ×˜’2
+java:S13012"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½8Â‡ò“2
+h
+java:S1301i"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½8Â‡ò“2
 n
-java:S1104"QMake login a static final constant or non-public and provide accessors if needed.(ß‘û¸8ŞÉ×˜’2
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8áÉ×˜’2
+java:S1104"QMake login a static final constant or non-public and provide accessors if needed.(ß‘û¸8Ã‡ò“2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8Ù×¥Œ“2
 q
-java:S1845"ORename method "login" to prevent any misunderstanding/clash with field "login".(›ö—Êşÿÿÿÿ8ÿÉ×˜’2
-M
-java:S2440'"+Remove this instantiation of "StudenteDAO".(Ú–¢Íıÿÿÿÿ8„Ê×˜’2
-W
-java:S2209)"5Change this instance-reference to a static reference.(éœÄğøÿÿÿÿ8ŠÊ×˜’2
-L
-java:S2440="*Remove this instantiation of "DocenteDAO".(ÔµÇÇùÿÿÿÿ8Á¬¤¹’2
-W
-java:S2209?"5Change this instance-reference to a static reference.(¨é¡Èúÿÿÿÿ8Ä¬¤¹’2
+java:S1845 "ORename method "login" to prevent any misunderstanding/clash with field "login".(›ö—Êşÿÿÿÿ8İ‡ò“2
+t
+java:S1450"WRemove the "loginDAO" field and declare it as a local variable in the relevant methods.(¤¿ˆÿ8Ş‡ò“2
+^
+java:S11170"<Rename "loginDAO" which hides the field declared at line 31.(ÿëşËúÿÿÿÿ8å‡ò“2
+²
+java:S1130p"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.ItemNotFoundException', as it cannot be thrown from method's body.(Ô’¯æúÿÿÿÿ8ï‡ò“2
+
+java:S1130p"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ô’¯æúÿÿÿÿ8í‡ò“2
+³
+java:S1130†"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.ItemNotFoundException', as it cannot be thrown from method's body.(ßÍ¼ëøÿÿÿÿ8ò‡ò“2
+
+java:S1130†"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ßÍ¼ëøÿÿÿÿ8°ë“2
+I
+java:S1068",Remove this unused "loginDAO" private field.(¤¿ˆÿ8ô‡ò“2

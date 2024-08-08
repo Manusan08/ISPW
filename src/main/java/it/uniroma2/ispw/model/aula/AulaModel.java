@@ -7,6 +7,13 @@ public class AulaModel {
 
     private String nomeDocente;
 
+    public AulaModel(String idAule, int posti) {
+    }
+
+    public AulaModel() {
+
+    }
+
     public String getNomeDocente() {
         return nomeDocente;
     }

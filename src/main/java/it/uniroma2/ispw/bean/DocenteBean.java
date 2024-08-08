@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.bean;
 
-import it.uniroma2.ispw.model.DocenteModel;
+import it.uniroma2.ispw.model.docente.DocenteModel;
 
 public class DocenteBean extends UserBean{
     private String dipartimento;

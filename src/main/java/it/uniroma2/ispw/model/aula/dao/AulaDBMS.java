@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.dao;
+package it.uniroma2.ispw.model.aula.dao;
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.model.AulaModel;
-import it.uniroma2.ispw.utils.db.ConnectionDB;
+import it.uniroma2.ispw.model.aula.AulaModel;
+import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AulaDAO {
+public class AulaDBMS implements  AulaDAO{
     public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
 
         List<AulaModel> lista = new ArrayList<>();

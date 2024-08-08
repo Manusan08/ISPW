@@ -1,6 +1,8 @@
-package it.uniroma2.ispw.model;
+package it.uniroma2.ispw.model.studente;
 
-public class StudenteModel extends UserModel{
+import it.uniroma2.ispw.model.UserModel;
+
+public class StudenteModel extends UserModel {
     private String corso;
     private int matricola;
 

@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.model;
+package it.uniroma2.ispw.model.aula;
 
 import java.sql.Date;
 import java.util.List;

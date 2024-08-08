@@ -1,7 +1,7 @@
-package it.uniroma2.ispw.dao;
+package it.uniroma2.ispw.model.docente.dao;
 
-import it.uniroma2.ispw.model.DocenteModel;
-import it.uniroma2.ispw.utils.db.ConnectionDB;
+import it.uniroma2.ispw.model.docente.DocenteModel;
+import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Connection;
@@ -9,8 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DocenteDAO {
-    public static DocenteModel getDocentebyEmail(String email) throws SystemException, SystemException {
+public class DocenteDBMS implements DocenteDAO {
+    public DocenteModel getDocentebyEmail(String email) throws SystemException {
     String query = "SELECT * FROM Utenti where email = ?;";
     DocenteModel docenteModel = null;
     Connection conn = ConnectionDB.getConnection();

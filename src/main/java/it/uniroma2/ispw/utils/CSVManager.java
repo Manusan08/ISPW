@@ -1,6 +1,6 @@
-package it.uniroma2.ispw.utils.CSV;
+package it.uniroma2.ispw.utils;
 
-import it.uniroma2.ispw.utils.db.ConnectionDB;
+import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.io.IOException;

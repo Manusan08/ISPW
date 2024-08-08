@@ -1,7 +1,7 @@
-package it.uniroma2.ispw.dao;
+package it.uniroma2.ispw.model.login.dao;
 
-import it.uniroma2.ispw.model.LoginModel;
-import it.uniroma2.ispw.utils.db.ConnectionDB;
+import it.uniroma2.ispw.model.login.LoginModel;
+import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDAO {
+public class LoginDBMS implements LoginDAO {
     public boolean checkIfExists(LoginModel credentialsModel) throws SystemException {
         String query = "SELECT * FROM Utenti WHERE email = ? AND password = ? AND role = ?";
         Connection conn = ConnectionDB.getConnection();

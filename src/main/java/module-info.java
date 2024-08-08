@@ -2,6 +2,7 @@ module ispw{
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires com.opencsv;
 
 
     opens it.uniroma2.ispw.controller.controllergrafico1 to javafx.fxml;

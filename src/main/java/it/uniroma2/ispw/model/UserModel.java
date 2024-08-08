@@ -1,11 +1,17 @@
 package it.uniroma2.ispw.model;
 
+import it.uniroma2.ispw.enums.Role;
+
 public class UserModel {
     private String email;
     private int matricola;
-    private int code;
+    private Role ruolo;
     private String nome;
     private String cognome;
+
+    public UserModel() {
+
+    }
 
     public String getCognome() {
         return cognome;
@@ -15,8 +21,20 @@ public class UserModel {
         return nome;
     }
 
-    public int getCode() {
-        return code;
+    public Role getRuolo() {
+        return ruolo;
+    }
+
+    public void setRuolo(Role ruolo) {
+        this.ruolo = ruolo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 
     public String getEmail() {

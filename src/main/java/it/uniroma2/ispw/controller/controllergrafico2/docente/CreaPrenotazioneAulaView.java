@@ -1,10 +1,9 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
+import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.LoginBean;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +24,6 @@ public class CreaPrenotazioneAulaView extends TemplateView {
                 default -> System.out.println("riprova");
             }
         }
-
         return null;
     }
         public AulaBean inserisciCampiDiricerca () {

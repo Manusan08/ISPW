@@ -15,8 +15,8 @@ import java.util.List;
 public class LoginViewController2 extends TemplateView{
 
     @Override
-    public LoginBean control() {
-        LoginBean loginBean;
+    public void control() {
+        LoginBean loginBean = new LoginBean();
         try {
             loginBean = this.show();
         } catch (IOException e) {
@@ -24,11 +24,10 @@ public class LoginViewController2 extends TemplateView{
         }
 
         try {
-            new LoginController().login(loginBean);
+            usrBean= new LoginController().login(loginBean);
         } catch (SystemException | LoginException e) {
             throw new RuntimeException(e);
         }
-        return loginBean;
     }
 
     @Override
@@ -58,7 +57,7 @@ public class LoginViewController2 extends TemplateView{
 
         System.out.print("Inserisci ruolo: ");
         Role ruolo = Role.valueOf(reader.readLine());
-
+        reader.close();
         return new LoginBean(email, pwd, ruolo);
     }
 

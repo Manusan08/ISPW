@@ -1,45 +1,46 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.io.IOException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
-    CercaAulaView cercaAulaView=new CercaAulaView();
-    EliminaPrenotazioneView eliminaPrenotazioneView=new EliminaPrenotazioneView();
+    GestisciPrenotazioneView gestisciPrenotazione=new GestisciPrenotazioneView();
+    PrenotaPostoView prenotaPostoView =new PrenotaPostoView();
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
-    VisualizzaPrenotazioniAttiveView visualizzaPrenotazioniAttiveView= new VisualizzaPrenotazioniAttiveView();
 
-    public StudenteView(UserBean usrBean) {
-        super(usrBean);
+    public StudenteView(UserBean userBean) {
+        super(userBean);
     }
-
     @Override
-    public LoginBean control() {
+    public void control() throws SystemException, InvalidDataException, IOException {
         int choice;
         while (true) {
             choice = this.userChoice();
             switch (choice) {
-                case 1 -> cercaAulaView.control();
-                case 2 -> visualizzaAuleDisponibiliView.control();
-                case 3 -> visualizzaPrenotazioniAttiveView.control();
-                case 4 -> eliminaPrenotazioneView.control();
-                case 5 -> System.exit(0);
+                case 1 -> gestisciPrenotazione.control();
+                case 2 -> prenotaPostoView.control();
+                case 3 -> visualizzaAuleDisponibiliView.control();
+                case 4 -> System.exit(0);
                 default -> System.out.println("Opzione non valida");
-            }
+                }
         }
     }
 
+
     @Override
-    protected List<String> getOptions() {
-        return List.of("Cerca aule", "visualizza aule disponibili", "visualizza prenotazioni", "cancella prenotazioni", "esci");
+    public List<String> getOptions() {
+        return List.of("Gestisci Prenotazione", "prenota aula", "visualizza aule disponibili","esci");
     }
 
     @Override
-    protected String getHeader() {
-        return "Studente";
+    public String getHeader() {
+        return "STUDENTE";
     }
 
     @Override

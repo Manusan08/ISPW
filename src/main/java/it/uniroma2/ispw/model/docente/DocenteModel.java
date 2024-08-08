@@ -10,6 +10,10 @@ public class DocenteModel extends UserModel {
         return materia;
     }
 
+    public DocenteModel() {
+        super();
+    }
+
     @Override
     public int getMatricola() {
         return matricola;

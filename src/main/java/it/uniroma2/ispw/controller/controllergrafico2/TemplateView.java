@@ -2,6 +2,7 @@ package it.uniroma2.ispw.controller.controllergrafico2;
 
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.BufferedReader;
@@ -16,7 +17,7 @@ import java.util.Scanner;
 
 public abstract class TemplateView {
     protected UserBean usrBean;
-    public abstract LoginBean control() throws SystemException;
+    public abstract void control() throws SystemException, InvalidDataException, IOException;
     protected abstract List<String> getOptions();
     protected abstract String getHeader();
 

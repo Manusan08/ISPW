@@ -22,8 +22,10 @@ public class PrendiDatiPrenotazioneView {
         scanner = null;
         prenotazione.setNomeMateria(scanner.nextLine());
 
+        //forse possiamo prendere automaticamente i dati dalla singleton
         System.out.print("Inserisci il nome del professore: ");
         prenotazione.setNomeProfessore(scanner.nextLine());
+        scanner.close();
 
         try {
             System.out.print("Inserisci l'orario della lezione (dd/MM/yyyy HH:mm): ");

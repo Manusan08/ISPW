@@ -53,4 +53,17 @@ public class GestisciPrenotazioneController {
         return aulaDAO.getAulaByMateria(aula);
     }
 
+    public void removePrenotazione() {
+    }
+
+    public void getAllReservation() {
+    }
+
+    public List<Object> getAuleByMateria(AulaBean aulaBean) {
+        return List.of();
+    }
+
+    public List<Object> getAuleByDay(AulaBean ab) {
+        return List.of();
+    }
 }

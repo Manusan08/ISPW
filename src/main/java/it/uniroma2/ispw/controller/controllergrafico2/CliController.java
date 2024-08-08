@@ -6,21 +6,30 @@ import it.uniroma2.ispw.controller.controllergrafico2.studente.StudenteView;
 
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.Session;
+import it.uniroma2.ispw.utils.SessionManager;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+
+import java.io.IOException;
 
 
 public class CliController {
 
-    public void start() throws SystemException {
-        UserBean authUsr = null;
+    public void start() throws SystemException, InvalidDataException, IOException {
+        UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();
 
-        LoginBean loginBean;
-        do {
-            loginBean = loginView.control();
 
-            if (loginBean != null && loginBean.getRole() != null)
+
+
+
+        do {
+           loginView.control();
+           authUsr=loginView.getUsrBean();
+
+            if (authUsr != null && authUsr.getRuolo() != null)
                 loopCond = false;
             else if (loginView.userChoice() == 1) {
                 loopCond = true;
@@ -28,7 +37,7 @@ public class CliController {
                 System.exit(0);
             }
         } while (loopCond);
-        switch (loginBean.getRole()) {
+        switch (authUsr.getRuolo()) {
             case Docente -> new DocenteView(authUsr).control();
             case Studente -> new StudenteView(authUsr).control();
 

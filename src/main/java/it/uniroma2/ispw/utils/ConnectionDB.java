@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.utils.db;
+package it.uniroma2.ispw.utils;
 
 import it.uniroma2.ispw.utils.exception.SystemException;
 

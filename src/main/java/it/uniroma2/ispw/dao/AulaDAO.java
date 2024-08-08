@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AulaDao {
+public class AulaDAO {
     public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
 
         List<AulaModel> lista = new ArrayList<>();

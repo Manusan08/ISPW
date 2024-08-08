@@ -1,0 +1,17 @@
+
+]	java:S125"<This block of commented-out lines of code should be removed.(íø£¹úÿÿÿÿ8üœÕí’2
+G	java:S106"+Replace this use of System.out by a logger.(†²€†8£Õí’2
+X	java:S125"<This block of commented-out lines of code should be removed.(½‘Ñ³8®Õí’2
+X	java:S125$"<This block of commented-out lines of code should be removed.(ßÎ¯8ÀÕí’2
+]	java:S125,"<This block of commented-out lines of code should be removed.(¬…Š¸üÿÿÿÿ8ÀÕí’2
+ˆ
+java:S1128"fRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.decoretor.AulaComponent'.(Ì¡ïùÿÿÿÿ8ÛÕí’2
+G
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÜÕí’2
+R
+java:S1128	"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8İÕí’2
+T
+java:S1128
+"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8ŞÕí’2
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ßÕí’2

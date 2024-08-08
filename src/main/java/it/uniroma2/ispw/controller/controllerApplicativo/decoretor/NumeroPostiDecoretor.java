@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.controllerApplicativo.decoretor;
 
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.dao.AulaDao;
+import it.uniroma2.ispw.dao.AulaDAO;
 import it.uniroma2.ispw.model.AulaModel;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -15,7 +15,7 @@ import java.util.List;
     private List<AulaBean> ControllaNumeroPosti(AulaBean aulaBean) throws SystemException {
         List<AulaBean> auleBean = new ArrayList<>();
 
-        AulaDao auleDao = new AulaDao();
+        AulaDAO auleDao = new AulaDAO();
         List<AulaModel> lista = auleDao.getAllAuleNumeroPosti(aulaBean);
 
 

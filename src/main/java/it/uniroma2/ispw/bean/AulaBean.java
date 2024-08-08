@@ -14,6 +14,13 @@ public class AulaBean {
     private int posti;
     private String descrizione;
     private List<String> dispositivi;
+
+    public AulaBean(String idAula, int posti, List<String> dispositivi) {
+        this.idAula = idAula;
+        this.posti = posti;
+        this.dispositivi = dispositivi;
+    }
+
     private boolean prenotata;
 
     public AulaBean(){}

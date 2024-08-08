@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.model.login.dao;
 
 import com.opencsv.CSVReader;
+import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
@@ -65,6 +66,12 @@ public class LoginFS implements LoginDAO {
 
 
     }
+
+    @Override
+    public LoginModel auth(LoginBean loginBean) {
+        return null;
+    }
+
     private LoginModel setUtenteFromRecord(String[] rcrd) {
 
 

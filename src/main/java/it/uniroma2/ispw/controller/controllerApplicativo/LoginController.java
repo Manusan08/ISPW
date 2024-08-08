@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.*;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.UserModel;
+import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.docente.DocenteModel;
 import it.uniroma2.ispw.model.docente.dao.DocenteDAO;
 import it.uniroma2.ispw.model.docente.dao.DocenteDBMS;
@@ -30,16 +31,23 @@ import java.net.Socket;
 
 public class LoginController {
 
+    private DocenteDAO docenteDAO;
 
+    private StudenteDAO studenteDAO ;
     private LoginDAO loginDAO;
     public  LoginController( ) throws SystemException, LoginException {
         if(Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             loginDAO = new LoginDBMS();
+            studenteDAO = new StudenteDBMS();
+
+            docenteDAO = new DocenteDBMS();
 
         }
         else {
             try {
+                studenteDAO= new StudenteFS();
                 loginDAO = new LoginFS();
+                docenteDAO= new DocenteFS();
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -48,24 +56,23 @@ public class LoginController {
 
     }
     public UserBean login(LoginBean loginBean) throws ItemNotFoundException, InvalidDataException {
-        Role ruolo = loginBean.getRole();
-        UserModel u = null;
-        if(ruolo.equals("Studente")){
-             u = StudenteDAO.auth(loginBean);
-            return new UserBean(u.getNome(), u.getCognome(), u.getRuolo(), u.getEmail());
+        String ruolo = String.valueOf(loginBean.getRole());
+
+        LoginModel u = loginDAO.auth(loginBean);
+        /*if(ruolo.equals("Studente")){
+             u = studenteDAO.auth(loginBean);
+            return new UserBean(u.getNome(), u.getCognome(), u.getEmail());
         }
         else if(ruolo.equals("Docente")){
-             u = DocenteDAO.auth(loginBean);
-            return new UserBean(u.getNome(), u.getCognome(), u.getRuolo(), u.getEmail());
-        }
-        else {
+             u = docenteDAO.auth(loginBean);
+            return new UserBean(u.getNome(), u.getCognome(), u.getEmail());
+        }*/
+        if(u==null) {
 
             throw new ItemNotFoundException("Accesso negato!");
         }
-
-
-
-
+        System.out.println(u.getRole());
+        return new UserBean(u.getEmail(),u.getRole());
 
     }
 

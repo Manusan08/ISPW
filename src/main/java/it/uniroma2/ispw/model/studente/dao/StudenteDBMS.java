@@ -1,7 +1,10 @@
 package it.uniroma2.ispw.model.studente.dao;
 
+import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.model.docente.DocenteModel;
 import it.uniroma2.ispw.model.studente.StudenteModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Connection;
@@ -30,4 +33,36 @@ public class StudenteDBMS implements StudenteDAO {
             throw exception;
         }
     }
+    public StudenteModel auth(LoginBean loginBean) throws ItemNotFoundException {
+        StudenteModel studenteModel = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            String query = "SELECT * FROM studente WHERE email = ? ";
+
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(query);
+            statement.setString(1, loginBean.getEmail());
+
+
+            resultSet = statement.executeQuery();
+            if(!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
+            studenteModel = setUtenteFromResultSet(resultSet);
+
+        } catch (SystemException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return studenteModel;
+    }
+    private StudenteModel setUtenteFromResultSet(ResultSet resultSet) throws SQLException {
+        StudenteModel studenteModel = new StudenteModel();
+        studenteModel.setNome(resultSet.getString("nome"));
+
+        studenteModel.setCognome(resultSet.getString("cognome"));
+
+        studenteModel.setEmail(resultSet.getString("email"));
+        return studenteModel;
+    }
+
 }

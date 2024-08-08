@@ -4,9 +4,7 @@ import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.utils.ChangePage;
-import it.uniroma2.ispw.utils.exception.GestoreEccezioni;
-import it.uniroma2.ispw.utils.exception.RuoloNonSelezionatoException;
-import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.utils.exception.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -26,7 +24,7 @@ public class LoginViewController1 {
     private Button login;
 
     @FXML
-    private void clickLogin() {
+    private void clickLogin() throws SystemException, LoginException {
         LoginBean loginBean = new LoginBean(email.getText(), password.getText());
         try {
             if (studente.isSelected()) {
@@ -57,8 +55,12 @@ public class LoginViewController1 {
 
                 }
             }
-        } catch (LoginException | SystemException e) {
+        } catch (SystemException e) {
             GestoreEccezioni.getInstance().handleException(e);
+        } catch (InvalidDataException e) {
+            throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

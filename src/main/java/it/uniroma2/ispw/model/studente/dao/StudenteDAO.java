@@ -7,5 +7,5 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 public interface StudenteDAO {
     public StudenteModel getStudentebyEmail(String email) throws SystemException, ItemNotFoundException;
-    public StudenteModel auth(LoginBean loginBean) throws ItemNotFoundException;
+    public  StudenteModel auth(LoginBean loginBean) throws ItemNotFoundException;
 }

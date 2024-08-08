@@ -4,6 +4,8 @@ import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
@@ -15,8 +17,9 @@ import java.util.List;
 public class LoginViewController2 extends TemplateView{
 
     @Override
-    public void control() {
+    public void control() throws SystemException, LoginException {
         LoginBean loginBean = new LoginBean();
+        LoginController loginController= new LoginController();
         try {
             loginBean = this.show();
         } catch (IOException e) {
@@ -24,8 +27,11 @@ public class LoginViewController2 extends TemplateView{
         }
 
         try {
-            usrBean= new LoginController().login(loginBean);
-        } catch (SystemException | LoginException e) {
+            usrBean= loginController.login(loginBean);
+            System.out.println(usrBean.getEmail());
+        } catch (InvalidDataException e) {
+            throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

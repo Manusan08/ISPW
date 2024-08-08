@@ -6,7 +6,6 @@ import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,11 +22,11 @@ public class DocenteDBMS implements DocenteDAO {
     PreparedStatement statement = null;
     ResultSet resultSet = null;
         try {
-        String query = "SELECT * FROM utente WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM docente  WHERE email = ? ";
 
         statement = ConnectionDB.getInstance().getConnection().prepareStatement(query);
         statement.setString(1, loginBean.getEmail());
-        statement.setString(2, loginBean.getPassword());
+
 
         resultSet = statement.executeQuery();
         if(!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");

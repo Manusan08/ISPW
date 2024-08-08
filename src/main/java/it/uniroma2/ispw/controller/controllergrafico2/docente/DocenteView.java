@@ -8,7 +8,7 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 import java.util.List;
 
 public class DocenteView  extends TemplateView {
-    CreaPrenotazioneAulaView creaPrenotazioneAulaView=new CreaPrenotazioneAulaView();
+
 
     MostraFiltriView mostraFiltriView = new MostraFiltriView();
 
@@ -24,10 +24,10 @@ public class DocenteView  extends TemplateView {
         while (true) {
             choice = this.userChoice();
             switch (choice) {
-                case 1 -> creaPrenotazioneAulaView.control();
-                case 2 -> mostraClassiDisponibiliView.mostraClassiDisponibili();
-                case 3 -> mostraFiltriView.mostraFiltri();
-                case 4 -> System.exit(0);
+
+                case 1 -> mostraClassiDisponibiliView.mostraClassiDisponibili();
+                case 2 -> mostraFiltriView.mostraFiltri();
+                case 3 -> System.exit(0);
                 default -> System.out.println("Opzione non valida");
             }
         }

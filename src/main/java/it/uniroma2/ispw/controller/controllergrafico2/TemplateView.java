@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 
 public abstract class TemplateView {
     protected UserBean usrBean;
-    public abstract void control() throws SystemException, InvalidDataException, IOException;
+    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException;
     protected abstract List<String> getOptions();
     protected abstract String getHeader();
 

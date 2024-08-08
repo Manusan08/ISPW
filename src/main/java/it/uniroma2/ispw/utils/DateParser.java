@@ -1,5 +1,7 @@
 package it.uniroma2.ispw.utils;
 
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,6 +19,6 @@ public class DateParser {
             } catch (ParseException e) {
                 throw new InvalidDataException("formato data non valido");
             }
-            return date;
+            return (java.sql.Date) date;
     }
 }

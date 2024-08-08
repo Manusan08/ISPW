@@ -4,13 +4,14 @@ import com.opencsv.CSVReader;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
+import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 
 public class LoginFS implements LoginDAO {
     private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "utente.csv";
@@ -59,26 +60,22 @@ public class LoginFS implements LoginDAO {
 
             if(u == null) throw new ItemNotFoundException("Credenziali errate");
 
+            return true;
 
 
 
-        return false;
     }
     private LoginModel setUtenteFromRecord(String[] rcrd) {
 
 
-        Role role = Role.fromInt(Integer.parseInt(rcrd[INDEX_RUOLO]));
+        Role role = Role.valueOf(rcrd[INDEX_RUOLO]);
 
         String email = rcrd[INDEX_EMAIL];
         String pwd = rcrd[INDEX_PWD];
 
 
-        Date date = null;
-        try {
-            date = DateParser.parseStringToDateUtil(dateStr);
-        }
 
 
-        return new LoginModel( email, pwd, role.getID(role));
+        return new LoginModel( email, pwd, role);
     }
 }

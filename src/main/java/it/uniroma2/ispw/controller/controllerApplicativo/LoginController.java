@@ -18,10 +18,12 @@ import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.StudenteBean;
 import it.uniroma2.ispw.model.login.dao.LoginDBMS;
 import it.uniroma2.ispw.model.studente.dao.StudenteDBMS;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.scene.control.Button;
 
 import javax.security.auth.login.LoginException;
+import java.io.IOException;
 
 public class LoginController {
     public Button login;
@@ -97,7 +99,7 @@ public class LoginController {
         }
     }
 
-    public void login2(LoginBean cred) throws SystemException, LoginException {
+    public void login2(LoginBean cred) throws SystemException, LoginException, ItemNotFoundException, IOException {
         LoginFS loginFS = new LoginFS();
 
         switch (cred.getRole()) {
@@ -107,7 +109,7 @@ public class LoginController {
     }
 
 
-    private void loginStudenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException {
+    private void loginStudenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException, ItemNotFoundException {
         StudenteModel studente = null;
         LoginModel credentialsModel = new LoginModel(cred);
         if (loginFS.checkIfExists(credentialsModel)) {
@@ -129,7 +131,7 @@ public class LoginController {
 
         }
     }
-    private void loginDocenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException {
+    private void loginDocenteFS(LoginBean cred, LoginFS loginFS) throws SystemException, LoginException, ItemNotFoundException, IOException {
         DocenteModel docente = null;
         LoginModel credentialsModel = new LoginModel(cred);
         if (loginFS.checkIfExists(credentialsModel)) {

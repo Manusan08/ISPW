@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.model.studente.dao;
 
 import com.opencsv.CSVReader;
+import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.model.docente.DocenteModel;
 import it.uniroma2.ispw.model.studente.StudenteModel;
 import it.uniroma2.ispw.utils.CSVManager;
@@ -53,6 +54,11 @@ public class StudenteFS implements StudenteDAO {
         if (u == null) throw new ItemNotFoundException("Utente non esistente");
 
         return u;
+    }
+
+    @Override
+    public StudenteModel auth(LoginBean loginBean) throws ItemNotFoundException {
+        return null;
     }
 
 

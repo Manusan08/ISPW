@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -25,7 +26,7 @@ public class Main extends Application {
         return persistenceLayer;
     }
 
-    public static void main(String[] args) throws SystemException, InvalidDataException, IOException {
+    public static void main(String[] args) throws SystemException, InvalidDataException, IOException, LoginException {
         setPersistenceLayerAndUi();
         if (Main.ui.equals(TypesOfUIs.JAVAFX))
             launch();

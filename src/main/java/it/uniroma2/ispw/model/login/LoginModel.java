@@ -4,8 +4,12 @@ import it.uniroma2.ispw.bean.LoginBean;
 
 
 public class LoginModel {
-    private final String email;
-    private final String password;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private  String email;
+    private String password;
 
     private it.uniroma2.ispw.enums.Role role = null;
 
@@ -19,6 +23,20 @@ public class LoginModel {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public LoginModel() {
+
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public LoginModel(String email, String password) {
+        this.email = email;
+
+        this.password = password;
     }
 
 

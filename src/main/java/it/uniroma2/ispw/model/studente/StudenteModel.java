@@ -6,6 +6,10 @@ public class StudenteModel extends UserModel {
     private String corso;
     private int matricola;
 
+    public StudenteModel() {
+
+    }
+
     public String getCorso() {
         return corso;
     }

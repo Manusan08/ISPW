@@ -19,6 +19,9 @@ public class UserBean {
         this.ruolo = ruolo;
     }
 
+    public UserBean(String email) {this.email =email;
+    }
+
     public Role getRuolo() {
         return ruolo;
     }

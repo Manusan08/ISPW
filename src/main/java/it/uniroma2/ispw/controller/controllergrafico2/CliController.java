@@ -11,12 +11,13 @@ import it.uniroma2.ispw.utils.SessionManager;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 
 
 public class CliController {
 
-    public void start() throws SystemException, InvalidDataException, IOException {
+    public void start() throws SystemException, InvalidDataException, IOException, LoginException {
         UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

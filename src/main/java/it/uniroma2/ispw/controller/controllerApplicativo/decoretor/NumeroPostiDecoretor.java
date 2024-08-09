@@ -22,7 +22,7 @@ import java.util.List;
         for (AulaModel aulaModel : lista) {
             aulaBean=new AulaBean();
             aulaBean.setIdAula(aulaModel.getIdAula());
-            aulaBean.setPosti(aulaModel.getPosti());
+            aulaBean.setPosti(aulaModel.getNumeroPosti());
             auleBean.add(aulaBean);
         }
         return auleBean;

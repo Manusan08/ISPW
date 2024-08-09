@@ -6,8 +6,8 @@ import it.uniroma2.ispw.controller.controllergrafico2.studente.StudenteView;
 
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.utils.Session;
-import it.uniroma2.ispw.utils.SessionManager;
+
+
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -35,8 +35,8 @@ public class CliController {
             }
         } while (loopCond);
         switch (authUsr.getRuolo()) {
-            case Docente -> new DocenteView(authUsr).control();
-            case Studente -> new StudenteView(authUsr).control();
+            case DOCENTE -> new DocenteView(authUsr).control();
+            case STUDENTE -> new StudenteView(authUsr).control();
 
         }
     }

@@ -26,7 +26,7 @@ public class AulaDBMS implements  AulaDAO{
             while (rs.next()) {
                 aulaModel = new AulaModel();
                 aulaModel.setIdAula(rs.getString("idAula"));
-                aulaModel.setPosti(rs.getInt("posti"));
+                aulaModel.setNumeroPosti(rs.getInt("posti"));
                 lista.add(aulaModel);
             }
             return lista;
@@ -51,7 +51,7 @@ public class AulaDBMS implements  AulaDAO{
             if(!resultSet.next()) throw new ItemNotFoundException("Nessun corso con nome: " + nome);
 
             aulaModel.setIdAula(resultSet.getString("IdAula"));
-            aulaModel.setPosti(resultSet.getInt("NumeroPosti"));
+            aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
 
 
         } catch (SystemException e) {
@@ -100,7 +100,7 @@ public class AulaDBMS implements  AulaDAO{
             if(!resultSet.next()) throw new ItemNotFoundException("Nessun corso con nome: " + nome);
 
             aulaModel.setIdAula(resultSet.getString("IdAula"));
-            aulaModel.setPosti(resultSet.getInt("NumeroPosti"));
+            aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
 
 
         } catch (SystemException e) {
@@ -125,7 +125,7 @@ public class AulaDBMS implements  AulaDAO{
             if(!resultSet.next()) throw new ItemNotFoundException("Nessun corso con nome: " + nome);
 
             aulaModel.setIdAula(resultSet.getString("IdAula"));
-            aulaModel.setPosti(resultSet.getInt("NumeroPosti"));
+            aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
 
 
         } catch (SystemException e) {

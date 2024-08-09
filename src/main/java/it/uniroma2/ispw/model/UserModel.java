@@ -4,18 +4,16 @@ import it.uniroma2.ispw.enums.Role;
 
 public class UserModel {
     private String email;
-    private int matricola;
+
     private Role ruolo;
     private String nome;
-    private String cognome;
+
 
     public UserModel() {
 
     }
 
-    public String getCognome() {
-        return cognome;
-    }
+
 
     public String getNome() {
         return nome;
@@ -33,9 +31,7 @@ public class UserModel {
         this.nome = nome;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
+
 
     public String getEmail() {
         return email;
@@ -45,17 +41,11 @@ public class UserModel {
         this.email = email;
     }
 
-    public int getMatricola() {
-        return matricola;
-    }
 
-    public void setMatricola(int matricola) {
-        this.matricola = matricola;
-    }
 
 
     public UserModel(String email, int matricola) {
         this.email = email;
-        this.matricola = matricola;
+
     }
 }

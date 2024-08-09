@@ -28,10 +28,10 @@ public class LoginViewController1 {
         LoginBean loginBean = new LoginBean(email.getText(), password.getText());
         try {
             if (studente.isSelected()) {
-                loginBean.setRole(Role.Studente);
+                loginBean.setRole(Role.STUDENTE);
 
             } else if (docente.isSelected()) {
-                loginBean.setRole(Role.Studente);
+                loginBean.setRole(Role.DOCENTE);
 
             } else {
                 throw new RuoloNonSelezionatoException();
@@ -49,8 +49,8 @@ public class LoginViewController1 {
                 //navigate to new page
                 ChangePage istanza = ChangePage.getChangePage();
                 switch (loginBean.getRole()) {
-                    case Studente -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml", null, loginBean);
-                    case Docente -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml", null, loginBean);
+                    case STUDENTE -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml", loginBean);
+                    case DOCENTE -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml",  loginBean);
 
 
                 }

@@ -27,6 +27,10 @@ public class AulaBean {
     public AulaBean(int posti){
         this.posti=posti;
     }
+
+    public AulaBean(String idAula, int numeroPosti) {
+    }
+
     public List<String> getDispositivi() {
         return dispositivi;
     }

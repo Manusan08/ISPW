@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
-import it.uniroma2.ispw.bean.PrenotazioneBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.AulaBean;
@@ -8,9 +8,7 @@ import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -81,7 +79,7 @@ public class PrenotaAulaView extends TemplateView {
 
 
     //TODO forse si puo' inserire per la conferma
-    public boolean confermaPrenotazione(PrenotazioneBean prenotazione) {
+    public boolean confermaPrenotazione(PrenotazioneAulaBean prenotazione) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         System.out.println("Conferma i dettagli della prenotazione:");
         System.out.println("Materia: " + prenotazione.getNomeMateria());

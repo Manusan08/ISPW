@@ -18,14 +18,16 @@ public class LoginDBMS implements LoginDAO {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            String query = "SELECT * FROM utenti  WHERE email = ? ";
+            String query = "SELECT * FROM Utenti WHERE email = ? AND password = ? AND role = ?";
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(query);
             statement.setString(1, loginBean.getEmail());
+            statement.setString(2, loginBean.getPassword());
+            statement.setString(3, loginBean.getRole().name());
 
 
             resultSet = statement.executeQuery();
-            if(!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
+            if (!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
             loginModel = setUtenteFromResultSet(resultSet);
 
         } catch (SystemException e) {
@@ -37,30 +39,14 @@ public class LoginDBMS implements LoginDAO {
         }
         return loginModel;
     }
+
     private LoginModel setUtenteFromResultSet(ResultSet resultSet) throws SQLException {
         LoginModel loginModel = new LoginModel();
-
 
 
         loginModel.setRole(Role.valueOf(resultSet.getString("role")));
         loginModel.setEmail(resultSet.getString("email"));
         return loginModel;
     }
-    public boolean checkIfExists(LoginModel credentialsModel) throws SystemException {
-        String query = "SELECT * FROM Utenti WHERE email = ? AND password = ? AND role = ?";
-        Connection conn = ConnectionDB.getConnection();
-        try (PreparedStatement ps = conn.prepareStatement(query);) {
 
-            ps.setString(1, credentialsModel.getEmail());
-            ps.setString(2, credentialsModel.getPassword());
-            ps.setString(3, credentialsModel.getRole().name());
-
-            ResultSet rs = ps.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            SystemException exception = new SystemException();
-            exception.initCause(e);
-            throw exception;
-        }
-    }
 }

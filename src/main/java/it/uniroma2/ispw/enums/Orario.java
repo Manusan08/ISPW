@@ -1,17 +1,24 @@
 package it.uniroma2.ispw.enums;
 
-public enum Role {
-    DOCENTE(1),
-    STUDENTE(2);
+public enum Orario {
+    FASCIAUNO(1),
+    FASCIADUE(2),
+
+    FASCIATRE(3),
+    FASCIAQUATTRO(4);
+
+
+
+
 
     private final int id;
 
-    private Role(int id) {
+    private Orario( int id) {
         this.id = id;
     }
 
-    public static Role fromInt(int id) {
-        for (Role type : values()) {
+    public static Orario fromInt(int id) {
+        for (Orario type : values()) {
             if (type.getId() == id) {
                 return type;
             }
@@ -23,4 +30,3 @@ public enum Role {
         return id;
     }
 }
-

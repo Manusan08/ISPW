@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.PrenotazioneBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
@@ -35,7 +35,7 @@ public class GestisciPrenotazioneController {
     public List<AulaBean> getAllAule() {
         List<AulaBean> aulaBeanList = new ArrayList<>();
         for (AulaModel c : aulaDAO.getAllAule()) {
-            AulaBean cb = new AulaBean(c.getIdAula(), c.getPosti(), c.getDispositivi());
+            AulaBean cb = new AulaBean(c.getIdAula(), c.getNumeroPosti());
 
             aulaBeanList.add(cb);
         }
@@ -78,7 +78,7 @@ public class GestisciPrenotazioneController {
         return List.of();
     }
 
-    public boolean modificaDescrizionePrenotazione(PrenotazioneBean pb) {
+    public boolean modificaDescrizionePrenotazione(PrenotazioneAulaBean pb) {
         //TODO
         return true;
     }

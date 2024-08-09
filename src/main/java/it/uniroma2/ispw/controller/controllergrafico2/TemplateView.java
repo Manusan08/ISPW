@@ -67,6 +67,7 @@ public abstract class TemplateView {
 
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
+
                 if (choice < 1 || choice > options.size()) {
                     System.out.println("Per favore inserisci un numero tra 1 e " + options.size());
                     choice = 0;

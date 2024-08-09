@@ -4,38 +4,19 @@ import java.sql.Date;
 import java.util.List;
 
 public class AulaModel {
+    private String idAula;
+    private int numeroPosti;
+    private boolean proiettore;
+    private boolean banchiDisegno;
+    private boolean computer;
+    private boolean statoAula;
 
-    private String nomeDocente;
 
     public AulaModel(String idAule, int posti) {
     }
 
     public AulaModel() {
 
-    }
-
-    public String getNomeDocente() {
-        return nomeDocente;
-    }
-
-    public void setNomeDocente(String nomeDocente) {
-        this.nomeDocente = nomeDocente;
-    }
-
-    public Date getOrarioLezione() {
-        return orarioLezione;
-    }
-
-    public void setOrarioLezione(Date orarioLezione) {
-        this.orarioLezione = orarioLezione;
-    }
-
-    public String getMateria() {
-        return materia;
-    }
-
-    public void setMateria(String materia) {
-        this.materia = materia;
     }
 
     public String getIdAula() {
@@ -46,43 +27,45 @@ public class AulaModel {
         this.idAula = idAula;
     }
 
-    public int getPosti() {
-        return posti;
+    public int getNumeroPosti() {
+        return numeroPosti;
     }
 
-    public void setPosti(int posti) {
-        this.posti = posti;
+    public void setNumeroPosti(int numeroPosti) {
+        this.numeroPosti = numeroPosti;
     }
 
-    public String getDescrizione() {
-        return descrizione;
+    public boolean isProiettore() {
+        return proiettore;
     }
 
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
+    public void setProiettore(boolean proiettore) {
+        this.proiettore = proiettore;
     }
 
-    public List<String> getDispositivi() {
-        return dispositivi;
+    public boolean isBanchiDisegno() {
+        return banchiDisegno;
     }
 
-    public void setDispositivi(List<String> dispositivi) {
-        this.dispositivi = dispositivi;
+    public void setBanchiDisegno(boolean banchiDisegno) {
+        this.banchiDisegno = banchiDisegno;
     }
 
-    public boolean isPrenotata() {
-        return prenotata;
+    public boolean isComputer() {
+        return computer;
     }
 
-    public void setPrenotata(boolean prenotata) {
-        this.prenotata = prenotata;
+    public void setComputer(boolean computer) {
+        this.computer = computer;
     }
 
-    private Date orarioLezione;
-    private String materia;
-    private String idAula;
-    private int posti;
-    private String descrizione;
-    private List<String> dispositivi;
-    private boolean prenotata;
+    public boolean isStatoAula() {
+        return statoAula;
+    }
+
+    public void setStatoAula(boolean statoAula) {
+        this.statoAula = statoAula;
+    }
+
+
 }

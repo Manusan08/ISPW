@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.PrenotazioneBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
@@ -31,7 +31,7 @@ public class GestisciPrenotazioniView extends TemplateView {
 
     private void modificaPrenotazione() throws IOException {
         AulaBean ab = new AulaBean();
-        PrenotazioneBean pb = new PrenotazioneBean();
+        PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
         mostraPrenotazioni(this.usrBean);
         String str = getDesiredIn("id aula", "inserisci id aula per cui vuoi effettuare modifica");
         ab.setIdAula(str);
@@ -45,14 +45,14 @@ public class GestisciPrenotazioniView extends TemplateView {
 
     }
 
-    private boolean modificaDescrizione(PrenotazioneBean pb) throws IOException {
+    private boolean modificaDescrizione(PrenotazioneAulaBean pb) throws IOException {
         String message = getDesiredIn("Modifica descrizione", "inserisci il messaggio ");
         pb.setDescrizione(message);
         return new GestisciPrenotazioneController().modificaDescrizionePrenotazione(pb);
     }
 
     private void eliminaPrenotazione() {
-        PrenotazioneBean pb = new PrenotazioneBean();
+        PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
         try {
             pb.setIdPrenotazione(getDesiredIn("id", "inserisci l'id della prenotazione"));
             new GestisciPrenotazioneController().removePrenotazione();

@@ -42,10 +42,6 @@ public class StudenteView extends TemplateView {
         return "STUDENTE";
     }
 
-    @Override
-    public void update(String... msg) {
-        if (msg.length != 0)
-            System.out.println("\033[33m\n*** Nuova notifica: [" + msg[0] + "] ***\033[0m");
-    }
+
 }
 

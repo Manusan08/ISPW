@@ -46,10 +46,7 @@ public class LoginViewController2 extends TemplateView{
         return "LOGIN";
     }
 
-    @Override
-    public void update(String... msg) {
 
-    }
 
     public LoginBean show() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

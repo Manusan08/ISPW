@@ -152,5 +152,4 @@ public abstract class TemplateView {
                 .toList();
     }
 
-    public abstract void update(String... msg);
 }

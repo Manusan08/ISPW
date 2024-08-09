@@ -56,8 +56,5 @@ public class GestisciPrenotazioneView extends TemplateView {
         return "GESTIONE PRENOTAZIONI";
     }
 
-    @Override
-    public void update(String... msg) {
 
-    }
 }

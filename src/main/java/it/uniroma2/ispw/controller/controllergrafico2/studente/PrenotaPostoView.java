@@ -72,8 +72,5 @@ public class PrenotaPostoView extends TemplateView{
         return "PRENOTAZIONE AULA";
     }
 
-    @Override
-    public void update(String... msg) {
 
-    }
 }

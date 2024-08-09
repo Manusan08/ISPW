@@ -47,8 +47,5 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
         return "Visualizza le Aule Disponibili";
     }
 
-    @Override
-    public void update(String... msg) {
 
-    }
 }

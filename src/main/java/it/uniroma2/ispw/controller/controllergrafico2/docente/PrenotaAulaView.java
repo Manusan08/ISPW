@@ -101,8 +101,5 @@ public class PrenotaAulaView extends TemplateView {
         return "Prenotazione Aula";
     }
 
-    @Override
-    public void update(String... msg) {
 
-    }
 }

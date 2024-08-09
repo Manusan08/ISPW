@@ -30,42 +30,8 @@ public class LoginFS implements LoginDAO {
         }
     }
 
-    @Override
-    public boolean checkIfExists(LoginModel credentialsModel) throws ItemNotFoundException {
-            LoginModel u = null;
-            CSVReader csvReader = null;
-            try {
-                csvReader = new CSVReader(new BufferedReader(new FileReader(this.file)));
-                String[] rcrd;
-                int emIndex = INDEX_EMAIL;
-                int pwdIndex = INDEX_PWD;
-                int roleIndex = INDEX_RUOLO;
-
-                while ((rcrd = csvReader.readNext()) != null) {
-                    //check if the user exists
-                    if(rcrd[emIndex].equals(credentialsModel.getEmail()) &&
-                            rcrd[pwdIndex].equals(credentialsModel.getPassword()) &&
-                                rcrd[roleIndex].equals(credentialsModel.getRole())) {
-                        u = setUtenteFromRecord(rcrd);
-
-                        break;
-                    }
-                }
-
-            } catch (Exception e) {
-
-                throw new ItemNotFoundException("Credenziali errate");
-            } finally {
-                CSVManager.closeCsvReader(csvReader);
-            }
-
-            if(u == null) throw new ItemNotFoundException("Credenziali errate");
-
-            return true;
 
 
-
-    }
 
     @Override
     public LoginModel auth(LoginBean loginBean) {

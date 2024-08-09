@@ -4,15 +4,11 @@ import it.uniroma2.ispw.enums.Role;
 
 public class UserBean {
     private String nome;
-    private String cognome;
+
     private Role ruolo;
     private String email;
 
-    public UserBean(String cognome, String email, String nome) {
-        this.cognome = cognome;
-        this.email = email;
-        this.nome = nome;
-    }
+
 
     public UserBean(String email, Role ruolo) {
         this.email = email;
@@ -31,13 +27,8 @@ public class UserBean {
         return ruolo;
     }
 
-    public String getCognome() {
-        return cognome;
-    }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
+
 
     public String getEmail() {
         return email;

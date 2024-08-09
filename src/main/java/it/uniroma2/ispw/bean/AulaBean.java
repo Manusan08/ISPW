@@ -1,5 +1,7 @@
 package it.uniroma2.ispw.bean;
 
+import it.uniroma2.ispw.enums.Orario;
+
 import java.sql.Date;
 import java.util.List;
 
@@ -7,18 +9,21 @@ import java.util.List;
 public class AulaBean {
 
 
-    private String nomeDocente;
-    private Date orarioLezione;
-    private String materia;
+
+    private Orario orarioLezione;
+    private Date giornoLezione;
     private String idAula;
     private int posti;
-    private String descrizione;
-    private List<String> dispositivi;
+    private boolean proiettore;
+    private boolean banchiDisegno;
+    private boolean computer;
+    private boolean statoAula;
 
-    public AulaBean(String idAula, int posti, List<String> dispositivi) {
+
+    public AulaBean(String idAula, int posti) {
         this.idAula = idAula;
         this.posti = posti;
-        this.dispositivi = dispositivi;
+
     }
 
     private boolean prenotata;
@@ -28,16 +33,9 @@ public class AulaBean {
         this.posti=posti;
     }
 
-    public AulaBean(String idAula, int numeroPosti) {
-    }
 
-    public List<String> getDispositivi() {
-        return dispositivi;
-    }
 
-    public void setDispositivi(List<String> dispositivi) {
-        this.dispositivi = dispositivi;
-    }
+
 
 
 
@@ -50,13 +48,7 @@ public class AulaBean {
     }
 
 
-    public String getDescrizione() {
-        return descrizione;
-    }
 
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
 
     public String getIdAula() {
         return idAula;
@@ -66,19 +58,13 @@ public class AulaBean {
         this.idAula = idAula;
     }
 
-    public String getMateria() {
-        return materia;
-    }
 
-    public void setMateria(String materia) {
-        this.materia = materia;
-    }
 
-    public Date getOrarioLezione() {
+    public Orario getOrarioLezione() {
         return orarioLezione;
     }
 
-    public void setOrarioLezione(Date orarioLezione) {
+    public void setOrarioLezione(Orario orarioLezione) {
         this.orarioLezione = orarioLezione;
     }
 
@@ -90,12 +76,5 @@ public class AulaBean {
         this.posti = posti;
     }
 
-    public String getNomeDocente() {
-        return nomeDocente;
-    }
-
-    public void setNomeDocente(String nomeDocente) {
-        this.nomeDocente = nomeDocente;
-    }
 
 }

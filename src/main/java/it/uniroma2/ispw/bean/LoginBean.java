@@ -5,7 +5,7 @@ import it.uniroma2.ispw.enums.Role;
 public class  LoginBean {
     private String email;
     private String password;
-    private int idSession;
+
     private Role role;
 
     public LoginBean() {}
@@ -20,14 +20,6 @@ public class  LoginBean {
         this.email = email;
         this.password = password;
         this.role = role;
-    }
-
-    public void setIdSession(int idSession) {
-        this.idSession = idSession;
-    }
-
-    public int getIdSession() {
-        return idSession;
     }
 
     public String getEmail() {

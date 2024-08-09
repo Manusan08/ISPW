@@ -4,16 +4,19 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
 public class PrenotaAulaView extends TemplateView {
-    @Override
+/*    @Override
     public void control() throws InvalidDataException, IOException {
         int choice;
         boolean cond = true;
@@ -48,18 +51,18 @@ public class PrenotaAulaView extends TemplateView {
 
     }
     //TODO Da valutare con i pattern
-    private AulaBean ricercaPerCampi() throws IOException, InvalidDataException {
+   private AulaBean ricercaPerCampi() throws IOException, InvalidDataException {
         printHeader("inserisci campi di ricerca:");
 
         AulaBean ab = new AulaBean();
         String inputStr = getDesiredIn("Ora lezione", "Inserisci l'orario della lezione (dd/MM/yyyy HH:mm):");
-        java.sql.Date dataLezione = DateParser.parseStringToDate(inputStr);
+        Orario dataLezione = DateParser.parseStringToDate(inputStr);
         ab.setOrarioLezione(dataLezione);
 
         return ab;
     }
 
-    public AulaBean inserisciCampiDiricerca(AulaBean ab) {
+   public AulaBean inserisciCampiDiricerca(AulaBean ab) {
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.print("Inserisci il nome del docente: ");
@@ -75,7 +78,7 @@ public class PrenotaAulaView extends TemplateView {
         }
         scanner.close();
         return ab;
-    }
+    }*/
 
 
     //TODO forse si puo' inserire per la conferma
@@ -89,6 +92,11 @@ public class PrenotaAulaView extends TemplateView {
         Scanner scanner = null;
         String conferma = scanner.nextLine();
         return conferma.equalsIgnoreCase("s");
+    }
+
+    @Override
+    public void control() throws SystemException, InvalidDataException, IOException, LoginException {
+
     }
 
     @Override

@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class DocenteView extends TemplateView {
     }
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException {
+    public void control() throws SystemException, InvalidDataException, IOException, LoginException {
         int choice;
         while (true) {
             choice = this.userChoice();

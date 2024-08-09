@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.utils.DateParser;
@@ -31,7 +31,7 @@ public class PrenotaAulaView extends TemplateView {
     private void prenotaAulaDisponibile() throws InvalidDataException, IOException {
         AulaBean ab;
         ab = ricercaPerCampi();
-        printTable(new GestisciPrenotazioneController().getAuleByDay(ab));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByDay(ab));
 
         if (prenotaAula(ab)) {
             inserisciCampiDiricerca(ab);
@@ -44,7 +44,7 @@ public class PrenotaAulaView extends TemplateView {
     private boolean prenotaAula(AulaBean ab) throws IOException {
         String aulaId = getDesiredIn("Id aula:", "inserisci idAula che vuoi prenotare");
         ab.setIdAula(aulaId);
-        return new GestisciPrenotazioneController().prenota();
+        return new GestisciPrenotazioneAulaController().prenota();
 
     }
     //TODO Da valutare con i pattern

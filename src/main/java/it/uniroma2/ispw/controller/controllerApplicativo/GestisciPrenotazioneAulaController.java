@@ -14,11 +14,9 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestisciPrenotazioneController {
-
+public class GestisciPrenotazioneAulaController {
     private AulaDAO aulaDAO;
-
-    public GestisciPrenotazioneController() {
+    public GestisciPrenotazioneAulaController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             aulaDAO = new AulaDBMS();
         } else {

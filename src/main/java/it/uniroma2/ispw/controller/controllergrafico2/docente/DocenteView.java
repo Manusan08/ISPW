@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DocenteView extends TemplateView {
     PrenotaAulaView prenotaAulaView = new PrenotaAulaView();
-    MostraFiltriView mostraAulePrenotateView = new MostraFiltriView(this.usrBean);
+    MostraAulePrenotateView mostraAulePrenotateView = new MostraAulePrenotateView(this.usrBean);
     GestisciPrenotazioniView gestisciPrenotazioniView = new GestisciPrenotazioniView(this.usrBean);
 
     public DocenteView(UserBean usrBean) {

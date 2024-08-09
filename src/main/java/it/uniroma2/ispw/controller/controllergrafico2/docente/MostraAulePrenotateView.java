@@ -8,8 +8,8 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 import java.util.List;
 import java.util.Scanner;
 
-public class MostraFiltriView {
-    public MostraFiltriView(UserBean usrBean) {
+public class MostraAulePrenotateView {
+    public MostraAulePrenotateView(UserBean usrBean) {
     }
 
     public List<AulaBean> control() throws SystemException {

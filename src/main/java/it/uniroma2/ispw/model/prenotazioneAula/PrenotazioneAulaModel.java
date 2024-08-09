@@ -5,7 +5,10 @@ import it.uniroma2.ispw.enums.Orario;
 import java.util.Date;
 
 public class PrenotazioneAulaModel {
+    private  String idPrenotazioneAula;
     private String idAula;
+    private String email;
+
     private Orario  oraLezione;
     private Date giornoLezione;
     private  String Descrizione;

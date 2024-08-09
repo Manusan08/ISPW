@@ -1,8 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.LoginBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
@@ -36,7 +35,7 @@ public class PrenotaPostoView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
         }
 
 
@@ -49,7 +48,7 @@ public class PrenotaPostoView extends TemplateView{
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
     }
 
     private void cercaPerMateria() {
@@ -59,7 +58,7 @@ public class PrenotaPostoView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
     }
 
     @Override

@@ -1,8 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.LoginBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
@@ -28,13 +27,13 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
     private void visuallizaAueDisponibiliNelGiorno() throws IOException, InvalidDataException {
         AulaBean ab=new AulaBean();
         ab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("inserisci data","inserisci data nel formato gg/mm/yyyy")));
-        printTable(new GestisciPrenotazioneController().getAuleByDay(ab));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByDay(ab));
     }
 
     private void visualizzaAuleDisponibiliPerOrario() throws IOException, InvalidDataException {
         AulaBean ab=new AulaBean();
         ab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("inserisci orario","inserisci data nel formato hh:mm")));
-        printTable(new GestisciPrenotazioneController().getAuleByDay(ab));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByDay(ab));
     }
 
     @Override

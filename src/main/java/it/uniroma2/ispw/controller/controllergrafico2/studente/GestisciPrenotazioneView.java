@@ -1,9 +1,8 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 
 import java.io.IOException;
@@ -36,14 +35,14 @@ public class GestisciPrenotazioneView extends TemplateView {
         AulaBean ab=new AulaBean();
             try{
                 ab.setIdAula(getDesiredIn("id","inserisci l'id della prenotazione"));
-                new GestisciPrenotazioneController().removePrenotazione();
+                new GestisciPrenotazioneAulaController().removePrenotazione();
             }catch (IOException e){
                 System.out.println("Impossibile leggere i dati ");
             }
     }
 
     void visualizzaPrenotazioni(){
-        new GestisciPrenotazioneController().getAllReservation();
+        new GestisciPrenotazioneAulaController().getAllReservation();
     }
 
     @Override

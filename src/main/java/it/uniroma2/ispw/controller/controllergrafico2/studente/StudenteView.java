@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
-    GestisciPrenotazioneView gestisciPrenotazione=new GestisciPrenotazioneView();
+    GestisciPrenotazioneView gestisciPrenotazione=new GestisciPrenotazioneView(this.usrBean);
     PrenotaPostoView prenotaPostoView =new PrenotaPostoView();
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
 
@@ -36,7 +36,6 @@ public class StudenteView extends TemplateView {
         }
 
     }
-
 
     @Override
     public List<String> getOptions() {

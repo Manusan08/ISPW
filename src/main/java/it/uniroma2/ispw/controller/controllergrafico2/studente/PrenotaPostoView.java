@@ -30,7 +30,15 @@ public class PrenotaPostoView extends TemplateView{
     }
 
     private void cercaPerProfessore() {
-    }
+        AulaBean aulaBean = new AulaBean();
+        try {
+            aulaBean.setNomeDocente(getDesiredIn("Nome Docente", "inserisci il nome docente"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        printTable(new GestisciPrenotazioneController().getAuleByMateria(aulaBean));
+        }
+
 
     private void carcaPerOrario() {
         AulaBean aulaBean = new AulaBean();

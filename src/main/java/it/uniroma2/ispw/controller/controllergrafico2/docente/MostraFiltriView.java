@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.decoretor.NumeroPostiDecoretor;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -8,6 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MostraFiltriView {
+    public MostraFiltriView(UserBean usrBean) {
+    }
+
     public List<AulaBean> control() throws SystemException {
         AulaBean filtro =new AulaBean();
        // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");

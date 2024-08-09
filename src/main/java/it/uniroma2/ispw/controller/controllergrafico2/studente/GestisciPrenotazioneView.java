@@ -2,6 +2,7 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 
@@ -9,6 +10,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class GestisciPrenotazioneView extends TemplateView {
+
+    public GestisciPrenotazioneView(UserBean usrBean) {
+        super(usrBean);
+    }
 
     @Override
     public void control() throws IOException {

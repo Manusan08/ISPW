@@ -41,5 +41,12 @@ public class PrenotazioneBean {
         public void setOrario(Date orario) {
             this.orario = orario;
         }
+
+    public void setIdPrenotazione(String id) {
+
     }
+
+    public void setDescrizione(String message) {
+    }
+}
 

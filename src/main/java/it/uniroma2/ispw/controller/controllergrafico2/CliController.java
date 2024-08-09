@@ -14,7 +14,6 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
 
-
 public class CliController {
 
     public void start() throws SystemException, InvalidDataException, IOException, LoginException {
@@ -23,12 +22,9 @@ public class CliController {
         LoginViewController2 loginView = new LoginViewController2();
 
 
-
-
-
         do {
-           loginView.control();
-           authUsr=loginView.getUsrBean();
+            loginView.control();
+            authUsr = loginView.getUsrBean();
 
             if (authUsr != null && authUsr.getRuolo() != null)
                 loopCond = false;

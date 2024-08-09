@@ -2,6 +2,8 @@ package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.PrenotazioneBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
@@ -68,6 +70,16 @@ public class GestisciPrenotazioneController {
     }
 
     public boolean prenota() {//questo metodo deve fare la prenotazione dell'aula
+        return true;
+    }
+
+    public List<Object> getPrenotazioneByName(UserBean us) {
+        //TODO
+        return List.of();
+    }
+
+    public boolean modificaDescrizionePrenotazione(PrenotazioneBean pb) {
+        //TODO
         return true;
     }
 }

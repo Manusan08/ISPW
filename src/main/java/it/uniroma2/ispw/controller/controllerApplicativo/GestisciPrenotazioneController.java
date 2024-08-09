@@ -66,4 +66,8 @@ public class GestisciPrenotazioneController {
     public List<Object> getAuleByDay(AulaBean ab) {
         return List.of();
     }
+
+    public boolean prenota() {//questo metodo deve fare la prenotazione dell'aula
+        return true;
+    }
 }

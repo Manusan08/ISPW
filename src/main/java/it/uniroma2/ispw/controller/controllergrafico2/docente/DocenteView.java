@@ -1,32 +1,31 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
-import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.io.IOException;
 import java.util.List;
 
 public class DocenteView  extends TemplateView {
-    CreaPrenotazioneAulaView creaPrenotazioneAulaView=new CreaPrenotazioneAulaView();
+    PrenotaAulaView prenotaAulaView =new PrenotaAulaView();
+    MostraFiltriView mostraAulePrenotate = new MostraFiltriView();
+    GestisciPrenotazioniView gestisciPrenotazioniView = new GestisciPrenotazioniView();
 
-    MostraFiltriView mostraFiltriView = new MostraFiltriView();
-
-    PrendiDatiPrenotazioneView prendiDatiPrenotazioneView = new PrendiDatiPrenotazioneView();
-    MostraClassiDisponibiliView mostraClassiDisponibiliView = new MostraClassiDisponibiliView();
     public DocenteView(UserBean usrBean) {
         super(usrBean);
     }
 
     @Override
-    public void control() throws SystemException {
+    public void control() throws SystemException, InvalidDataException, IOException {
         int choice;
         while (true) {
             choice = this.userChoice();
             switch (choice) {
-                case 1 -> creaPrenotazioneAulaView.control();
-                case 2 -> mostraClassiDisponibiliView.mostraClassiDisponibili();
-                case 3 -> mostraFiltriView.mostraFiltri();
+                case 1 -> prenotaAulaView.control();
+                case 2 -> gestisciPrenotazioniView.control();
+                case 3 -> mostraAulePrenotate.control();
                 case 4 -> System.exit(0);
                 default -> System.out.println("Opzione non valida");
             }
@@ -35,7 +34,7 @@ public class DocenteView  extends TemplateView {
 
     @Override
     protected List<String> getOptions() {
-        return List.of("Crea Prenotazione","mostra classi","mostra filtri" , "esci");
+        return List.of("Prenota aula","Gestisci prenotazioni","Mostra aule prenotate" , "Esci");
     }
 
     @Override

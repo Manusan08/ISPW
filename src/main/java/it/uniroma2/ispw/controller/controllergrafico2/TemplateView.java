@@ -16,13 +16,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public abstract class TemplateView {
     protected UserBean usrBean;
     public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException;
     protected abstract List<String> getOptions();
     protected abstract String getHeader();
 
-    public int userChoice() {
+    public int userChoice() throws IOException {
         printHeader(getHeader());
         List<String> options = getOptions();
         return operationMenu("Come vuoi procedere? ", options);
@@ -76,7 +78,6 @@ public abstract class TemplateView {
         } while (choice == 0);
         return choice;
     }
-
     public String getDesiredIn(String title, String inMsg) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

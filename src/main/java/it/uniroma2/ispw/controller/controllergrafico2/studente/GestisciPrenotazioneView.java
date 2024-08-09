@@ -11,7 +11,7 @@ import java.util.List;
 public class GestisciPrenotazioneView extends TemplateView {
 
     @Override
-    public void control() {
+    public void control() throws IOException {
         int choice;
         boolean cond= true;
 

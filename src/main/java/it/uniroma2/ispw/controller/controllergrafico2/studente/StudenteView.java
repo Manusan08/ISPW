@@ -26,10 +26,15 @@ public class StudenteView extends TemplateView {
                 case 1 -> gestisciPrenotazione.control();
                 case 2 -> prenotaPostoView.control();
                 case 3 -> visualizzaAuleDisponibiliView.control();
-                case 4 -> System.exit(0);
-                default -> System.out.println("Opzione non valida");
+                case 4 -> {
+                    System.out.println("Uscita in corso...");
+                    System.exit(0);
                 }
+                default -> System.out.println("Opzione non valida");
+
+            }
         }
+
     }
 
 

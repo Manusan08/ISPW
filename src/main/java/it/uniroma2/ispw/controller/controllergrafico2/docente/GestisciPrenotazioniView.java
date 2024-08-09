@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class GestisciPrenotazioniView extends TemplateView {
-    public void control() {
+    public void control() throws IOException {
             int choice;
             boolean cond = true;
 

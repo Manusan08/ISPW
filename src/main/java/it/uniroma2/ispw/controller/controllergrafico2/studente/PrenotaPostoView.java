@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PrenotaPostoView extends TemplateView{
     @Override
-    public void control() throws SystemException {
+    public void control() throws SystemException, IOException {
             int choice ;
             boolean cond =true;
             while(cond){

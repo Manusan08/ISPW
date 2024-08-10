@@ -2,8 +2,10 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
+import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 
 import java.io.IOException;
@@ -30,12 +32,10 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void modificaPrenotazione() throws IOException {
-        AulaBean ab = new AulaBean();
         PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
         mostraPrenotazioni(this.usrBean);
         String str = getDesiredIn("id aula", "inserisci id aula per cui vuoi effettuare modifica");
-        ab.setIdAula(str);
-        pb.setAula(ab);
+        pb.setIdAula(str);
 
         if (modificaDescrizione(pb)) {
             System.out.println("Modifica avvenuta con successo");
@@ -52,9 +52,9 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void eliminaPrenotazione() {
-        PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
+        PrenotazionePostoBean ppb = new PrenotazionePostoBean();
         try {
-            pb.setIdPrenotazione(getDesiredIn("id", "inserisci l'id della prenotazione"));
+            ppb.setIdPrenotazionePosto(getDesiredIn("id", "inserisci l'id della prenotazione"));
             new GestisciPrenotazioneAulaController().removePrenotazione();
         } catch (IOException e) {
             System.out.println("Impossibile leggere i dati ");
@@ -62,8 +62,9 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void mostraPrenotazioni(UserBean usrBean) {
-        UserBean us = new UserBean(this.usrBean.getEmail(), this.usrBean.getNome());
-        printTable(new GestisciPrenotazioneAulaController().getPrenotazioneByName(us));
+        UserBean us = new UserBean(this.usrBean.getEmail());
+        printTable(new GestisciPrenotazionePostoController().getPrenotazioneByName(us));
+
     }
 
     @Override

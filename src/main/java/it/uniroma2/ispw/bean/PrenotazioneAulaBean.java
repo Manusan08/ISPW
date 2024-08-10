@@ -1,52 +1,96 @@
 package it.uniroma2.ispw.bean;
 
 
+import it.uniroma2.ispw.enums.Orario;
+
 import java.util.Date;
 
 public class PrenotazioneAulaBean {
-        private AulaBean aula;
-        private String nomeMateria;
-        private String nomeProfessore;
-        private Date orario;
 
-        // Getters e Setters
-        public AulaBean getAula() {
-            return aula;
-        }
+    private  String idPrenotazioneAula;
+    private String idAula;
+    private String email;
 
-        public void setAula(AulaBean aula) {
-            this.aula = aula;
-        }
+    private Orario oraLezione;
+    private Date giornoLezione;
+    private  String Descrizione;
+    private  String nomeDocente;
+    private String materia;
 
-        public String getNomeMateria() {
-            return nomeMateria;
-        }
 
-        public void setNomeMateria(String nomeMateria) {
-            this.nomeMateria = nomeMateria;
-        }
+    public String getDescrizione() {
+        return Descrizione;
+    }
 
-        public String getNomeProfessore() {
-            return nomeProfessore;
-        }
+    public void setDescrizione(String descrizione) {
+        Descrizione = descrizione;
+    }
 
-        public void setNomeProfessore(String nomeProfessore) {
-            this.nomeProfessore = nomeProfessore;
-        }
+    public String getEmail() {
+        return email;
+    }
 
-        public Date getOrario() {
-            return orario;
-        }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public void setOrario(Date orario) {
-            this.orario = orario;
-        }
+    public Date getGiornoLezione() {
+        return giornoLezione;
+    }
 
-    public void setIdPrenotazione(String id) {
+    public void setGiornoLezione(Date giornoLezione) {
+        this.giornoLezione = giornoLezione;
+    }
+
+    public String getIdAula() {
+        return idAula;
+    }
+
+    public void setIdAula(String idAula) {
+        this.idAula = idAula;
+    }
+
+    public String getIdPrenotazioneAula() {
+        return idPrenotazioneAula;
+    }
+
+    public void setIdPrenotazioneAula(String idPrenotazioneAula) {
+        this.idPrenotazioneAula = idPrenotazioneAula;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public String getNomeDocente() {
+        return nomeDocente;
+    }
+
+    public Orario getOraLezione() {
+        return oraLezione;
+    }
+
+    public void setOraLezione(Orario oraLezione) {
+        this.oraLezione = oraLezione;
+    }
+
+    public void setNomeDocente(String desiredIn) {
+    }
+
+    public void setMateria(String desiredIn) {
+    }
+
+    public String getNomeMateria() {
+    return "ciao";
+    }
+
+    public String getNomeProfessore() {
+        return "ciao";
 
     }
 
-    public void setDescrizione(String message) {
+    public Object getOrario() {
+        return null;
     }
 }
 

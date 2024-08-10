@@ -4,13 +4,9 @@ import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.*;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
-import it.uniroma2.ispw.model.UserModel;
-import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 
 import it.uniroma2.ispw.model.login.dao.LoginDAO;
 import it.uniroma2.ispw.model.login.dao.LoginFS;
-
-
 
 
 import it.uniroma2.ispw.model.login.LoginModel;
@@ -23,7 +19,6 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 
 import javax.security.auth.login.LoginException;
-
 
 
 public class LoginController {
@@ -60,8 +55,5 @@ public class LoginController {
         }
         System.out.println(u.getRole());
         return new UserBean(u.getEmail(), u.getRole());
-
     }
-
-
 }

@@ -1,18 +1,25 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.IOException;
 import java.util.List;
 
 public class PrenotaPostoView extends TemplateView{
+    public PrenotaPostoView(UserBean usrBean) {
+    }
+
     @Override
-    public void control() throws SystemException, IOException {
+    public void control() throws SystemException, IOException, ItemNotFoundException {
             int choice ;
             boolean cond =true;
             while(cond){
@@ -28,37 +35,39 @@ public class PrenotaPostoView extends TemplateView{
             }
     }
 
-    private void cercaPerProfessore() {
-        AulaBean aulaBean = new AulaBean();
+    private void cercaPerProfessore() throws ItemNotFoundException {
+        PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
         try {
-            aulaBean.setNomeDocente(getDesiredIn("Nome Docente", "inserisci il nome docente"));
+            pab.setNomeDocente(getDesiredIn("Nome Docente", "inserisci il nome docente"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazionePostoController().getAulaByMateria(pab));
         }
 
 
     private void carcaPerOrario() {
-        AulaBean aulaBean = new AulaBean();
+        /*PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
         try {
-            aulaBean.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("data lezione", "inserisci data e ora nel formato gg/mm/yyyy")));
+            pab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("data lezione", "inserisci data e ora nel formato gg/mm/yyyy")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazionePostoController().getAuleByMateria(pab));
+    */
     }
 
+
     private void cercaPerMateria() {
-        AulaBean aulaBean = new AulaBean();
+        PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
         try {
-            aulaBean.setMateria(getDesiredIn("Materia", "inserisci il nome della materia"));
+            pab.setMateria(getDesiredIn("Materia", "inserisci il nome della materia"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(aulaBean));
+        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(pab));
     }
 
     @Override
@@ -68,7 +77,7 @@ public class PrenotaPostoView extends TemplateView{
 
     @Override
     protected String getHeader() {
-        return "PRENOTAZIONE AULA";
+        return "PRENOTAZIONE POSTO";
     }
 
 

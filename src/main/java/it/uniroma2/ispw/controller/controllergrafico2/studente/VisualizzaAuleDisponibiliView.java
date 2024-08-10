@@ -25,16 +25,23 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
 
     }
     private void visuallizaAueDisponibiliNelGiorno() throws IOException, InvalidDataException {
+        /*
         AulaBean ab=new AulaBean();
         ab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("inserisci data","inserisci data nel formato gg/mm/yyyy")));
         printTable(new GestisciPrenotazioneAulaController().getAuleByDay(ab));
+        */
     }
 
+
     private void visualizzaAuleDisponibiliPerOrario() throws IOException, InvalidDataException {
+        /*
+
         AulaBean ab=new AulaBean();
         ab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("inserisci orario","inserisci data nel formato hh:mm")));
         printTable(new GestisciPrenotazioneAulaController().getAuleByDay(ab));
+    */
     }
+
 
     @Override
     protected List<String> getOptions() {

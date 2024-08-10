@@ -1,29 +1,29 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.IOException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
-    GestisciPrenotazioneView gestisciPrenotazione=new GestisciPrenotazioneView(this.usrBean);
-    PrenotaPostoView prenotaPostoView =new PrenotaPostoView();
+    GestisciPrenotazionePosto gestisciPrenotazioniPosto =new GestisciPrenotazionePosto(this.usrBean);
+    PrenotaPostoView prenotaPostoView =new PrenotaPostoView(this.usrBean);
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
 
     public StudenteView(UserBean userBean) {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException {
+    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException {
         int choice;
         while (true) {
             choice = this.userChoice();
             switch (choice) {
-                case 1 -> gestisciPrenotazione.control();
+                case 1 -> gestisciPrenotazioniPosto.control();
                 case 2 -> prenotaPostoView.control();
                 case 3 -> visualizzaAuleDisponibiliView.control();
                 case 4 -> System.exit(0);

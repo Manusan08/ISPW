@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.model.prenotazionePosto;
 
-import it.uniroma2.ispw.enums.Orario;
+import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 
 import java.util.Date;
 
@@ -14,6 +14,15 @@ public class PrenotazionePostoModel {
     private  String nomeStudente;
     private String materia;
     private String email;
+
+    public PrenotazionePostoModel(){
+
+    }
+
+    public PrenotazionePostoModel(String idPrenotazionePosto) {
+        this.idPrenotazionePosto=idPrenotazionePosto;
+    }
+
 
     public String getNomeDocente() {
         return nomeDocente;

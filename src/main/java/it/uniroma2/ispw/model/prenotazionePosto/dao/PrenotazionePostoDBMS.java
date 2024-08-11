@@ -6,7 +6,6 @@ import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import javax.xml.transform.Result;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,4 +61,55 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
         }
 
     }
+
+    @Override
+    public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) throws SQLException {
+        PreparedStatement statement = null;
+
+        try {
+            String sql = "delete from prenotazioneposto where idPosto=? and idAula=?";
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            statement.setString(1, ppm.getIdPosto());
+            statement.setString(2, ppm.getIdAula());
+
+            statement.executeUpdate();
+
+        } catch (SystemException | SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+        }
+    }
+
+
+    @Override
+    public PrenotazionePostoModel getPrenotazioneByid(String idPrenotazionePosto) throws SQLException {
+
+        PrenotazionePostoModel pp = new PrenotazionePostoModel();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+
+
+        try {
+            String sql = "select * from prenotazioneposto where idPosto= : idPrenotazionePosto";
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            rs = statement.executeQuery();
+
+            pp.setIdPrenotazionePosto(rs.getString(2));
+            pp.setIdAula(rs.getString("idAula"));
+            pp.setIdPosto(rs.getString("Utenti_email"));
+            pp.setIdPrenotazionePosto(rs.getString("idPosto"));
+
+        } catch (SystemException | SQLException e) {
+            throw new RuntimeException(e);
+
+        } finally {
+            statement.close();
+
+        }
+        return pp;
+    }
+
 }

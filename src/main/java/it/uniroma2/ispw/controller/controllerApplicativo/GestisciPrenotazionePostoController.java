@@ -1,20 +1,26 @@
 package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
+import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
+import it.uniroma2.ispw.model.posto.PostoModel;
+import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDAO;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDBMS;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoFS;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestisciPrenotazionePostoController {
     private PrenotazionePostoDAO prenotazionePostoDao;
+    private PostoDAO postoDao;
 
     public GestisciPrenotazionePostoController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
@@ -31,9 +37,17 @@ public class GestisciPrenotazionePostoController {
         return List.of();
     }
 
-    public void removePrenotazione() {
-    }
+    //come gestire gli errori
+    public void removePrenotazione(PrenotazionePostoBean pb) throws ItemNotFoundException, SQLException {
 
+        PrenotazionePostoModel ppm=prenotazionePostoDao.getPrenotazioneByid(pb.getIdPrenotazionePosto());
+        if(ppm==null) {
+            throw new ItemNotFoundException("id prenotazione non trovata");
+        }
+        PostoModel postoModel= new PostoModel(ppm.getIdPosto(),ppm.getIdAula());
+        prenotazionePostoDao.rimuoviPrenotazionePosto(ppm);
+        postoDao.postoNuovamenteDisponibile(postoModel);
+    }
     public List<PrenotazionePostoBean> getAllReservation(PrenotazionePostoBean pb) {
         List<PrenotazionePostoModel> postiModel;
         List<PrenotazionePostoBean> prenotazioniPostiBean = new ArrayList<>();
@@ -46,8 +60,6 @@ public class GestisciPrenotazionePostoController {
         }
         return prenotazioniPostiBean;
     }
-
-
 
 
     public List<Object> getAulaByMateria(PrenotazioneAulaBean pab) {

@@ -14,8 +14,7 @@ public class VisualizzaAuleDisponibiliView extends TemplateView  {
     //TODO da implementare!
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
-        visualizzaAuleDisponibili();
+   public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
     }
 
     private void visualizzaAuleDisponibili() {

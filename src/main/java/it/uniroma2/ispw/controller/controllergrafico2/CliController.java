@@ -38,7 +38,6 @@ public class CliController {
         switch (authUsr.getRuolo()) {
             case DOCENTE -> new DocenteView(authUsr).control();
             case STUDENTE -> new StudenteView(authUsr).control();
-
         }
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class StudenteView extends TemplateView {
     GestisciPrenotazionePostoView gestisciPrenotazioniPosto =new GestisciPrenotazionePostoView(this.usrBean);
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
-    PrenotaPostoView prenotaPosto=new PrenotaPostoView(this.usrBean);
+    PrenotaPostoView prenotaPosto=new PrenotaPostoView();
     public StudenteView(UserBean userBean) {
         super(userBean);
     }
@@ -28,7 +28,7 @@ public class StudenteView extends TemplateView {
                 case 3 -> visualizzaAuleDisponibiliView.control();
                 case 4 -> System.exit(0);
                 default -> System.out.println("Opzione non valida");
-                }
+            }
         }
     }
 

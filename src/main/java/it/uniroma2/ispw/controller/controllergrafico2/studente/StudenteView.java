@@ -6,25 +6,25 @@ import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
-    GestisciPrenotazionePosto gestisciPrenotazioniPosto =new GestisciPrenotazionePosto(this.usrBean);
-    PrenotaPostoView prenotaPostoView =new PrenotaPostoView(this.usrBean);
+    GestisciPrenotazionePostoView gestisciPrenotazioniPosto =new GestisciPrenotazionePostoView(this.usrBean);
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
-
+    PrenotaPostoView prenotaPosto=new PrenotaPostoView(this.usrBean);
     public StudenteView(UserBean userBean) {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException {
+    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException {
         int choice;
         while (true) {
             choice = this.userChoice();
             switch (choice) {
                 case 1 -> gestisciPrenotazioniPosto.control();
-                case 2 -> prenotaPostoView.control();
+                case 2 -> prenotaPosto.control();
                 case 3 -> visualizzaAuleDisponibiliView.control();
                 case 4 -> System.exit(0);
                 default -> System.out.println("Opzione non valida");
@@ -34,7 +34,7 @@ public class StudenteView extends TemplateView {
 
     @Override
     public List<String> getOptions() {
-        return List.of("Gestisci Prenotazione", "prenota aula", "visualizza aule disponibili","esci");
+        return List.of("Gestisci Prenotazione", "Prenota posto", "visualizza aule disponibili","esci");
     }
 
     @Override

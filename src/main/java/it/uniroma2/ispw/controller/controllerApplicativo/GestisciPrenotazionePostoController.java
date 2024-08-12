@@ -1,12 +1,9 @@
 package it.uniroma2.ispw.controller.controllerApplicativo;
-
 import it.uniroma2.ispw.Main;
-import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
-import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDAO;
@@ -44,9 +41,7 @@ public class GestisciPrenotazionePostoController {
         if(ppm==null) {
             throw new ItemNotFoundException("id prenotazione non trovata");
         }
-        PostoModel postoModel= new PostoModel(ppm.getIdPosto(),ppm.getIdAula());
         prenotazionePostoDao.rimuoviPrenotazionePosto(ppm);
-        postoDao.postoNuovamenteDisponibile(postoModel);
     }
     public List<PrenotazionePostoBean> getAllReservation(PrenotazionePostoBean pb) {
         List<PrenotazionePostoModel> postiModel;
@@ -61,36 +56,20 @@ public class GestisciPrenotazionePostoController {
         return prenotazioniPostiBean;
     }
 
-
-    public List<Object> getAulaByMateria(PrenotazioneAulaBean pab) {
+    //TODO cambiare object in model
+    public List<Object> getAuleByMateria(PrenotazioneAulaBean pab) {
         return List.of();
+
+    }
+    public void getPrenotazioniAuleBySubject(PrenotazioneAulaBean pab) {
+    }
+
+    public void getPrenotazioneAauleByTeacher(PrenotazioneAulaBean pab) {
+    }
+
+    public void getPrenotazioneAauleByTimeOrDate(PrenotazioneAulaBean pab) {
+    }
+
+    public void prenotaPostoByIdAula(PrenotazioneAulaBean pab) {
     }
 }
-
-    /*public List <PrenotazionePostoBean> getAllReservation(PrenotazionePostoBean pb) {
-        PrenotazionePostoDAO.getAulaByMateria(pb);
-
-        return List.of(pb);
-    }
-    public boolean prenota() {//questo metodo deve fare la prenotazione dell'aula
-        return true;
-    }
-
-
-    public List<Object> getPrenotazioneByName(UserBean us) {
-        //TODO
-        return List.of();
-    }
-    public AulaModel getAulaByCognoem(String aula) throws ItemNotFoundException {
-        return aulaDAO.getAulaByCognome(aula);
-    }
-    public List<PrenotazionePostoBean> getAulaByMateria(PrenotazioneAulaBean aula) throws ItemNotFoundException {
-        return PrenotazionePostoDAO.getAulaByMateria(aula);
-    }
-
-
-    public void removePrenotazione() {
-    }
-}
-
- */

@@ -1,6 +1,5 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
@@ -11,9 +10,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class GestisciPrenotazionePosto extends TemplateView {
+public class GestisciPrenotazionePostoView extends TemplateView {
 
-    public GestisciPrenotazionePosto(UserBean usrBean) {
+    public GestisciPrenotazionePostoView(UserBean usrBean) {
         super(usrBean);
     }
 
@@ -35,14 +34,14 @@ public class GestisciPrenotazionePosto extends TemplateView {
     }
     //come gestisco il caso in cui non è stato possibile eliminare la prenotazione?
     private void eliminaPrenotazione() {
-        PrenotazionePostoBean ab=new PrenotazionePostoBean();
+        PrenotazionePostoBean ppb=new PrenotazionePostoBean();
             try{
-                ab.setIdAula(getDesiredIn("id","inserisci l'id della prenotazione"));
-                new GestisciPrenotazionePostoController().removePrenotazione(ab);
+                ppb.setIdPrenotazionePosto(getDesiredIn("id","inserisci l'id della prenotazione: "));
+                new GestisciPrenotazionePostoController().removePrenotazione(ppb);
             }catch (IOException e){
                 System.out.println("Impossibile leggere i dati ");
             } catch (SQLException | ItemNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
     }
 

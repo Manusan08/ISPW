@@ -16,7 +16,32 @@ public class PrenotazioneAulaBean {
     private  String Descrizione;
     private  String nomeDocente;
     private String materia;
+    private boolean isRicorente;
+    private  Date dataFine;
 
+    public void setNomeDocente(String nomeDocente) {
+        this.nomeDocente = nomeDocente;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+
+    public boolean isRicorente() {
+        return isRicorente;
+    }
+
+    public void setRicorente(boolean ricorente) {
+        isRicorente = ricorente;
+    }
+
+    public Date getDataFine() {
+        return dataFine;
+    }
+
+    public void setDataFine(Date dataFine) {
+        this.dataFine = dataFine;
+    }
 
     public String getDescrizione() {
         return Descrizione;
@@ -74,18 +99,13 @@ public class PrenotazioneAulaBean {
         this.oraLezione = oraLezione;
     }
 
-    public void setNomeDocente(String desiredIn) {
-    }
-
-    public void setMateria(String desiredIn) {
-    }
 
     public String getNomeMateria() {
     return "ciao";
     }
 
     public String getNomeProfessore() {
-        return "ciao";
+        return nomeDocente;
 
     }
 

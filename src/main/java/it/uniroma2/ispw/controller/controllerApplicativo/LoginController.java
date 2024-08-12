@@ -54,6 +54,6 @@ public class LoginController {
             throw new ItemNotFoundException("Accesso negato!");
         }
         System.out.println(u.getRole());
-        return new UserBean(u.getEmail(), u.getRole());
+        return new UserBean(u.getEmail(), u.getRole(),u.getNome());
     }
 }

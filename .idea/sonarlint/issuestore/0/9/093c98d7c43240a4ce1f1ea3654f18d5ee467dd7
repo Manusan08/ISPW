@@ -1,4 +1,6 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8Ø¢İä“2
+v
+java:S1488@"ZImmediately return this expression instead of assigning it to the temporary variable "cb".(ãî«_8ó¨œ›”2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8õ¨œ›”2
 f
-java:S2583("DChange this condition so that it does not always evaluate to "false"(›ğØ ıÿÿÿÿ8ä¢İä“2
+java:S2583#"DChange this condition so that it does not always evaluate to "false"(›ğØ ıÿÿÿÿ8ù¸à”2

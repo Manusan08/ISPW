@@ -1,9 +1,4 @@
 
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰„Ø˜8ĞÿÍà“2
-m	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ¿–ˆ8ÑÿÍà“2
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰„Ø˜
 H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8ñÒº“2
-H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8ÕùÃ“2
-H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8¦ÅÎà“2
+java:S1168"+Return an empty collection instead of null.(¥¹ï8ïäÁ¹”2

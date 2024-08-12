@@ -1,8 +1,10 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule;
 
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.PrenotazioneAulaView;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -14,6 +16,11 @@ import java.util.Scanner;
 
 public class CercaAulePerIdView extends TemplateView {
     GestisciAuleController gestisciAuleController = new GestisciAuleController();
+
+    public CercaAulePerIdView(UserBean usrBean) {
+        super(usrBean);
+    }
+
     @Override
     public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
         Scanner scanner = new Scanner(System.in);
@@ -22,9 +29,17 @@ public class CercaAulePerIdView extends TemplateView {
 
         String iDaula = scanner.nextLine();
 
-         AulaBean aulabean= gestisciAuleController.getAulaById(iDaula);
-        //bisogna trovare il modo per printare tutte le componeneti di aulabean
-
+         AulaBean aulaBean= gestisciAuleController.getAulaById(iDaula);
+        System.out.println("Dettagli dell'Aula:");
+        System.out.println("==================");
+        System.out.printf("ID Aula         : %s%n", aulaBean.getIdAula());
+        System.out.printf("Numero di Posti : %d%n", aulaBean.getPosti());
+        System.out.printf("Proiettore      : %s%n", aulaBean.isProiettore() ? "Presente" : "Assente");
+        System.out.printf("Banchi da Disegno: %s%n", aulaBean.isBanchiDisegno() ? "Presenti" : "Assenti");
+        System.out.printf("Computer        : %s%n", aulaBean.isComputer() ? "Presente" : "Assente");
+        System.out.println("==================");
+        PrenotazioneAulaView prenotazioneView = new PrenotazioneAulaView(aulaBean,this.usrBean);
+        prenotazioneView.start();
     }
 
     @Override

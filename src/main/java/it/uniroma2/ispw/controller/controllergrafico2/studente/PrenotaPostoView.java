@@ -33,7 +33,7 @@ public class PrenotaPostoView extends TemplateView {
 
         }
     }
-    public PrenotaPostoView(UserBean usrBean) {
+    public void PrenotaPostoView(UserBean usrBean) {
         PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
 
         try {

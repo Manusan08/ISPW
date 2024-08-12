@@ -26,6 +26,7 @@ public class LoginDBMS implements LoginDAO {
             statement.setString(3, loginBean.getRole().name());
 
 
+
             resultSet = statement.executeQuery();
             if (!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
             loginModel = setUtenteFromResultSet(resultSet);
@@ -46,6 +47,7 @@ public class LoginDBMS implements LoginDAO {
 
         loginModel.setRole(Role.valueOf(resultSet.getString("role")));
         loginModel.setEmail(resultSet.getString("email"));
+        loginModel.setNome(resultSet.getString("nome"));
         return loginModel;
     }
 

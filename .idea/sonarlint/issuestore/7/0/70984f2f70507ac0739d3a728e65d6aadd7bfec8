@@ -1,4 +1,14 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’¸åÇûÿÿÿÿ
-d
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Şä÷¼şÿÿÿÿ8ƒ¨¨·“2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’¸åÇûÿÿÿÿ8èÀ‰–2
+l
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8¥èÀ‰–2
+l
+java:S20952"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8¦èÀ‰–2
+R
+java:S2209"5Change this instance-reference to a static reference.(¡è«8°èÀ‰–2
+P
+java:S1481,".Remove this unused "resultSet" local variable.(›÷Œœúÿÿÿÿ8·èÀ‰–2
+R
+java:S22092"5Change this instance-reference to a static reference.(¡è«8¹èÀ‰–2
+v
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ÛÈ‚úÿÿÿÿ8ê¡Ô‰–2

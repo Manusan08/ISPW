@@ -13,6 +13,16 @@ public class LoginModel {
 
     private it.uniroma2.ispw.enums.Role role = null;
 
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    private  String Nome;
+
     public LoginModel(LoginBean credbean) {
         this.email = credbean.getEmail();
         this.password = credbean.getPassword();

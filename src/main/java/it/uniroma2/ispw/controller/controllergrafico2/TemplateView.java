@@ -90,68 +90,78 @@ public abstract class TemplateView {
         return reader.readLine();
     }
 
-    public <T> void printTable(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            System.out.println("La lista è vuota.");
-            return;
-        }
-
-        Method[] methods = list.get(0).getClass().getDeclaredMethods();
-
-        List<Method> getters = filterGetters(methods);
-
-        List<String> headers = new ArrayList<>();
-        List<Integer> columnWidths = new ArrayList<>();
-
-        // header and column weight
-        for (Method getter : getters) {
-            String header = getter.getName().substring(3);
-            headers.add(header);
-            int maxWidth = header.length();
-
-            for (T item : list) {
-                try {
-                    String valueString = String.valueOf(getter.invoke(item));
-                    maxWidth = Math.max(maxWidth, valueString.length());
-                } catch (InvocationTargetException | IllegalAccessException e) {
-                    throw new RuntimeException(e);
-                }
+        public <T> void printTable(List<T> list) {
+            if (list == null || list.isEmpty()) {
+                System.out.println("La lista è vuota.");
+                return;
             }
-            columnWidths.add(maxWidth);
+
+            Method[] methods = list.get(0).getClass().getDeclaredMethods();
+            List<Method> getters = filterGetters(methods);
+
+            List<String> headers = new ArrayList<>();
+            List<Integer> columnWidths = new ArrayList<>();
+
+            // Header and column width calculation
+            for (Method getter : getters) {
+                String header = getHeaderName(getter);
+                headers.add(header);
+                int maxWidth = header.length();
+
+                for (T item : list) {
+                    try {
+                        String valueString = String.valueOf(getter.invoke(item));
+                        maxWidth = Math.max(maxWidth, valueString.length());
+                    } catch (InvocationTargetException | IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                columnWidths.add(maxWidth);
+            }
+
+            printTableHeader(headers, columnWidths);
+
+            // Print rows
+            for (T item : list) {
+                for (int i = 0; i < getters.size(); i++) {
+                    try {
+                        String valueString = String.valueOf(getters.get(i).invoke(item));
+                        System.out.printf("%-" + columnWidths.get(i) + "s ", valueString);
+                    } catch (Exception e) {
+                        System.out.print("Errore" + " ".repeat(columnWidths.get(i) - 6));
+                    }
+                }
+                System.out.println();
+            }
         }
 
-        printTableHeader(headers, columnWidths);
-
-        // rows
-        for (T item : list) {
-            for (int i = 0; i < getters.size(); i++) {
-                try {
-                    String valueString = String.valueOf(getters.get(i).invoke(item));
-                    System.out.printf("%-" + columnWidths.get(i) + "s ", valueString);
-                } catch (Exception e) {
-                    System.out.print("Errore" + " ".repeat(columnWidths.get(i) - 6));
-                }
+        private void printTableHeader(List<String> headers, List<Integer> columnWidths) {
+            for (int i = 0; i < headers.size(); i++) {
+                System.out.printf("\033[35m%-" + columnWidths.get(i) + "s ", headers.get(i));
             }
             System.out.println();
+
+            for (int width : columnWidths) {
+                System.out.print("-".repeat(width) + " ");
+            }
+            System.out.println("\033[0m");
+        }
+
+        private static List<Method> filterGetters(Method[] methods) {
+            return Arrays.stream(methods)
+                    .filter(m -> (m.getName().startsWith("get") || m.getName().startsWith("is")) && m.getParameterCount() == 0)
+                    .toList();
+        }
+
+        private static String getHeaderName(Method method) {
+            String name = method.getName();
+            if (name.startsWith("get")) {
+                return name.substring(3);
+            } else if (name.startsWith("is")) {
+                return name.substring(2);
+            }
+            return name;
         }
     }
 
-    private void printTableHeader(List<String> headers, List<Integer> columnWidths) {
-        for (int i = 0; i < headers.size(); i++) {
-            System.out.printf("\033[35m%-" + columnWidths.get(i) + "s ", headers.get(i));
-        }
-        System.out.println();
 
-        for (int width : columnWidths) {
-            System.out.print("-".repeat(width) + " ");
-        }
-        System.out.println("\033[0m");
-    }
-
-    private static List<Method> filterGetters(Method[] methods) {
-        return Arrays.stream(methods)
-                .filter(m -> m.getName().startsWith("get") && m.getParameterCount() == 0)
-                .toList();
-    }
-
-}

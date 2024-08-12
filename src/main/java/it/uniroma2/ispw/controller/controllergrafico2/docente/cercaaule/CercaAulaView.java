@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule;
 
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule.CercaAulaPerFiltriView;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule.CercaAulePerIdView;
@@ -15,9 +16,14 @@ import java.util.List;
 public class CercaAulaView extends TemplateView {
     CercaAulaPerFiltriView cercaAulaPerFiltriView = new CercaAulaPerFiltriView(this.usrBean);
 
-    CercaTutteLeAuleView cercaTutteLeAuleView = new CercaTutteLeAuleView();
+    CercaTutteLeAuleView cercaTutteLeAuleView = new CercaTutteLeAuleView(this.usrBean);
 
-    CercaAulePerIdView cercaAulePerIdView = new CercaAulePerIdView();
+    CercaAulePerIdView cercaAulePerIdView = new CercaAulePerIdView(this.usrBean);
+
+    public CercaAulaView(UserBean usrBean) {
+        super(usrBean);
+    }
+
     @Override
     public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
         int choice;

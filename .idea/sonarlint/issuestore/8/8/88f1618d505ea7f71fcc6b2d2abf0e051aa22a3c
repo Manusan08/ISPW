@@ -1,20 +1,2 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡õáüÿÿÿÿ8©æ¸“2
-q	java:S116"VRename this field "Descrizione" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€¯×'8‚©æ¸“2
-X
-java:S1068"6Remove this unused "idPrenotazioneAula" private field.(Œ Õøÿÿÿÿÿ8„©æ¸“2
-F
-java:S1068	"*Remove this unused "idAula" private field.(®”¤8„©æ¸“2
-K
-java:S1068
-")Remove this unused "email" private field.(ª«Õìùÿÿÿÿ8Òıæ¸“2
-K
-java:S1068".Remove this unused "oraLezione" private field.(Ğ‚¤â8…©æ¸“2
-N
-java:S1068"1Remove this unused "giornoLezione" private field.(˜Å˜œ8…©æ¸“2
-K
-java:S1068"/Remove this unused "Descrizione" private field.(€¯×'8…©æ¸“2
-L
-java:S1068"/Remove this unused "nomeDocente" private field.(Šô î8…©æ¸“2
-H
-java:S1068"+Remove this unused "materia" private field.(à¶ûÔ8…©æ¸“2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡õáüÿÿÿÿ8«ÈÎ¹”2

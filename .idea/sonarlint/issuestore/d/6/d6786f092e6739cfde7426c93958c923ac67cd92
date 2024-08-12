@@ -1,5 +1,5 @@
 
 â
-java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(â¢¥ü8Ä…‹∑ì2
-Y
-java:S1128"<Remove this unused import 'it.uniroma2.ispw.bean.LoginBean'.(ì»î…8µäá∏ì2
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(â¢¥ü8Ô∑π˛ï2
+d
+java:S1128"BRemove this unused import 'it.uniroma2.ispw.model.aula.AulaModel'.(âë¸…˙ˇˇˇˇ8Æ∏π˛ï2

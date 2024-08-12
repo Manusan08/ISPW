@@ -1,5 +1,18 @@
 
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ
-M
-java:S1068
-"+Remove this unused "aulaDAO" private field.(ºïÍ¸ÿÿÿÿÿ8‘ÀÔº“2
+£
+java:S1186?"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö–£Øüÿÿÿÿ8É­»º”2
+£
+java:S1186B"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü…¥Õıÿÿÿÿ8Ê­»º”2
+£
+java:S1186E"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(è±ş¸ÿÿÿÿÿ8Í­»º”2
+
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¯Şóœ8Ï­»º”2
+F
+java:S1172!")Remove this unused method parameter "us".(ÔİËë8Õ­»º”2
+L
+java:S1172;"*Remove this unused method parameter "pab".(˜ˆİşÿÿÿÿ8å­»º”2
+T
+java:S1135:"2Complete the task associated to this TODO comment.(İÒÏüúÿÿÿÿ8ç­»º”2
+I
+java:S1068",Remove this unused "postoDao" private field.(ÏÚ·û8ê­»º”2

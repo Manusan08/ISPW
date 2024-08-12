@@ -1,3 +1,5 @@
 
-_
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Ο¶Χ‚8…Ζ·“2
+W
+java:S1128":Remove this unused import 'it.uniroma2.ispw.enums.Orario'.(Φ…¨’8‘άβ‡–2
+M
+java:S1068"0Remove this unused "nomeStudente" private field.(Ρΐ½Ι8“άβ‡–2

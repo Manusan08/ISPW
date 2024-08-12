@@ -1,0 +1,10 @@
+
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(õ·™'8Úö»â“2
+H
+java:S1168"+Return an empty collection instead of null.(¥¹ï8Şö»â“2
+X	java:S125""<This block of commented-out lines of code should be removed.(ˆ¹Ô‚8§×»â“2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8ÄŸÁâ“2
+‡
+java:S1128"eRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.GestisciAuleController'.(ÊÎ¡âùÿÿÿÿ8ÄŸÁâ“2

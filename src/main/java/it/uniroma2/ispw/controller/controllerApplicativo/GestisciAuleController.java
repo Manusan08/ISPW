@@ -2,16 +2,10 @@ package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
-import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.util.ArrayList;

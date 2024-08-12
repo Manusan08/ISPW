@@ -5,7 +5,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
-import it.uniroma2.ispw.model.aula.dao.PrenotazioneAulaDBMS;
+import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.PrenotazioneAulaDao;
 import it.uniroma2.ispw.model.aula.dao.PrenotazioneAulaFS;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -20,7 +20,7 @@ public class GestisciPrenotazioneAulaController {
 
     public GestisciPrenotazioneAulaController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
-            prenotazioneAulaDao = new PrenotazioneAulaDBMS();
+            prenotazioneAulaDao = new AulaDBMS();
         } else {
             try {
                 prenotazioneAulaDao = new PrenotazioneAulaFS();

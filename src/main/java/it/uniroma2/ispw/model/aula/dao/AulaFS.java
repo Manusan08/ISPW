@@ -8,7 +8,7 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.util.List;
 
-public class PrenotazioneAulaFS implements PrenotazioneAulaDao {
+public class AulaFS implements AulaDAO {
     @Override
     public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
         return List.of();
@@ -36,10 +36,7 @@ public class PrenotazioneAulaFS implements PrenotazioneAulaDao {
         return null;
     }
 
-    @Override
-    public AulaModel getAulaByMateria(PrenotazioneAulaBean Id) throws ItemNotFoundException {
-        return null;
-    }
+
 
     @Override
     public AulaModel getAulaByMateria(String Id) throws ItemNotFoundException {

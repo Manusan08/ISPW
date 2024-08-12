@@ -16,3 +16,4 @@ public interface AulaDAO {
 
     public AulaModel getAulaByMateria(String Id) throws ItemNotFoundException;
 }
+

@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrenotazioneAulaDBMS implements PrenotazioneAulaDao {
+public class AulaDBMS implements AulaDAO {
     public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
 
         List<AulaModel> lista = new ArrayList<>();
@@ -203,10 +203,6 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDao {
         return aulaModel;
     }
 
-    @Override
-    public AulaModel getAulaByMateria(PrenotazioneAulaBean Id) throws ItemNotFoundException {
-        return null;
-    }
 
     public AulaModel getAulaByMateria(String nome) throws ItemNotFoundException {
         PreparedStatement statement = null;

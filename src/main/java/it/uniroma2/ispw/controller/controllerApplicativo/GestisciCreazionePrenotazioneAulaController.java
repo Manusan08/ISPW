@@ -3,7 +3,6 @@ package it.uniroma2.ispw.controller.controllerApplicativo;
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
-import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;

@@ -1,37 +1,18 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciAuleController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
 
-import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
-public class GestisciPrenotazioneView extends TemplateView {
-    public GestisciPrenotazioneView(UserBean usrBean) {
-    }
+public class GestisciPrenotazionePostoView extends TemplateView {
 
-    @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
-
-    }
-
-    @Override
-    protected List<String> getOptions() {
-        return null;
-    }
-
-    @Override
-    protected String getHeader() {
-        return null;
-    }
-/*
-    public GestisciPrenotazioneView(UserBean usrBean) {
+    public GestisciPrenotazionePostoView(UserBean usrBean) {
         super(usrBean);
     }
 
@@ -51,19 +32,24 @@ public class GestisciPrenotazioneView extends TemplateView {
         }
         System.exit(0);
     }
-
+    //come gestisco il caso in cui non è stato possibile eliminare la prenotazione?
     private void eliminaPrenotazione() {
-        AulaBean ab=new AulaBean();
+        PrenotazionePostoBean ppb=new PrenotazionePostoBean();
             try{
-                ab.setIdAula(getDesiredIn("id","inserisci l'id della prenotazione"));
-                new GestisciAuleController().removePrenotazione();
+                ppb.setIdPrenotazionePosto(getDesiredIn("id","inserisci l'id della prenotazione: "));
+                new GestisciPrenotazionePostoController().removePrenotazione(ppb);
             }catch (IOException e){
                 System.out.println("Impossibile leggere i dati ");
+            } catch (SQLException | ItemNotFoundException e) {
+                System.out.println(e.getMessage());
             }
     }
 
     void visualizzaPrenotazioni(){
-        new GestisciAuleController().getAllReservation();
+        PrenotazionePostoBean pb= new PrenotazionePostoBean();
+        pb.setEmail(this.usrBean.getEmail());
+        printTable(new GestisciPrenotazionePostoController().getAllReservation(pb));
+
     }
 
     @Override
@@ -76,5 +62,4 @@ public class GestisciPrenotazioneView extends TemplateView {
         return "GESTIONE PRENOTAZIONI";
     }
 
-*/
 }

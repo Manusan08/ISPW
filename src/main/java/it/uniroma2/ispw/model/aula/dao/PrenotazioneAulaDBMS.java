@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.model.aula.dao;
 
 import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AulaDBMS implements  AulaDAO{
+public class PrenotazioneAulaDBMS implements PrenotazioneAulaDao {
     public List<AulaModel> getAllAuleNumeroPosti(AulaBean aulaBean) throws SystemException {
 
         List<AulaModel> lista = new ArrayList<>();
@@ -201,6 +202,12 @@ public class AulaDBMS implements  AulaDAO{
 
         return aulaModel;
     }
+
+    @Override
+    public AulaModel getAulaByMateria(PrenotazioneAulaBean Id) throws ItemNotFoundException {
+        return null;
+    }
+
     public AulaModel getAulaByMateria(String nome) throws ItemNotFoundException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;

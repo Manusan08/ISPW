@@ -12,11 +12,22 @@ public class AulaModel {
     private boolean statoAula;
 
 
-    public AulaModel(String idAule, int posti) {
+    public AulaModel(String idAula, int posti) {
     }
 
     public AulaModel() {
 
+    }
+
+    public AulaModel(String idAula, int numeroPosti, boolean proiettore, boolean banchiDisegno, boolean computer) {
+        this.idAula = idAula;
+        this.numeroPosti = numeroPosti;
+        this.proiettore = proiettore;
+        this.banchiDisegno = banchiDisegno;
+        this.computer = computer;
+    }
+
+    public AulaModel(String idAula) {this.idAula=idAula;
     }
 
     public String getIdAula() {

@@ -4,8 +4,10 @@ import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class StudenteView extends TemplateView {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException {
+    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
         int choice;
         while (true) {
             choice = this.userChoice();

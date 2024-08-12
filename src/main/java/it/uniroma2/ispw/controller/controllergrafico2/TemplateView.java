@@ -3,6 +3,7 @@ package it.uniroma2.ispw.controller.controllergrafico2;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
@@ -20,7 +21,7 @@ import static java.lang.Integer.parseInt;
 
 public abstract class TemplateView {
     protected UserBean usrBean;
-    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException;
+    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException;
     protected abstract List<String> getOptions();
     protected abstract String getHeader();
 

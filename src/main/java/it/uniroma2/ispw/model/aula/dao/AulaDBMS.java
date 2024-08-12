@@ -19,6 +19,7 @@ public class AulaDBMS implements  AulaDAO{
         List<AulaModel> lista = new ArrayList<>();
         AulaModel aulaModel = null;
         Connection conn = ConnectionDB.getConnection();
+        boolean is;
 
         try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Aule  WHERE posti >= ?;");) {
             ps.setInt(1, aulaBean.getPosti());
@@ -27,6 +28,18 @@ public class AulaDBMS implements  AulaDAO{
                 aulaModel = new AulaModel();
                 aulaModel.setIdAula(rs.getString("idAula"));
                 aulaModel.setNumeroPosti(rs.getInt("posti"));
+                if (rs.getInt("lim")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setProiettore(is);
+                if (rs.getInt("computer")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setComputer(is);
+                if (rs.getInt("banchiDisegno")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setBanchiDisegno(is);
                 lista.add(aulaModel);
             }
             return lista;
@@ -41,8 +54,9 @@ public class AulaDBMS implements  AulaDAO{
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         AulaModel aulaModel = new AulaModel();
+        boolean is;
         try {
-            String sql = "select * from Aule where nome=?";
+            String sql = "select * from Aule where idAula=?";
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             statement.setString(1, nome);
@@ -50,8 +64,20 @@ public class AulaDBMS implements  AulaDAO{
 
             if(!resultSet.next()) throw new ItemNotFoundException("Nessun corso con nome: " + nome);
 
-            aulaModel.setIdAula(resultSet.getString("IdAula"));
-            aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
+            aulaModel.setIdAula(resultSet.getString("idAula"));
+            aulaModel.setNumeroPosti(resultSet.getInt("posti"));
+            if (resultSet.getInt("lim")==1){
+                 is= true;
+            }else {is=false;}
+            aulaModel.setProiettore(is);
+            if (resultSet.getInt("computer")==1){
+                is= true;
+            }else {is=false;}
+            aulaModel.setComputer(is);
+            if (resultSet.getInt("banchiDisegno")==1){
+                is= true;
+            }else {is=false;}
+            aulaModel.setBanchiDisegno(is);
 
 
         } catch (SystemException e) {
@@ -66,6 +92,7 @@ public class AulaDBMS implements  AulaDAO{
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<AulaModel> corsoList = new ArrayList<>();
+        boolean is;
         try {
             String sql = "select * from Aule";
 
@@ -75,7 +102,67 @@ public class AulaDBMS implements  AulaDAO{
             if (!resultSet.next()) return corsoList;
 
             do {
-                AulaModel c = new AulaModel(resultSet.getString("IdAule"), resultSet.getInt("Posti"));
+                AulaModel aulaModel = new AulaModel();
+                aulaModel.setIdAula(resultSet.getString("idAula"));
+                aulaModel.setNumeroPosti(resultSet.getInt("posti"));
+                if (resultSet.getInt("lim")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setProiettore(is);
+                if (resultSet.getInt("computer")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setComputer(is);
+                if (resultSet.getInt("banchiDisegno")==1){
+                    is= true;
+                }else {is=false;}
+                aulaModel.setBanchiDisegno(is);
+                corsoList.add(aulaModel);
+            } while (resultSet.next());
+
+        } catch (SystemException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return corsoList;
+    }
+
+    @Override
+    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<AulaModel> corsoList = new ArrayList<>();
+        int proiettore;
+        int computer;
+        int banchi;
+        try {
+            String sql = "select idAula from Aule where posti=? and lim=? and computer=? and banchiDisegno=? ";
+
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            statement.setInt(1, aulaM.getNumeroPosti());
+            if(aulaM.isProiettore()==true){
+                 proiettore=1;
+            }else{  proiettore=0;}
+
+            statement.setInt(2,proiettore);
+            if(aulaM.isComputer()==true){
+                computer=1;
+            }else{  computer=0;}
+
+            statement.setInt(3,computer);
+            if(aulaM.isBanchiDisegno()==true){
+                banchi=1;
+            }else{  banchi=0;}
+
+            statement.setInt(4,banchi);
+
+            resultSet = statement.executeQuery();
+
+            if (!resultSet.next()) return corsoList;
+
+            do {
+                AulaModel c = new AulaModel(resultSet.getString("idAula"));
                 corsoList.add(c);
             } while (resultSet.next());
 
@@ -86,6 +173,9 @@ public class AulaDBMS implements  AulaDAO{
         }
         return corsoList;
     }
+
+
+
     public AulaModel getAulaByCognome(String nome) throws ItemNotFoundException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;

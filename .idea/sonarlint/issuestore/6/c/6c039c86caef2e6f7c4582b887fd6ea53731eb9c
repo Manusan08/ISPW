@@ -1,24 +1,14 @@
 
-h
-java:S13012"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½8Â‡ò“2
-h
-java:S1301i"KReplace this "switch" statement by "if" statements to increase readability.(°Ì±½8Â‡ò“2
-n
-java:S1104"QMake login a static final constant or non-public and provide accessors if needed.(ß‘û¸8Ã‡ò“2
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8Ù×¥Œ“2
-q
-java:S1845 "ORename method "login" to prevent any misunderstanding/clash with field "login".(›ö—Êşÿÿÿÿ8İ‡ò“2
-t
-java:S1450"WRemove the "loginDAO" field and declare it as a local variable in the relevant methods.(¤¿ˆÿ8Ş‡ò“2
-^
-java:S11170"<Rename "loginDAO" which hides the field declared at line 31.(ÿëşËúÿÿÿÿ8å‡ò“2
-²
-java:S1130p"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.ItemNotFoundException', as it cannot be thrown from method's body.(Ô’¯æúÿÿÿÿ8ï‡ò“2
-
-java:S1130p"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ô’¯æúÿÿÿÿ8í‡ò“2
-³
-java:S1130†"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.ItemNotFoundException', as it cannot be thrown from method's body.(ßÍ¼ëøÿÿÿÿ8ò‡ò“2
-
-java:S1130†"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ßÍ¼ëøÿÿÿÿ8°ë“2
-I
-java:S1068",Remove this unused "loginDAO" private field.(¤¿ˆÿ8ô‡ò“2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8Ô¥¹·“2
+¬
+java:S11304"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.InvalidDataException', as it cannot be thrown from method's body.(¸–Æš8ë¥¹·“2
+U
+java:S1128"8Remove this unused import 'it.uniroma2.ispw.enums.Role'.(Ö˜ïå8ï¥¹·“2
+Z
+java:S1128"=Remove this unused import 'it.uniroma2.ispw.model.UserModel'.(×—8ï¥¹·“2
+b
+java:S1128"ERemove this unused import 'it.uniroma2.ispw.model.aula.dao.AulaDBMS'.(æ‘±°8ï¥¹·“2
+j
+java:S1128"MRemove this unused import 'it.uniroma2.ispw.utils.exception.SystemException'.(‰—ªÚ8©º·“2
+b
+java:S1128"ERemove this unused import 'javax.security.auth.login.LoginException'.(Ã·ŸÆ8©º·“2

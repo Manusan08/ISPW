@@ -1,5 +1,43 @@
 
+i
+java:S11926"LDefine a constant instead of duplicating this literal "NumeroPosti" 3 times.(œóÕÊ8şèœã“2
+u
+java:S11923"XDefine a constant instead of duplicating this literal "Nessun corso con nome: " 3 times.(òÂ€8şèœã“2
+d
+java:S11925"GDefine a constant instead of duplicating this literal "IdAula" 3 times.(ù—Èå8şèœã“2
+m
+java:S2095‘"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8„©Ôã“2
+l
+java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8€©Ôã“2
+l
+java:S2095H"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8„©Ôã“2
+l
+java:S2095e"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8…©Ôã“2
+m
+java:S2095ª"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8ú“áä“2
 a
-java:S2147;"DCombine this catch with the one at line 57, which has the same body.(É®£8Ñ¦Ğ“2
+java:S2147;"DCombine this catch with the one at line 57, which has the same body.(É®£8¼éœã“2
+R
+java:S2209/"5Change this instance-reference to a static reference.(¡è«8¼éœã“2
 a
-java:S2147T"DCombine this catch with the one at line 82, which has the same body.(É®£8×¦Ğ“2
+java:S2147T"DCombine this catch with the one at line 82, which has the same body.(É®£8Àéœã“2
+R
+java:S2209H"5Change this instance-reference to a static reference.(¡è«8Âéœã“2
+c
+java:S2147‚"ECombine this catch with the one at line 128, which has the same body.(É®£8Æéœã“2
+R
+java:S2209e"5Change this instance-reference to a static reference.(¡è«8Çéœã“2
+I
+java:S1125g"'Remove the unnecessary boolean literal.(û°Ì¢ÿÿÿÿÿ8Èéœã“2
+I
+java:S1125l"'Remove the unnecessary boolean literal.(”ş¡Ïşÿÿÿÿ8Ééœã“2
+I
+java:S1125q"'Remove the unnecessary boolean literal.(‚Ä­èúÿÿÿÿ8Ééœã“2
+c
+java:S2147"ECombine this catch with the one at line 155, which has the same body.(É®£8Ìéœã“2
+S
+java:S2209‘"5Change this instance-reference to a static reference.(¡è«8Íéœã“2
+c
+java:S2147¶"ECombine this catch with the one at line 180, which has the same body.(É®£8Ñéœã“2
+S
+java:S2209ª"5Change this instance-reference to a static reference.(¡è«8Óéœã“2

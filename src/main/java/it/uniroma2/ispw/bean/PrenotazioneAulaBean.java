@@ -1,6 +1,8 @@
 package it.uniroma2.ispw.bean;
 
 
+import it.uniroma2.ispw.enums.Orario;
+
 import java.util.Date;
 
 public class PrenotazioneAulaBean {
@@ -47,6 +49,10 @@ public class PrenotazioneAulaBean {
     }
 
     public void setDescrizione(String message) {
+    }
+
+    public void setOrario(Orario orario) {
+
     }
 }
 

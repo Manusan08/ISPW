@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
@@ -9,11 +10,10 @@ import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaFS;
 
-public class GestisciPrenotazioneAulaController {
+public class GestisciCreazionePrenotazioneAulaController {
     private AulaDAO aulaDAO;
     private PrenotazioneAulaDAO prenotazioneAulaDAO;
-
-    public GestisciPrenotazioneAulaController() {
+    public GestisciCreazionePrenotazioneAulaController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             aulaDAO = new AulaDBMS();
             prenotazioneAulaDAO = new PrenotazioneAulaDBMS();
@@ -28,10 +28,11 @@ public class GestisciPrenotazioneAulaController {
 
         }
     }
-     public void VisualizzaLeTuePrenotaizoni(){
+    public void VerificaDisponiblitàByID(String iDAula){
 
-     }
-     public void VisualizzaPrenotazionePerID(){}
-    public void ModificaPrenotazione(){}
-    public void EliminaPrenotazione(){}
+    }
+    public PrenotazioneAulaBean PrenotaAulaById(String iDAula){
+        PrenotazioneAulaBean prenotazioneAulaBean= new PrenotazioneAulaBean();
+        return prenotazioneAulaBean;
+    }
 }

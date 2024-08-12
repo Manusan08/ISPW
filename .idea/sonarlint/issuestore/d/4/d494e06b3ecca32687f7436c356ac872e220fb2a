@@ -1,5 +1,15 @@
 
-x
-java:S2159/"VRemove this call to "equals"; comparisons between unrelated types always return false.(Ş’¯üÿÿÿÿ8öüĞ“2
-L
-java:S2093$"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8øüĞ“2
+O
+java:S1128"2Remove this unused import 'com.opencsv.CSVReader'.(‚á•Æ8ÈÅî·“2
+Z
+java:S1128">Remove this unused import 'it.uniroma2.ispw.utils.DateParser'.(™óÀ-8ÉÅî·“2
+u
+java:S1128	"SRemove this unused import 'it.uniroma2.ispw.utils.exception.ItemNotFoundException'.(ı¨èËûÿÿÿÿ8ÉÅî·“2
+P
+java:S1128"3Remove this unused import 'java.io.BufferedReader'.(€é²Å8ÉÅî·“2
+Q
+java:S1128"/Remove this unused import 'java.io.FileReader'.(Â¡¢äşÿÿÿÿ8ÉÅî·“2
+G
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÊÅî·“2
+U
+java:S1144)"8Remove this unused private "setUtenteFromRecord" method.(õ±¾8ˆ†â·“2

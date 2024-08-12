@@ -3,14 +3,35 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.List;
 
 public class GestisciPrenotazioniView extends TemplateView {
     public GestisciPrenotazioniView(UserBean usrBean) {
+    }
+
+    @Override
+    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+        
+    }
+
+    @Override
+    protected List<String> getOptions() {
+        return null;
+    }
+
+    @Override
+    protected String getHeader() {
+        return null;
+    }
+ /*   public GestisciPrenotazioniView(UserBean usrBean) {
     }
 
     public void control() throws IOException {
@@ -48,14 +69,14 @@ public class GestisciPrenotazioniView extends TemplateView {
     private boolean modificaDescrizione(PrenotazioneAulaBean pb) throws IOException {
         String message = getDesiredIn("Modifica descrizione", "inserisci il messaggio ");
         pb.setDescrizione(message);
-        return new GestisciPrenotazioneAulaController().modificaDescrizionePrenotazione(pb);
+        return new GestisciAuleController().modificaDescrizionePrenotazione(pb);
     }
 
     private void eliminaPrenotazione() {
         PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
         try {
             pb.setIdPrenotazione(getDesiredIn("id", "inserisci l'id della prenotazione"));
-            new GestisciPrenotazioneAulaController().removePrenotazione();
+            new GestisciAuleController().removePrenotazione();
         } catch (IOException e) {
             System.out.println("Impossibile leggere i dati ");
         }
@@ -63,7 +84,7 @@ public class GestisciPrenotazioniView extends TemplateView {
 
     private void mostraPrenotazioni(UserBean usrBean) {
         UserBean us = new UserBean(this.usrBean.getEmail(), this.usrBean.getNome());
-        printTable(new GestisciPrenotazioneAulaController().getPrenotazioneByName(us));
+        printTable(new GestisciAuleController().getPrenotazioneByName(us));
     }
 
     @Override
@@ -75,7 +96,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     protected String getHeader() {
         return "Gestione Prenotazioni";
     }
-
+*/
 
 
 }

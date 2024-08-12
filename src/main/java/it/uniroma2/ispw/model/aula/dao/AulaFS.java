@@ -19,6 +19,13 @@ public class AulaFS implements  AulaDAO{
     }
 
     @Override
+    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) {
+        return null;
+    }
+
+
+
+    @Override
     public AulaModel getAulaById(String Id) throws ItemNotFoundException {
         return null;
     }

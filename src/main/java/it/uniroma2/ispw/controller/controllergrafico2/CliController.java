@@ -9,6 +9,7 @@ import it.uniroma2.ispw.bean.UserBean;
 
 
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
@@ -16,7 +17,7 @@ import java.io.IOException;
 
 public class CliController {
 
-    public void start() throws SystemException, InvalidDataException, IOException, LoginException {
+    public void start() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
         UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

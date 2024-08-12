@@ -10,8 +10,7 @@ public class AulaBean {
 
 
 
-    private Orario orarioLezione;
-    private Date giornoLezione;
+
     private String idAula;
     private int posti;
     private boolean proiettore;
@@ -26,7 +25,7 @@ public class AulaBean {
 
     }
 
-    private boolean prenotata;
+
 
     public AulaBean(){}
     public AulaBean(int posti){
@@ -34,17 +33,40 @@ public class AulaBean {
     }
 
 
-
-
-
-
-
-    public boolean isPrenotata() {
-        return prenotata;
+    public AulaBean(String idAula, int posti, boolean proiettore, boolean banchiDisegno, boolean computer) {
+        this.idAula = idAula;
+        this.posti = posti;
+        this.proiettore = proiettore;
+        this.banchiDisegno = banchiDisegno;
+        this.computer = computer;
     }
 
-    public void setPrenotata(boolean prenotata) {
-        this.prenotata = prenotata;
+    public boolean isProiettore() {
+        return proiettore;
+    }
+
+    public boolean isBanchiDisegno() {
+        return banchiDisegno;
+    }
+
+    public void setBanchiDisegno(boolean banchiDisegno) {
+        this.banchiDisegno = banchiDisegno;
+    }
+
+    public boolean isComputer() {
+        return computer;
+    }
+
+    public void setComputer(boolean computer) {
+        this.computer = computer;
+    }
+
+    public boolean isStatoAula() {
+        return statoAula;
+    }
+
+    public void setStatoAula(boolean statoAula) {
+        this.statoAula = statoAula;
     }
 
 
@@ -60,13 +82,6 @@ public class AulaBean {
 
 
 
-    public Orario getOrarioLezione() {
-        return orarioLezione;
-    }
-
-    public void setOrarioLezione(Orario orarioLezione) {
-        this.orarioLezione = orarioLezione;
-    }
 
     public int getPosti() {
         return posti;
@@ -77,4 +92,6 @@ public class AulaBean {
     }
 
 
+    public void setProiettore(boolean proiettoreRichiesto) {this.proiettore=proiettoreRichiesto;
+    }
 }

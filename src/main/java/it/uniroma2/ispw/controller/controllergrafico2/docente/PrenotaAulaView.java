@@ -1,11 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
-import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 

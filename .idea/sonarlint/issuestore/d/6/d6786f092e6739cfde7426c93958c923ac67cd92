@@ -1,26 +1,5 @@
 
-L	java:S106'"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8§¸É˜’2
-L	java:S106("+Replace this use of System.out by a logger.(„şğ•øÿÿÿÿ8¨¸É˜’2
-G	java:S106+"+Replace this use of System.out by a logger.(×•œ²8ª¸É˜’2
-L	java:S106-"+Replace this use of System.out by a logger.(Óû¶Êûÿÿÿÿ8«¸É˜’2
-F	java:S106."+Replace this use of System.out by a logger.(ºçy8¬¸É˜’2
-L	java:S1065"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8…¹É˜’2
-L	java:S1066"+Replace this use of System.out by a logger.(©Í–úÿÿÿÿ8…¹É˜’2
-G	java:S1068"+Replace this use of System.out by a logger.(â¤†8‡¹É˜’2
-L	java:S106<"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8ˆ¹É˜’2
-G	java:S106="+Replace this use of System.out by a logger.(‘âÙ•8ˆ¹É˜’2
-L	java:S106B"+Replace this use of System.out by a logger.(¬È°»ùÿÿÿÿ8Š¹É˜’2
-F	java:S106F"+Replace this use of System.out by a logger.(Ë¤Í8Œ¹É˜’2
-G	java:S106R"+Replace this use of System.out by a logger.(Î¬Åõ8¹É˜’2
-L	java:S106X"+Replace this use of System.out by a logger.(ô¾µªúÿÿÿÿ8”¹É˜’2
-]
-java:S3457{"AFormat specifiers should be used instead of string concatenation.(ı“‡\8§¹É˜’2
-F	java:S106{"+Replace this use of System.out by a logger.(ı“‡\8¨¹É˜’2
-L	java:S106}"+Replace this use of System.out by a logger.(íîÓùÿÿÿÿ8¼¹É˜’2
-M	java:S106€"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8À¹É˜’2
-d
-java:S3457†"AFormat specifiers should be used instead of string concatenation.(Ü¼¯€şÿÿÿÿ8Æ¹É˜’2
-M	java:S106†"+Replace this use of System.out by a logger.(Ü¼¯€şÿÿÿÿ8È¹É˜’2
-M	java:S106ˆ"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8Ê¹É˜’2
-H	java:S106‹"+Replace this use of System.out by a logger.(‚ûÕÖ8Ì¹É˜’2
-M	java:S106"+Replace this use of System.out by a logger.(§ï±¼øÿÿÿÿ8Î¹É˜’2
+‰
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(‰¢´Ÿ8€ÉÜ·“2
+Y
+java:S1128"<Remove this unused import 'it.uniroma2.ispw.bean.LoginBean'.(“È”É8µŠ‡¸“2

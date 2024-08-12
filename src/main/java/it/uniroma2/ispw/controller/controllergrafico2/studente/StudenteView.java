@@ -42,6 +42,5 @@ public class StudenteView extends TemplateView {
         return "STUDENTE";
     }
 
-
 }
 

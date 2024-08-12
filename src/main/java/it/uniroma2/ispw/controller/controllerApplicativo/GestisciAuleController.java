@@ -4,6 +4,7 @@ import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
+import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;

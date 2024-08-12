@@ -96,5 +96,9 @@ public class PrenotazioneAulaBean {
     public void setOrario(Orario orario) {
 
     }
+
+    public void setOrarioLezione(java.sql.Date dataLezione) {
+
+    }
 }
 

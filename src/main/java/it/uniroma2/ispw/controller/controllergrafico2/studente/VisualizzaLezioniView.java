@@ -2,9 +2,10 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazioneAulaController;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
+import it.uniroma2.ispw.controller.controllerApplicativo.GestisciCreazionePrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.utils.DateParser;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -39,12 +40,12 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazionePostoController().getAuleByMateria(pab));
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAulaByProfessore(pab));
         }
 
 
     private void carcaPerOrario() {
-        /*PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
+        PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
         try {
             pab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("data lezione", "inserisci data e ora nel formato gg/mm/yyyy")));
         } catch (IOException e) {
@@ -52,8 +53,8 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazionePostoController().getAuleByMateria(pab));
-    */
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAulaByOrario(pab));
+
     }
 
 
@@ -64,7 +65,7 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazioneAulaController().getAuleByMateria(pab));
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAuleByMateria(pab));
     }
 
     @Override

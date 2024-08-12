@@ -34,7 +34,6 @@ public class GestisciPrenotazionePostoController {
         return List.of();
     }
 
-    //come gestire gli errori
     public void removePrenotazione(PrenotazionePostoBean pb) throws ItemNotFoundException, SQLException {
 
         PrenotazionePostoModel ppm=prenotazionePostoDao.getPrenotazioneByid(pb.getIdPrenotazionePosto());

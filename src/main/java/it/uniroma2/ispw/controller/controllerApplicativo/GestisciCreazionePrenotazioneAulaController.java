@@ -15,7 +15,7 @@ import java.util.List;
 
 public class GestisciCreazionePrenotazioneAulaController {
     private AulaDAO aulaDAO;
-
+    private int asd=0;
 
     private PrenotazioneAulaDAO prenotazioneAulaDAO;
     public GestisciCreazionePrenotazioneAulaController() {

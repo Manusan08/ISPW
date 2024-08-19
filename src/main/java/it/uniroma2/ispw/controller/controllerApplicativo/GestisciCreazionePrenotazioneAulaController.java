@@ -15,6 +15,8 @@ import java.util.List;
 
 public class GestisciCreazionePrenotazioneAulaController {
     private AulaDAO aulaDAO;
+
+
     private PrenotazioneAulaDAO prenotazioneAulaDAO;
     public GestisciCreazionePrenotazioneAulaController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {

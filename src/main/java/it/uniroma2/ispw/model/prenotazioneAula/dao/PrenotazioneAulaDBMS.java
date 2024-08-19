@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.model.prenotazioneAula.dao;
 
-import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
+import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserBean usr) throws SQLException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException {
         List<PrenotazioneAulaModel> prenotazioniAuleModel = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -57,12 +57,11 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
     }
 
 
-
     @Override
     public int getCapienzaAula(PrenotazioneAulaModel pam) throws SQLException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-        int posti=0;
+        int posti = 0;
         try {
             String sql = "select posti from aule where idAula=? ;";
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
@@ -70,9 +69,9 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
             statement.setString(1, pam.getIdAula());
 
             resultSet = statement.executeQuery();
-            if(resultSet.next()){
-                posti=resultSet.getInt("posti");
-            }else {
+            if (resultSet.next()) {
+                posti = resultSet.getInt("posti");
+            } else {
                 throw new RuntimeException("Nessuna corrispondenza trovata con: " + pam.getIdAula());
             }
 
@@ -82,6 +81,42 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
             throw new RuntimeException(e);
         }
         return posti;
+    }
+
+    @Override
+    public List<PrenotazioneAulaModel> getAvailableClass() {
+        List<PrenotazioneAulaModel> pams = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            String sql = "SELECT a.idAula, f.oraLezione " +
+                    "FROM (SELECT DISTINCT oraLezione FROM stantoPrato.ProfessorePrenotaAula) f " +
+                    "CROSS JOIN stantoPrato.Aule a " +
+                    "LEFT JOIN stantoPrato.ProfessorePrenotaAula p " +
+                    "ON a.idAula = p.Aule_idAula " +
+                    "AND p.oraLezione = f.oraLezione " +
+                    "AND p.dataLezione = CURDATE() " +
+                    "WHERE p.idPrenotazioneAula IS NULL " +
+                    "GROUP BY a.idAula, f.oraLezione " +
+                    "ORDER BY a.idAula, f.oraLezione;";
+
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                PrenotazioneAulaModel pam = new PrenotazioneAulaModel();
+                pam.setIdAula(resultSet.getString("idAula"));
+                pam.setOraLezione(resultSet.getString("oraLezione"));
+                pams.add(pam);
+            }
+        } catch (SystemException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return pams;
     }
 
 

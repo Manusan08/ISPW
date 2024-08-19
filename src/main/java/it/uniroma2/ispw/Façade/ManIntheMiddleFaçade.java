@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.Façade;
 
+import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -49,18 +50,17 @@ public class ManIntheMiddleFaçade {
 
     public List<PostoBean> getPostiBean(PrenotazioneAulaBean pab) throws SQLException {
         createPrenotazionePostoSubject(pab);
-
         return postoObserverToPostoBean(this.prenotazionePostoSubject.getObservers());
 
     }
 
     public String insertPostoIntodb(PostoBean postoBean, PrenotazioneAulaBean pab, UserBean usb) throws SystemException, SQLException {
-        return this.gestisciPrenotazionePostoController.prenotaPosto(postoBean, pab, usb);
+        UserModel usm= usrBeanToUsrModel(usb);
+        return this.gestisciPrenotazionePostoController.prenotaPosto(postoBean, pab, usm);
     }
 
 
     public List<PostoBean> selezionaPosto(PrenotazionePostoContext ppc) {
-
         PostoObserver postoObserver1;
         postoObserver1 = isPostoInList(this.prenotazionePostoSubject.getObservers(), ppc);
 
@@ -84,7 +84,9 @@ public class ManIntheMiddleFaçade {
 
 
     public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws SQLException {
-        return this.gestisciCreazionePrenotazioneAulaController.getBookedClassByteacherNameAndSubject(pab, userBean);
+        UserModel usm=usrBeanToUsrModel(userBean);
+
+        return this.gestisciCreazionePrenotazioneAulaController.getBookedClassByteacherNameAndSubject(pab, usm);
     }
 
     public int getCapienzaAula(String pab) throws SQLException {
@@ -92,8 +94,14 @@ public class ManIntheMiddleFaçade {
 
     }
 
+    public List<PrenotazioneAulaBean>getAvailableClass(){
+       return this.gestisciCreazionePrenotazioneAulaController.getAvailableClass();
+
+    }
+
     public UserModel usrBeanToUsrModel(UserBean us) {
         return new UserModel(us.getEmail(), us.getRuolo(), us.getNome());
     }
+
 }
 

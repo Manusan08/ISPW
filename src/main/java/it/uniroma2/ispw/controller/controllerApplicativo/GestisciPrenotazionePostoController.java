@@ -9,6 +9,7 @@ import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Obse
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.PostoObserver;
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.PrenotazionePostoSubject;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
+import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
@@ -47,14 +48,14 @@ public class GestisciPrenotazionePostoController {
         }
     }
 
-    public String prenotaPosto(PostoBean pb, PrenotazioneAulaBean pab, UserBean usrBean) throws SystemException, SQLException {
+    public String prenotaPosto(PostoBean pb, PrenotazioneAulaBean pab, UserModel usrm) throws SystemException, SQLException {
 
         String idPrenotazione = RandomStringUtils.randomAlphanumeric(15);
 
         PrenotazionePostoModel ppm = new PrenotazionePostoModel(
                 idPrenotazione,
                 pb.getIdAula(),
-                usrBean.getEmail(),
+                usrm.getEmail(),
                 pb.getPostoId(),
                 pab.getIdPrenotazioneAula()
         );

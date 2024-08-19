@@ -1,12 +1,15 @@
 package it.uniroma2.ispw.controller.controllerApplicativo;
 
 import it.uniroma2.ispw.Main;
+import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.factory.ConcretePrenotazioneAulaFactory;
 import it.uniroma2.ispw.controller.controllerApplicativo.factory.PrenotazioneAula;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.ConfermPrenotazioneView;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
+import it.uniroma2.ispw.model.UserModel;
+import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
@@ -70,7 +73,7 @@ public class GestisciCreazionePrenotazioneAulaController {
     public List<Object> getAulaByOrario(PrenotazioneAulaBean pab) {
         return new ArrayList<>();
     }
-    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean,UserBean usr) throws SQLException, SQLException {
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, SQLException {
         List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
         PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getMateria());
 
@@ -109,5 +112,18 @@ public class GestisciCreazionePrenotazioneAulaController {
         pam.setIdAula(aulaId);
 
         return prenotazioneAulaDAO.getCapienzaAula(pam);
+    }
+
+    public List<PrenotazioneAulaBean> getAvailableClass() {
+        List<PrenotazioneAulaModel> aulaModels  =prenotazioneAulaDAO.getAvailableClass();
+        List<PrenotazioneAulaBean> pabs = new ArrayList<>();
+        for (PrenotazioneAulaModel aulaModel : aulaModels) {
+            PrenotazioneAulaBean prab =new PrenotazioneAulaBean();
+            prab.setIdAula(aulaModel.getIdAula());
+            prab.setOraLezione(aulaModel.getOraLezione());
+            pabs.add(prab);
+        }
+        return pabs;
+
     }
 }

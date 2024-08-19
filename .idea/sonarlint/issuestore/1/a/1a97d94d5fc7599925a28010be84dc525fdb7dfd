@@ -1,17 +1,13 @@
 
 K
-java:S1121c".Extract the assignment out of this expression.(¨‹ýˆ8œ™ðþ•2
-`
-java:S2583c"CChange this condition so that it does not always evaluate to "true"(¨‹ýˆ8âšðþ•2
+java:S1121e".Extract the assignment out of this expression.(¨‹ýˆ8…™õÏ–2
 T
-java:S1854c"7Remove this useless assignment to local variable "vif".(¨‹ýˆ8ôšðþ•2
+java:S1854e"7Remove this useless assignment to local variable "vif".(¨‹ýˆ8”™õÏ–2
 T
-java:S1854b"7Remove this useless assignment to local variable "vif".(©ç¤ÿ8õšðþ•2
-±
-java:S1130"ŽRemove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.InvalidDataException', as it cannot be thrown from method's body.(£˜´–ýÿÿÿÿ8öšðþ•2
+java:S1854d"7Remove this useless assignment to local variable "vif".(©ç¤ÿ8”™õÏ–2
+X	java:S125C"<This block of commented-out lines of code should be removed.(­ù¾á8£™õÏ–2
+X	java:S125F"<This block of commented-out lines of code should be removed.(‚Ñô8¥™õÏ–2
 E
-java:S1481b"(Remove this unused "vif" local variable.(©ç¤ÿ8‹›ðþ•2
+java:S1481d"(Remove this unused "vif" local variable.(©ç¤ÿ8«™õÏ–2
 x
-java:S3923c"[Remove this conditional structure or edit its code blocks so that they're not all the same.(¨‹ýˆ8‹›ðþ•2
-M
-java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8±ß˜Š–2
+java:S3923e"[Remove this conditional structure or edit its code blocks so that they're not all the same.(¨‹ýˆ8­™õÏ–2

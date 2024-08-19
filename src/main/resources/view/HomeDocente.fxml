@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="$CONTROLLER_NAME$">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
+      <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Pic2.png" />
+         </image></ImageView>
+      <Button layoutX="300.0" layoutY="48.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Gestisci Prenotazione" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutY="48.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Cerca Aula" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 80%;">
+         <image>
+            <Image url="@../images/ateneo.jpg" />
+         </image></ImageView>
+
+   </children>
+</AnchorPane>

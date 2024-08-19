@@ -1,6 +1,14 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(í—±îÿÿÿÿÿ8¹ó’·“2
-j
-java:S1128"HRemove this unused import 'it.uniroma2.ispw.bean.PrenotazionePostoBean'.(àÏ—øÿÿÿÿ8²¤œ…–2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(í—±îÿÿÿÿÿ8§€Ñ–2
+|
+java:S1128"_Remove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context'.(Ú®¤˜8Â€Ñ–2
+‡
+java:S1128"jRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer'.(”äĞ£8Ã€Ñ–2
+‰
+java:S1128"gRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Subject'.(Ó¿ë—şÿÿÿÿ8Ã€Ñ–2
+Š
+java:S1128"mRemove this unused import 'it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext'.(º¦É™8Å€Ñ–2
+f
+java:S1128"DRemove this unused import 'it.uniroma2.ispw.model.posto.PostoModel'.(±ãƒ‡úÿÿÿÿ8Æ€Ñ–2
 M
-java:S1068"0Remove this unused "nomeStudente" private field.(ÑÀ½É8¹¤œ…–2
+java:S1068"0Remove this unused "nomeStudente" private field.(ÑÀ½É8Æ€Ñ–2

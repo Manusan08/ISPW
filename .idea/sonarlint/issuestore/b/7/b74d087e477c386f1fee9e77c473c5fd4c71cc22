@@ -1,0 +1,11 @@
+
+J
+java:S1066O"/Merge this if statement with the enclosing one.(«âÍ£ÿÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(†ÿ†±
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š…¾Úøÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(”Åç‚úÿÿÿÿ
+A
+java:S1168H"+Return an empty collection instead of null.(¥¹ï
+G
+java:S1068"1Remove this unused "postoObserver" private field.(²Ã¶ş

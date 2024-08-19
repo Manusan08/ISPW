@@ -6,10 +6,12 @@ import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
+import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaFS;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,5 +51,29 @@ public class GestisciCreazionePrenotazioneAulaController {
 
     public List<Object> getAulaByOrario(PrenotazioneAulaBean pab) {
         return new ArrayList<>();
+    }
+
+
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean) throws SQLException {
+        List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
+        PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getNomeMateria());
+
+        List<PrenotazioneAulaModel> pams;
+        pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam);
+
+        for (PrenotazioneAulaModel prenotazione : pams) {
+            PrenotazioneAulaBean pab = new PrenotazioneAulaBean(
+                    prenotazione.getIdPrenotazioneAula(),
+                    prenotazione.getNomeProfessore(),
+                    prenotazione.getDatalezione(),
+                    prenotazione.getOraLezione(),
+                    prenotazione.getDescrizione(),
+                    prenotazione.getMateria(),
+                    prenotazione.getiDaula()
+            );
+
+            prenotazioneAule.add(pab);
+        }
+        return  prenotazioneAule;
     }
 }

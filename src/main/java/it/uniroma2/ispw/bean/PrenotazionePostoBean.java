@@ -5,6 +5,8 @@ import it.uniroma2.ispw.enums.Orario;
 import java.util.Date;
 
 public class PrenotazionePostoBean {
+
+    private String idPrenotazioneAula;
     private  String idPrenotazionePosto;
     private String idAula;
     private String idPosto;
@@ -15,7 +17,7 @@ public class PrenotazionePostoBean {
     private String email;
     private  String nomeDocente;
 
-    public PrenotazionePostoBean(String nomeDocente,String idPosto, String idAula, String materia, Date giornoLezione, String oraLezione, String idPrenotazionePosto) {
+    public PrenotazionePostoBean(String nomeDocente,String idPosto, String idAula, String materia, Date giornoLezione, String oraLezione, String idPrenotazionePosto,String idPrenotazioneAula) {
         this.idPosto=idPosto;
         this.idAula=idAula;
         this.materia=materia;
@@ -23,6 +25,7 @@ public class PrenotazionePostoBean {
         this.oraLezione=oraLezione;
         this.idPrenotazionePosto=idPrenotazionePosto;
         this.nomeDocente=nomeDocente;
+        this.idPrenotazioneAula=idPrenotazioneAula;
 
     }
 
@@ -90,11 +93,11 @@ public class PrenotazionePostoBean {
     }
 
 
-    public String getEmail() {
-       return this.email;
-    }
-
     public void setEmail(String email) {
         this.email=email;
+    }
+
+    public String getidPrenotazioneAula() {
+        return idPrenotazioneAula;
     }
 }

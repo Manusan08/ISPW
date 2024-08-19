@@ -1,14 +1,36 @@
 package it.uniroma2.ispw.model.posto;
 
+import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
+import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
+import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Status;
+import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
+import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+
 public class PostoModel {
 
     String postoId;
-    boolean stato;
-    String  idAula;
+    boolean isPrenotato;
+    PrenotazionePostoModel ppm;
+    String idAula;
 
-    public PostoModel(String idPosto, String idAula) {
+    public PostoModel() {
+        isPrenotato = false;
     }
 
+    public PostoModel(String idPosto, PrenotazionePostoModel ppm) {
+        this.postoId = idPosto;
+        this.ppm = ppm;
+        isPrenotato = false;
+    }
+
+
+    public void setPpm(PrenotazionePostoModel ppm) {
+        this.ppm = ppm;
+    }
+
+    public void setPrenotato(boolean prenotato) {
+        isPrenotato = prenotato;
+    }
 
     public String getIdAula() {
         return idAula;
@@ -26,12 +48,9 @@ public class PostoModel {
         this.postoId = postoId;
     }
 
-    public boolean isStato() {
-        return stato;
+    public boolean isPrenotato() {
+        return isPrenotato;
     }
 
-    public void setStato(boolean stato) {
-        this.stato = stato;
-    }
 }
 

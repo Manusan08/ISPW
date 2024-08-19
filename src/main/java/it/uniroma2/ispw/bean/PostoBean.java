@@ -1,9 +1,27 @@
 package it.uniroma2.ispw.bean;
 
+import it.uniroma2.ispw.enums.Orario;
+
+import java.sql.Date;
+
 public class PostoBean {
     private String idPosto;
-
     private String idAula;
+    private boolean isPrenotato;
+
+
+
+    public PostoBean(String idPosto,String idAula, boolean isPrenotato) {
+        this.idPosto=idPosto;
+        this.isPrenotato=isPrenotato;
+        this.idAula=idAula;
+    }
+
+    public PostoBean() {
+
+    }
+
+
 
     public String getIdAula() {
         return idAula;
@@ -21,13 +39,15 @@ public class PostoBean {
         this.idPosto = idPosto;
     }
 
-    public boolean isStatoPosto() {
-        return statoPosto;
+    public boolean isPrenotato() {
+        return isPrenotato;
     }
 
-    public void setStatoPosto(boolean statoPosto) {
-        this.statoPosto = statoPosto;
+    public void setIsPrenotato(boolean statoPosto) {
+        this.isPrenotato = statoPosto;
     }
 
-    private boolean statoPosto;
+    public String getPostoId() {
+        return  this.idPosto;
+    }
 }

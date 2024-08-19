@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.model.prenotazionePosto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class PrenotazionePostoFS implements PrenotazionePostoDAO {
     }
 
     @Override
-    public List<PrenotazionePostoModel> getAllReservations(PrenotazionePostoBean pb) {
+    public List<PrenotazionePostoModel> getAllReservations(UserBean us) {
         return List.of();
     }
 
@@ -24,6 +25,11 @@ public class PrenotazionePostoFS implements PrenotazionePostoDAO {
 
     @Override
     public PrenotazionePostoModel getPrenotazioneByid(String idPrenotazionePosto) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public String inserisciPrenotazione(PrenotazionePostoModel ppm) {
         return null;
     }
 

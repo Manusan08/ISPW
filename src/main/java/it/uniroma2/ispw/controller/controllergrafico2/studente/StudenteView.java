@@ -8,17 +8,18 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
     GestisciPrenotazionePostoView gestisciPrenotazioniPosto =new GestisciPrenotazionePostoView(this.usrBean);
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
-    PrenotaPostoView prenotaPosto=new PrenotaPostoView();
+    PrenotaPostoView prenotaPosto=new PrenotaPostoView(this.usrBean);
     public StudenteView(UserBean userBean) {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException {
+    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException, SQLException {
         int choice;
         while (true) {
             choice = this.userChoice();

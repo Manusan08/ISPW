@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.Properties;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -27,7 +28,7 @@ public class Main extends Application {
         return persistenceLayer;
     }
 
-    public static void main(String[] args) throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+    public static void main(String[] args) throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
         setPersistenceLayerAndUi();
         if (Main.ui.equals(TypesOfUIs.JAVAFX))
             launch();

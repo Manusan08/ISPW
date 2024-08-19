@@ -14,10 +14,11 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CliController {
 
-    public void start() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+    public void start() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
         UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

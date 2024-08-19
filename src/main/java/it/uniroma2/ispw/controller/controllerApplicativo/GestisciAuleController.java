@@ -62,9 +62,6 @@ public class GestisciAuleController {
 
         AulaModel c = aulaDAO.getAulaById(idaula);
         AulaBean cb = new AulaBean(c.getIdAula(), c.getNumeroPosti(), c.isComputer(), c.isProiettore(), c.isBanchiDisegno());
-
-
-
         return cb;
 
     }

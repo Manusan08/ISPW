@@ -112,23 +112,7 @@ public class PrenotazionePostoModel {
     }
 
     //-----------------------------DA QUI NUOVA PARTE----------------------------------------
-    private void setStatus(Status s) {
-        if (this.status != s) {
-            this.status = s;
-        }
-    }
 
-    public void setStatusEffettuata() {
-        this.setStatus(Status.EFFETTUATA);
-    }
-
-    public void setStatusNonEffetutata() {
-        this.setStatus(Status.NON_EFFETTUATA);
-    }
-
-    public Status getStatus() {
-        return status;
-    }
 
     public void setIdPrenotazioneAula(String idPrenotazioneAula) {
         this.idPrenotazioneAula=idPrenotazioneAula;

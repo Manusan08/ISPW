@@ -12,6 +12,7 @@ import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
+import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
@@ -92,8 +93,10 @@ public class GestisciPrenotazionePostoController {
 
 
     public PrenotazionePostoSubject getAvailablePostiByPrenotazioneAulaid(PrenotazioneAulaBean pab) throws SQLException {
+        PrenotazioneAulaModel pam=new PrenotazioneAulaModel(pab.getIdPrenotazioneAula());
+
         List<PostoModel> postiModel;
-        postiModel = postoDAO.getAvailablePosti(pab);
+        postiModel = postoDAO.getAvailablePosti(pam);
         PrenotazionePostoSubject pps = new PrenotazionePostoSubject();
 
         for (PostoModel pm : postiModel) {

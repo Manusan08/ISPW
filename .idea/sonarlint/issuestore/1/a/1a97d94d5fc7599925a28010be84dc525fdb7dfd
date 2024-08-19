@@ -1,0 +1,17 @@
+
+K
+java:S1121c".Extract the assignment out of this expression.(¨‹ύ8™πώ•2
+`
+java:S2583c"CChange this condition so that it does not always evaluate to "true"(¨‹ύ8βπώ•2
+T
+java:S1854c"7Remove this useless assignment to local variable "vif".(¨‹ύ8τπώ•2
+T
+java:S1854b"7Remove this useless assignment to local variable "vif".(©η¤ÿ8υπώ•2
+±
+java:S1130"Remove the declaration of thrown exception 'it.uniroma2.ispw.utils.exception.InvalidDataException', as it cannot be thrown from method's body.(£΄–ύÿÿÿÿ8φπώ•2
+E
+java:S1481b"(Remove this unused "vif" local variable.(©η¤ÿ8‹›πώ•2
+x
+java:S3923c"[Remove this conditional structure or edit its code blocks so that they're not all the same.(¨‹ύ8‹›πώ•2
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ΐγΔ£ϊÿÿÿÿ8±ί–2

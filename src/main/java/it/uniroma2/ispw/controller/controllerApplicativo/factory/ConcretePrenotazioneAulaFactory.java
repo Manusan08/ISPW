@@ -19,7 +19,7 @@ public class ConcretePrenotazioneAulaFactory {
                     (Date) prenotazioneAulaBean.getGiornoLezione(),
                      prenotazioneAulaBean.getDescrizione(),
                      prenotazioneAulaBean.getMateria(),
-                     prenotazioneAulaBean.getNomeProfessore(),
+                     prenotazioneAulaBean.getNomeDocente(),
                     (Date) prenotazioneAulaBean.getDataFine(),
                     prenotazioneAulaBean.getIdPrenotazioneAula()
                     );
@@ -31,7 +31,7 @@ public class ConcretePrenotazioneAulaFactory {
                     (Date) prenotazioneAulaBean.getGiornoLezione(),
                     prenotazioneAulaBean.getDescrizione(),
                     prenotazioneAulaBean.getMateria(),
-                    prenotazioneAulaBean.getNomeProfessore(),
+                    prenotazioneAulaBean.getNomeDocente(),
                     prenotazioneAulaBean.getIdPrenotazioneAula()
             );
 

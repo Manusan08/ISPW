@@ -11,6 +11,7 @@ public class PrenotazioneAulaBean {
     private String idAula;
     private String email;
 
+
     private Orario oraLezione;
     private Date giornoLezione;
     private  String descrizione;
@@ -19,6 +20,9 @@ public class PrenotazioneAulaBean {
     private boolean isRicorente;
     private  Date dataFine;
 
+    public String getEmail() {
+        return email;
+    }
 
 
     public PrenotazioneAulaBean(String idPrenotazioneAula,

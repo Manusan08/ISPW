@@ -1,0 +1,11 @@
+
+Ю
+java:S1186"АAdd a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ўвў»8геҐ€Х2
+Y
+java:S1854"<Remove this useless assignment to local variable "conferma".(в“гљ8жеҐ€Х2
+[
+java:S1854">Remove this useless assignment to local variable "dateFormat".(ƒљФ≈8бщ™€Х2
+L
+java:S1481"/Remove this unused "dateFormat" local variable.(ƒљФ≈8ещ™€Х2
+J
+java:S1481"-Remove this unused "conferma" local variable.(в“гљ8неҐ€Х2

@@ -14,7 +14,7 @@ import java.util.List;
 public class StudenteView extends TemplateView {
     GestisciPrenotazionePostoView gestisciPrenotazioniPosto =new GestisciPrenotazionePostoView(this.usrBean);
     VisualizzaAuleDisponibiliView visualizzaAuleDisponibiliView=new VisualizzaAuleDisponibiliView();
-    PrenotaPostoView prenotaPosto=new PrenotaPostoView();
+    PrenotaPostoView prenotaPosto=new PrenotaPostoView(this.usrBean);
     public StudenteView(UserBean userBean) {
         super(userBean);
     }

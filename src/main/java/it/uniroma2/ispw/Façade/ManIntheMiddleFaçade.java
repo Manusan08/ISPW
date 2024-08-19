@@ -54,7 +54,7 @@ public void createPrenotazionePostoSubject(PrenotazioneAulaBean pab) throws SQLE
     }
 
     public String insertPostoIntodb(PostoBean postoBean, PrenotazioneAulaBean pab, UserBean usb) throws SystemException, SQLException {
-      return  this.gestisciPrenotazionePostoController.PrenotaPosto(postoBean,pab,usb);
+      return  this.gestisciPrenotazionePostoController.prenotaPosto(postoBean,pab,usb);
     }
 
 

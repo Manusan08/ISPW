@@ -1,0 +1,15 @@
+
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ú¸ên8‚ÿäø•2
+]	java:S107)"AConstructor has 9 parameters, which is greater than 7 authorized.(‰è‡Œ8‡ÿäø•2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8§Åéş•2
+L
+java:S1128"/Remove this unused import 'java.util.Calendar'.(ÿÛö´8§Åéş•2
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8¨Åéş•2
+U
+java:S1068"9Remove this unused "prenotazioneAulaModel" private field.(¯ÁÛW8ÿäø•2
+M
+java:S1068#"+Remove this unused "aulaDAO" private field.(ºïÍ¸ÿÿÿÿÿ8ÿäø•2
+T
+java:S1068%"7Remove this unused "prenotazioneFactory" private field.(½ãÍ­8ÿäø•2

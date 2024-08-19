@@ -3,8 +3,6 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciCreazionePrenotazioneAulaController;
-
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
@@ -20,19 +18,19 @@ public class VisualizzaLezioniView extends TemplateView{
 
     @Override
     public void control() throws SystemException, IOException, ItemNotFoundException {
-            int choice ;
-            boolean cond =true;
-            while(cond){
-                choice=this.userChoice();
-                switch (choice) {
-                    case 1 -> carcaPerOrario();
-                    case 2 -> cercaPerProfessore();
-                    case 3 -> cercaPerMateria();
-                    case 4->cond=false;
-                    default -> System.out.println("Choice invalido");
-                }
-
+        int choice ;
+        boolean cond =true;
+        while(cond){
+            choice=this.userChoice();
+            switch (choice) {
+                case 1 -> carcaPerOrario();
+                case 2 -> cercaPerProfessore();
+                case 3 -> cercaPerMateria();
+                case 4->cond=false;
+                default -> System.out.println("Choice invalido");
             }
+
+        }
     }
 
     private void cercaPerProfessore() throws ItemNotFoundException {
@@ -42,8 +40,8 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazionePostoController().getAuleByMateria(pab));
-        }
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAulaByProfessore(pab));
+    }
 
 
     private void carcaPerOrario() {
@@ -55,7 +53,7 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         }
-        printTable(new GestisciPrenotazionePostoController().getAuleByMateria(pab));
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAulaByOrario(pab));
 
     }
 
@@ -67,7 +65,7 @@ public class VisualizzaLezioniView extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        printTable(new GestisciCreazionePrenotazioneAulaController().getAuleByMateria(pab));
     }
 
     @Override

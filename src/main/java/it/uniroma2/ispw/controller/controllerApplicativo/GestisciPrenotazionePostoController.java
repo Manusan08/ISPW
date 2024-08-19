@@ -12,7 +12,6 @@ import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
-import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
@@ -21,7 +20,7 @@ import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDBMS;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoFS;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
-import org.apache.commons.collections.ArrayStack;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.sql.SQLException;
@@ -47,7 +46,7 @@ public class GestisciPrenotazionePostoController {
         }
     }
 
-    public String PrenotaPosto(PostoBean pb, PrenotazioneAulaBean pab, UserBean usrBean) throws SystemException, SQLException {
+    public String prenotaPosto(PostoBean pb, PrenotazioneAulaBean pab, UserBean usrBean) throws SystemException, SQLException {
 
         String idPrenotazione = RandomStringUtils.randomAlphanumeric(15);
 

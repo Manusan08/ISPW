@@ -17,7 +17,57 @@ public  class PrenotazioneAulaModel {
     private java.util.Date dataFine;
 
 
+    public String getiDaula() {
+        return iDaula;
+    }
 
+    public Orario getOraLezione() {
+        return oraLezione;
+    }
+
+    public void setOraLezione(Orario oraLezione) {
+        this.oraLezione = oraLezione;
+    }
+
+    public Date getDatalezione() {
+        return datalezione;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public String getIdPrenotazioneAula() {
+        return idPrenotazioneAula;
+    }
+
+    public String getNomeProfessore() {
+        return nomeProfessore;
+    }
+
+    public boolean isRicorente() {
+        return isRicorente;
+    }
+
+    public void setRicorente(boolean ricorente) {
+        isRicorente = ricorente;
+    }
+
+    public java.util.Date getDataFine() {
+        return dataFine;
+    }
+
+    public void setDataFine(java.util.Date dataFine) {
+        this.dataFine = dataFine;
+    }
+
+    public String getCognomeProfessore() {
+        return cognomeProfessore;
+    }
+
+    public void setCognomeProfessore(String cognomeProfessore) {
+        this.cognomeProfessore = cognomeProfessore;
+    }
 
     public String getEmail() {
         return email;

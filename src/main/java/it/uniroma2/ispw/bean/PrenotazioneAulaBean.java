@@ -13,19 +13,40 @@ public class PrenotazioneAulaBean {
 
     private Orario oraLezione;
     private Date giornoLezione;
-    private  String Descrizione;
+    private  String descrizione;
     private  String nomeDocente;
     private String materia;
     private boolean isRicorente;
     private  Date dataFine;
 
-    public void setNomeDocente(String nomeDocente) {
-        this.nomeDocente = nomeDocente;
+
+
+    public PrenotazioneAulaBean(String idPrenotazioneAula,
+
+                                String nomeDocente,
+                                java.sql.Date datalezione,
+                                Orario oraLezione,
+                                String descrizione,
+                                String materia,String idAula) {
+
+
+        this.idPrenotazioneAula=idPrenotazioneAula;
+        this.descrizione=descrizione;
+        this.nomeDocente=nomeDocente;
+        this.giornoLezione=datalezione;
+        this.oraLezione=oraLezione;
+        this.materia=materia;
+        this.idAula=idAula;
+
+
+
     }
 
-    public void setMateria(String materia) {
-        this.materia = materia;
+    public PrenotazioneAulaBean() {
+
     }
+
+
 
     public boolean isRicorente() {
         return isRicorente;
@@ -44,15 +65,11 @@ public class PrenotazioneAulaBean {
     }
 
     public String getDescrizione() {
-        return Descrizione;
+        return descrizione;
     }
 
     public void setDescrizione(String descrizione) {
-        Descrizione = descrizione;
-    }
-
-    public String getEmail() {
-        return email;
+        this.descrizione = descrizione;
     }
 
     public void setEmail(String email) {
@@ -99,15 +116,17 @@ public class PrenotazioneAulaBean {
         this.oraLezione = oraLezione;
     }
 
-
-    public String getNomeMateria() {
-    return "ciao";
+    public void setNomeDocente(String nomeDocente) {
+        this.nomeDocente=nomeDocente;
     }
 
-    public String getNomeProfessore() {
-        return nomeDocente;
-
+    public void setMateria(String materia) {
+        this.materia=materia;
     }
+
+
+
+
 
     public Object getOrario() {
         return null;

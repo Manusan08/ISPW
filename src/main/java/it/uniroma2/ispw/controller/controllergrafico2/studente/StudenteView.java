@@ -8,6 +8,7 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StudenteView extends TemplateView {
@@ -18,7 +19,7 @@ public class StudenteView extends TemplateView {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException {
+    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException, SQLException {
         int choice;
         while (true) {
             choice = this.userChoice();

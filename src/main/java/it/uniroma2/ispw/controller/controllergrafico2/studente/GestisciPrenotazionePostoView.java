@@ -46,15 +46,13 @@ public class GestisciPrenotazionePostoView extends TemplateView {
     }
 
     void visualizzaPrenotazioni(){
-        PrenotazionePostoBean pb= new PrenotazionePostoBean();
-        pb.setEmail(this.usrBean.getEmail());
-        printTable(new GestisciPrenotazionePostoController().getAllReservation(pb));
+        printTable(new GestisciPrenotazionePostoController().getAllReservation(this.usrBean));
 
     }
 
     @Override
     protected List<String> getOptions() {
-        return List.of("elimina prenotazione","visualizza prenotazione");
+        return List.of("elimina prenotazione","visualizza prenotazione","esci");
     }
 
     @Override

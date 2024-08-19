@@ -1,11 +1,13 @@
 package it.uniroma2.ispw.model.prenotazionePosto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,19 +21,26 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
     }
 
     @Override
-    public List<PrenotazionePostoModel> getAllReservations(PrenotazionePostoBean pb) {
+    public List<PrenotazionePostoModel> getAllReservations(UserBean us) {
         List<PrenotazionePostoModel> prenotazioni = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet rs = null;
+        PreparedStatement statement;
+        ResultSet rs;
 
         try {
-            String sql = "SELECT *FROM" +
-                    " (SELECT * FROM prenotazioneposto WHERE Utenti_email = ?) " +
-                    "pp JOIN professoreprenotaaula ppf ON pp.idAula = ppf.Aule_idAula";
+            String sql = "select nomeProfessore,\n" +
+                    "idPosto,\n" +
+                    "idAula,\n" +
+                    "materia,dataLezione,\n" +
+                    " idPrenotazione,\n" +
+                    " ppa.oraLezione,ppa.idPrenotazioneAula\n" +
+                    "from \n" +
+                    "prenotazioneposto p\n" +
+                    "join professoreprenotaaula ppa on p.idPrenotazioneAula=ppa.idPrenotazioneAula\n" +
+                    " where p.Utenti_email=?;";
+
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
-            statement.setString(1, pb.getEmail());
-
+            statement.setString(1, us.getEmail());
             rs = statement.executeQuery();
 
             if (!rs.next()) {
@@ -46,6 +55,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
                 ppm.setMateria(rs.getString("materia"));
                 ppm.setGiornoLezione(rs.getDate("dataLezione"));
                 ppm.setIdPrenotazionePosto(rs.getString("idPrenotazione"));
+                ppm.setIdPrenotazioneAula(rs.getString("idPrenotazioneAula"));
 
                 String orario = rs.getString("OraLezione");
                 Orario fasciaOraria = Orario.valueOf(orario);
@@ -94,7 +104,6 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
         PreparedStatement statement = null;
         ResultSet rs = null;
 
-
         try {
             String sql = "select * from prenotazioneposto where idPrenotazione= ?";
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
@@ -104,7 +113,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             if (!rs.next()) {
                 return pp;
             }
-            pp=new PrenotazionePostoModel();
+            pp = new PrenotazionePostoModel();
             pp.setIdPrenotazionePosto(rs.getString("idPrenotazione"));
             pp.setIdAula(rs.getString("idAula"));
             pp.setIdPosto(rs.getString("idPosto"));
@@ -113,10 +122,46 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             throw new RuntimeException(e);
 
         } finally {
-            statement.close();
-
+            if (statement != null) {
+                statement.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
         }
         return pp;
     }
 
+    @Override
+    public String inserisciPrenotazione(PrenotazionePostoModel ppm) throws SystemException, SQLException {
+
+        String sql = "insert into PrenotazionePosto (" +
+                "idPrenotazione," +
+                "idAula," +
+                "utenti_email," +
+                "idPosto" +
+                ",idPrenotazioneAula)" +
+                " values (?,?,?,?,?)";
+
+        try (Connection conn = ConnectionDB.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, ppm.getIdPrenotazionePosto());
+            ps.setString(2, ppm.getIdAula());
+            ps.setString(3, ppm.getEmail());
+            ps.setString(4, ppm.getIdPosto());
+            ps.setString(5, ppm.getIdPrenotazioneAula());
+            ps.executeUpdate();
+
+            return "La prenotazione è avvenuta con successo! id prenotazione :" + ppm.getIdPrenotazionePosto();
+
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                return "Sei già prenotato per questa lezione";
+            }
+            throw new SQLException("Errore nell'inserimento della prenotazione");
+
+        } catch (SystemException e) {
+            throw new SystemException(e.getMessage());
+        }
+    }
 }

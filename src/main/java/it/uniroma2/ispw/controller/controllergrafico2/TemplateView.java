@@ -1,7 +1,8 @@
 package it.uniroma2.ispw.controller.controllergrafico2;
 
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.model.aula.AulaModel;
+import it.uniroma2.ispw.model.posto.PostoModel;
+import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,10 +22,17 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public abstract class TemplateView {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+
 
     protected UserBean usrBean;
-    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException;
+
+    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException;
+
     protected abstract List<String> getOptions();
+
     protected abstract String getHeader();
 
     public int userChoice() throws IOException {
@@ -81,6 +90,7 @@ public abstract class TemplateView {
         } while (choice == 0);
         return choice;
     }
+
     public String getDesiredIn(String title, String inMsg) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -165,3 +175,12 @@ public abstract class TemplateView {
     }
 
 
+
+    public void aggiornaInterfaccia(PrenotazionePostoModel pp, Boolean isPrenotato) {
+    }
+
+
+    public static String formatWithTreeDigit(String string) {
+        return (string.length() < 3) ? String.format("%-3s", string) : string;
+    }
+}

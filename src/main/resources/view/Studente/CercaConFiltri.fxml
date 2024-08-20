@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="$CONTROLLER_NAME$">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.CercaPostoPerNomeController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
         <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
@@ -26,14 +26,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="276.0" layoutY="344.0" mnemonicParsing="false" text="avanti" />
+      <Button fx:id="avantiiD" layoutX="276.0" layoutY="344.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
       <Label layoutX="156.0" layoutY="189.0" text="Materia">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="324.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0" />
-      <TextField layoutX="324.0" layoutY="190.0" prefHeight="26.0" prefWidth="131.0" />
+      <TextField fx:id="txtNome" layoutX="324.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0" />
+      <TextField fx:id="txtMateria" layoutX="324.0" layoutY="190.0" prefHeight="26.0" prefWidth="131.0" />
 
 
     </children>

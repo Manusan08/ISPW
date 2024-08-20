@@ -57,7 +57,9 @@ public class LoginViewController2 extends TemplateView{
         System.out.print("Inserisci password: ");
         String pwd = reader.readLine();
 
-        return new LoginBean(email, pwd);
+        System.out.print("Inserisci ruolo: ");
+        Role ruolo = Role.valueOf(reader.readLine());
+        return new LoginBean(email, pwd, ruolo);
     }
 
     public UserBean getUsrBean() {

@@ -56,9 +56,9 @@ public class LoginViewController1 implements Initializable {
                     //navigate to new page
                     switch (userBean.getRuolo()) {
                         case DOCENTE ->
-                                ChangePage.getChangePage().cambiaPagina("view/HomeDocente.fxml", userBean);
+                                ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
                         case STUDENTE ->
-                                ChangePage.getChangePage().cambiaPagina("view/HomeStudente.fxml", userBean);
+                                ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", userBean);
                     }
                 }
             }

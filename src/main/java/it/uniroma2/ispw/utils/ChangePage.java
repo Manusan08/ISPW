@@ -31,7 +31,7 @@ public class ChangePage {
         Scene scene = null;
 
         try {
-            scene = new Scene(loader.load(), 1200, 760);
+            scene = new Scene(loader.load(), 600, 400);
         } catch (IOException e) {
             SystemException exception = new SystemException();
             exception.initCause(e);

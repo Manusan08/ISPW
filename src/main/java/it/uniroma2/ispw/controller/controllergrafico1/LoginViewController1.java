@@ -1,67 +1,78 @@
 package it.uniroma2.ispw.controller.controllergrafico1;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
-import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
 import it.uniroma2.ispw.utils.ChangePage;
-import it.uniroma2.ispw.utils.exception.*;
+import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
-import javax.security.auth.login.LoginException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginViewController1 {
-    @FXML
-    private ToggleButton studente;
-    @FXML
-    private ToggleButton docente;
-    Label errorMsg;
-    @FXML
-    private TextField email;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private Button login;
+public class LoginViewController1 implements Initializable {
 
     @FXML
-    private void clickLogin() throws SystemException, LoginException {
-        LoginBean loginBean = new LoginBean(email.getText(), password.getText());
+    private Label btnForgot;
+
+    @FXML
+    private Button btnSignin;
+
+    @FXML
+    private Button btnSignup;
+
+    @FXML
+    private Label lblErrors;
+
+    @FXML
+    private PasswordField txtPassword;
+
+    @FXML
+    private TextField txtUsername;
+
+    @FXML
+    void handleButtonAction(ActionEvent event) throws SystemException {
         try {
-            if (studente.isSelected()) {
-                loginBean.setRole(Role.STUDENTE);
+            System.out.println(txtUsername.getText());
+            System.out.println(txtPassword.getText());
 
-            } else if (docente.isSelected()) {
-                loginBean.setRole(Role.DOCENTE);
+            if (!txtUsername.getText().isBlank() && !txtPassword.getText().isBlank()) {
+                LoginBean loginBean = new LoginBean(txtUsername.getText(), txtPassword.getText());
 
-            } else {
-                throw new RuoloNonSelezionatoException();
-            }
+                LoginController loginController = new LoginController();
+                UserBean userBean = loginController.login(loginBean);
 
-        } catch (RuoloNonSelezionatoException e) {
-            GestoreEccezioni.getInstance().handleException(e);
-            return;
-        }
-        LoginController loginController = new LoginController();
-        try {
-            loginController.login(loginBean);
-
-            if (loginBean != null) {
-                //navigate to new page
-                ChangePage istanza = ChangePage.getChangePage();
-                switch (loginBean.getRole()) {
-                    case STUDENTE -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml", loginBean);
-                    case DOCENTE -> istanza.cambiaPagina("src/main/resources/LoginProva.fxml",  loginBean);
-
-
+                if (userBean != null) {
+                    //navigate to new page
+                    switch (userBean.getRuolo()) {
+                        case DOCENTE ->
+                                ChangePage.getChangePage().cambiaPagina("view/HomeDocente.fxml", userBean);
+                        case STUDENTE ->
+                                ChangePage.getChangePage().cambiaPagina("view/HomeStudente.fxml", userBean);
+                    }
                 }
             }
-        } catch (SystemException e) {
-            GestoreEccezioni.getInstance().handleException(e);
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

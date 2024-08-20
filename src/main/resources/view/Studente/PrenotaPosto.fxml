@@ -11,7 +11,7 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
         <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../images/Pic2.png" />
+                <Image url="@../../images/pic2.png" />
             </image></ImageView>
         <Button layoutX="300.0" layoutY="48.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Cerca aula per iDPrenotazione" textFill="WHITE">
             <font>

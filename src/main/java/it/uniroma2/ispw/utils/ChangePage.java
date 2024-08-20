@@ -1,8 +1,8 @@
 package it.uniroma2.ispw.utils;
 
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.Main;
-import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,7 +26,7 @@ public class ChangePage {
 
     private Stage stage;
 
-    public void cambiaPagina(String fxml, LoginBean cred) throws SystemException {
+    public void cambiaPagina(String fxml, UserBean cred) throws SystemException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = null;
 

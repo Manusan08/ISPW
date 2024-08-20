@@ -2,8 +2,10 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 
 import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -24,7 +26,8 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
     }
 
     private void visualizzaAuleDisponibili() {
-        printTable(intheMiddle.getAvailableClass());
+        List<PrenotazioneAulaBean> auleDisponibili=intheMiddle.getAvailableClass();
+        auleAvailablePrinter(auleDisponibili);
     }
 
     @Override
@@ -35,6 +38,18 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
     @Override
     protected String getHeader() {
         return "";
+    }
+
+
+
+    public static void auleAvailablePrinter(List<PrenotazioneAulaBean> pab){
+
+        System.out.printf("%-20s %-12s",ANSI_PURPLE+ "ID Aula:","Fascia Oraria:\n");
+        System.out.println("-".repeat(50)+ANSI_RESET);
+        for(PrenotazioneAulaBean pb : pab){
+            System.out.printf("%-16s %-6s",pb.getIdAula(),pb.getOraLezione().getFasciaOraria());
+            System.out.println();
+        }
     }
 }
 

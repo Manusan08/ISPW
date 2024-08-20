@@ -1,5 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula;
 
+import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -15,7 +16,7 @@ public class PrenotazioneAulaView {
     private GestisciCreazionePrenotazioneAulaController gestisciPrenotazioneController;
     private AulaBean aulaSelezionata;
     private UserBean userBean;
-
+    private ManIntheMiddleFaçade intheMiddleFaçade=new ManIntheMiddleFaçade();
     public PrenotazioneAulaView(AulaBean aulaSelezionata, UserBean usrBean) {
         this.gestisciPrenotazioneController = new GestisciCreazionePrenotazioneAulaController();
         this.aulaSelezionata = aulaSelezionata;
@@ -97,7 +98,10 @@ public class PrenotazioneAulaView {
         prenotazioneAulaBean.setDataFine(dataFine);
         prenotazioneAulaBean.setIdPrenotazioneAula(null);
         // Creazione della prenotazione
-        boolean vif = gestisciPrenotazioneController.prenota(prenotazioneAulaBean);
+        //boolean vif = gestisciPrenotazioneController.prenota(prenotazioneAulaBean);
+
+        boolean vif= intheMiddleFaçade.prenota(prenotazioneAulaBean);
+
         if (vif = true) {
             System.out.println("Prenotazione creata con successo.");
         } else {

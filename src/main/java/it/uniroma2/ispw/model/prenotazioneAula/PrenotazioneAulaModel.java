@@ -6,7 +6,7 @@ import java.sql.Date;
 
 public  class PrenotazioneAulaModel {
     private  String email;
-    private String iDaula;
+    private String idAula;
     private Orario oraLezione;
     private Date datalezione;
     private String descrizione;
@@ -16,9 +16,13 @@ public  class PrenotazioneAulaModel {
     private boolean isRicorente;
     private java.util.Date dataFine;
 
+    public PrenotazioneAulaModel(String idPrenotazioneAula) {
+        this.idPrenotazioneAula = idPrenotazioneAula;
+    }
 
-    public String getiDaula() {
-        return iDaula;
+
+    public String getIdAula() {
+        return idAula;
     }
 
     public Orario getOraLezione() {
@@ -108,8 +112,8 @@ public  class PrenotazioneAulaModel {
 
 
 
-    public void setiDaula(String iDaula) {
-        this.iDaula = iDaula;
+    public void setIdAula(String idAula) {
+        this.idAula = idAula;
     }
 
 

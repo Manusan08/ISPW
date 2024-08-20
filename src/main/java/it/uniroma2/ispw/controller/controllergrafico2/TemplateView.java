@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2;
 
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -180,7 +179,7 @@ public abstract class TemplateView {
     }
 
 
-    public static String formatWithTreeDigit(String string) {
-        return (string.length() < 3) ? String.format("%-3s", string) : string;
+    public static String formatWithFiveDigits(String string) {
+        return (string.length() < 5) ? String.format("%-5s", string) : string;
     }
 }

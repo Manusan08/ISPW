@@ -1,8 +1,8 @@
 package it.uniroma2.ispw.model.prenotazioneAula.dao;
 
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 
 import java.sql.Date;
 
@@ -23,7 +23,12 @@ public class PrenotazioneAulaFS implements PrenotazioneAulaDAO {
 
 
     @Override
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam) throws SQLException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserBean usr) throws SQLException {
         return List.of();
+    }
+
+    @Override
+    public int getCapienzaAula(PrenotazioneAulaModel pab) throws SQLException {
+        return 0;
     }
 }

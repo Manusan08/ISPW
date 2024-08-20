@@ -19,6 +19,15 @@ public class PrenotazioneAulaBean {
     private String materia;
     private boolean isRicorente;
     private  Date dataFine;
+    private  int numeroPosti;
+
+    public int getNumeroPosti() {
+        return numeroPosti;
+    }
+
+    public void setNumeroPosti(int numeroPosti) {
+        this.numeroPosti = numeroPosti;
+    }
 
     public String getEmail() {
         return email;

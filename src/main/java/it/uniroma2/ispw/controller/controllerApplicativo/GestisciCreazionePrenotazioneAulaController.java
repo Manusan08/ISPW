@@ -70,12 +70,12 @@ public class GestisciCreazionePrenotazioneAulaController {
     public List<Object> getAulaByOrario(PrenotazioneAulaBean pab) {
         return new ArrayList<>();
     }
-    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean) throws SQLException, SQLException {
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean,UserBean usr) throws SQLException, SQLException {
         List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
         PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getMateria());
 
         List<PrenotazioneAulaModel> pams;
-        pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam);
+        pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam, usr);
 
         for (PrenotazioneAulaModel prenotazione : pams) {
             PrenotazioneAulaBean pab = new PrenotazioneAulaBean(
@@ -85,7 +85,7 @@ public class GestisciCreazionePrenotazioneAulaController {
                     prenotazione.getOraLezione(),
                     prenotazione.getDescrizione(),
                     prenotazione.getMateria(),
-                    prenotazione.getiDaula()
+                    prenotazione.getIdAula()
             );
 
             prenotazioneAule.add(pab);
@@ -102,5 +102,12 @@ public class GestisciCreazionePrenotazioneAulaController {
 
     public List<Object> getPrenotazioneByName(UserBean us) {
         return null;
+    }
+
+    public int getCapienzaAula(String aulaId) throws SQLException {
+        PrenotazioneAulaModel pam=new PrenotazioneAulaModel();
+        pam.setIdAula(aulaId);
+
+        return prenotazioneAulaDAO.getCapienzaAula(pam);
     }
 }

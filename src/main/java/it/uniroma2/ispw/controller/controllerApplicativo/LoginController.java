@@ -29,8 +29,6 @@ public class LoginController {
     public LoginController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             loginDAO = new LoginDBMS();
-
-
         } else {
             try {
 
@@ -41,12 +39,9 @@ public class LoginController {
                 throw new RuntimeException(e);
             }
         }
-
     }
 
     public UserBean login(LoginBean loginBean) throws ItemNotFoundException, InvalidDataException {
-
-
         LoginModel u = loginDAO.auth(loginBean);
 
         if (u == null) {

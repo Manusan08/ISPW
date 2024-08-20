@@ -1,17 +1,14 @@
 package it.uniroma2.ispw.model.prenotazioneAula.dao;
 
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.sql.*;
-import java.util.Random;
-import java.util.UUID;
+
 import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
-import it.uniroma2.ispw.utils.ConnectionDB;
-import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,49 +18,73 @@ import java.util.List;
 
 public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam) throws SQLException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserBean usr) throws SQLException {
         List<PrenotazioneAulaModel> prenotazioniAuleModel = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String subName = STR."%\{pam.getNomeProfessore()}%";
-        String subSbuject = STR."%\{pam.getMateria()}%";
+
+        String subName = "%" + pam.getNomeProfessore() + "%";
+        String subSubject = "%" + pam.getMateria() + "%";
 
         try {
-            String sql = "select * from	professoreprenotaaula where nomeProfessore like ? and materia like?";
+            String sql = "SELECT * FROM professoreprenotaaula WHERE nomeProfessore LIKE ? AND materia LIKE ? " +
+                    "AND idPrenotazioneAula NOT IN (SELECT idPrenotazioneAula FROM prenotazioneposto WHERE Utenti_email=?);";
+
             ps = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             ps.setString(1, subName);
-            ps.setString(2, subSbuject);
+            ps.setString(2, subSubject);
+            ps.setString(3, usr.getEmail());
 
             rs = ps.executeQuery();
-            if (!rs.next()) {
-                return prenotazioniAuleModel;
-            }
-            do {
+
+            while (rs.next()) {
                 PrenotazioneAulaModel prenotazione = new PrenotazioneAulaModel();
-
-
                 prenotazione.setMateria(rs.getString("materia"));
                 prenotazione.setIdPrenotazioneAula(rs.getString("idPrenotazioneAula"));
-                prenotazione.setiDaula(rs.getString("Aule_idAula"));
+                prenotazione.setIdAula(rs.getString("Aule_idAula"));
                 prenotazione.setOraLezione(rs.getString("oraLezione"));
                 prenotazione.setDatalezione(rs.getDate("dataLezione"));
                 prenotazione.setDescrizione(rs.getString("descrizione"));
                 prenotazione.setNomeProfessore(rs.getString("nomeProfessore"));
-                prenotazioniAuleModel.add(prenotazione);
-            } while (rs.next());
 
+                prenotazioniAuleModel.add(prenotazione);
+            }
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (ps != null) {
-                ps.close();
-            }
         }
+
         return prenotazioniAuleModel;
     }
+
+
+
+    @Override
+    public int getCapienzaAula(PrenotazioneAulaModel pam) throws SQLException {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        int posti=0;
+        try {
+            String sql = "select posti from aule where idAula=? ;";
+            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+
+            statement.setString(1, pam.getIdAula());
+
+            resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                posti=resultSet.getInt("posti");
+            }else {
+                throw new RuntimeException("Nessuna corrispondenza trovata con: " + pam.getIdAula());
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Errore durante il controllo della prenotazione", e);
+        } catch (SystemException e) {
+            throw new RuntimeException(e);
+        }
+        return posti;
+    }
+
+
 
     @Override
     public boolean esistePrenotazione(String idAula, Date giornoLezione, Orario oraLezione) {

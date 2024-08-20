@@ -89,10 +89,6 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
         }
     }
 
@@ -121,20 +117,14 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
 
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-            if (rs != null) {
-                rs.close();
-            }
         }
+
         return pp;
     }
 
     @Override
     public String inserisciPrenotazione(PrenotazionePostoModel ppm) throws SystemException, SQLException {
-
+        PreparedStatement ps=null;
         String sql = "insert into PrenotazionePosto (" +
                 "idPrenotazione," +
                 "idAula," +
@@ -143,8 +133,8 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
                 ",idPrenotazioneAula)" +
                 " values (?,?,?,?,?)";
 
-        try (Connection conn = ConnectionDB.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        try {
+            ps=ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             ps.setString(1, ppm.getIdPrenotazionePosto());
             ps.setString(2, ppm.getIdAula());
             ps.setString(3, ppm.getEmail());

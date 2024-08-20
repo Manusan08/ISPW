@@ -9,6 +9,7 @@ import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePos
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.PostoObserver;
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.PrenotazionePostoSubject;
+import it.uniroma2.ispw.controller.controllerApplicativo.factory.ConcretePrenotazioneAulaFactory;
 import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -72,6 +73,11 @@ public class ManIntheMiddleFaçade {
         }
         return null;
     }
+
+public boolean prenota(PrenotazioneAulaBean pab){
+        return this.gestisciCreazionePrenotazioneAulaController.prenota(pab);
+
+}
 
 
     public static PostoObserver isPostoInList(List<Observer> observers, PrenotazionePostoContext context) {

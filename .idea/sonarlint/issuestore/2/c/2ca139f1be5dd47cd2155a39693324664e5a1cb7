@@ -1,20 +1,30 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8æè‚–2
+‰
+java:S1488:"lImmediately return this expression instead of assigning it to the temporary variable "prenotazioneAulaBean".(ù¤ûØ8¸Ê¡Ğ–2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8ıû”Ğ–2
 
-java:S1186?"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ŸÑ±8ñè‚–2
-K
-java:S1172;")Remove this unused method parameter "pb".(ì¯÷ûÿÿÿÿ8üè‚–2
-F
-java:S1172B")Remove this unused method parameter "us".(ÔİËë8ıè‚–2
-H
-java:S1168C"+Return an empty collection instead of null.(¥¹ï8şè‚–2
-w
-java:S1128"ZRemove this unused import 'it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel'.(×êÖ‘8ÎÚãˆ–2
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¿ı”ù8ÅÊ¡Ğ–2
+
+java:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(…ŸÑ±8ƒÃ³Ğ–2
+j	java:S1006"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿ı”ù8ÎÊ¡Ğ–2
+j	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Üáæ8ÏÊ¡Ğ–2
+J
+java:S11729"-Remove this unused method parameter "iDAula".(˜Üáæ8ÑÊ¡Ğ–2
+L
+java:S1172>"*Remove this unused method parameter "pab".(˜ˆİşÿÿÿÿ8ÔÊ¡Ğ–2
 G
-java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÏÚãˆ–2
+java:S1172B"*Remove this unused method parameter "pab".(âñÿé8ÕÊ¡Ğ–2
+F
+java:S1172F"*Remove this unused method parameter "pab".(ÛûÍD8×Ê¡Ğ–2
+o
+java:S1130I"MRemove the redundant 'java.sql.SQLException' thrown exception declaration(s).(è×¸»ûÿÿÿÿ8¨¦Ğ–2
+K
+java:S1172`")Remove this unused method parameter "pb".(ì¯÷ûÿÿÿÿ8ÌÓ±Ğ–2
+F
+java:S1172g")Remove this unused method parameter "us".(ÔİËë8¶´Ğ–2
+H
+java:S1168h"+Return an empty collection instead of null.(¥¹ï8¸´Ğ–2
 M
-java:S1068"+Remove this unused "aulaDAO" private field.(ºïÍ¸ÿÿÿÿÿ8şè‚–2
-Y
-java:S1068"7Remove this unused "prenotazioneAulaDAO" private field.(³¼ÂŠûÿÿÿÿ8ÿè‚–2
+java:S1068"+Remove this unused "aulaDAO" private field.(ºïÍ¸ÿÿÿÿÿ8ÛÊ¡Ğ–2
 T
-java:S1068"7Remove this unused "prenotazioneFactory" private field.(½ãÍ­8ÿè‚–2
+java:S1068"7Remove this unused "prenotazioneFactory" private field.(½ãÍ­8èÉ¸Ğ–2

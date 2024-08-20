@@ -1,0 +1,14 @@
+
+^
+java:S11925"HDefine a constant instead of duplicating this literal "idPosto" 3 times.(ศ๋๘ฏ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(็ ฿
+e
+java:S2095*"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ก่ซ
+H
+java:S6126"2Replace this String concatenation with Text block.(ด€ฅส
+K
+java:S2209*"5Change this instance-reference to a static reference.(ก่ซ
+K
+java:S2209T"5Change this instance-reference to a static reference.(ก่ซ
+K
+java:S2209m"5Change this instance-reference to a static reference.(ก่ซ

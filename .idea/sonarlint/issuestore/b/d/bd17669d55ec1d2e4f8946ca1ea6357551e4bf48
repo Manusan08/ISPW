@@ -1,7 +1,9 @@
 
-M
-java:S1068"+Remove this unused "idPosto" private field.(ıŠ”Îüÿÿÿÿ8Ê”¼¶“2
-F
-java:S1068"*Remove this unused "idAula" private field.(®”¤8ù®½¶“2
-P
-java:S1068".Remove this unused "statoPosto" private field.(§ ËÖüÿÿÿÿ8ş®½¶“2
+|
+java:S1128"_Remove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context'.(Ú®¤˜8ÿÜÑ–2
+‡
+java:S1128"jRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer'.(”äĞ£8İÑ–2
+ˆ
+java:S1128"fRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Status'.(î“Ï¨úÿÿÿÿ8‚İÑ–2
+Š
+java:S1128"mRemove this unused import 'it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext'.(º¦É™8ƒİÑ–2

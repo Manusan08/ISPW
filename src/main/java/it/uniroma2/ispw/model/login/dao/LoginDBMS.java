@@ -18,12 +18,12 @@ public class LoginDBMS implements LoginDAO {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            String query = "SELECT * FROM Utenti WHERE email = ? AND password = ? AND role = ?";
+            String query = "SELECT * FROM Utenti WHERE email = ? AND password = ?";
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(query);
             statement.setString(1, loginBean.getEmail());
             statement.setString(2, loginBean.getPassword());
-            statement.setString(3, loginBean.getRole().name());
+
 
 
 

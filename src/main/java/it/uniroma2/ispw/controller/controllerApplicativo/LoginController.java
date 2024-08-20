@@ -40,7 +40,6 @@ public class LoginController {
             }
         }
     }
-
     public UserBean login(LoginBean loginBean) throws ItemNotFoundException, InvalidDataException {
         LoginModel u = loginDAO.auth(loginBean);
 
@@ -48,7 +47,7 @@ public class LoginController {
 
             throw new ItemNotFoundException("Accesso negato!");
         }
-        System.out.println(u.getRole());
+
         return new UserBean(u.getEmail(), u.getRole(),u.getNome());
     }
 }

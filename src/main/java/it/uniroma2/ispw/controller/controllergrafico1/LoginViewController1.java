@@ -43,9 +43,6 @@ public class LoginViewController1 implements Initializable {
     @FXML
     void handleButtonAction(ActionEvent event) throws SystemException {
         try {
-            System.out.println(txtUsername.getText());
-            System.out.println(txtPassword.getText());
-
             if (!txtUsername.getText().isBlank() && !txtPassword.getText().isBlank()) {
                 LoginBean loginBean = new LoginBean(txtUsername.getText(), txtPassword.getText());
 
@@ -55,10 +52,8 @@ public class LoginViewController1 implements Initializable {
                 if (userBean != null) {
                     //navigate to new page
                     switch (userBean.getRuolo()) {
-                        case DOCENTE ->
-                                ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
-                        case STUDENTE ->
-                                ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", userBean);
+                        case DOCENTE -> ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
+                        case STUDENTE -> ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", userBean);
                     }
                 }
             }

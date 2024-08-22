@@ -7,12 +7,12 @@ import java.util.Date;
 public class PrenotazionePostoBean {
 
     private String idPrenotazioneAula;
-    private  String idPrenotazionePosto;
+    private String idPrenotazionePosto;
     private String idAula;
     private String idPosto;
     private String oraLezione;
     private Date giornoLezione;
-    private  String nomeStudente;
+    private String nomeStudente;
     private String materia;
     private String email;
     private  String nomeDocente;
@@ -97,7 +97,7 @@ public class PrenotazionePostoBean {
         this.email=email;
     }
 
-    public String getidPrenotazioneAula() {
+    public String getIdPrenotazioneAula() {
         return idPrenotazioneAula;
     }
 }

@@ -9,6 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TableView?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.docente.MostraTutteLeAuleController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
@@ -22,8 +23,6 @@
          </font>
       </Label>
       <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti"  />
-      <ListView layoutX="35.0" layoutY="134.0" prefHeight="200.0" prefWidth="539.0" />
-
-
+      <TableView layoutX="35.0" layoutY="134.0" prefHeight="200.0" prefWidth="539.0" />
     </children>
 </AnchorPane>

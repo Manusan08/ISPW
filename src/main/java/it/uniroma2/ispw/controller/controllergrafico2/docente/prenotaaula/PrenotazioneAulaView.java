@@ -18,7 +18,7 @@ public class PrenotazioneAulaView {
     private UserBean userBean;
     private ManIntheMiddleFaçade intheMiddleFaçade=new ManIntheMiddleFaçade();
     public PrenotazioneAulaView(AulaBean aulaSelezionata, UserBean usrBean) {
-        this.gestisciPrenotazioneController = new GestisciCreazionePrenotazioneAulaController();
+
         this.aulaSelezionata = aulaSelezionata;
         this.userBean=usrBean;
     }

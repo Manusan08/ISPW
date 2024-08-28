@@ -1,0 +1,53 @@
+
+u
+java:S1192 "XDefine a constant instead of duplicating this literal "Nessun corso con nome: " 3 times.(òÂ€8º÷î„™2
+f
+java:S1192("IDefine a constant instead of duplicating this literal "computer" 3 times.(´ä¿×8»÷î„™2
+b
+java:S1192#"FDefine a constant instead of duplicating this literal "posti" 3 times.(ãæÏV8¼÷î„™2
+p
+java:S1192,"NDefine a constant instead of duplicating this literal "banchiDisegno" 3 times.(±š›İüÿÿÿÿ8½÷î„™2
+i
+java:S1192""GDefine a constant instead of duplicating this literal "idAula" 3 times.(ù¬Å¬øÿÿÿÿ8½÷î„™2
+l
+java:S2095B"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8Ø±ï„™2
+l
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
+m
+java:S2095Ã"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
+l
+java:S2095n"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8Ö±ï„™2
+m
+java:S2095¨"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
+a
+java:S21474"DCombine this catch with the one at line 50, which has the same body.(É®£8ç±ï„™2
+R
+java:S2209"5Change this instance-reference to a static reference.(¡è«8í±ï„™2
+a
+java:S2147\"DCombine this catch with the one at line 90, which has the same body.(É®£8ø±ï„™2
+R
+java:S2209B"5Change this instance-reference to a static reference.(¡è«8ú±ï„™2
+o
+java:S3776c"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(µ¶ºü8ÿ±ï„™2
+c
+java:S2147™"ECombine this catch with the one at line 151, which has the same body.(É®£8„²ï„™2
+R
+java:S2209n"5Change this instance-reference to a static reference.(¡è«8†²ï„™2
+I
+java:S1125p"'Remove the unnecessary boolean literal.(û°Ì¢ÿÿÿÿÿ8‰²ï„™2
+I
+java:S1125u"'Remove the unnecessary boolean literal.(”ş¡Ïşÿÿÿÿ8‹²ï„™2
+I
+java:S1125z"'Remove the unnecessary boolean literal.(‚Ä­èúÿÿÿÿ8Œ²ï„™2
+c
+java:S2147´"ECombine this catch with the one at line 178, which has the same body.(É®£8–²ï„™2
+S
+java:S2209¨"5Change this instance-reference to a static reference.(¡è«8˜²ï„™2
+c
+java:S2147Ï"ECombine this catch with the one at line 205, which has the same body.(É®£8²ï„™2
+S
+java:S2209Ã"5Change this instance-reference to a static reference.(¡è«8Ÿ²ï„™2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8¢²ï„™2
+M
+java:S1128	"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8¢²ï„™2

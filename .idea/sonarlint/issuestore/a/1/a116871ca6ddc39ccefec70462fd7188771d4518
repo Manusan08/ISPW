@@ -1,11 +1,9 @@
 
 m
-java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(…Øˆåùÿÿÿÿ8¼§ëõ’2
-Y
-java:S25890"7Remove this expression which always evaluates to "true"(¿ôóºûÿÿÿÿ8Þú”¸“2
-¤
-java:S1130"Remove the declaration of thrown exception 'javax.security.auth.login.LoginException', as it cannot be thrown from method's body.(œ¯ùâýÿÿÿÿ8èú”¸“2
+java:S13019"KReplace this "switch" statement by "if" statements to increase readability.(×™¾·ÿÿÿÿÿ8Ï‡áý–2
+£
+java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•‘ÝŸüÿÿÿÿ8®ˆáý–2
 f
-java:S2147>"DCombine this catch with the one at line 60, which has the same body.( ±ë×üÿÿÿÿ8‰å½·“2
-j
-java:S18715"HThis case's code block is the same as the block for the case on line 52.(Òºª…ýÿÿÿÿ8šþÀ·“2
+java:S2147C"DCombine this catch with the one at line 65, which has the same body.( ±ë×üÿÿÿÿ8‰å½·“2
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8»ˆáý–2

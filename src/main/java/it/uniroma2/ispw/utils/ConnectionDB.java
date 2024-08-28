@@ -11,14 +11,12 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 
-public class ConnectionDB {
+public class ConnectionDB implements AutoCloseable {
     private static ConnectionDB instance = null;
     private static Connection connection;
 
     private ConnectionDB() {
     }
-
-
     public static Connection getConnection() throws SystemException {
         if (connection == null) {
             try (InputStream input = new FileInputStream("src/main/resources/config.properties")) {
@@ -45,5 +43,12 @@ public class ConnectionDB {
     }
     public void closeConnection() throws SQLException {
         connection.close();
+    }
+
+    @Override
+    public void close() throws Exception {
+        if (connection != null) {
+            connection.close();
+        }
     }
 }

@@ -12,51 +12,53 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.docente.InserisciFiltriController">
-    <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
-        <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../images/pic2.png" />
-            </image></ImageView>
-      <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0" text="                                             Cerca Aula Con Filtri" textAlignment="CENTER" textFill="#fcfcfc">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="29.0" layoutY="131.0" text="inserisci la Data">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="avantiID" layoutX="276.0" layoutY="344.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
-      <DatePicker fx:id="dateID" layoutX="217.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0" />
-      <ChoiceBox fx:id="OrarioID" layoutX="217.0" layoutY="180.0" prefHeight="26.0" prefWidth="131.0" />
-      <Label layoutX="31.0" layoutY="183.0" text="inserisci Orario">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="descrizioneID" layoutX="217.0" layoutY="233.0" prefHeight="26.0" prefWidth="131.0" />
-      <Label layoutX="41.0" layoutY="236.0" text="Descrizione">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="41.0" layoutY="286.0" text="Materia">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="materiaID" layoutX="217.0" layoutY="283.0" prefHeight="26.0" prefWidth="131.0" />
-      <CheckBox fx:id="ricorrenteID" layoutX="423.0" layoutY="133.0" mnemonicParsing="false" text="Ricorrente" />
-      <DatePicker fx:id="dateFineID" layoutX="402.0" layoutY="233.0" prefHeight="26.0" prefWidth="131.0" />
-      <Label layoutX="431.0" layoutY="183.0" text="Data di Fine">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.docente.InserisciFiltriController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
+               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+    <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../images/pic2.png"/>
+    </ImageView>
+    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0"
+           text="                                             Cerca Aula Con Filtri" textAlignment="CENTER"
+           textFill="#fcfcfc">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="29.0" layoutY="131.0" text="inserisci la Data">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Label>
+    <Button fx:id="avantiID" layoutX="276.0" layoutY="344.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
+            text="avanti"/>
+    <DatePicker fx:id="dateID" layoutX="217.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0"/>
+    <ChoiceBox fx:id="OrarioID" layoutX="217.0" layoutY="180.0" prefHeight="26.0" prefWidth="131.0"/>
+    <Label layoutX="31.0" layoutY="183.0" text="inserisci Orario">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="descrizioneID" layoutX="217.0" layoutY="233.0" prefHeight="26.0" prefWidth="131.0"/>
+    <Label layoutX="41.0" layoutY="236.0" text="Descrizione">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="41.0" layoutY="286.0" text="Materia">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="materiaID" layoutX="217.0" layoutY="283.0" prefHeight="26.0" prefWidth="131.0"/>
+    <CheckBox fx:id="ricorrenteID" layoutX="423.0" layoutY="133.0" mnemonicParsing="false" text="Ricorrente"/>
+    <DatePicker fx:id="dateFineID" layoutX="402.0" layoutY="233.0" prefHeight="26.0" prefWidth="131.0"/>
+    <Label layoutX="431.0" layoutY="183.0" text="Data di Fine">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </Label>
 
 
-    </children>
 </AnchorPane>

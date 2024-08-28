@@ -1,4 +1,4 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š¦™‹ùÿÿÿÿ8çìÏ–2
 Y
-java:S1068!"7Remove this unused "prenotazioneAulaDAO" private field.(³¼ÂŠûÿÿÿÿ8ìÏ–2
+java:S1068#"7Remove this unused "prenotazioneAulaDAO" private field.(³¼ÂŠûÿÿÿÿ8ìÏ–2

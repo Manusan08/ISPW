@@ -9,26 +9,28 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.CercaPostoPerIdController">
-    <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
-        <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../images/pic2.png" />
-            </image></ImageView>
-      <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0" text="                                        Mostra Prenotazione per ID" textAlignment="CENTER" textFill="#fcfcfc">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="188.0" layoutY="131.0" text="Inserisci ID della Prenotaizone">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtidPrenotazione" layoutX="226.0" layoutY="188.0" />
-      <Button fx:id="avantiid" layoutX="274.0" layoutY="252.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.CercaPostoPerIdController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
+               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+    <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../images/pic2.png"/>
+    </ImageView>
+    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0"
+           text="                                        Mostra Prenotazione per ID" textAlignment="CENTER"
+           textFill="#fcfcfc">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="188.0" layoutY="131.0" text="Inserisci ID della Prenotaizone">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txtidPrenotazione" layoutX="226.0" layoutY="188.0"/>
+    <Button fx:id="avantiid" layoutX="274.0" layoutY="252.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
+            text="avanti"/>
 
 
-    </children>
 </AnchorPane>

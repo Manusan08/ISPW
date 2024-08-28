@@ -1,7 +1,5 @@
 
-T
-java:S11357"2Complete the task associated to this TODO comment.(ŠŒæâüÿÿÿÿ8»ŠËĞ–2
-a
-java:S2147R"DCombine this catch with the one at line 80, which has the same body.(ï­£Ä8¿ŠËĞ–2
-f
-java:S2147T"DCombine this catch with the one at line 82, which has the same body.(˜»¶¹ùÿÿÿÿ8ÁŠËĞ–2
+€
+java:S1157Z"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(îæúİ8›İÇÎ˜2
+€
+java:S1157\"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(öäõ8İÇÎ˜2

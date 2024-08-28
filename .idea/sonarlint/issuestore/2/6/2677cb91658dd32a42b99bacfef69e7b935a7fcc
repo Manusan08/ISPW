@@ -1,9 +1,5 @@
 
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(õ·™'8¨¡ìº”2
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ö´Ì8şÔ¹”2
-T
-java:S1135"2Complete the task associated to this TODO comment.(Åøè¤ûÿÿÿÿ8‚Ô¹”2
-[
-java:S1144">Remove this unused private "visualizzaAuleDisponibili" method.(ö´Ì8±¡ìº”2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.UserBean'.(šúşÇ8Å’ÈÎ˜2
+w
+java:S1128"ZRemove this unused import 'it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel'.(×êÖ‘8É’ÈÎ˜2

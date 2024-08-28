@@ -40,7 +40,7 @@ public class GestisciAuleController {
         aulaM.setComputer(aulaBean.isComputer());
         aulaM.setBanchiDisegno(aulaBean.isBanchiDisegno());
         for (AulaModel aulaModel : aulaDAO.getAulaByFiltri(aulaM)) {
-            AulaBean ab = new AulaBean(aulaModel.getIdAula(), aulaModel.getNumeroPosti(), aulaModel.isComputer(), aulaModel.isProiettore(), aulaModel.isBanchiDisegno());
+            AulaBean ab = new AulaBean(aulaModel.getIdAula(), aulaModel.getNumeroPosti(), aulaModel.isProiettore(), aulaModel.isBanchiDisegno(), aulaModel.isComputer());
             aulaBeanList.add(ab);
         }
 

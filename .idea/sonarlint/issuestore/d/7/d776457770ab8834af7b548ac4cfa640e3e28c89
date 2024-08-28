@@ -1,0 +1,9 @@
+
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(έ“ε±ωÿÿÿÿ8Νς€—2
+y
+java:S1450"WRemove the "userBean" field and declare it as a local variable in the relevant methods.(θισωωÿÿÿÿ8Ϊ“σ€—2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(ΗΎυ8Ϊβ„™2
+N
+java:S1068",Remove this unused "userBean" private field.(θισωωÿÿÿÿ8Νς€—2

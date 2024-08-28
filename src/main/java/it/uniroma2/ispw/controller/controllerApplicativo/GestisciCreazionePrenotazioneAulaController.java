@@ -47,7 +47,7 @@ public class GestisciCreazionePrenotazioneAulaController {
         ConcretePrenotazioneAulaFactory factory = new ConcretePrenotazioneAulaFactory();
         PrenotazioneAula prenotazioneAula = factory.creaPrenotazione(prenotazione);
         if (prenotazioneAula.verificaPrenotazione()) {
-            ConfermPrenotazioneView.confermaPrenotazione(prenotazione);
+           // ConfermPrenotazioneView.confermaPrenotazione(prenotazione);
             prenotazioneAula.salvaPrenotazione();
             return true;
         } return false;

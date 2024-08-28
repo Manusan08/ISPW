@@ -1,4 +1,5 @@
 package it.uniroma2.ispw.controller.controllergrafico1.docente;
+import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
@@ -22,7 +23,7 @@ private UserBean userBean;
 @FXML
     void MostraAuleAction(ActionEvent event) { try {
     // Ottieni l'istanza di ChangePage e cambia la pagina
-    ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule.fxml", userBean);
+    ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule2.fxml", userBean);
 } catch (SystemException e) {
     // Gestisci l'eccezione
     e.printStackTrace();
@@ -58,4 +59,6 @@ private UserBean userBean;
     public void inizializza(UserBean cred) throws SystemException {
         this.userBean=cred;
     }
+
+
 }

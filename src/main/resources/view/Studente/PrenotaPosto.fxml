@@ -7,27 +7,30 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.PrenotaPostoController">
-    <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
-        <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../images/pic2.png" />
-            </image></ImageView>
-        <Button fx:id="cercaAulaID" layoutX="300.0" layoutY="48.0" mnemonicParsing="false" onAction="#cercaAulaPerIDprenotazione" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Cerca aula per iDPrenotazione" textFill="WHITE">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <Button fx:id="cercaAulaProfMat" layoutY="48.0" mnemonicParsing="false" onAction="#cercaAulaperProfEMateria" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Cerca aula per professore e materia" textFill="WHITE">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 80%;">
-            <image>
-                <Image url="@../../images/aula2-300x200.png" />
-            </image></ImageView>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.PrenotaPostoController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
+               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+    <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../images/pic2.png"/>
+    </ImageView>
+    <Button fx:id="cercaAulaID" layoutX="300.0" layoutY="48.0" mnemonicParsing="false"
+            onAction="#cercaAulaPerIDprenotazione" prefHeight="55.0" prefWidth="300.0"
+            style="-fx-background-color: transparent;" text="Cerca aula per iDPrenotazione" textFill="WHITE">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="cercaAulaProfMat" layoutY="48.0" mnemonicParsing="false" onAction="#cercaAulaperProfEMateria"
+            prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;"
+            text="Cerca aula per professore e materia" textFill="WHITE">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-opacity: 80%;">
+        <Image url="@../../images/aula2-300x200.png"/>
+    </ImageView>
 
-    </children>
 </AnchorPane>

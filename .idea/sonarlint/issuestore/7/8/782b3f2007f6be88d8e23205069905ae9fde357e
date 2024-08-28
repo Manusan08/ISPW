@@ -1,0 +1,6 @@
+
+w	java:S116"VRename this field "CercaAulaID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”Ø‚ıÿÿÿÿ8Æ²Ü€—2
+s	java:S116"WRename this field "MostraAuleID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÙ•‹8Ç²Ü€—2
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßŸ›Èúÿÿÿÿ8Ê²Ü€—2
+X
+java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8Šé„™2

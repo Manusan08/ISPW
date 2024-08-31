@@ -48,6 +48,7 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
                 new PropertyValueFactory<>("IdAula"));
         colonna2.setCellValueFactory(
                 new PropertyValueFactory<>("OraLezione1"));
+        tableViewPrenotazioni.setSelectionModel(null);
         tableViewPrenotazioni.setItems(data);
 
     }

@@ -55,7 +55,7 @@ private Button visualizzaid;
     try {
         // Ottieni l'istanza di ChangePage e cambia la pagina
         //DA FARE
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/sm.fxml", userBean);
+        ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDisponibili.fxml", userBean);
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();

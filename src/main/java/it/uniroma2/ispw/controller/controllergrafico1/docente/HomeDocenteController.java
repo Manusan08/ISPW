@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import java.sql.SQLException;
+
 public class HomeDocenteController extends ControllerGrafico {
     @FXML
     private Button Aulaid;
@@ -24,6 +26,8 @@ public class HomeDocenteController extends ControllerGrafico {
         } catch (SystemException e) {
             // Gestisci l'eccezione
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -36,6 +40,8 @@ public class HomeDocenteController extends ControllerGrafico {
         } catch (SystemException e) {
             // Gestisci l'eccezione
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }

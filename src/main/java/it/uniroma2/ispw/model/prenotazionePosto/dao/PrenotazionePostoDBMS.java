@@ -142,7 +142,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             ps.setString(5, ppm.getIdPrenotazioneAula());
             ps.executeUpdate();
 
-            return "La prenotazione è avvenuta con successo! id prenotazione :" + ppm.getIdPrenotazionePosto();
+            return "La prenotazione è avvenuta con successo!\nid prenotazione :" + ppm.getIdPrenotazionePosto();
 
         } catch (SQLException e) {
             if (e.getErrorCode() == 1062) {

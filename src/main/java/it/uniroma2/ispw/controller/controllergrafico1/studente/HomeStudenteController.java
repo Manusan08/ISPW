@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import java.sql.SQLException;
+
 public class HomeStudenteController extends ControllerGrafico {
 
 @FXML
@@ -27,9 +29,11 @@ private Button visualizzaid;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
 
-            }
+}
 
 @FXML
     void prenotaPostoAction(ActionEvent event) {
@@ -39,10 +43,12 @@ private Button visualizzaid;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
 
 
-            }
+}
 
 @FXML
     void visualizzaAuleAction(ActionEvent event) {
@@ -53,9 +59,11 @@ private Button visualizzaid;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
 
-            }
+}
 
     @Override
     public void inizializza(UserBean cred) throws SystemException {

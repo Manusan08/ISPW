@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import java.sql.SQLException;
+
 public  class GestisciPrenotazionePostoController extends ControllerGrafico {
 
 @FXML
@@ -26,9 +28,11 @@ private UserBean userBean;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
 
-            }
+}
 
 @FXML
     void visualizzaPrenotazioneAction(ActionEvent event) {
@@ -38,9 +42,11 @@ private UserBean userBean;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
     }
 
-            }
+}
 
     @Override
     public void inizializza(UserBean cred) throws SystemException {

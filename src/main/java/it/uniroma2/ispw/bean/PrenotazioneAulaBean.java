@@ -7,19 +7,19 @@ import java.util.Date;
 
 public class PrenotazioneAulaBean {
 
-    private  String idPrenotazioneAula;
+    private String idPrenotazioneAula;
     private String idAula;
     private String email;
 
 
     private Orario oraLezione;
     private Date giornoLezione;
-    private  String descrizione;
-    private  String nomeDocente;
+    private String descrizione;
+    private String nomeDocente;
     private String materia;
     private boolean isRicorente;
-    private  Date dataFine;
-    private  int numeroPosti;
+    private Date dataFine;
+    private int numeroPosti;
 
     public int getNumeroPosti() {
         return numeroPosti;
@@ -40,17 +40,16 @@ public class PrenotazioneAulaBean {
                                 java.sql.Date datalezione,
                                 Orario oraLezione,
                                 String descrizione,
-                                String materia,String idAula) {
+                                String materia, String idAula) {
 
 
-        this.idPrenotazioneAula=idPrenotazioneAula;
-        this.descrizione=descrizione;
-        this.nomeDocente=nomeDocente;
-        this.giornoLezione=datalezione;
-        this.oraLezione=oraLezione;
-        this.materia=materia;
-        this.idAula=idAula;
-
+        this.idPrenotazioneAula = idPrenotazioneAula;
+        this.descrizione = descrizione;
+        this.nomeDocente = nomeDocente;
+        this.giornoLezione = datalezione;
+        this.oraLezione = oraLezione;
+        this.materia = materia;
+        this.idAula = idAula;
 
 
     }
@@ -58,7 +57,6 @@ public class PrenotazioneAulaBean {
     public PrenotazioneAulaBean() {
 
     }
-
 
 
     public boolean isRicorente() {
@@ -130,20 +128,13 @@ public class PrenotazioneAulaBean {
     }
 
     public void setNomeDocente(String nomeDocente) {
-        this.nomeDocente=nomeDocente;
+        this.nomeDocente = nomeDocente;
     }
 
     public void setMateria(String materia) {
-        this.materia=materia;
+        this.materia = materia;
     }
 
-
-
-
-
-    public Object getOrario() {
-        return null;
-    }
 
     public void setOrario(Orario orario) {
 
@@ -151,6 +142,10 @@ public class PrenotazioneAulaBean {
 
     public void setOrarioLezione(java.sql.Date dataLezione) {
 
+    }
+
+    public String getOraLezione1() {
+        return  this.oraLezione.getFasciaOraria();
     }
 }
 

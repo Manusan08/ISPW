@@ -44,6 +44,9 @@ public class PostoObserver implements Observer {
                     if (this.postoId.equals(ppc.getPostoId())) {
                         this.setPrenotato(true);
                     }
+                    else{
+                        this.setPrenotato(false);
+                    }
                     break;
                 case NON_EFFETTUATA:
                     this.setPrenotato(false);

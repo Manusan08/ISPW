@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class MostraLeAuleController extends ControllerGrafico {
@@ -54,6 +55,8 @@ public class MostraLeAuleController extends ControllerGrafico {
             } catch (SystemException e) {
                 // Gestisci l'eccezione
                 e.printStackTrace();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         } else {
             // Mostra un messaggio di errore se nessuna aula è selezionata
@@ -73,8 +76,6 @@ public class MostraLeAuleController extends ControllerGrafico {
     @Override
     public void setAulaBeans(List<AulaBean> aulaBeans) {
         this.aulaBeans = aulaBeans;
-
-        // Popola la TableView
         popolaTableView();
     }
 

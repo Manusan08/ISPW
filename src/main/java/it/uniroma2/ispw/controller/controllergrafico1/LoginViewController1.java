@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginViewController1 implements Initializable {
@@ -60,6 +61,8 @@ public class LoginViewController1 implements Initializable {
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 

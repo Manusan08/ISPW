@@ -66,9 +66,14 @@ public class ManIntheMiddleFaçade {
         postoObserver1 = isPostoInList(this.prenotazionePostoSubject.getObservers(), ppc);
 
         if (postoObserver1 != null) {
-            this.prenotazionePostoSubject.setStatusEffettuata();
+            if(postoObserver1.isPrenotato()){
+                this.prenotazionePostoSubject.setStatusNonEffetutata();
+            }
+            else {
+                this.prenotazionePostoSubject.setStatusEffettuata();
             this.prenotazionePostoSubject.notify(ppc);
             postoObserver1.update(ppc);
+            }
             return postoObserverToPostoBean(this.prenotazionePostoSubject.getObservers());
         }
         return null;
@@ -91,7 +96,6 @@ public boolean prenota(PrenotazioneAulaBean pab){
 
     public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws SQLException {
         UserModel usm=usrBeanToUsrModel(userBean);
-
         return this.gestisciCreazionePrenotazioneAulaController.getBookedClassByteacherNameAndSubject(pab, usm);
     }
 

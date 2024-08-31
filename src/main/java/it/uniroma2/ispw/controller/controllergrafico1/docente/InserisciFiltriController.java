@@ -15,12 +15,13 @@ package it.uniroma2.ispw.controller.controllergrafico1.docente;
         import javafx.scene.control.*;
 
         import java.sql.Date;
+        import java.sql.SQLException;
 
 public class InserisciFiltriController extends ControllerGrafico {
     private UserBean userBean;
     private AulaBean aulaBean;
     @FXML
-    private ChoiceBox<String> OrarioID;
+    private ChoiceBox<String> orarioID;
 
     @FXML
     private Button avantiID;
@@ -48,7 +49,7 @@ public class InserisciFiltriController extends ControllerGrafico {
             Date dataLezione = Date.valueOf(dateID.getValue());
 
             // Usa il metodo Orario.fromString() per ottenere l'enum corretto
-            Orario orario = Orario.fromString(OrarioID.getValue());
+            Orario orario = Orario.fromString(orarioID.getValue());
             if (orario == null) {
                 throw new IllegalArgumentException("L'orario selezionato non è valido.");
             }
@@ -114,6 +115,8 @@ public class InserisciFiltriController extends ControllerGrafico {
             } catch (SystemException e) {
                 // Gestisci l'eccezione
                 e.printStackTrace();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
         });
         return alert;
@@ -124,7 +127,7 @@ public class InserisciFiltriController extends ControllerGrafico {
     public void inizializza(UserBean cred) throws SystemException {
         this.userBean=cred;
         for (Orario orario : Orario.values()) {
-            OrarioID.getItems().add(orario.getFasciaOraria());
+            orarioID.getItems().add(orario.getFasciaOraria());
         }
         ricorrenteID.selectedProperty().addListener((observable, oldValue, newValue) -> {
             dateFineID.setDisable(!newValue);

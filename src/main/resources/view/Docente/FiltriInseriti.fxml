@@ -34,7 +34,7 @@
     <Button fx:id="avantiID" layoutX="276.0" layoutY="344.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
             text="avanti"/>
     <DatePicker fx:id="dateID" layoutX="217.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0"/>
-    <ChoiceBox fx:id="OrarioID" layoutX="217.0" layoutY="180.0" prefHeight="26.0" prefWidth="131.0"/>
+    <ChoiceBox fx:id="orarioID" layoutX="217.0" layoutY="180.0" prefHeight="26.0" prefWidth="131.0"/>
     <Label layoutX="31.0" layoutY="183.0" text="inserisci Orario">
         <font>
           <Font size="14.0"/>

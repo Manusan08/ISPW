@@ -3,13 +3,13 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
 
 public class PrenotazionePostoContext implements Context {
-private String PostoId;
+private final String postoId;
 
     public PrenotazionePostoContext(String postoId) {
-        PostoId = postoId;
+        this.postoId = postoId;
     }
 
     public String getPostoId() {
-        return PostoId;
+        return postoId;
     }
 }

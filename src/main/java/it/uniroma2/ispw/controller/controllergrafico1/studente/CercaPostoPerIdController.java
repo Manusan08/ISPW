@@ -26,4 +26,12 @@ public class CercaPostoPerIdController extends ControllerGrafico {
     public void inizializza(UserBean cred) throws SystemException {
         this.userBean=cred;
     }
+
+
+
+    public void initializeTable(){
+
+
+    }
+
 }

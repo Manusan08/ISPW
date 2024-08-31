@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
         import javafx.scene.control.CheckBox;
         import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public  class  CercaAulaFiltriController extends ControllerGrafico {
@@ -61,6 +62,8 @@ private TextField txtNumeroPosti;
         // Gestisci l'eccezione
         e.printStackTrace();
     } catch (ItemNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (SQLException e) {
         throw new RuntimeException(e);
     }
 

@@ -32,5 +32,4 @@
                style="-fx-opacity: 80%;">
         <Image url="@../../images/aula2-300x200.png"/>
     </ImageView>
-
 </AnchorPane>

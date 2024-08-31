@@ -8,35 +8,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.CercaPostoPerNomeController">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
-               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.CercaPostoPerNomeController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../images/pic2.png"/>
+        <Image url="@../../images/pic2.png" />
     </ImageView>
-    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0"
-           text="                                             Cerca Aule con Filtri" textAlignment="CENTER"
-           textFill="#fcfcfc">
+    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0" textAlignment="CENTER" textFill="#fcfcfc">
         <font>
-          <Font size="18.0"/>
+          <Font size="18.0" />
         </font>
     </Label>
-    <Label layoutX="103.0" layoutY="127.0" text="Cognome Professore">
+    <Label layoutX="63.0" layoutY="158.0" text="Cognome Professore">
         <font>
-          <Font size="18.0"/>
+          <Font name="Arial" size="18.0" />
         </font>
     </Label>
-    <Button fx:id="avantiiD" layoutX="276.0" layoutY="344.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
-            text="avanti"/>
-    <Label layoutX="156.0" layoutY="189.0" text="Materia">
+    <Button fx:id="avantiiD" alignment="CENTER" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#avantiBottoneAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #27ae60;" text="cerca" textFill="#fcfcfc" />
+    <Label layoutX="63.0" layoutY="217.0" text="Materia">
         <font>
-          <Font size="18.0"/>
+          <Font name="Arial" size="18.0" />
         </font>
     </Label>
-    <TextField fx:id="txtNome" layoutX="324.0" layoutY="128.0" prefHeight="26.0" prefWidth="131.0"/>
-    <TextField fx:id="txtMateria" layoutX="324.0" layoutY="190.0" prefHeight="26.0" prefWidth="131.0"/>
+    <TextField fx:id="txtNome" layoutX="300.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" />
+    <TextField fx:id="txtMateria" layoutX="300.0" layoutY="218.0" prefHeight="26.0" prefWidth="190.0" />
+   <Button fx:id="annullaId" alignment="CENTER" layoutX="63.0" layoutY="298.0" mnemonicParsing="false" onAction="#annullaBottoneAction" text="annulla" />
+   <Text fill="#f4f4f4f0" layoutX="192.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca aule con filtri" wrappingWidth="215.60113525390625">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Text>
 
 
 </AnchorPane>

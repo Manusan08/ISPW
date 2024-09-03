@@ -15,6 +15,7 @@ import java.util.List;
 
 public class GestisciPrenotazioniView extends TemplateView {
     public GestisciPrenotazioniView(UserBean usrBean) {
+        super(usrBean);
     }
     public void control() throws IOException {
         int choice;
@@ -23,7 +24,7 @@ public class GestisciPrenotazioniView extends TemplateView {
         while (cond) {
             choice = this.userChoice();
             switch (choice) {
-                case 1 -> mostraPrenotazioni(this.usrBean);
+                case 1 -> mostraPrenotazioni();
                 case 2 -> eliminaPrenotazione();
                 case 3 -> modificaPrenotazione();
                 case 4 -> cond = false;
@@ -35,7 +36,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     private void modificaPrenotazione() throws IOException {
         AulaBean ab = new AulaBean();
         PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
-        mostraPrenotazioni(this.usrBean);
+        mostraPrenotazioni();
         String str = getDesiredIn("id aula", "inserisci id aula per cui vuoi effettuare modifica");
         ab.setIdAula(str);
         pb.setIdAula(str);
@@ -64,9 +65,9 @@ public class GestisciPrenotazioniView extends TemplateView {
         }
     }
 
-    private void mostraPrenotazioni(UserBean usrBean) {
-        UserBean us = new UserBean(this.usrBean.getEmail(), this.usrBean.getNome());
-        printTable(new GestisciCreazionePrenotazioneAulaController().getPrenotazioneByName(us));
+    private void mostraPrenotazioni() {
+        //UserBean us = new UserBean(this.usrBean.getEmail(), this.usrBean.getNome());
+        printTable(new GestisciCreazionePrenotazioneAulaController().getPrenotazioneByName(this.usrBean));
     }
 
     @Override

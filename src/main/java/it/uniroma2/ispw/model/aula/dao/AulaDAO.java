@@ -10,7 +10,7 @@ import java.util.List;
 public interface AulaDAO {
 
     public List<AulaModel> getAllAule();
-    public List<AulaModel> getAulaByFiltri(AulaModel aulaM);
+    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) throws ItemNotFoundException;
     public AulaModel getAulaById(String Id) throws ItemNotFoundException;
 
 

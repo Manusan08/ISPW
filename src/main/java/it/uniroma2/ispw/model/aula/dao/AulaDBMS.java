@@ -95,7 +95,7 @@ public class AulaDBMS implements AulaDAO {
     }
 
     @Override
-    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) {
+    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) throws ItemNotFoundException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<AulaModel> corsoList = new ArrayList<>();
@@ -126,7 +126,7 @@ public class AulaDBMS implements AulaDAO {
 
             resultSet = statement.executeQuery();
 
-            if (!resultSet.next()) return corsoList;
+            if (!resultSet.next()) throw new ItemNotFoundException("\nnon esistono aule disponibili con i parametri richiesti.");
 
             do {
                 AulaModel c = new AulaModel(resultSet.getString("idAula"));

@@ -32,7 +32,6 @@ public class GestisciAuleController {
 
     public List<AulaBean> chekAula(AulaBean aulaBean) throws ItemNotFoundException {
         List<AulaModel> aulaModelList = new ArrayList<>();
-        if (aulaModelList == null) throw new ItemNotFoundException("Aula non disponibile.");
         List<AulaBean> aulaBeanList = new ArrayList<>();
         AulaModel aulaM = new AulaModel();
         aulaM.setNumeroPosti(aulaBean.getPosti());

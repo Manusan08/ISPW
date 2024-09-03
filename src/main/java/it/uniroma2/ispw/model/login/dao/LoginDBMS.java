@@ -37,7 +37,6 @@ public class LoginDBMS implements LoginDAO {
         }
         return loginModel;
     }
-
     private LoginModel setUtenteFromResultSet(ResultSet resultSet) throws SQLException {
         LoginModel loginModel = new LoginModel();
 

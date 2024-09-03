@@ -27,7 +27,7 @@ public class LoginDBMS implements LoginDAO {
 
 
             resultSet = statement.executeQuery();
-            if (!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
+            if (!resultSet.next()) throw new ItemNotFoundException("\nCredenziali errate!");
             loginModel = setUtenteFromResultSet(resultSet);
 
         } catch (SystemException e) {

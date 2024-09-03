@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Connection;
@@ -21,7 +22,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
     }
 
     @Override
-    public List<PrenotazionePostoModel> getAllReservations(UserBean us) {
+    public List<PrenotazionePostoModel> getAllReservations(UserBean us) throws ItemNotFoundException {
         List<PrenotazionePostoModel> prenotazioni = new ArrayList<>();
         PreparedStatement statement;
         ResultSet rs;
@@ -43,9 +44,8 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             statement.setString(1, us.getEmail());
             rs = statement.executeQuery();
 
-            if (!rs.next()) {
-                return prenotazioni;
-            }
+            if (!rs.next()) throw new ItemNotFoundException("non ci sono prenotazioni corrispondenti al tuo account");
+
             do {
                 PrenotazionePostoModel ppm = new PrenotazionePostoModel();
 
@@ -66,16 +66,14 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
             } while (rs.next());
 
-            return prenotazioni;
-        } catch (
-                SystemException | SQLException e) {
+        } catch (SQLException | SystemException e) {
             throw new RuntimeException(e);
         }
-
+        return prenotazioni;
     }
 
     @Override
-    public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) throws SQLException {
+    public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) throws ItemNotFoundException {
         PreparedStatement statement = null;
 
         try {
@@ -85,16 +83,17 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
             statement.setString(1, ppm.getIdPrenotazionePosto());
 
-            statement.executeUpdate();
-
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new ItemNotFoundException("nessuna corrispondenza con la prenotazione" + ppm.getIdPrenotazionePosto());
+            }
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-
     @Override
-    public PrenotazionePostoModel getPrenotazioneByid(String idPrenotazionePosto) throws SQLException {
+    public PrenotazionePostoModel getPrenotazioneByid(String idPrenotazionePosto) throws ItemNotFoundException {
 
         PrenotazionePostoModel pp = null;
         PreparedStatement statement = null;
@@ -106,9 +105,11 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             statement.setString(1, idPrenotazionePosto);
             rs = statement.executeQuery();
 
+
             if (!rs.next()) {
-                return pp;
+                throw new ItemNotFoundException("non ci sono posti prenotati con questo id:" + idPrenotazionePosto);
             }
+
             pp = new PrenotazionePostoModel();
             pp.setIdPrenotazionePosto(rs.getString("idPrenotazione"));
             pp.setIdAula(rs.getString("idAula"));
@@ -124,7 +125,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
     @Override
     public String inserisciPrenotazione(PrenotazionePostoModel ppm) throws SystemException, SQLException {
-        PreparedStatement ps=null;
+        PreparedStatement ps = null;
         String sql = "insert into PrenotazionePosto (" +
                 "idPrenotazione," +
                 "idAula," +
@@ -134,7 +135,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
                 " values (?,?,?,?,?)";
 
         try {
-            ps=ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            ps = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             ps.setString(1, ppm.getIdPrenotazionePosto());
             ps.setString(2, ppm.getIdAula());
             ps.setString(3, ppm.getEmail());

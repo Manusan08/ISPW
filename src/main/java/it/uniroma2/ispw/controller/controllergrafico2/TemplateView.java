@@ -100,10 +100,6 @@ public abstract class TemplateView {
     }
 
         public <T> void printTable(List<T> list) {
-            if (list == null || list.isEmpty()) {
-                System.out.println("La lista è vuota.");
-                return;
-            }
 
             Method[] methods = list.get(0).getClass().getDeclaredMethods();
             List<Method> getters = filterGetters(methods);
@@ -127,7 +123,6 @@ public abstract class TemplateView {
                 }
                 columnWidths.add(maxWidth);
             }
-
             printTableHeader(headers, columnWidths);
 
             // Print rows
@@ -171,9 +166,6 @@ public abstract class TemplateView {
             }
             return name;
         }
-
-
-
 
     public void aggiornaInterfaccia(PrenotazionePostoModel pp, Boolean isPrenotato) {
     }

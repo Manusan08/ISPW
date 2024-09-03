@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +45,7 @@ public class MostraPrenotazioniController extends ControllerGrafico {
 
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred) throws ItemNotFoundException {
         this.userBean = cred;
         //TODO bisogna chiamare il façade non il controller!
         final ObservableList<PrenotazionePostoBean> data =

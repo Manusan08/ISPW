@@ -12,6 +12,7 @@ import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Prenot
 import it.uniroma2.ispw.controller.controllerApplicativo.factory.ConcretePrenotazioneAulaFactory;
 import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
 import it.uniroma2.ispw.model.UserModel;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.SQLException;
@@ -94,7 +95,7 @@ public boolean prenota(PrenotazioneAulaBean pab){
     }
 
 
-    public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws SQLException {
+    public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws SQLException, ItemNotFoundException {
         UserModel usm=usrBeanToUsrModel(userBean);
         return this.gestisciCreazionePrenotazioneAulaController.getBookedClassByteacherNameAndSubject(pab, usm);
     }

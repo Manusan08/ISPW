@@ -7,5 +7,5 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 public interface LoginDAO {
 
-    public LoginModel auth(LoginBean loginBean);
+    public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException;
 }

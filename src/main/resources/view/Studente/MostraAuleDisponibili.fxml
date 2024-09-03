@@ -22,7 +22,7 @@
         </font>
     </Label>
     <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
-    <TableView fx:id="tableViewPrenotazioni" layoutX="219.0" layoutY="128.0" prefHeight="200.0" prefWidth="178.0">
+    <TableView fx:id="tableViewPrenotazioni" layoutY="103.0" prefHeight="254.0" prefWidth="177.0">
         <columns>
             <TableColumn fx:id="colonna1" maxWidth="150.0" text="ID AULA" />
             <TableColumn fx:id="colonna2" maxWidth="150.0" text="Orario" />

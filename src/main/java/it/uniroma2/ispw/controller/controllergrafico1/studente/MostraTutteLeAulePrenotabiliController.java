@@ -7,6 +7,7 @@ import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,8 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
                 e.printStackTrace();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
+            } catch (ItemNotFoundException e) {
+                throw new RuntimeException(e);
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -74,13 +77,13 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
     }
 
     @Override
-    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab) throws SQLException {
+    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException {
         this.pab = pab;
         tableInitializator(userBean);
 
     }
 
-    public void tableInitializator(UserBean userBean) throws SQLException {
+    public void tableInitializator(UserBean userBean) throws SQLException, ItemNotFoundException {
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
                         new ManIntheMiddleFaçade().searchBySurnameAndSubject(pab, userBean));

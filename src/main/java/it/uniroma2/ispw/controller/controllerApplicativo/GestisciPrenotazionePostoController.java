@@ -71,7 +71,7 @@ public class GestisciPrenotazionePostoController {
         prenotazionePostoDao.rimuoviPrenotazionePosto(ppm);
     }
 
-    public List<PrenotazionePostoBean> getAllReservation(UserBean userBean) {
+    public List<PrenotazionePostoBean> getAllReservation(UserBean userBean) throws ItemNotFoundException {
         List<PrenotazionePostoModel> postiModel;
         List<PrenotazionePostoBean> prenotazioniPostiBean = new ArrayList<>();
 

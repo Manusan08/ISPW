@@ -25,13 +25,12 @@ public class LoginViewController2 extends TemplateView{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         try {
             usrBean= loginController.login(loginBean);
         } catch (InvalidDataException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -57,9 +56,7 @@ public class LoginViewController2 extends TemplateView{
         System.out.print("Inserisci password: ");
         String pwd = reader.readLine();
 
-        System.out.print("Inserisci ruolo: ");
-        Role ruolo = Role.valueOf(reader.readLine());
-        return new LoginBean(email, pwd, ruolo);
+        return new LoginBean(email, pwd);
     }
 
     public UserBean getUsrBean() {

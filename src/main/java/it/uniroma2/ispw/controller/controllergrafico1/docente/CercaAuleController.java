@@ -3,6 +3,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,6 +32,8 @@ private UserBean userBean;
     e.printStackTrace();
 } catch (SQLException e) {
     throw new RuntimeException(e);
+} catch (ItemNotFoundException e) {
+    throw new RuntimeException(e);
 }
 
 }
@@ -45,6 +48,8 @@ private UserBean userBean;
     e.printStackTrace();
 } catch (SQLException e) {
         throw new RuntimeException(e);
+    } catch (ItemNotFoundException e) {
+        throw new RuntimeException(e);
     }
 
 }
@@ -57,7 +62,7 @@ private UserBean userBean;
     } catch (SystemException e) {
         // Gestisci l'eccezione
         e.printStackTrace();
-    } catch (SQLException e) {
+    } catch (SQLException | ItemNotFoundException e) {
         throw new RuntimeException(e);
     }
 

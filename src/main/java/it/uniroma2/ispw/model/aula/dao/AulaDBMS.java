@@ -46,7 +46,6 @@ public class AulaDBMS implements AulaDAO {
             }else {is=false;}
             aulaModel.setBanchiDisegno(is);
 
-
         } catch (SystemException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {

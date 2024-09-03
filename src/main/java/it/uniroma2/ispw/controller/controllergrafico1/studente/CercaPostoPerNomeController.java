@@ -3,6 +3,7 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,6 +38,8 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             e.getCause();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -56,6 +59,8 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             // Gestisci l'eccezione
             e.getCause();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

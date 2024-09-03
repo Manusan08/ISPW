@@ -13,7 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginDBMS implements LoginDAO {
-    public LoginModel auth(LoginBean loginBean) {
+
+    public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException{
         LoginModel loginModel = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -25,8 +26,6 @@ public class LoginDBMS implements LoginDAO {
             statement.setString(2, loginBean.getPassword());
 
 
-
-
             resultSet = statement.executeQuery();
             if (!resultSet.next()) throw new ItemNotFoundException("Credenziali errate!");
             loginModel = setUtenteFromResultSet(resultSet);
@@ -34,8 +33,6 @@ public class LoginDBMS implements LoginDAO {
         } catch (SystemException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
         return loginModel;

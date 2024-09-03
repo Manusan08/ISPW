@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 public class CliController {
 
-    public void start() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
+    public void start() throws SystemException, InvalidDataException, IOException, LoginException, SQLException, ItemNotFoundException {
         UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

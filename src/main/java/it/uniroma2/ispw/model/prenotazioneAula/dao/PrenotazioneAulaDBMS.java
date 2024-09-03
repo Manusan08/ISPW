@@ -3,6 +3,7 @@ package it.uniroma2.ispw.model.prenotazioneAula.dao;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException, ItemNotFoundException {
         List<PrenotazioneAulaModel> prenotazioniAuleModel = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -37,6 +38,9 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
             rs = ps.executeQuery();
 
+            if (!rs.next()) throw new ItemNotFoundException(
+                    "non ci sono corrispondenze con nome" + " " + pam.getNomeProfessore()
+                            + " o con materia" + pam.getMateria());
             while (rs.next()) {
                 PrenotazioneAulaModel prenotazione = new PrenotazioneAulaModel();
                 prenotazione.setMateria(rs.getString("materia"));
@@ -52,7 +56,6 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
-
         return prenotazioniAuleModel;
     }
 
@@ -120,7 +123,6 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
     }
 
 
-
     @Override
     public boolean esistePrenotazione(String idAula, Date giornoLezione, Orario oraLezione) {
         boolean esistePrenotazione = false;
@@ -136,8 +138,8 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
             statement.setString(3, String.valueOf(oraLezione));
 
             resultSet = statement.executeQuery();
-            if (resultSet==null){
-                esistePrenotazione=true;
+            if (resultSet == null) {
+                esistePrenotazione = true;
             }
 
         } catch (SQLException e) {
@@ -156,8 +158,8 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
         ResultSet resultSet = null;
 
         try {
-                String sql = "INSERT INTO professoreprenotaaula (Utenti_email, Aule_idaula, oraLezione, dataLezione, descrizione, materia, nomeProfessore,  idPrenotazioneAula) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO professoreprenotaaula (Utenti_email, Aule_idaula, oraLezione, dataLezione, descrizione, materia, nomeProfessore,  idPrenotazioneAula) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
 

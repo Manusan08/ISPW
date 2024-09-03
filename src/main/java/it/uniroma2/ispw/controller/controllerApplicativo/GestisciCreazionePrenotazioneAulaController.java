@@ -17,6 +17,7 @@ import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
 import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaFS;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -73,7 +74,7 @@ public class GestisciCreazionePrenotazioneAulaController {
     public List<Object> getAulaByOrario(PrenotazioneAulaBean pab) {
         return new ArrayList<>();
     }
-    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, SQLException {
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, SQLException, ItemNotFoundException {
         List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
         PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getMateria());
 

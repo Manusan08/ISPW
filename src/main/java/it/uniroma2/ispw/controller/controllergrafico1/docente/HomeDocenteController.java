@@ -3,6 +3,7 @@ package it.uniroma2.ispw.controller.controllergrafico1.docente;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,8 @@ public class HomeDocenteController extends ControllerGrafico {
             e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -41,6 +44,8 @@ public class HomeDocenteController extends ControllerGrafico {
             // Gestisci l'eccezione
             e.printStackTrace();
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
 

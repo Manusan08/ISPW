@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,6 +63,8 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
                 // Gestisci l'eccezione
                 e.printStackTrace();
             } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ItemNotFoundException e) {
                 throw new RuntimeException(e);
             }
         } else {

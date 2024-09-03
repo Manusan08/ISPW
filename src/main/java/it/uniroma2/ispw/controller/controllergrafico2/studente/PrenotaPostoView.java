@@ -35,7 +35,7 @@ public class PrenotaPostoView extends TemplateView {
         }
     }
 
-    private void carcaAulaByCognomeProfessoreEMateria() throws IOException, SQLException {
+    private void carcaAulaByCognomeProfessoreEMateria() throws IOException, SQLException, ItemNotFoundException {
         PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
 
         String cognomeProfessore = getDesiredIn("cognome professore", "inserisci cognome del professore: ");

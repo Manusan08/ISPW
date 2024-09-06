@@ -30,7 +30,7 @@ public class ChangePage {
     }
 
     private Stage stage;
-    public void cambiaPagina(String fxml, UserBean cred) throws SystemException, SQLException ,ItemNotFoundException{
+    public void cambiaPagina(String fxml, UserBean cred) throws SQLException, ItemNotFoundException {
         cambiaPagina(fxml, cred, null,null,null);  // Passa `null` per i parametri aggiuntivi
     }
     public void cambiaPagina(String fxml, UserBean cred,AulaBean aulaBean) throws SystemException, SQLException, ItemNotFoundException {
@@ -44,16 +44,14 @@ public class ChangePage {
         cambiaPagina(fxml, cred, null,null,pab);  // Passa `null` per i parametri aggiuntivi
     }
 
-    public void cambiaPagina(String fxml, UserBean cred, AulaBean aulaBean, List<AulaBean> aulaBeans,PrenotazioneAulaBean pab) throws SystemException, SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred, AulaBean aulaBean, List<AulaBean> aulaBeans,PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = null;
 
         try {
             scene = new Scene(loader.load(), 600, 400);
         } catch (IOException e) {
-            SystemException exception = new SystemException();
-            exception.initCause(e);
-            throw exception;
+            throw new RuntimeException();
         }
         ControllerGrafico controller = loader.getController();    //Uso del polimorfismo, uso una variabile di tipo ControllerGrafico (superclasse)
         controller.inizializza(cred);

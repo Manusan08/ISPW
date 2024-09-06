@@ -29,8 +29,8 @@ public class HomeStudenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
-        } catch (SystemException | SQLException e) {
-            getAlert("qualcosa è andato storto").showAndWait();
+        } catch (SQLException e) {
+            getAlert().showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
         }
@@ -42,8 +42,8 @@ public class HomeStudenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", userBean);
-        } catch (SystemException | SQLException | ItemNotFoundException e) {
-            getAlert("ops,qualcosa è andato storto").showAndWait();
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
         }
     }
 
@@ -53,8 +53,8 @@ public class HomeStudenteController extends ControllerGrafico {
         try {
 
             ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDisponibili.fxml", userBean);
-        } catch (SystemException | SQLException e) {
-            getAlert("qualcosa è andato storto").showAndWait();
+        } catch (SQLException e) {
+          getAlert().showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
         }

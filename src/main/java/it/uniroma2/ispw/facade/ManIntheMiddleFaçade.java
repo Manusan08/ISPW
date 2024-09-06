@@ -1,15 +1,13 @@
-package it.uniroma2.ispw.Façade;
+package it.uniroma2.ispw.facade;
 
-import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciCreazionePrenotazioneAulaController;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.PostoObserver;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.PrenotazionePostoSubject;
-import it.uniroma2.ispw.controller.controllerApplicativo.factory.ConcretePrenotazioneAulaFactory;
+import it.uniroma2.ispw.controller.controllerapplicativo.GestisciCreazionePrenotazioneAulaController;
+import it.uniroma2.ispw.controller.controllerapplicativo.GestisciPrenotazionePostoController;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.Observer;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.PostoObserver;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.subject.PrenotazionePostoSubject;
 import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;

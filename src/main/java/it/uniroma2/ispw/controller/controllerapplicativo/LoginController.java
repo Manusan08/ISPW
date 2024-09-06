@@ -1,8 +1,7 @@
-package it.uniroma2.ispw.controller.controllerApplicativo;
+package it.uniroma2.ispw.controller.controllerapplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.*;
-import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 
 import it.uniroma2.ispw.model.login.dao.LoginDAO;
@@ -13,12 +12,7 @@ import it.uniroma2.ispw.model.login.LoginModel;
 
 import it.uniroma2.ispw.model.login.dao.LoginDBMS;
 
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
-
-
-import javax.security.auth.login.LoginException;
 
 
 public class LoginController {

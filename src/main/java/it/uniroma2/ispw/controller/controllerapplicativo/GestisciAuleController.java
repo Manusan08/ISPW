@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.controller.controllerApplicativo;
+package it.uniroma2.ispw.controller.controllerapplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;

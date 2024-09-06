@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico1.studente;
 
-import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -74,7 +74,7 @@ public class SelezionePostiController extends ControllerGrafico {
             this.postoBeans = manIntheMiddleFaçade.getPostiBean(pab);
             postiPrinter(postoBeans, capienzaAula);
         } catch (SQLException e) {
-            getAlert("Qualcosa è andato Storto");
+            getAlert();
         }
         double paneWidth = Screen.getPrimary().getBounds().getWidth();
         seatsPane.setPrefWidth(paneWidth);
@@ -129,8 +129,7 @@ public class SelezionePostiController extends ControllerGrafico {
     public void handleSelection(ActionEvent event, int capienza) {
         Button btn = ((Button) event.getSource());
         PrenotazionePostoContext ppc = new PrenotazionePostoContext(btn.getText());
-        List<PostoBean> updatedPostoBeans = manIntheMiddleFaçade.selezionaPosto(ppc);
-        postoBeans = updatedPostoBeans;
+        postoBeans = manIntheMiddleFaçade.selezionaPosto(ppc);
         premiumHbox.getChildren().clear();
         postiPrinter(postoBeans, capienza);
         confirmButton.setVisible(true);
@@ -149,12 +148,10 @@ public class SelezionePostiController extends ControllerGrafico {
         alert.setOnHidden(evt -> {
             try {
                 ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", usr);
-            } catch (SystemException e) {
-                e.printStackTrace();
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                getAlert();
             } catch (ItemNotFoundException e) {
-                throw new RuntimeException(e);
+               getAlert(e.getMessage());
             }
         });
         return alert;

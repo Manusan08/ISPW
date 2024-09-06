@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.bean.*;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;

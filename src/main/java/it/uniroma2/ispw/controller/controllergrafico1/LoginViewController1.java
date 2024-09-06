@@ -2,10 +2,9 @@ package it.uniroma2.ispw.controller.controllergrafico1;
 
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
+import it.uniroma2.ispw.controller.controllerapplicativo.LoginController;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,10 +52,9 @@ public class LoginViewController1 implements Initializable {
                 }
             }
         } catch (ItemNotFoundException e) {
-
             getAlert("Credenziali errate o utente inesistente").showAndWait();
-        } catch (SQLException | SystemException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+
         }
 
 

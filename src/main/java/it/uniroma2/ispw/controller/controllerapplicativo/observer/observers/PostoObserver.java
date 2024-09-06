@@ -1,7 +1,7 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers;
+package it.uniroma2.ispw.controller.controllerapplicativo.observer.observers;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.PrenotazionePostoSubject;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.Context;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.subject.PrenotazionePostoSubject;
 import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
 
 public class PostoObserver implements Observer {

@@ -1,13 +1,13 @@
-package it.uniroma2.ispw.controller.controllerApplicativo;
+package it.uniroma2.ispw.controller.controllerapplicativo;
 
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.PostoObserver;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.PrenotazionePostoSubject;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.Observer;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.PostoObserver;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.subject.PrenotazionePostoSubject;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.posto.PostoModel;

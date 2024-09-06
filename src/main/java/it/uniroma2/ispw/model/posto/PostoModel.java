@@ -1,9 +1,5 @@
 package it.uniroma2.ispw.model.posto;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Status;
-import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 
 public class PostoModel {

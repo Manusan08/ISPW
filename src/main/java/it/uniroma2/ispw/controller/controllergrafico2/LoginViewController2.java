@@ -1,10 +1,8 @@
 package it.uniroma2.ispw.controller.controllergrafico2;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
-import it.uniroma2.ispw.enums.Role;
+import it.uniroma2.ispw.controller.controllerapplicativo.LoginController;
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 

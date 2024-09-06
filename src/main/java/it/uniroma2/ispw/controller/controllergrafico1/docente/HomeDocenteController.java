@@ -24,9 +24,6 @@ public class HomeDocenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", userBean);
-        } catch (SystemException e) {
-            // Gestisci l'eccezione
-            e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
@@ -40,9 +37,6 @@ public class HomeDocenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Docente/GestionePosto.fxml", userBean);
-        } catch (SystemException e) {
-            // Gestisci l'eccezione
-            e.printStackTrace();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {

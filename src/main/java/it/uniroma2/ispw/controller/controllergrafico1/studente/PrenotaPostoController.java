@@ -25,7 +25,7 @@ public class PrenotaPostoController extends ControllerGrafico {
     void cercaAulaPerIDprenotazione(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaPerId.fxml", userBean);
-        } catch (SystemException | SQLException e) {
+        } catch (SQLException e) {
             getAlert("ops, qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
@@ -38,8 +38,6 @@ public class PrenotaPostoController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", userBean);
-        } catch (SystemException e) {
-            getAlert("ops, qualcosa è andato storto").showAndWait();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {

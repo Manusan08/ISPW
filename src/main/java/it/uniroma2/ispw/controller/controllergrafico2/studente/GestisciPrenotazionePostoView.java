@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
+import it.uniroma2.ispw.controller.controllerapplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 

@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject;
+package it.uniroma2.ispw.controller.controllerapplicativo.observer.subject;
 
 public class PrenotazionePostoSubject extends Subject{
 Status status=Status.NON_EFFETTUATA;

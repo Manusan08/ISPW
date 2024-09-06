@@ -1,7 +1,6 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.factory;
+package it.uniroma2.ispw.controller.controllerapplicativo.factory;
 
 import it.uniroma2.ispw.Main;
-import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
@@ -14,8 +13,6 @@ import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaFS;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.UUID;
 
 public class PrenotazioneRicorrente implements PrenotazioneAula{
     private PrenotazioneAulaModel prenotazioneAulaModel;

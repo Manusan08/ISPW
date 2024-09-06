@@ -1,12 +1,9 @@
 package it.uniroma2.ispw.controller.controllergrafico1.studente;
 
-import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerApplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
-import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

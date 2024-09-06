@@ -1,11 +1,6 @@
 package it.uniroma2.ispw.model.prenotazionePosto;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Status;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject.Subject;
-import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotazionePostoContext;
-import it.uniroma2.ispw.model.posto.PostoModel;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.subject.Status;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject;
+package it.uniroma2.ispw.controller.controllerapplicativo.observer.subject;
 
 public enum Status {
     //disponibile= nessuno ha prenotato un posto

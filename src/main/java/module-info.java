@@ -12,7 +12,7 @@ module ispw {
     opens it.uniroma2.ispw.controller.controllergrafico1 to javafx.fxml, javafx.graphics,javafx.base;
 
     // Esportare altri pacchetti se necessario
-    exports it.uniroma2.ispw.controller.controllerApplicativo to javafx.fxml, javafx.graphics,javafx.base;
+    exports it.uniroma2.ispw.controller.controllerapplicativo to javafx.fxml, javafx.graphics,javafx.base;
 
     // Aprire il pacchetto principale per FXML
     opens it.uniroma2.ispw to javafx.fxml, javafx.graphics,javafx.base;

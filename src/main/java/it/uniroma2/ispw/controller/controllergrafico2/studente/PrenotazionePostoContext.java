@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico2.studente;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.Context;
 
 public class PrenotazionePostoContext implements Context {
 private final String postoId;

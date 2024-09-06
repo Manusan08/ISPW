@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico1.docente;
 
 
-import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -88,7 +88,7 @@ public class InserisciFiltriController extends ControllerGrafico {
             try {
                 // Passa l'aula selezionata alla prossima pagina
                 ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
-            } catch (SystemException | SQLException e) {
+            } catch (SQLException e) {
                 getAlert().showAndWait();
 
             } catch (ItemNotFoundException e) {

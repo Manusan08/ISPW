@@ -27,9 +27,6 @@ private UserBean userBean;
     void MostraAuleAction(ActionEvent event) { try {
     // Ottieni l'istanza di ChangePage e cambia la pagina
     ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule2.fxml", userBean);
-} catch (SystemException e) {
-    // Gestisci l'eccezione
-    e.printStackTrace();
 } catch (SQLException e) {
     throw new RuntimeException(e);
 } catch (ItemNotFoundException e) {
@@ -43,9 +40,6 @@ private UserBean userBean;
     try {
     // Ottieni l'istanza di ChangePage e cambia la pagina
     ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaFiltri.fxml", userBean);
-} catch (SystemException e) {
-    // Gestisci l'eccezione
-    e.printStackTrace();
 } catch (SQLException e) {
         throw new RuntimeException(e);
     } catch (ItemNotFoundException e) {
@@ -59,7 +53,7 @@ private UserBean userBean;
     try {
         // Ottieni l'istanza di ChangePage e cambia la pagina
         ChangePage.getChangePage().cambiaPagina("/view/Docente/MostraAulePerId.fxml", userBean);
-    } catch (SystemException | SQLException e) {
+    } catch (SQLException e) {
         getAlert().showAndWait();
     } catch(ItemNotFoundException e){
         getAlert(e.getMessage()).showAndWait();

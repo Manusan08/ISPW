@@ -1,7 +1,6 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.factory;
+package it.uniroma2.ispw.controller.controllerapplicativo.factory;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
 
 import java.sql.Date;
 

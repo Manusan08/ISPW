@@ -1,8 +1,7 @@
-package it.uniroma2.ispw.controller.controllerApplicativo.Observer.subject;
+package it.uniroma2.ispw.controller.controllerapplicativo.observer.subject;
 
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.Context;
-import it.uniroma2.ispw.controller.controllerApplicativo.Observer.observers.Observer;
-import it.uniroma2.ispw.model.posto.PostoModel;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.Context;
+import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

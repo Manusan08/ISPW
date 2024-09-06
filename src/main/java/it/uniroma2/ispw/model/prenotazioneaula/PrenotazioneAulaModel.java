@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.model.prenotazioneAula;
+package it.uniroma2.ispw.model.prenotazioneaula;
 
 import it.uniroma2.ispw.enums.Orario;
 

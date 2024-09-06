@@ -3,7 +3,7 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule.CercaAulaView;
-import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.ConfermPrenotazioneView;
+
 import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.GestisciPrenotazioniView;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;

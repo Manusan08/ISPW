@@ -1,5 +1,10 @@
 
+v
+java:S1450"TRemove the "email" field and declare it as a local variable in the relevant methods.(ª«Õìùÿÿÿÿ8ñÍ›»œ2
+]	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(øø¥¥8óÍ›»œ2
 W
 java:S1128":Remove this unused import 'it.uniroma2.ispw.enums.Orario'.(Ö…¨’8‘Üâ‡–2
 M
-java:S1068"0Remove this unused "nomeStudente" private field.(ÑÀ½É8“Üâ‡–2
+java:S1068"0Remove this unused "nomeStudente" private field.(ÑÀ½É8“Üâ‡–2
+K
+java:S1068")Remove this unused "email" private field.(ª«Õìùÿÿÿÿ8ƒÎ›»œ2

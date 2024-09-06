@@ -6,7 +6,6 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,7 +51,7 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
         if (selected != null) {
             try {
                 ChangePage.getChangePage().cambiaPagina("/view/Studente/SelezionePosti.fxml", userBean, selected);
-            } catch (SystemException | SQLException e) {
+            } catch (SQLException e) {
                 getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
                 getAlert(e.getMessage()).showAndWait();

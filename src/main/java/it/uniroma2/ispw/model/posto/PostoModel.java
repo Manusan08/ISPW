@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.model.posto;
 
-import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 
 public class PostoModel {
 

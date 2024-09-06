@@ -14,14 +14,14 @@ public class LoginModel {
     private it.uniroma2.ispw.enums.Role role = null;
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
-    private  String Nome;
+    private  String nome;
 
     public LoginModel(LoginBean credbean) {
         this.email = credbean.getEmail();

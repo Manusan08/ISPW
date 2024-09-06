@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.model.prenotazioneAula.dao;
+package it.uniroma2.ispw.model.prenotazioneaula.dao;
 
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.UserModel;
-import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
+import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.sql.Date;

@@ -1,12 +1,3 @@
 
-P
-java:S1172C".Remove this unused method parameter "usrBean".(—Îğøùÿÿÿÿ8²òÏ–2
-o
-java:S1128"RRemove this unused import 'it.uniroma2.ispw.utils.exception.InvalidDataException'.(İò¦¸8õØĞÚ–2
-u
-java:S1128	"SRemove this unused import 'it.uniroma2.ispw.utils.exception.ItemNotFoundException'.(ı¨èËûÿÿÿÿ8õØĞÚ–2
-j
-java:S1128
-"MRemove this unused import 'it.uniroma2.ispw.utils.exception.SystemException'.(‰—ªÚ8öØĞÚ–2
-b
-java:S1128"ERemove this unused import 'javax.security.auth.login.LoginException'.(Ã·ŸÆ8öØĞÚ–2
+£
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ò‰şÿÿÿÿ8ñ¬¾œ2

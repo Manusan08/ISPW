@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.model.prenotazionePosto.dao;
+package it.uniroma2.ispw.model.prenotazioneposto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,7 +20,7 @@ public class PrenotazionePostoFS implements PrenotazionePostoDAO {
 
     @Override
     public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) {
-
+        // TODO document why this method is empty
     }
 
     @Override

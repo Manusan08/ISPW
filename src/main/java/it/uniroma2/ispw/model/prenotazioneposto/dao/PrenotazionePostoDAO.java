@@ -1,8 +1,8 @@
-package it.uniroma2.ispw.model.prenotazionePosto.dao;
+package it.uniroma2.ispw.model.prenotazioneposto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 

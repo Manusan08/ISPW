@@ -9,7 +9,7 @@ public class GestoreEccezioni {
     }
 
     private static GestoreEccezioni instance = null;
-    private Factory factory = new Factory();
+    private final Factory factory = new Factory();
 
     public static GestoreEccezioni getInstance() {
         if (instance == null) {

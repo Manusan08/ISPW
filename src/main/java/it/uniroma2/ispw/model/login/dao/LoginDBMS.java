@@ -7,7 +7,7 @@ import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,9 +30,7 @@ public class LoginDBMS implements LoginDAO {
             if (!resultSet.next()) throw new ItemNotFoundException("\nCredenziali errate!");
             loginModel = setUtenteFromResultSet(resultSet);
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
         return loginModel;

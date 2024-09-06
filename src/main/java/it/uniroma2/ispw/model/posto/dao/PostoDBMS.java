@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.model.posto.dao;
 
 import it.uniroma2.ispw.model.posto.PostoModel;
-import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
+import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -26,11 +26,8 @@ public class PostoDBMS implements PostoDAO {
 
             statement.executeUpdate();
 
-        } catch (SystemException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-
         }
 
     }

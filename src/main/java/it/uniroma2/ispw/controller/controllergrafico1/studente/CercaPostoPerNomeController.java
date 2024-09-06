@@ -4,7 +4,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,9 +33,6 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             pab.setMateria(txtMateria.getText());
 
             ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDaPrenotare.fxml",userBean, pab);
-        } catch (SystemException e) {
-            // Gestisci l'eccezione
-            e.getCause();
         } catch (SQLException e) {
                 getAlert();
         } catch (ItemNotFoundException e) {
@@ -55,7 +52,7 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             pab.setMateria(txtMateria.getText());
 
             ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDaPrenotare.fxml",userBean ,pab);
-        } catch (SystemException | SQLException e) {
+        } catch (SQLException e) {
             getAlert("qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();

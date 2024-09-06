@@ -7,9 +7,9 @@ import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaFS;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDBMS;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaFS;
 
 import java.sql.Date;
 
@@ -42,6 +42,7 @@ public class PrenotazioneSingola implements PrenotazioneAula{
         this.materia = materia;
         this.nomeProfessore = nomeProfessore;
         this.idPrenotazioneAula =idPrenotazione;
+
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             aulaDAO = new AulaDBMS();
             prenotazioneAulaDAO = new PrenotazioneAulaDBMS();
@@ -66,7 +67,7 @@ public class PrenotazioneSingola implements PrenotazioneAula{
     }
 
     @Override
-    public boolean salvaPrenotazione() {
+    public void salvaPrenotazione() {
 
         boolean isRicorrente = false;
         if (prenotazioneAulaDAO.salvataggioPrenotazione(
@@ -80,9 +81,7 @@ public class PrenotazioneSingola implements PrenotazioneAula{
                 null,
                 idPrenotazioneAula,
                 isRicorrente)) {
-            return false;
         }
-        return true;
     }
 }
 

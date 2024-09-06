@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.controller.controllergrafico2;
 
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -34,7 +34,7 @@ public abstract class TemplateView {
 
     protected abstract String getHeader();
 
-    public int userChoice() throws IOException {
+    public int userChoice() {
         printHeader(getHeader());
         List<String> options = getOptions();
         return operationMenu("Come vuoi procedere? ", options);

@@ -7,36 +7,34 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
 public class ConfermPrenotazioneView extends TemplateView {
 
 
-    public static boolean confermaPrenotazione(PrenotazioneAulaBean prenotazione) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    public static void confermaPrenotazione(PrenotazioneAulaBean prenotazione) {
+
         System.out.println("Conferma i dettagli della prenotazione:");
         System.out.println("Materia: " + prenotazione.getMateria());
         System.out.println("Professore: " + prenotazione.getNomeDocente());
         System.out.println("Orario: " + prenotazione.getOraLezione().getFasciaOraria());
         System.out.print("Confermi? (s/n): ");
-        boolean choice = true;
+
         do {
             Scanner scanner = new Scanner(System.in);
             String conferma = scanner.nextLine();
             if (conferma.equals("s".toLowerCase()))
-                return true;
+                return;
 
-        } while (choice);
-        return false;
+        } while (true);
     }
 
 
 
     @Override
     public void control() throws SystemException, InvalidDataException, IOException, LoginException {
-
+        //control
     }
 
     @Override

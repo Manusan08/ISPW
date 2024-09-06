@@ -48,7 +48,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     private boolean modificaDescrizione(PrenotazioneAulaBean pb) throws IOException {
         String message = getDesiredIn("Modifica descrizione", "inserisci il messaggio ");
         pb.setDescrizione(message);
-        return new GestisciCreazionePrenotazioneAulaController().modificaDescrizionePrenotazione(pb);
+        return new GestisciCreazionePrenotazioneAulaController().modificaDescrizionePrenotazione();
     }
 
     private void eliminaPrenotazione() {
@@ -62,7 +62,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void mostraPrenotazioni() {
-        printTable(new GestisciCreazionePrenotazioneAulaController().getPrenotazioneByName(this.usrBean));
+
     }
 
     @Override

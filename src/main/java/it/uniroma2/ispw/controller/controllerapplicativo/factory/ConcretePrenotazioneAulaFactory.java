@@ -11,6 +11,7 @@ public class ConcretePrenotazioneAulaFactory {
     )
     {
         if (prenotazioneAulaBean.isRicorente()) {
+
             return new PrenotazioneRicorrente(
                      prenotazioneAulaBean.getIdAula(),
                      prenotazioneAulaBean.getEmail(),
@@ -22,6 +23,8 @@ public class ConcretePrenotazioneAulaFactory {
                     (Date) prenotazioneAulaBean.getDataFine(),
                     prenotazioneAulaBean.getIdPrenotazioneAula()
                     );
+
+
         } else {
             return new PrenotazioneSingola(
                     prenotazioneAulaBean.getIdAula(),

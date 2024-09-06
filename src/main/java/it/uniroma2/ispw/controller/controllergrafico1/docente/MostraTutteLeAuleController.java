@@ -2,8 +2,9 @@ package it.uniroma2.ispw.controller.controllergrafico1.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
+
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
+import it.uniroma2.ispw.facade.DocenteFacade;
 import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -23,7 +24,7 @@ import java.util.List;
 public class MostraTutteLeAuleController extends ControllerGrafico {
 
     // Creazione di un'istanza del GestisciAuleController per recuperare le aule
-    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
+    private DocenteFacade docenteFacade = new DocenteFacade();
 
     private UserBean userBean;
 
@@ -62,6 +63,8 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
                 getAlert();
             } catch (ItemNotFoundException e) {
                 showAlert("Attenzione!","nessuna aula trovata");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         } else {
             showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");
@@ -72,7 +75,7 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
     public void inizializza(UserBean cred) {
         this.userBean = cred;
 
-        aulaBeans = intheMiddleFaçade.getAllAule();
+        aulaBeans = docenteFacade.getAllAule();
         setAulaBeans(aulaBeans);
     }
 

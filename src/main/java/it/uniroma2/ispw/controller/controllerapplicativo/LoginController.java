@@ -18,7 +18,7 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 public class LoginController {
 
 
-    private LoginDAO loginDAO;
+    private final LoginDAO loginDAO;
 
     public LoginController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {

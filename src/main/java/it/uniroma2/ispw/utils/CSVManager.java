@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.utils;
 
-import it.uniroma2.ispw.utils.ConnectionDB;
+
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.io.IOException;
@@ -22,9 +22,7 @@ public class CSVManager {
             properties.load(input);
             return properties.getProperty("csv.dir");
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ItemNotFoundException e) {
+        } catch (IOException | ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
     }

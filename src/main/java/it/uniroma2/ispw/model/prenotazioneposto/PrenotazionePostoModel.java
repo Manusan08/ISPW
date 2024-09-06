@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.model.prenotazionePosto;
+package it.uniroma2.ispw.model.prenotazioneposto;
 
 import it.uniroma2.ispw.controller.controllerapplicativo.observer.subject.Status;
 
@@ -14,7 +14,7 @@ public class PrenotazionePostoModel {
     private String oraLezione;
     private Date giornoLezione;
     private String nomeDocente;
-    private String nomeStudente;
+
     private String materia;
     private String email;
 

@@ -1,4 +1,4 @@
-package it.uniroma2.ispw.model.prenotazioneAula.dao;
+package it.uniroma2.ispw.model.prenotazioneaula.dao;
 
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.UserModel;
@@ -9,7 +9,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.sql.*;
 
-import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
+import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,10 +1,11 @@
 package it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula;
 
-import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.facade.DocenteFacade;
+
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerapplicativo.GestisciCreazionePrenotazioneAulaController;
+
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.utils.DateParser;
 import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
@@ -14,10 +15,10 @@ import java.util.Scanner;
 
 public class PrenotazioneAulaView {
 
-    private GestisciCreazionePrenotazioneAulaController gestisciPrenotazioneController;
-    private AulaBean aulaSelezionata;
-    private UserBean userBean;
-    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
+
+    private final AulaBean aulaSelezionata;
+    private final UserBean userBean;
+    private DocenteFacade docenteFacade = new DocenteFacade();
 
     public PrenotazioneAulaView(AulaBean aulaSelezionata, UserBean usrBean) {
 
@@ -59,8 +60,8 @@ public class PrenotazioneAulaView {
             prenotazioneAulaBean.setNomeDocente(userBean.getNome());
             prenotazioneAulaBean.setRicorente(isRicorrente);
             prenotazioneAulaBean.setDataFine(dataFine);
-
-            if (intheMiddleFaçade.prenota(prenotazioneAulaBean))
+            ConfermPrenotazioneView.confermaPrenotazione(prenotazioneAulaBean);
+            if (docenteFacade.prenota(prenotazioneAulaBean))
                 System.out.println("Prenotazione creata con successo.");
 
         } catch (FormatoDataNonValidoException e) {

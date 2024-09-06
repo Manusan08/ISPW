@@ -137,16 +137,16 @@ public class PrenotazioneAulaBean {
     }
 
 
-    public void setOrario(Orario orario) {
 
-    }
 
-    public void setOrarioLezione(java.sql.Date dataLezione) {
 
-    }
 
     public String getOraLezione1() {
         return  this.oraLezione.getFasciaOraria();
+    }
+
+    public void setOrarioLezione(java.sql.Date dataLezione) {
+        //ora lezione
     }
 }
 

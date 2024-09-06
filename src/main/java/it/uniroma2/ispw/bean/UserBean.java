@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.bean;
 
 import it.uniroma2.ispw.enums.Role;
-import javafx.beans.property.SimpleStringProperty;
+
 
 public class UserBean {
     private String nome;
@@ -26,6 +26,10 @@ public class UserBean {
         this.email=email;
         this.ruolo=role;
         this.nome=nome;
+    }
+
+    public UserBean() {
+
     }
 
     public Role getRuolo() {

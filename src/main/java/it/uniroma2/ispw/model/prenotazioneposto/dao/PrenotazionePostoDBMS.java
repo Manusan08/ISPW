@@ -1,14 +1,13 @@
-package it.uniroma2.ispw.model.prenotazionePosto.dao;
+package it.uniroma2.ispw.model.prenotazioneposto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
+import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

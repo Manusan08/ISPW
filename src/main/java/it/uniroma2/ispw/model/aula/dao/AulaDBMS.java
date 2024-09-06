@@ -1,12 +1,12 @@
 package it.uniroma2.ispw.model.aula.dao;
 
-import it.uniroma2.ispw.bean.AulaBean;
+
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,22 +33,11 @@ public class AulaDBMS implements AulaDAO {
 
             aulaModel.setIdAula(resultSet.getString("idAula"));
             aulaModel.setNumeroPosti(resultSet.getInt("posti"));
-            if (resultSet.getInt("lim")==1){
-                 is= true;
-            }else {is=false;}
-            aulaModel.setProiettore(is);
-            if (resultSet.getInt("computer")==1){
-                is= true;
-            }else {is=false;}
-            aulaModel.setComputer(is);
-            if (resultSet.getInt("banchiDisegno")==1){
-                is= true;
-            }else {is=false;}
-            aulaModel.setBanchiDisegno(is);
+            aulaModel.setProiettore(resultSet.getInt("lim") == 1);
+            aulaModel.setComputer(resultSet.getInt("computer") == 1);
+            aulaModel.setBanchiDisegno(resultSet.getInt("banchiDisegno") == 1);
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -86,9 +75,7 @@ public class AulaDBMS implements AulaDAO {
                 corsoList.add(aulaModel);
             } while (resultSet.next());
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
         return corsoList;
@@ -99,30 +86,21 @@ public class AulaDBMS implements AulaDAO {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<AulaModel> corsoList = new ArrayList<>();
-        boolean is;
-        int proiettore;
-        int computer;
-        int banchi;
+
+
         try {
             String sql = "select * from aule where posti>=? and lim=? and computer=? and banchiDisegno=? ";
 
             statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             statement.setInt(1, aulaM.getNumeroPosti());
-            if(aulaM.isProiettore()==true){
-                 proiettore=1;
-            }else{  proiettore=0;}
+            int proiettore = aulaM.isProiettore() ? 1 : 0;
+            statement.setInt(2, proiettore);
 
-            statement.setInt(2,proiettore);
-            if(aulaM.isComputer()==true){
-                computer=1;
-            }else{  computer=0;}
+            int computer = aulaM.isComputer() ? 1 : 0;
+            statement.setInt(3, computer);
 
-            statement.setInt(3,computer);
-            if(aulaM.isBanchiDisegno()==true){
-                banchi=1;
-            }else{  banchi=0;}
-
-            statement.setInt(4,banchi);
+            int banchi = aulaM.isBanchiDisegno() ? 1 : 0;
+            statement.setInt(4, banchi);
 
             resultSet = statement.executeQuery();
 
@@ -131,25 +109,14 @@ public class AulaDBMS implements AulaDAO {
             do {
                 AulaModel c = new AulaModel(resultSet.getString("idAula"));
                 c.setNumeroPosti(resultSet.getInt("posti"));
-                if (resultSet.getInt("lim")==1){
-                    is= true;
-                }else {is=false;}
-                c.setProiettore(is);
-                if (resultSet.getInt("computer")==1){
-                    is= true;
-                }else {is=false;}
-                c.setComputer(is);
-                if (resultSet.getInt("banchiDisegno")==1){
-                    is= true;
-                }else {is=false;}
-                c.setBanchiDisegno(is);
+                c.setProiettore(convertIntToBoolean(resultSet.getInt("lim")));
+                c.setComputer(convertIntToBoolean(resultSet.getInt("computer")));
+                c.setBanchiDisegno(convertIntToBoolean(resultSet.getInt("banchiDisegno")));
 
                 corsoList.add(c);
             } while (resultSet.next());
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
         return corsoList;
@@ -174,9 +141,7 @@ public class AulaDBMS implements AulaDAO {
             aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
 
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -201,12 +166,13 @@ public class AulaDBMS implements AulaDAO {
             aulaModel.setNumeroPosti(resultSet.getInt("NumeroPosti"));
 
 
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 
         return aulaModel;
+    }
+    private boolean convertIntToBoolean(int value) {
+        return value == 1;
     }
 }

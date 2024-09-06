@@ -4,6 +4,8 @@ import javafx.scene.control.Alert;
 
 public abstract class AlertUtil {
 
+
+
     protected void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -24,8 +26,9 @@ public abstract class AlertUtil {
         return alert;
     }
 
-    protected Alert getAlert(Boolean bool){
+    protected Alert getAlert(Boolean mod){
 
+        //To be implemented
         return null;
     }
 

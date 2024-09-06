@@ -2,9 +2,10 @@ package it.uniroma2.ispw.controller.controllergrafico1.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
+
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 
+import it.uniroma2.ispw.facade.DocenteFacade;
 import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import it.uniroma2.ispw.utils.ChangePage;
 public class MostraAulaPerIDController extends ControllerGrafico {
     private UserBean userBean;
 
-    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
+    private DocenteFacade docenteFacade = new DocenteFacade();
 
     @FXML
     private Button avantiID;
@@ -27,7 +28,7 @@ public class MostraAulaPerIDController extends ControllerGrafico {
     void avantiAction(ActionEvent event) {
         try {
             String idAula = idAulaField.getText();
-            AulaBean aulaBean = intheMiddleFaçade.getAulaById(idAula);
+            AulaBean aulaBean = docenteFacade.getAulaById(idAula);
             if (aulaBean != null) {
                 ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, aulaBean);
             } else {

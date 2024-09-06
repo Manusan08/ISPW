@@ -1,18 +1,17 @@
 package it.uniroma2.ispw.model.login.dao;
 
-import com.opencsv.CSVReader;
+
 import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
-import it.uniroma2.ispw.utils.DateParser;
-import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
-import java.io.BufferedReader;
+
+
 import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.sql.Date;
+
 
 public class LoginFS implements LoginDAO {
     private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "utente.csv";

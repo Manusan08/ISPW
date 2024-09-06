@@ -1,9 +1,2 @@
 
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İ“å±ùÿÿÿÿ8˜Íò€—2
-y
-java:S1450"WRemove the "userBean" field and declare it as a local variable in the relevant methods.(èéóùùÿÿÿÿ8Ú“ó€—2
-X
-java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8Úâ„™2
-N
-java:S1068",Remove this unused "userBean" private field.(èéóùùÿÿÿÿ8Íò€—2
+y	java:S116"]Rename this field "intheMiddleFaÃ§ade" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó±Ë‰8íâˆ·œ2

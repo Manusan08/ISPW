@@ -26,8 +26,4 @@ public class CercaPostoPerIdController extends ControllerGrafico {
         this.userBean=cred;
     }
 
-    public void initializeTable(){
-
-    }
-
 }

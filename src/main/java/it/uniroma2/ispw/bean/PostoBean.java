@@ -22,7 +22,6 @@ public class PostoBean {
     }
 
 
-
     public String getIdAula() {
         return idAula;
     }

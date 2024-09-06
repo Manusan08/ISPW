@@ -37,9 +37,9 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             // Gestisci l'eccezione
             e.getCause();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+                getAlert();
         } catch (ItemNotFoundException e) {
-            throw new RuntimeException(e);
+            getAlert(e.getMessage()).showAndWait();
         }
 
     }

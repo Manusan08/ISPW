@@ -55,7 +55,7 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
             } catch (SystemException | SQLException e) {
                 getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
-                getAlert().showAndWait();
+                getAlert(e.getMessage()).showAndWait();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

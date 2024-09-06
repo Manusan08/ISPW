@@ -28,9 +28,9 @@ private UserBean userBean;
         // Ottieni l'istanza di ChangePage e cambia la pagina
         ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+            getAlert().showAndWait();
     } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        getAlert(e.getMessage());
     }
 
 }
@@ -40,9 +40,9 @@ private UserBean userBean;
     try {
         ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraTutteLePrenotazioni.fxml", userBean);
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+            getAlert().showAndWait();
     } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        getAlert(e.getMessage());
     }
 
 }

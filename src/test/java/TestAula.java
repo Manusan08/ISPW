@@ -29,7 +29,7 @@ class TestAula {
 
         // Crea un oggetto AulaBean con i filtri richiesti
         AulaBean filtroAula = new AulaBean();
-        filtroAula.setPosti(150);
+        filtroAula.setPosti(80);
         filtroAula.setProiettore(true);
         filtroAula.setBanchiDisegno(false);
         filtroAula.setComputer(false);
@@ -44,7 +44,7 @@ class TestAula {
         AulaBean aulaTrovata = auleTrovate.get(0);
 
         // Verifica le caratteristiche dell'aula trovata
-        assertEquals(150, aulaTrovata.getPosti(), "Il numero di posti dell'aula non corrisponde.");
+        assertEquals(80, aulaTrovata.getPosti(), "Il numero di posti dell'aula non corrisponde.");
         assertTrue(aulaTrovata.isProiettore(), "L'aula non ha un proiettore come richiesto.");
         assertFalse(aulaTrovata.isBanchiDisegno(), "L'aula non dovrebbe avere banchi da disegno.");
         assertFalse(aulaTrovata.isComputer(), "L'aula non dovrebbe avere computer.");

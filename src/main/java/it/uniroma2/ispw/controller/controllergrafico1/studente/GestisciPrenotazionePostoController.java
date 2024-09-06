@@ -7,6 +7,7 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.sql.SQLException;
@@ -40,10 +41,8 @@ private UserBean userBean;
 @FXML
     void visualizzaPrenotazioneAction(ActionEvent event) {
     try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
         ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraTutteLePrenotazioni.fxml", userBean);
     } catch (SystemException e) {
-        // Gestisci l'eccezione
         e.printStackTrace();
     } catch (SQLException e) {
         throw new RuntimeException(e);
@@ -54,8 +53,9 @@ private UserBean userBean;
 }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred)  {
     this.userBean=cred;
 
     }
+
 }

@@ -59,17 +59,16 @@ private UserBean userBean;
     try {
         // Ottieni l'istanza di ChangePage e cambia la pagina
         ChangePage.getChangePage().cambiaPagina("/view/Docente/MostraAulePerId.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException | ItemNotFoundException e) {
-        throw new RuntimeException(e);
+    } catch (SystemException | SQLException e) {
+        getAlert().showAndWait();
+    } catch(ItemNotFoundException e){
+        getAlert(e.getMessage()).showAndWait();
     }
 
 }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred) {
         this.userBean=cred;
     }
 

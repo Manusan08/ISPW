@@ -30,7 +30,7 @@ public class ChangePage {
     }
 
     private Stage stage;
-    public void cambiaPagina(String fxml, UserBean cred) throws SystemException, SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred) throws SystemException, SQLException ,ItemNotFoundException{
         cambiaPagina(fxml, cred, null,null,null);  // Passa `null` per i parametri aggiuntivi
     }
     public void cambiaPagina(String fxml, UserBean cred,AulaBean aulaBean) throws SystemException, SQLException, ItemNotFoundException {

@@ -1,22 +1,21 @@
 package it.uniroma2.ispw.controller.controllergrafico1.docente;
 
 
+import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.bean.AulaBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
+import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
+import it.uniroma2.ispw.enums.Orario;
+import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 
-        import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
-        import it.uniroma2.ispw.bean.AulaBean;
-        import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-        import it.uniroma2.ispw.bean.UserBean;
-        import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
-        import it.uniroma2.ispw.enums.Orario;
-        import it.uniroma2.ispw.utils.ChangePage;
-        import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-        import it.uniroma2.ispw.utils.exception.SystemException;
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.scene.control.*;
-
-        import java.sql.Date;
-        import java.sql.SQLException;
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class InserisciFiltriController extends ControllerGrafico {
     private UserBean userBean;
@@ -41,15 +40,13 @@ public class InserisciFiltriController extends ControllerGrafico {
 
     @FXML
     private CheckBox ricorrenteID;
-    private  ManIntheMiddleFaçade intheMiddleFaçade=new ManIntheMiddleFaçade();
+    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
 
     @FXML
     void avantiBottoneAction(ActionEvent event) {
         try {
-            // Acquisizione dati dall'interfaccia utente
             Date dataLezione = Date.valueOf(dateID.getValue());
 
-            // Usa il metodo Orario.fromString() per ottenere l'enum corretto
             Orario orario = Orario.fromString(orarioID.getValue());
             if (orario == null) {
                 throw new IllegalArgumentException("L'orario selezionato non è valido.");
@@ -73,53 +70,29 @@ public class InserisciFiltriController extends ControllerGrafico {
             prenotazioneAulaBean.setDataFine(dataFine);
 
             // Chiamata al controller applicativo per gestire la prenotazione
-            boolean risultato = intheMiddleFaçade.prenota(prenotazioneAulaBean);
-
-            // Mostra il risultato su una nuova finestra o pop-up
-            if (risultato) {
-                // Mostra un pop-up di conferma
-                Alert alert = getAlert();
-
-                // Mostra il pop-up
-                alert.showAndWait();
-            } else {
-                // Gestione dell'errore in caso di prenotazione fallita
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Errore di Prenotazione");
-                alert.setHeaderText(null);
-                alert.setContentText("Si è verificato un errore durante la prenotazione. Riprova.");
-                alert.showAndWait();
-            }
-
+            getAlert(intheMiddleFaçade.prenota(prenotazioneAulaBean)).showAndWait();
         } catch (Exception e) {
-            e.printStackTrace();
-            // Gestione dell'errore per qualsiasi eccezione
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore");
-            alert.setHeaderText(null);
-            alert.setContentText("Si è verificato un errore: " + e.getMessage());
-            alert.showAndWait();
+            getAlert();
         }
     }
 
-    private Alert getAlert() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Prenotazione Confermata");
-        alert.setHeaderText(null);
-        alert.setContentText("La prenotazione è stata confermata con successo!");
-
+    protected Alert getAlert(boolean risultato) {
+        Alert alert;
+        if (risultato) {
+            alert = showSuccess("Prenotazione Confermata", "La prenotazione è stata confermata con successo!");
+        } else {
+            alert = showSuccess("Errore di prenotazione", "si è verificato un errore durante la prenotazione.Riprova.");
+        }
         // Cambia pagina al momento della chiusura del pop-up
         alert.setOnHidden(evt -> {
             try {
                 // Passa l'aula selezionata alla prossima pagina
                 ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
-            } catch (SystemException e) {
-                // Gestisci l'eccezione
-                e.printStackTrace();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            } catch (SystemException | SQLException e) {
+                getAlert().showAndWait();
+
             } catch (ItemNotFoundException e) {
-                throw new RuntimeException(e);
+                showAlert("Errore", e.getMessage());
             }
         });
         return alert;
@@ -127,8 +100,8 @@ public class InserisciFiltriController extends ControllerGrafico {
 
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
-        this.userBean=cred;
+    public void inizializza(UserBean cred) {
+        this.userBean = cred;
         for (Orario orario : Orario.values()) {
             orarioID.getItems().add(orario.getFasciaOraria());
         }
@@ -139,9 +112,10 @@ public class InserisciFiltriController extends ControllerGrafico {
         // Inizializza il DatePicker dateFineID come disabilitato all'avvio
         dateFineID.setDisable(true);
     }
+
     @Override
-    public void setAulaBean(AulaBean aulaBean){
-        this.aulaBean=aulaBean;
+    public void setAulaBean(AulaBean aulaBean) {
+        this.aulaBean = aulaBean;
     }
 
 

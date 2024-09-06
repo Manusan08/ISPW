@@ -59,29 +59,20 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
             try {
                 // Passa l'aula selezionata alla prossima pagina
                 ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, selectedAula);
-            } catch (SystemException e) {
-                // Gestisci l'eccezione
-                e.printStackTrace();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            } catch (SystemException | SQLException e) {
+                getAlert();
             } catch (ItemNotFoundException e) {
-                throw new RuntimeException(e);
+                showAlert("Attenzione!","nessuna aula trovata");
             }
         } else {
-            // Mostra un messaggio di errore se nessuna aula è selezionata
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Errore");
-            alert.setHeaderText("Nessuna Aula Selezionata");
-            alert.setContentText("Per favore, seleziona un'aula prima di procedere.");
-            alert.showAndWait();
+            showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");
         }
     }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred) {
         this.userBean = cred;
 
-        // Recupero delle aule e popolamento della TableView
         aulaBeans = gestisciAuleController.getAllAule();
         setAulaBeans(aulaBeans);
     }
@@ -95,7 +86,6 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
     private void popolaTableView() {
         ObservableList<AulaBean> data = FXCollections.observableArrayList(aulaBeans);
 
-        // Configura le colonne della TableView con i valori degli oggetti AulaBean
         colonnaNome.setCellValueFactory(new PropertyValueFactory<>("idAula"));
         colonnaPosti.setCellValueFactory(new PropertyValueFactory<>("posti"));
         colonnaProiettore.setCellValueFactory(new PropertyValueFactory<>("proiettore"));

@@ -1,24 +1,24 @@
 package it.uniroma2.ispw.utils;
 
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class DateParser {
 
     private  DateParser(){}
 
 
-    public static java.sql.Date parseStringToDate(String str) throws InvalidDataException {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            Date date = null;
+    public static java.sql.Date parseStringToDate(String str) throws FormatoDataNonValidoException {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date date;
             try {
-                date=formatter.parse(str);
+                date=  formatter.parse(str);
             } catch (ParseException e) {
-                throw new InvalidDataException("formato data non valido");
+                throw new FormatoDataNonValidoException("formato data non valido");
             }
-            return (java.sql.Date) date;
+            return new java.sql.Date(date.getTime());
     }
 }

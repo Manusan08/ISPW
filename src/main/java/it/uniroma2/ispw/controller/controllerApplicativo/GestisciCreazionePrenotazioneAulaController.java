@@ -74,25 +74,27 @@ public class GestisciCreazionePrenotazioneAulaController {
     public List<Object> getAulaByOrario(PrenotazioneAulaBean pab) {
         return new ArrayList<>();
     }
-    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, SQLException, ItemNotFoundException {
+
+
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, ItemNotFoundException {
         List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
         PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getMateria());
 
         List<PrenotazioneAulaModel> pams;
-        pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam, usr);
 
-        for (PrenotazioneAulaModel prenotazione : pams) {
-            PrenotazioneAulaBean pab = new PrenotazioneAulaBean(
-                    prenotazione.getIdPrenotazioneAula(),
-                    prenotazione.getNomeProfessore(),
-                    prenotazione.getDatalezione(),
-                    prenotazione.getOraLezione(),
-                    prenotazione.getDescrizione(),
-                    prenotazione.getMateria(),
-                    prenotazione.getIdAula()
-            );
+            pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam, usr);
+            for (PrenotazioneAulaModel prenotazione : pams) {
+                PrenotazioneAulaBean pab = new PrenotazioneAulaBean(
+                        prenotazione.getIdPrenotazioneAula(),
+                        prenotazione.getNomeProfessore(),
+                        prenotazione.getDatalezione(),
+                        prenotazione.getOraLezione(),
+                        prenotazione.getDescrizione(),
+                        prenotazione.getMateria(),
+                        prenotazione.getIdAula()
+                );
+                prenotazioneAule.add(pab);
 
-            prenotazioneAule.add(pab);
         }
         return  prenotazioneAule;
     }

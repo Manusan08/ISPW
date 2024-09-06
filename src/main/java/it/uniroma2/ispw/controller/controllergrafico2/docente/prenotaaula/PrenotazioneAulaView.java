@@ -6,7 +6,8 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciCreazionePrenotazioneAulaController;
 import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.DateParser;
+import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
 
 import java.sql.Date;
 import java.util.Scanner;
@@ -16,19 +17,60 @@ public class PrenotazioneAulaView {
     private GestisciCreazionePrenotazioneAulaController gestisciPrenotazioneController;
     private AulaBean aulaSelezionata;
     private UserBean userBean;
-    private ManIntheMiddleFaçade intheMiddleFaçade=new ManIntheMiddleFaçade();
+    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
+
     public PrenotazioneAulaView(AulaBean aulaSelezionata, UserBean usrBean) {
 
         this.aulaSelezionata = aulaSelezionata;
-        this.userBean=usrBean;
+        this.userBean = usrBean;
     }
-    public void start() throws InvalidDataException {
+
+    public void start() {
         Scanner scanner = new Scanner(System.in);
+        try {
 
-        System.out.print("Inserisci la data della lezione (yyyy-mm-dd): ");
-        String dataLezioneStr = scanner.nextLine();
-        Date dataLezione = Date.valueOf(dataLezioneStr);
+            Date dataLezione = richiediData();
+            Orario orario = richiediOrarioLezione();
 
+            System.out.print("Descrizione della lezione: ");
+            String descrizione = scanner.nextLine();
+            System.out.print("Materia: ");
+            String materia = scanner.nextLine();
+            System.out.print("Prenotazione ricorrente (true/false): ");
+            boolean isRicorrente = scanner.nextBoolean();
+
+            scanner.nextLine();
+            Date dataFine = null;
+
+            if (isRicorrente) {
+                System.out.print("Inserisci la data di fine ricorrenza (yyyy-mm-dd): ");
+                String dataFineStr = scanner.nextLine();
+                dataFine = Date.valueOf(dataFineStr);
+
+            }
+            PrenotazioneAulaBean prenotazioneAulaBean = new PrenotazioneAulaBean();
+
+            prenotazioneAulaBean.setIdAula(aulaSelezionata.getIdAula());
+            prenotazioneAulaBean.setEmail(userBean.getEmail());
+            prenotazioneAulaBean.setOraLezione(orario);
+            prenotazioneAulaBean.setGiornoLezione(dataLezione);
+            prenotazioneAulaBean.setDescrizione(descrizione);
+            prenotazioneAulaBean.setMateria(materia);
+            prenotazioneAulaBean.setNomeDocente(userBean.getNome());
+            prenotazioneAulaBean.setRicorente(isRicorrente);
+            prenotazioneAulaBean.setDataFine(dataFine);
+
+            if (intheMiddleFaçade.prenota(prenotazioneAulaBean))
+                System.out.println("Prenotazione creata con successo.");
+
+        } catch (FormatoDataNonValidoException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private Orario richiediOrarioLezione() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci l'orario della lezione (scegli tra le opzioni):");
         System.out.println("1. 12:00-14:00");
         System.out.println("2. 14:00-16:00");
@@ -59,54 +101,25 @@ public class PrenotazioneAulaView {
         }
         System.out.println("Hai scelto la fascia oraria: " + orario.getFasciaOraria());
 
-        System.out.print("Descrizione della lezione: ");
-        String descrizione = scanner.nextLine();
+        return orario;
+    }
 
-        System.out.print("Materia: ");
-        String materia = scanner.nextLine();
+    private Date richiediData() throws FormatoDataNonValidoException {
+        Scanner scanner = new Scanner(System.in);
+        Date dataLezione = null;
 
-       // System.out.print("Nome Professore: ");
-        String nomeProfessore = userBean.getNome();
+        while (dataLezione == null) {
+            System.out.print("Inserisci la data della lezione nel formato (yyyy-mm-dd): ");
+            String dataLezioneStr = scanner.nextLine();
 
-        //System.out.print("Inserisci la tua email: ");
-        String emailDocente = userBean.getEmail();
-
-        // Determina se la prenotazione è ricorrente
-        System.out.print("Prenotazione ricorrente (true/false): ");
-        boolean isRicorrente = scanner.nextBoolean();
-        scanner.nextLine(); // Consuma il newline
-
-        Date dataFine = null;
-
-
-        if (isRicorrente) {
-            System.out.print("Inserisci la data di fine ricorrenza (yyyy-mm-dd): ");
-            String dataFineStr = scanner.nextLine();
-            dataFine = Date.valueOf(dataFineStr);
-
-
+            try {
+                dataLezione = DateParser.parseStringToDate(dataLezioneStr);
+            } catch (FormatoDataNonValidoException e) {
+                System.out.println("Formato data non valido. Riprova.");
+            }
         }
-        PrenotazioneAulaBean prenotazioneAulaBean = new PrenotazioneAulaBean();
-        prenotazioneAulaBean.setIdAula(aulaSelezionata.getIdAula());
-        prenotazioneAulaBean.setEmail(emailDocente);
-        prenotazioneAulaBean.setOraLezione(orario);
-        prenotazioneAulaBean.setGiornoLezione(dataLezione);
-        prenotazioneAulaBean.setDescrizione(descrizione);
-        prenotazioneAulaBean.setMateria(materia);
-        prenotazioneAulaBean.setNomeDocente(nomeProfessore);
-        prenotazioneAulaBean.setRicorente(isRicorrente);
-        prenotazioneAulaBean.setDataFine(dataFine);
-        prenotazioneAulaBean.setIdPrenotazioneAula(null);
-        // Creazione della prenotazione
-        //boolean vif = gestisciPrenotazioneController.prenota(prenotazioneAulaBean);
 
-        boolean vif= intheMiddleFaçade.prenota(prenotazioneAulaBean);
-
-        if (vif = true) {
-            System.out.println("Prenotazione creata con successo.");
-        } else {
-            System.out.println("Prenotazione creata con successo.");
-        }
+        return dataLezione;
     }
 
 }

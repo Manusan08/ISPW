@@ -71,16 +71,21 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
     }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException, SQLException {
+    public void inizializza(UserBean cred) {
         this.userBean = cred;
 
     }
 
     @Override
-    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException {
+    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab)  {
         this.pab = pab;
-        tableInitializator(userBean);
-
+        try {
+            tableInitializator(userBean);
+        } catch (SQLException e) {
+            getAlert("Ops, qualcosa è andato storto");
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
     }
 
     public void tableInitializator(UserBean userBean) throws SQLException, ItemNotFoundException {
@@ -102,5 +107,6 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
 
         tableViewAule.setItems(data);
     }
+
 }
 

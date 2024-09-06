@@ -71,7 +71,7 @@ private TextField txtNumeroPosti;
 
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred) {
         this.userBean=cred;
     }
 

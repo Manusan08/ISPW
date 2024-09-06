@@ -39,8 +39,8 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
             rs = ps.executeQuery();
 
             if (!rs.next()) throw new ItemNotFoundException(
-                    "non ci sono corrispondenze con nome" + " " + pam.getNomeProfessore()
-                            + " o con materia" + pam.getMateria());
+                    "non ci sono corrispondenze con nome " + pam.getNomeProfessore()
+                            + " o con materia " + pam.getMateria());
             while (rs.next()) {
                 PrenotazioneAulaModel prenotazione = new PrenotazioneAulaModel();
                 prenotazione.setMateria(rs.getString("materia"));
@@ -61,7 +61,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
 
     @Override
-    public int getCapienzaAula(PrenotazioneAulaModel pam) throws SQLException {
+    public int getCapienzaAula(PrenotazioneAulaModel pam) {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         int posti = 0;

@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.controller.controllergrafico1.studente;
 
 import it.uniroma2.ispw.Façade.ManIntheMiddleFaçade;
-import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -63,22 +62,27 @@ public class SelezionePostiController extends ControllerGrafico {
 
     @FXML
     void cercaAulaperProfEMateria(ActionEvent event) {
-        // TODO document why this method is empty
     }
 
     @Override
-    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab) throws SQLException {
+    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab) {
         this.pab = pab;
-        int capienzaAula = manIntheMiddleFaçade.getCapienzaAula(pab.getIdAula());
-        List<PostoBean> postoBeans = manIntheMiddleFaçade.getPostiBean(pab);
+
+        int capienzaAula = 0;
+        try {
+            capienzaAula = manIntheMiddleFaçade.getCapienzaAula(pab.getIdAula());
+            this.postoBeans = manIntheMiddleFaçade.getPostiBean(pab);
+            postiPrinter(postoBeans, capienzaAula);
+        } catch (SQLException e) {
+            getAlert("Qualcosa è andato Storto");
+        }
         double paneWidth = Screen.getPrimary().getBounds().getWidth();
         seatsPane.setPrefWidth(paneWidth);
 
-        postiPrinter(postoBeans, capienzaAula);
     }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException, SQLException {
+    public void inizializza(UserBean cred) {
         this.usr = cred;
     }
 
@@ -134,8 +138,8 @@ public class SelezionePostiController extends ControllerGrafico {
     }
 
 
-
-    private Alert getAlert(String msg) {
+    @Override
+    protected Alert getAlert(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Prenotazione Confermata");
         alert.setHeaderText(null);

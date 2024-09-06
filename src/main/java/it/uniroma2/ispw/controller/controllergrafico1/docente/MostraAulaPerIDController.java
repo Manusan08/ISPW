@@ -29,7 +29,6 @@ public class MostraAulaPerIDController extends ControllerGrafico {
             String idAula = idAulaField.getText();
             AulaBean aulaBean = gestisciAuleController.getAulaById(idAula);
             if (aulaBean != null) {
-                // Pass the aulaBean to the new view
                 ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, aulaBean);
             } else {
                 showAlert("Aula non trovata", "L'ID dell'aula inserito non è valido.");
@@ -40,16 +39,9 @@ public class MostraAulaPerIDController extends ControllerGrafico {
         }
     }
 
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred)  {
         this.userBean = cred;
     }
 }

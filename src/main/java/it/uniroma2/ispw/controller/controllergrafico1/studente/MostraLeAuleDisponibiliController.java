@@ -30,7 +30,6 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
 
     @FXML
     private TableView<PrenotazioneAulaBean> tableViewPrenotazioni;
-    ManIntheMiddleFaçade manIntheMiddleFaçade = new ManIntheMiddleFaçade();
 
     @FXML
     void avantiBottoneAction(ActionEvent event) {
@@ -38,7 +37,7 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
     }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred) {
         this.userBean = cred;
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
@@ -52,5 +51,6 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
         tableViewPrenotazioni.setItems(data);
 
     }
+
 
 }

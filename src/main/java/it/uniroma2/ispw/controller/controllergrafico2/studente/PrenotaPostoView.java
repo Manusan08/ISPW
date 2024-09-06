@@ -35,19 +35,22 @@ public class PrenotaPostoView extends TemplateView {
         }
     }
 
-    private void carcaAulaByCognomeProfessoreEMateria() throws IOException, SQLException, ItemNotFoundException {
+    private void carcaAulaByCognomeProfessoreEMateria() throws IOException, SQLException {
         PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
 
         String cognomeProfessore = getDesiredIn("cognome professore", "inserisci cognome del professore: ");
         String nomeMateria = getDesiredIn("materia", "inserisci nome materia: ");
         pab.setNomeDocente(cognomeProfessore);
         pab.setMateria(nomeMateria);
-        List<PrenotazioneAulaBean> pabs = intheMiddle.searchBySurnameAndSubject(pab, this.usrBean);
-        if (pabs.isEmpty()) {
-            System.out.println("Non ci sono posti disponibili con questa materia e con questo nome");
-            return;
+
+        List<PrenotazioneAulaBean> pabs = null;
+        try {
+            pabs = intheMiddle.searchBySurnameAndSubject(pab, this.usrBean);
+            printTable(pabs);
+        } catch (ItemNotFoundException e) {
+            System.out.println(e.getMessage());
         }
-        printTable(pabs);
+
     }
 
     private void cercaAulaByIdPrenotazione() {

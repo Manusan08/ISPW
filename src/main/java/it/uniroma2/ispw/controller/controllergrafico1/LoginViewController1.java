@@ -4,18 +4,13 @@ import it.uniroma2.ispw.bean.LoginBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.LoginController;
 import it.uniroma2.ispw.utils.ChangePage;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -42,7 +37,7 @@ public class LoginViewController1 implements Initializable {
     private TextField txtUsername;
 
     @FXML
-    void handleButtonAction(ActionEvent event) throws SystemException {
+    void handleButtonAction(ActionEvent event) {
         try {
             if (!txtUsername.getText().isBlank() && !txtPassword.getText().isBlank()) {
                 LoginBean loginBean = new LoginBean(txtUsername.getText(), txtPassword.getText());
@@ -51,26 +46,31 @@ public class LoginViewController1 implements Initializable {
                 UserBean userBean = loginController.login(loginBean);
 
                 if (userBean != null) {
-                    //navigate to new page
                     switch (userBean.getRuolo()) {
                         case DOCENTE -> ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
                         case STUDENTE -> ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", userBean);
                     }
                 }
             }
-        } catch (InvalidDataException e) {
-            throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+
+            getAlert("Credenziali errate o utente inesistente").showAndWait();
+        } catch (SQLException | SystemException e) {
             throw new RuntimeException(e);
         }
 
 
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 
+    private Alert getAlert(String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText(msg);
+
+        return alert;
     }
 }

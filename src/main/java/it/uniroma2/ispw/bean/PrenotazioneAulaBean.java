@@ -21,6 +21,7 @@ public class PrenotazioneAulaBean {
     private Date dataFine;
     private int numeroPosti;
 
+
     public int getNumeroPosti() {
         return numeroPosti;
     }

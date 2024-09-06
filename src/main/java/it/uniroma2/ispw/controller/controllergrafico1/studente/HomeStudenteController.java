@@ -7,74 +7,65 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.sql.SQLException;
 
 public class HomeStudenteController extends ControllerGrafico {
 
-@FXML
-private Button gestisciid;
+    @FXML
+    private Button gestisciid;
 
-@FXML
-private Button prenotaId;
+    @FXML
+    private Button prenotaId;
 
-@FXML
-private Button visualizzaid;
+    @FXML
+    private Button visualizzaid;
     private UserBean userBean;
-@FXML
+
+    @FXML
     void gestisciPrenotazioneAction(ActionEvent event) {
-    try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        try {
+            // Ottieni l'istanza di ChangePage e cambia la pagina
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
+        } catch (SystemException | SQLException e) {
+            getAlert("qualcosa è andato storto").showAndWait();
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
+
     }
 
-}
-
-@FXML
+    @FXML
     void prenotaPostoAction(ActionEvent event) {
-    try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        try {
+            // Ottieni l'istanza di ChangePage e cambia la pagina
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", userBean);
+        } catch (SystemException | SQLException | ItemNotFoundException e) {
+            getAlert("ops,qualcosa è andato storto").showAndWait();
+        }
     }
 
 
-}
-
-@FXML
+    @FXML
     void visualizzaAuleAction(ActionEvent event) {
-    try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
-        //DA FARE
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDisponibili.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
-    }
+        try {
 
-}
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDisponibili.fxml", userBean);
+        } catch (SystemException | SQLException e) {
+            getAlert("qualcosa è andato storto").showAndWait();
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
+
+    }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
-        this.userBean=cred;
+    public void inizializza(UserBean cred)  {
+        this.userBean = cred;
 
     }
+
+
 }

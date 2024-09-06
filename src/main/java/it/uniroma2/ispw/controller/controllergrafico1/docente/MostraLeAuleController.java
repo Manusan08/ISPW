@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.AlertUtil;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.collections.FXCollections;
@@ -53,26 +54,20 @@ public class MostraLeAuleController extends ControllerGrafico {
             try {
                 // Passa l'aula selezionata alla prossima pagina
                 ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, selectedAula);
-            } catch (SystemException e) {
-                // Gestisci l'eccezione
-                e.printStackTrace();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            } catch (SystemException | SQLException e) {
+
+                getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
-                throw new RuntimeException(e);
+                getAlert(e.getMessage());
             }
         } else {
-            // Mostra un messaggio di errore se nessuna aula è selezionata
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Errore");
-            alert.setHeaderText("Nessuna Aula Selezionata");
-            alert.setContentText("Per favore, seleziona un'aula prima di procedere.");
-            alert.showAndWait();
+            showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");
+
         }
     }
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred){
         this.userBean = cred;
     }
 

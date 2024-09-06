@@ -7,54 +7,52 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.sql.SQLException;
 
 public class PrenotaPostoController extends ControllerGrafico {
 
-@FXML
-private Button cercaAulaID;
+    @FXML
+    private Button cercaAulaID;
 
-@FXML
-private Button cercaAulaProfMat;
-private UserBean userBean;
+    @FXML
+    private Button cercaAulaProfMat;
+    private UserBean userBean;
 
-@FXML
+    @FXML
     void cercaAulaPerIDprenotazione(ActionEvent event) {
-    try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaPerId.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaPerId.fxml", userBean);
+        } catch (SystemException | SQLException e) {
+            getAlert("ops, qualcosa è andato storto").showAndWait();
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
+
     }
 
-}
-
-@FXML
+    @FXML
     void cercaAulaperProfEMateria(ActionEvent event) {
-    try {
-        // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", userBean);
-    } catch (SystemException e) {
-        // Gestisci l'eccezione
-        e.printStackTrace();
-    } catch (SQLException e) {
-        throw new RuntimeException(e);
-    } catch (ItemNotFoundException e) {
-        throw new RuntimeException(e);
+        try {
+            // Ottieni l'istanza di ChangePage e cambia la pagina
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", userBean);
+        } catch (SystemException e) {
+            getAlert("ops, qualcosa è andato storto").showAndWait();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
+
     }
 
-}
+
 
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
-    this.userBean=cred;
+    public void inizializza(UserBean cred) {
+        this.userBean = cred;
 
     }
 }

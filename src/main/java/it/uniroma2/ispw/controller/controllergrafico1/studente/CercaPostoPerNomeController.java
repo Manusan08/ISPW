@@ -44,7 +44,7 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
 
     }
     @Override
-    public void inizializza(UserBean cred) throws SystemException {
+    public void inizializza(UserBean cred)  {
         this.userBean=cred;
     }
 
@@ -55,13 +55,10 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             pab.setMateria(txtMateria.getText());
 
             ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDaPrenotare.fxml",userBean ,pab);
-        } catch (SystemException e) {
-            // Gestisci l'eccezione
-            e.getCause();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SystemException | SQLException e) {
+            getAlert("qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
-            throw new RuntimeException(e);
+            getAlert(e.getMessage()).showAndWait();
         }
     }
 }

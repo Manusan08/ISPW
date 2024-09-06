@@ -66,7 +66,6 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void mostraPrenotazioni() {
-        //UserBean us = new UserBean(this.usrBean.getEmail(), this.usrBean.getNome());
         printTable(new GestisciCreazionePrenotazioneAulaController().getPrenotazioneByName(this.usrBean));
     }
 

@@ -5,7 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerApplicativo.GestisciCreazionePrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.utils.DateParser;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -50,7 +50,7 @@ public class VisualizzaLezioniView extends TemplateView{
             pab.setOrarioLezione(DateParser.parseStringToDate(getDesiredIn("data lezione", "inserisci data e ora nel formato gg/mm/yyyy")));
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (InvalidDataException e) {
+        } catch ( FormatoDataNonValidoException e) {
             throw new RuntimeException(e);
         }
         printTable(new GestisciCreazionePrenotazioneAulaController().getAulaByOrario(pab));

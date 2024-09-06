@@ -18,7 +18,7 @@ public class LoginViewController2 extends TemplateView{
 
     @Override
     public void control() throws SystemException, LoginException {
-        LoginBean loginBean = new LoginBean();
+        LoginBean loginBean;
         LoginController loginController= new LoginController();
         try {
             loginBean = this.show();
@@ -27,8 +27,6 @@ public class LoginViewController2 extends TemplateView{
         }
         try {
             usrBean= loginController.login(loginBean);
-        } catch (InvalidDataException e) {
-            throw new RuntimeException(e);
         } catch (ItemNotFoundException e) {
             System.out.println(e.getMessage());
         }

@@ -26,7 +26,7 @@ public class CercaAulaPerFiltriView extends TemplateView {
 
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException {
+    public void control()  {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci i dettagli per la prenotazione dell'aula:");
         System.out.print("Numero di posti minimo: ");
@@ -55,7 +55,7 @@ public class CercaAulaPerFiltriView extends TemplateView {
         aulaBean.setComputer(computerRichiesto);
         aulaBean.setBanchiDisegno(banchiDaDisegno);
 
-        List<AulaBean> aulabeanlist = new ArrayList<>();
+        List<AulaBean> aulabeanlist;
         try {
             aulabeanlist = gestisciAuleController.chekAula(aulaBean);
             printTable(aulabeanlist);

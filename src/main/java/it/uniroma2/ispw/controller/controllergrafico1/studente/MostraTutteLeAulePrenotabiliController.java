@@ -52,12 +52,10 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
         if (selected != null) {
             try {
                 ChangePage.getChangePage().cambiaPagina("/view/Studente/SelezionePosti.fxml", userBean, selected);
-            } catch (SystemException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+            } catch (SystemException | SQLException e) {
+                getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
-                throw new RuntimeException(e);
+                getAlert().showAndWait();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

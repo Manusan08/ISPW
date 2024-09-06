@@ -39,7 +39,7 @@ public class PrenotaPostoController extends ControllerGrafico {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", userBean);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            getAlert().showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
         }

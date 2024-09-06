@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.PrenotazioneAulaView;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CercaTutteLeAuleView extends TemplateView {
-    GestisciAuleController gestisciAuleController = new GestisciAuleController();
+    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
 
     public CercaTutteLeAuleView(UserBean usrBean) {
         super(usrBean);
@@ -25,7 +26,7 @@ public class CercaTutteLeAuleView extends TemplateView {
     public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ecco tutte le Aule dell'edificio");
-        List<AulaBean> aulabeanlist= gestisciAuleController.getAllAule();
+        List<AulaBean> aulabeanlist= intheMiddleFaçade.getAllAule();
         printTable(aulabeanlist);
         System.out.println("Aule disponibili:");
         for (int i = 0; i < aulabeanlist.size(); i++) {

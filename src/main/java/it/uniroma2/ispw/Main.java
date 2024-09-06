@@ -47,7 +47,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    private static void setPersistenceLayerAndUi() {
+    public static void setPersistenceLayerAndUi() {
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties properties = new Properties();
             properties.load(input);

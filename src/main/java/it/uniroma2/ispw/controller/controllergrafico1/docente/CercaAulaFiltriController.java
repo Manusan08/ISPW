@@ -6,6 +6,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -34,6 +35,7 @@ private Button avantiBottoneID;
 
 @FXML
 private TextField txtNumeroPosti;
+    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
 
 @FXML
     void avantiAction(ActionEvent event) {
@@ -53,9 +55,9 @@ private TextField txtNumeroPosti;
         aulaBean.setBanchiDisegno(banchiRichiesti);
 
         // Chiamata al controller applicativo per cercare le aule disponibili
-        GestisciAuleController gestisciAuleController;
-        gestisciAuleController = new GestisciAuleController();
-        List<AulaBean> auleDisponibili = gestisciAuleController.chekAula(aulaBean);
+
+
+        List<AulaBean> auleDisponibili = intheMiddleFaçade.chekAula(aulaBean);
 
         ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule.fxml", userBean, auleDisponibili);
     } catch (SystemException e) {

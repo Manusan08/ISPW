@@ -1,6 +1,4 @@
 
-q
-Asrc/main/java/it/uniroma2/ispw/Fa√ßade/ManIntheMiddleFa√ßade.java,b\7\b74d087e477c386f1fee9e77c473c5fd4c71cc22
 ë
 asrc/main/java/it/uniroma2/ispw/controller/controllergrafico1/studente/HomeStudenteController.java,d\e\de03707c92f3a416147882695366407fb9634f99
 û
@@ -51,8 +49,6 @@ hsrc/main/java/it/uniroma2/ispw/controller/controllergrafico2/studente/Visualizz
 `src/main/java/it/uniroma2/ispw/controller/controllergrafico2/studente/VisualizzaLezioniView.java,2\1\21a8b5faf7370b77d2be9927c5ce298432a6e0df
 Ö
 Usrc/main/java/it/uniroma2/ispw/controller/controllergrafico2/docente/DocenteView.java,f\4\f4cabb1f945bd057b81eafabae5fd2b555986a79
-†
-psrc/main/java/it/uniroma2/ispw/controller/controllerApplicativo/GestisciCreazionePrenotazioneAulaController.java,2\c\2ca139f1be5dd47cd2155a39693324664e5a1cb7
 b
 2src/main/java/it/uniroma2/ispw/bean/PostoBean.java,b\f\bf409d0fb856354cf465f8896813d30b3ef68686
 ç
@@ -73,5 +69,5 @@ k
 ;src/main/java/it/uniroma2/ispw/model/aula/dao/AulaDBMS.java,1\7\17090e8ddc81b9ac3088fde7dbcfe7d90fd45d78
 ê
 `src/main/java/it/uniroma2/ispw/controller/controllergrafico1/docente/MostraLeAuleController.java,5\8\5815090ae3934502204f345b261a2b050108b52f
-ã
-[src/main/java/it/uniroma2/ispw/controller/controllerApplicativo/GestisciAuleController.java,0\9\093c98d7c43240a4ce1f1ea3654f18d5ee467dd7
+X
+(src/main/java/it/uniroma2/ispw/Main.java,7\a\7a159a7917a1765f5828d16e40fedbfcbd7f66cb

@@ -1,13 +1,0 @@
-
-Q
-java:S1066V"/Merge this if statement with the enclosing one.(«âÍ£ÿÿÿÿÿ8ÇÔÄ÷–2
-i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(†ÿ†±8ÊÔÄ÷–2
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Š…¾Úøÿÿÿÿ8ÍÔÄ÷–2
-H
-java:S1168J"+Return an empty collection instead of null.(¥¹ï8“ÕÄ÷–2
-X
-java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8œÕÄ÷–2
-“
-java:S1128"vRemove this unused import 'it.uniroma2.ispw.controller.controllerApplicativo.factory.ConcretePrenotazioneAulaFactory'.(ìÁú8ÕÄ÷–2
-N
-java:S1068"1Remove this unused "postoObserver" private field.(²Ã¶ş8ÕÄ÷–2

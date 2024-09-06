@@ -1,8 +1,10 @@
 package it.uniroma2.ispw.facade;
 
+import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllerapplicativo.GestisciCreazionePrenotazioneAulaController;
 import it.uniroma2.ispw.controller.controllerapplicativo.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.controllerapplicativo.observer.observers.Observer;
@@ -22,12 +24,14 @@ public class ManIntheMiddleFaçade {
     private PrenotazionePostoSubject prenotazionePostoSubject;
     private PostoObserver postoObserver;
     private GestisciCreazionePrenotazioneAulaController gestisciCreazionePrenotazioneAulaController;
+    private GestisciAuleController gestisciAuleController;
 
     public ManIntheMiddleFaçade() {
         this.gestisciPrenotazionePostoController = new GestisciPrenotazionePostoController();
         this.postoObserver = new PostoObserver();
         this.prenotazionePostoSubject = new PrenotazionePostoSubject();
         this.gestisciCreazionePrenotazioneAulaController = new GestisciCreazionePrenotazioneAulaController();
+        this.gestisciAuleController= new GestisciAuleController();
     }
 
 
@@ -112,5 +116,16 @@ public boolean prenota(PrenotazioneAulaBean pab){
         return new UserModel(us.getEmail(), us.getRuolo(), us.getNome());
     }
 
+    public AulaBean getAulaById(String idAula) throws ItemNotFoundException {
+        return this.gestisciAuleController.getAulaById(idAula);
+    }
+
+    public List<AulaBean> getAllAule() {
+        return this.gestisciAuleController.getAllAule();
+    }
+
+    public List<AulaBean> chekAula(AulaBean aulaBean) throws ItemNotFoundException {
+        return this.gestisciAuleController.chekAula(aulaBean);
+    }
 }
 

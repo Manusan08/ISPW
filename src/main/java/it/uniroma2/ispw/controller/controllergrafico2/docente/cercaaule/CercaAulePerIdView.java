@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.PrenotazioneAulaView;
+import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CercaAulePerIdView extends TemplateView {
-    GestisciAuleController gestisciAuleController = new GestisciAuleController();
+    private ManIntheMiddleFaçade intheMiddleFaçade = new ManIntheMiddleFaçade();
 
     public CercaAulePerIdView(UserBean usrBean) {
         super(usrBean);
@@ -29,7 +30,7 @@ public class CercaAulePerIdView extends TemplateView {
 
         String iDaula = scanner.nextLine();
 
-         AulaBean aulaBean= gestisciAuleController.getAulaById(iDaula);
+         AulaBean aulaBean= intheMiddleFaçade.getAulaById(iDaula);
         System.out.println("Dettagli dell'Aula:");
         System.out.println("==================");
         System.out.printf("ID Aula         : %s%n", aulaBean.getIdAula());

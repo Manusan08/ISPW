@@ -17,18 +17,18 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ManIntheMiddleFaçade {
-    private GestisciPrenotazionePostoController gestisciPrenotazionePostoController;
+    private final GestisciPrenotazionePostoController gestisciPrenotazionePostoController;
     private PrenotazionePostoSubject prenotazionePostoSubject;
-    private PostoObserver postoObserver;
-    private GestisciCreazionePrenotazioneAulaController gestisciCreazionePrenotazioneAulaController;
-    private GestisciAuleController gestisciAuleController;
+    private final GestisciCreazionePrenotazioneAulaController gestisciCreazionePrenotazioneAulaController;
+    private final GestisciAuleController gestisciAuleController;
 
     public ManIntheMiddleFaçade() {
         this.gestisciPrenotazionePostoController = new GestisciPrenotazionePostoController();
-        this.postoObserver = new PostoObserver();
+
         this.prenotazionePostoSubject = new PrenotazionePostoSubject();
         this.gestisciCreazionePrenotazioneAulaController = new GestisciCreazionePrenotazioneAulaController();
         this.gestisciAuleController= new GestisciAuleController();
@@ -79,7 +79,7 @@ public class ManIntheMiddleFaçade {
             }
             return postoObserverToPostoBean(this.prenotazionePostoSubject.getObservers());
         }
-        return null;
+        return Collections.emptyList();
     }
 
 public boolean prenota(PrenotazioneAulaBean pab){
@@ -90,8 +90,7 @@ public boolean prenota(PrenotazioneAulaBean pab){
 
     public static PostoObserver isPostoInList(List<Observer> observers, PrenotazionePostoContext context) {
         for (Observer observer : observers)
-            if (observer instanceof PostoObserver po)
-                if (po.getPostoId().equals(context.getPostoId()))
+            if (observer instanceof PostoObserver po && (po.getPostoId().equals(context.getPostoId())))
                     return po;
         return null;
     }

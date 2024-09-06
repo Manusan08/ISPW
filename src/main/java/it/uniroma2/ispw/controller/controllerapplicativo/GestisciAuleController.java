@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestisciAuleController {
-    private AulaDAO aulaDAO;
+    private final AulaDAO aulaDAO;
 
     public GestisciAuleController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
@@ -31,7 +31,7 @@ public class GestisciAuleController {
 
 
     public List<AulaBean> chekAula(AulaBean aulaBean) throws ItemNotFoundException {
-        List<AulaModel> aulaModelList = new ArrayList<>();
+
         List<AulaBean> aulaBeanList = new ArrayList<>();
         AulaModel aulaM = new AulaModel();
         aulaM.setNumeroPosti(aulaBean.getPosti());
@@ -60,8 +60,7 @@ public class GestisciAuleController {
     public AulaBean getAulaById(String idaula) throws ItemNotFoundException {
 
         AulaModel c = aulaDAO.getAulaById(idaula);
-        AulaBean cb = new AulaBean(c.getIdAula(), c.getNumeroPosti(), c.isComputer(), c.isProiettore(), c.isBanchiDisegno());
-        return cb;
+        return new AulaBean(c.getIdAula(), c.getNumeroPosti(), c.isComputer(), c.isProiettore(), c.isBanchiDisegno());
 
     }
 

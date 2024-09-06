@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public class PrenotazioneRicorrente implements PrenotazioneAula{
     private PrenotazioneAulaModel prenotazioneAulaModel;
     public  PrenotazioneRicorrente(PrenotazioneAulaModel model) {
+
         this.prenotazioneAulaModel = model;
     }
     private String email;
@@ -84,7 +85,7 @@ public class PrenotazioneRicorrente implements PrenotazioneAula{
     }
 
     @Override
-    public boolean salvaPrenotazione() {
+    public void salvaPrenotazione() {
         LocalDate dataCorrente = datalezione.toLocalDate();
         LocalDate dataFineLocal = dataFine.toLocalDate();
         Boolean isRicorrente=true;
@@ -101,11 +102,10 @@ public class PrenotazioneRicorrente implements PrenotazioneAula{
                     dataFine,
                     idPrenotazioneAula,
                     isRicorrente)) {
-                return false;
+                return;
             }
             dataCorrente = dataCorrente.plusDays(7);
         }
 
-        return true;
     }
 }

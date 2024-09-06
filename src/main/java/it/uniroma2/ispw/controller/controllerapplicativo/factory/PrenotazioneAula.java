@@ -5,7 +5,7 @@ public interface PrenotazioneAula {
 
     boolean verificaPrenotazione();
 
-    boolean salvaPrenotazione();
+    void salvaPrenotazione();
 
 
 

@@ -90,9 +90,9 @@ public class PrenotaPostoView extends TemplateView {
         while (true) {
             System.out.print("stai prenotando il posto: " + posto.getPostoId() + " vuoi confermare (Y/n) :");
             String inputStr = input.readLine();
-            if (inputStr.toLowerCase().equals("y")) {
+            if (inputStr.equalsIgnoreCase("y")) {
                 return true;
-            } else if (inputStr.toLowerCase().equals("n"))
+            } else if (inputStr.equalsIgnoreCase("n"))
                 return false;
             else {
                 System.out.println("Input non valido. Si prega di rispondere con 'Y' o 'N'.");

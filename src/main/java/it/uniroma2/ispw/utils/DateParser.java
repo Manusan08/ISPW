@@ -2,7 +2,7 @@ package it.uniroma2.ispw.utils;
 
 import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
 
-import java.sql.Date;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 

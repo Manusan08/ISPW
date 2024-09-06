@@ -17,12 +17,7 @@ public class  LoginBean {
         this.role = role;
     }
 
-    /*public LoginBean(String email, String password, Role role) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-*/
+
     public String getEmail() {
         return email;
     }

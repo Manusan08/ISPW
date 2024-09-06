@@ -16,6 +16,7 @@ module ispw {
     exports it.uniroma2.ispw.bean;
     exports it.uniroma2.ispw.model.login.dao;
     exports it.uniroma2.ispw.controller.controllergrafico2.studente;
+    exports it.uniroma2.ispw.enums;
 
     // Aprire i pacchetti dei controller grafici per FXML
     opens it.uniroma2.ispw.controller.controllergrafico1 to javafx.fxml, javafx.graphics,javafx.base;

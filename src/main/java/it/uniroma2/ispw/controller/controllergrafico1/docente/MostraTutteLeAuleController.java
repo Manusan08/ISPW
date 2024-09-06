@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.controllergrafico1.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
+
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
 import it.uniroma2.ispw.utils.ChangePage;
@@ -62,6 +62,8 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
                 getAlert();
             } catch (ItemNotFoundException e) {
                 showAlert("Attenzione!","nessuna aula trovata");
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         } else {
             showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /*
     Il test utilizza il ManIntheMiddleFaçade per trovare un'Aula tramite il numero di posti e altri filtri;
     Fallisce se l'aula trovata non ha come caratteristiche:
-    Numero posti => 140
+    Numero posti => 150
     proiettore = true
     banchi disegno = false
     computer = false

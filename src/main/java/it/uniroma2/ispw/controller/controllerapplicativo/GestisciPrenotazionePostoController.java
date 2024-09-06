@@ -14,8 +14,7 @@ import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
 import it.uniroma2.ispw.model.prenotazioneAula.PrenotazioneAulaModel;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDAO;
-import it.uniroma2.ispw.model.prenotazioneAula.dao.PrenotazioneAulaDBMS;
+
 import it.uniroma2.ispw.model.prenotazionePosto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDAO;
 import it.uniroma2.ispw.model.prenotazionePosto.dao.PrenotazionePostoDBMS;
@@ -30,15 +29,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestisciPrenotazionePostoController {
-    private PrenotazionePostoDAO prenotazionePostoDao;
+    private final PrenotazionePostoDAO prenotazionePostoDao;
     private PostoDAO postoDAO;
-    private PrenotazioneAulaDAO prenotazioneAulaDAO;
+
 
     public GestisciPrenotazionePostoController() {
         if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
             prenotazionePostoDao = new PrenotazionePostoDBMS();
             postoDAO = new PostoDBMS();
-            prenotazioneAulaDAO = new PrenotazioneAulaDBMS();
+
         } else {
             try {
                 prenotazionePostoDao = new PrenotazionePostoFS();

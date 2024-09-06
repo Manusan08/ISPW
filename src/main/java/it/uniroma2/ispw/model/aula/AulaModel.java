@@ -1,7 +1,6 @@
 package it.uniroma2.ispw.model.aula;
 
-import java.sql.Date;
-import java.util.List;
+
 
 public class AulaModel {
     private String idAula;
@@ -12,8 +11,7 @@ public class AulaModel {
     private boolean statoAula;
 
 
-    public AulaModel(String idAula, int posti) {
-    }
+
 
     public AulaModel() {
 

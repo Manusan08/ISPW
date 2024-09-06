@@ -4,7 +4,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.controllergrafico1.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class HomeDocenteController extends ControllerGrafico {
     @FXML
-    private Button Aulaid;
+    private Button aulaid;
 
     @FXML
     private Button gestisciid;
@@ -24,9 +24,7 @@ public class HomeDocenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", userBean);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
 
@@ -37,9 +35,7 @@ public class HomeDocenteController extends ControllerGrafico {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
             ChangePage.getChangePage().cambiaPagina("/view/Docente/GestionePosto.fxml", userBean);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException e) {
             throw new RuntimeException(e);
         }
 

@@ -6,8 +6,7 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.AlertUtil;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.exception.SystemException;
-import javafx.scene.control.Alert;
+
 
 import java.sql.SQLException;
 import java.util.List;

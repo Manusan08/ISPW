@@ -34,7 +34,7 @@ public abstract class TemplateView {
 
     protected abstract String getHeader();
 
-    public int userChoice() throws IOException {
+    public int userChoice() {
         printHeader(getHeader());
         List<String> options = getOptions();
         return operationMenu("Come vuoi procedere? ", options);

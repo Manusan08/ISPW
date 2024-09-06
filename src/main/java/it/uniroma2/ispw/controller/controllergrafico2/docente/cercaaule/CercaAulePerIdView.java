@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.controllergrafico2.docente.cercaaule;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllerapplicativo.GestisciAuleController;
+
 import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
 import it.uniroma2.ispw.controller.controllergrafico2.docente.prenotaaula.PrenotazioneAulaView;
 import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
@@ -12,6 +12,7 @@ import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -45,7 +46,7 @@ public class CercaAulePerIdView extends TemplateView {
 
     @Override
     protected List<String> getOptions() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

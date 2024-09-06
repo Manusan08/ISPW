@@ -23,11 +23,7 @@ class TemplateViewTest extends TemplateView {
 
     public static void main(String[]args){
         TemplateViewTest test = new TemplateViewTest();
-        try {
-            int choice=test.userChoice();
-            System.out.println("user option ="+choice);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        int choice=test.userChoice();
+        System.out.println("user option ="+choice);
     }
 }

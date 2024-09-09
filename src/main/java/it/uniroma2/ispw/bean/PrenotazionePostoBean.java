@@ -12,9 +12,9 @@ public class PrenotazionePostoBean {
     private String idPosto;
     private String oraLezione;
     private Date giornoLezione;
-    private String nomeStudente;
+
     private String materia;
-    private String email;
+
     private  String nomeDocente;
 
     public PrenotazionePostoBean(String nomeDocente,String idPosto, String idAula, String materia, Date giornoLezione, String oraLezione, String idPrenotazionePosto,String idPrenotazioneAula) {
@@ -93,9 +93,7 @@ public class PrenotazionePostoBean {
     }
 
 
-    public void setEmail(String email) {
-        this.email=email;
-    }
+
 
     public String getIdPrenotazioneAula() {
         return idPrenotazioneAula;

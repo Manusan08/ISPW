@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.facade;
 
-import it.uniroma2.ispw.bean.AulaBean;
+
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -24,14 +24,14 @@ public class ManIntheMiddleFaçade {
     private final GestisciPrenotazionePostoController gestisciPrenotazionePostoController;
     private PrenotazionePostoSubject prenotazionePostoSubject;
     private final GestisciCreazionePrenotazioneAulaController gestisciCreazionePrenotazioneAulaController;
-    private final GestisciAuleController gestisciAuleController;
+
 
     public ManIntheMiddleFaçade() {
         this.gestisciPrenotazionePostoController = new GestisciPrenotazionePostoController();
 
         this.prenotazionePostoSubject = new PrenotazionePostoSubject();
         this.gestisciCreazionePrenotazioneAulaController = new GestisciCreazionePrenotazioneAulaController();
-        this.gestisciAuleController= new GestisciAuleController();
+
     }
 
 

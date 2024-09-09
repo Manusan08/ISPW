@@ -113,9 +113,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                 pam.setOraLezione(resultSet.getString("oraLezione"));
                 pams.add(pam);
             }
-        } catch (SystemException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+        } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 

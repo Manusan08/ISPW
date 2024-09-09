@@ -1,9 +1,6 @@
 package it.uniroma2.ispw.bean;
 
-import it.uniroma2.ispw.enums.Orario;
 
-import java.sql.Date;
-import java.util.List;
 
 
 public class AulaBean {

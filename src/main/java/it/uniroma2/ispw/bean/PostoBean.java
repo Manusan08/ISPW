@@ -1,8 +1,6 @@
 package it.uniroma2.ispw.bean;
 
-import it.uniroma2.ispw.enums.Orario;
 
-import java.sql.Date;
 
 public class PostoBean {
     private String idPosto;

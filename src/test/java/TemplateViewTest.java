@@ -1,6 +1,5 @@
-import it.uniroma2.ispw.controller.controllergrafico2.TemplateView;
+import it.uniroma2.ispw.view.cli.TemplateView;
 
-import java.io.IOException;
 import java.util.List;
 
 class TemplateViewTest extends TemplateView {

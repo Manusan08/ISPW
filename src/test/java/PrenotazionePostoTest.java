@@ -1,6 +1,6 @@
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,7 +13,7 @@ public class PrenotazionePostoTest {
         {
             startTheAppForPersistenceLayer();
 
-            ManIntheMiddleFaçade facede = new ManIntheMiddleFaçade();
+            ManIntheMiddleFacade facede = new ManIntheMiddleFacade();
             List <PrenotazioneAulaBean> prenotazioni =facede.getAvailableClass();
             for(PrenotazioneAulaBean i:prenotazioni )
                 System.out.println(i.getIdAula()+ " "+ i.getOraLezione1());

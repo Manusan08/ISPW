@@ -1,20 +1,21 @@
 package it.uniroma2.ispw.model.login.dao;
 
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 
-
-import java.io.File;
-
-import java.io.IOException;
+import java.io.*;
 
 
 public class LoginFS implements LoginDAO {
-    private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "utente.csv";
+    private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "login.csv";
     private final File file;
     private static final int INDEX_RUOLO = 0;
     private static final int INDEX_EMAIL = 1;
@@ -33,8 +34,34 @@ public class LoginFS implements LoginDAO {
 
 
     @Override
-    public LoginModel auth(LoginBean loginBean) {
-        return null;
+    public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException {
+        LoginModel u = null;
+        CSVReader csvReader = null;
+        try {
+            csvReader = new CSVReader(new BufferedReader(new FileReader(this.file)));
+            String[] rcrd;
+            int emIndex = INDEX_EMAIL;
+            int pwdIndex = INDEX_PWD;
+
+
+            while ((rcrd = csvReader.readNext()) != null) {
+                //check if the user exists
+                if (rcrd[emIndex].equals(loginBean.getEmail()) &&
+                        rcrd[pwdIndex].equals(loginBean.getPassword())) {
+                    u = setUtenteFromRecord(rcrd);
+                    break;
+                }
+            }
+
+        } catch (CsvValidationException | IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            CSVManager.closeCsvReader(csvReader);
+        }
+
+        if(u == null) throw new ItemNotFoundException("Credenziali errate");
+
+        return u;
     }
 
     private LoginModel setUtenteFromRecord(String[] rcrd) {

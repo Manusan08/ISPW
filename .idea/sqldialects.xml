@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/it/uniroma2/ispw/model/aula/dao/AulaDBMS.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/it/uniroma2/ispw/model/login/dao/LoginDBMS.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/it/uniroma2/ispw/model/posto/dao/PostoDBMS.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/it/uniroma2/ispw/model/prenotazioneaula/dao/PrenotazioneAulaDBMS.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/it/uniroma2/ispw/model/prenotazioneposto/dao/PrenotazionePostoDBMS.java" dialect="GenericSQL" />
   </component>
 </project>

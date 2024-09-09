@@ -15,7 +15,7 @@ public class CSVManager {
     }
 
     public static String getCsvDir() {
-        try (InputStream input = ConnectionDB.class.getClassLoader().getResourceAsStream("application.properties")) {
+        try (InputStream input = ConnectionDB.class.getClassLoader().getResourceAsStream("config.properties")) {
             if(input == null) throw new ItemNotFoundException("Directory base non trovata");
 
             Properties properties = new Properties();

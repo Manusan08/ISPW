@@ -3,8 +3,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.facade.DocenteFacade;
-import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.utils.facade.DocenteFacade;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

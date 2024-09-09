@@ -1,0 +1,107 @@
+package it.uniroma2.ispw.view.graphicalcontroller.studente;
+
+import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
+import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
+import it.uniroma2.ispw.utils.ChangePage;
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.sql.SQLException;
+
+public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
+    @FXML
+    private Button avantiID;
+
+    @FXML
+    private TableColumn<?, ?> colonna1;
+
+    @FXML
+    private TableColumn<?, ?> colonna2;
+
+    @FXML
+    private TableColumn<?, ?> colonna3;
+
+    @FXML
+    private TableColumn<?, ?> colonna4;
+
+    @FXML
+    private TableColumn<?, ?> colonna5;
+
+
+    private PrenotazioneAulaBean pab;
+    private UserBean userBean;
+
+    @FXML
+    private TableView<PrenotazioneAulaBean> tableViewAule;
+
+    @FXML
+    void avantiBottoneAction(ActionEvent event) {
+        PrenotazioneAulaBean selected = tableViewAule.getSelectionModel().getSelectedItem();
+
+        if (selected != null) {
+            try {
+                ChangePage.getChangePage().cambiaPagina("/view/Studente/SelezionePosti.fxml", userBean, selected);
+            } catch (SQLException e) {
+                getAlert().showAndWait();
+            } catch (ItemNotFoundException e) {
+                getAlert(e.getMessage()).showAndWait();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Errore");
+            alert.setHeaderText("Nessuna Aula Selezionata");
+            alert.setContentText("Per favore, seleziona un'aula prima di procedere.");
+            alert.showAndWait();
+        }
+    }
+
+    @Override
+    public void inizializza(UserBean cred) {
+        this.userBean = cred;
+
+    }
+
+    @Override
+    public void setPrenotazioneAulaBeans(PrenotazioneAulaBean pab)  {
+        this.pab = pab;
+        try {
+            tableInitializator(userBean);
+        } catch (SQLException e) {
+            getAlert("Ops, qualcosa è andato storto");
+        } catch (ItemNotFoundException e) {
+            getAlert(e.getMessage()).showAndWait();
+        }
+    }
+
+    public void tableInitializator(UserBean userBean) throws SQLException, ItemNotFoundException {
+        final ObservableList<PrenotazioneAulaBean> data =
+                FXCollections.observableArrayList(
+                        new ManIntheMiddleFacade().searchBySurnameAndSubject(pab, userBean));
+
+
+        colonna1.setCellValueFactory(
+                new PropertyValueFactory<>("Materia"));
+        colonna2.setCellValueFactory(
+                new PropertyValueFactory<>("OraLezione1"));
+        colonna3.setCellValueFactory(
+                new PropertyValueFactory<>("NomeDocente"));
+        colonna4.setCellValueFactory(
+                new PropertyValueFactory<>("GiornoLezione"));
+        colonna5.setCellValueFactory(
+                new PropertyValueFactory<>("IdAula"));
+
+        tableViewAule.setItems(data);
+    }
+
+}
+

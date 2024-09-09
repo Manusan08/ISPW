@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.studente.GestisciPrenotazionePostoController">
+            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.GestisciPrenotazionePostoController">
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
                stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
@@ -21,7 +21,7 @@
             <Font size="18.0"/>
         </font>
     </Button>
-    <Button fx:id="EliminaId" layoutY="48.0" mnemonicParsing="false" onAction="#eliminaPrenotazioneAction"
+    <Button fx:id="eliminaId" layoutY="48.0" mnemonicParsing="false" onAction="#eliminaPrenotazioneAction"
             prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Elimina Prenotazione "
             textFill="WHITE">
         <font>

@@ -11,25 +11,28 @@ module ispw {
     // Esportare il pacchetto principale
     exports it.uniroma2.ispw;
     exports it.uniroma2.ispw.utils; // Esporta a tutti i moduli
-    exports it.uniroma2.ispw.facade;
+    exports it.uniroma2.ispw.utils.facade;
     exports it.uniroma2.ispw.utils.exception;
     exports it.uniroma2.ispw.bean;
     exports it.uniroma2.ispw.model.login.dao;
-    exports it.uniroma2.ispw.controller.controllergrafico2.studente;
+    exports it.uniroma2.ispw.view.cli.studente;
     exports it.uniroma2.ispw.enums;
+    exports it.uniroma2.ispw.model.login;
+    exports  it.uniroma2.ispw.model;
+    exports  it.uniroma2.ispw.controller.observer.observers;
 
     // Aprire i pacchetti dei controller grafici per FXML
-    opens it.uniroma2.ispw.controller.controllergrafico1 to javafx.fxml, javafx.graphics,javafx.base;
+    opens it.uniroma2.ispw.view.graphicalcontroller to javafx.fxml, javafx.graphics,javafx.base;
 
     // Esportare altri pacchetti se necessario
-    exports it.uniroma2.ispw.controller.controllerapplicativo to javafx.fxml, javafx.graphics,javafx.base;
+    exports it.uniroma2.ispw.controller to javafx.fxml, javafx.graphics,javafx.base;
 
     // Aprire il pacchetto principale per FXML
 
 
     // Esportare il pacchetto specifico per i controller FXML
-    opens it.uniroma2.ispw.controller.controllergrafico1.studente to javafx.fxml, javafx.graphics,javafx.base;
-    opens it.uniroma2.ispw.controller.controllergrafico1.docente to javafx.fxml, javafx.graphics,javafx.base;
+    opens it.uniroma2.ispw.view.graphicalcontroller.studente to javafx.fxml, javafx.graphics,javafx.base;
+    opens it.uniroma2.ispw.view.graphicalcontroller.docente to javafx.fxml, javafx.graphics,javafx.base;
     opens it.uniroma2.ispw.bean to javafx.fxml, javafx.graphics,javafx.base;
 
 

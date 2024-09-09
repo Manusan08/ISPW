@@ -1,6 +1,6 @@
 package it.uniroma2.ispw;
 
-import it.uniroma2.ispw.controller.controllergrafico2.CliController;
+import it.uniroma2.ispw.view.cli.CliController;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.enums.TypesOfUIs;
 import it.uniroma2.ispw.utils.ChangePage;

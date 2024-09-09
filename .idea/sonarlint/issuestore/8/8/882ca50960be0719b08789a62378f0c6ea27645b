@@ -1,7 +1,0 @@
-
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ΓΌ££8ΰ³όÿ–2
-y
-java:S1450"WRemove the "userBean" field and declare it as a local variable in the relevant methods.(θισωωÿÿÿÿ8ϊ”ώÿ–2
-N
-java:S1068",Remove this unused "userBean" private field.(θισωωÿÿÿÿ8Υ›ύÿ–2

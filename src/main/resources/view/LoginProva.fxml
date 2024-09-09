@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;"
             xmlns="http://javafx.com/javafx/21   " xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.LoginViewController1">
+            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.LoginViewController1">
    <AnchorPane prefHeight="503.0" prefWidth="382.0" style="-fx-background-color: #27ae60;" AnchorPane.bottomAnchor="0.0"
                AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <ImageView fitHeight="73.0" fitWidth="275.0" layoutX="54.0" layoutY="219.0" pickOnBounds="true"

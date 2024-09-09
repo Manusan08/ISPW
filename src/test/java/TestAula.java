@@ -1,6 +1,5 @@
 import it.uniroma2.ispw.bean.AulaBean;
-import it.uniroma2.ispw.facade.DocenteFacade;
-import it.uniroma2.ispw.facade.ManIntheMiddleFaçade;
+import it.uniroma2.ispw.utils.facade.DocenteFacade;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import org.junit.jupiter.api.Test;

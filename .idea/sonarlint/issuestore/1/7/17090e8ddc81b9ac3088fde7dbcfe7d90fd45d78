@@ -1,53 +1,33 @@
 
 i
-java:S1192""GDefine a constant instead of duplicating this literal "idAula" 3 times.(ù¬Å¬øÿÿÿÿ8½÷î„™2
+java:S1192""GDefine a constant instead of duplicating this literal "idAula" 3 times.(ù¬Å¬øÿÿÿÿ8Æúµ¶2
 u
-java:S1192 "XDefine a constant instead of duplicating this literal "Nessun corso con nome: " 3 times.(òÂ€8º÷î„™2
+java:S1192 "XDefine a constant instead of duplicating this literal "Nessun corso con nome: " 3 times.(òÂ€8Êúµ¶2
 f
-java:S1192("IDefine a constant instead of duplicating this literal "computer" 3 times.(´ä¿×8»÷î„™2
+java:S1192%"IDefine a constant instead of duplicating this literal "computer" 3 times.(€»ú8Êúµ¶2
 b
-java:S1192#"FDefine a constant instead of duplicating this literal "posti" 3 times.(ãæÏV8¼÷î„™2
-p
-java:S1192,"NDefine a constant instead of duplicating this literal "banchiDisegno" 3 times.(±š›İüÿÿÿÿ8½÷î„™2
-l
-java:S2095m"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8Ö±ï„™2
-l
-java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8Ø±ï„™2
+java:S1192#"FDefine a constant instead of duplicating this literal "posti" 3 times.(ãæÏV8Êúµ¶2
+k
+java:S1192&"NDefine a constant instead of duplicating this literal "banchiDisegno" 3 times.(Ì»8Ëúµ¶2
 m
-java:S2095Â"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
-m
-java:S2095§"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
+java:S2095Ÿ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8»…¶¶2
 l
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8×±ï„™2
-a
-java:S21473"DCombine this catch with the one at line 49, which has the same body.(É®£8ç±ï„™2
+java:S2095^"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8»…¶¶2
+m
+java:S2095†"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8»…¶¶2
+l
+java:S20956"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8»…¶¶2
+l
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¡è«8»…¶¶2
+D
+java:S1481"'Remove this unused "is" local variable.(¨è—İ8Ã…¶¶2
 R
-java:S2209"5Change this instance-reference to a static reference.(¡è«8í±ï„™2
-a
-java:S2147["DCombine this catch with the one at line 89, which has the same body.(É®£8ø±ï„™2
+java:S2209"5Change this instance-reference to a static reference.(¡è«8Ä…¶¶2
 R
-java:S2209A"5Change this instance-reference to a static reference.(¡è«8ú±ï„™2
-t
-java:S3776b"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(•ƒ¯üÿÿÿÿ8ñÎÁ¼œ2
-c
-java:S2147˜"ECombine this catch with the one at line 150, which has the same body.(É®£8„²ï„™2
+java:S22096"5Change this instance-reference to a static reference.(¡è«8Ì…¶¶2
 R
-java:S2209m"5Change this instance-reference to a static reference.(¡è«8†²ï„™2
-I
-java:S1125o"'Remove the unnecessary boolean literal.(û°Ì¢ÿÿÿÿÿ8‰²ï„™2
-I
-java:S1125t"'Remove the unnecessary boolean literal.(”ş¡Ïşÿÿÿÿ8‹²ï„™2
-I
-java:S1125y"'Remove the unnecessary boolean literal.(‚Ä­èúÿÿÿÿ8Œ²ï„™2
-c
-java:S2147³"ECombine this catch with the one at line 177, which has the same body.(É®£8–²ï„™2
+java:S2209^"5Change this instance-reference to a static reference.(¡è«8Ô…¶¶2
 S
-java:S2209§"5Change this instance-reference to a static reference.(¡è«8˜²ï„™2
-c
-java:S2147Î"ECombine this catch with the one at line 204, which has the same body.(É®£8²ï„™2
+java:S2209†"5Change this instance-reference to a static reference.(¡è«8Ş…¶¶2
 S
-java:S2209Â"5Change this instance-reference to a static reference.(¡è«8Ÿ²ï„™2
-X
-java:S1128";Remove this unused import 'it.uniroma2.ispw.bean.AulaBean'.(Ç¾õ8¢²ï„™2
-M
-java:S1128	"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8¢²ï„™2
+java:S2209Ÿ"5Change this instance-reference to a static reference.(¡è«8ã…¶¶2

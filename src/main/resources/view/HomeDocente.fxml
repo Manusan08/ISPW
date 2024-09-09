@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.controller.controllergrafico1.docente.HomeDocenteController">
+            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.docente.HomeDocenteController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
    <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">

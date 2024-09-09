@@ -1,7 +1,7 @@
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.controllergrafico2.studente.PrenotaPostoView;
+import it.uniroma2.ispw.view.cli.studente.PrenotaPostoView;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;

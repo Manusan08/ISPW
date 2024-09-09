@@ -62,7 +62,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     }
 
     private void mostraPrenotazioni() {
-
+        printTable(new GestisciCreazionePrenotazioneAulaController().getPrenotazioneByName(this.usrBean));
     }
 
     @Override

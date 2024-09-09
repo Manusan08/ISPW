@@ -46,6 +46,7 @@ public class InserisciFiltriController extends ControllerGrafico {
     void avantiBottoneAction(ActionEvent event) {
         try {
             Date dataLezione = Date.valueOf(dateID.getValue());
+
             Orario orario = Orario.fromString(orarioID.getValue());
             if (orario == null) {
                 throw new IllegalArgumentException("L'orario selezionato non è valido.");

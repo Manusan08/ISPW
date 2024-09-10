@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -58,6 +59,8 @@ public class LoginViewController1 implements Initializable{
             getAlert("Credenziali errate o utente inesistente").showAndWait();
         } catch (SQLException e) {
             getAlert("qualcosa è andato storto");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class LoginViewController2 extends TemplateView{
 
     @Override
-    public void control() throws SystemException, LoginException {
+    public void control() throws SystemException, LoginException, IOException {
         LoginBean loginBean;
         LoginController loginController= new LoginController();
         try {

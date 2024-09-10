@@ -15,6 +15,7 @@ import java.sql.SQLException;
 public class CercaPostoPerNomeController extends ControllerGrafico {
     @FXML
     public Button avantiiD;
+    @FXML
     public Button indietroButton;
     private UserBean userBean;
     @FXML

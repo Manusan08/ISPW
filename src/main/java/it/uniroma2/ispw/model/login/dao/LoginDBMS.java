@@ -8,6 +8,7 @@ import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,20 +17,18 @@ public class LoginDBMS implements LoginDAO {
 
     public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException{
         LoginModel loginModel = null;
-        PreparedStatement statement = null;
         ResultSet resultSet = null;
-        try {
+        try (Connection conn = ConnectionDB.getConnection()) {
             String query = "SELECT * FROM Utenti WHERE email = ? AND password = ?";
+            try (PreparedStatement statement = conn.prepareStatement(query)) {
+                statement.setString(1, loginBean.getEmail());
+                statement.setString(2, loginBean.getPassword());
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(query);
-            statement.setString(1, loginBean.getEmail());
-            statement.setString(2, loginBean.getPassword());
 
-
-            resultSet = statement.executeQuery();
-            if (!resultSet.next()) throw new ItemNotFoundException("\nCredenziali errate!");
-            loginModel = setUtenteFromResultSet(resultSet);
-
+                resultSet = statement.executeQuery();
+                if (!resultSet.next()) throw new ItemNotFoundException("\nCredenziali errate!");
+                loginModel = setUtenteFromResultSet(resultSet);
+            }
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }

@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class MostraPrenotazioniController extends ControllerGrafico {
-
+    @FXML
     public Button indietroButton;
     private UserBean userBean;
 

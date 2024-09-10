@@ -17,7 +17,7 @@ public interface PrenotazioneAulaDAO {
 
 
 
-    boolean salvataggioPrenotazione(String email, String iDaula, Orario oraLezione, Date datalezione, String descrizione, String materia, String nomeProfessore, Date dataFine, String idPrenotazioneAula, Boolean isPrenotata);
+    boolean salvataggioPrenotazione(PrenotazioneAulaModel prenotazioneAulaModel);
     List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException, ItemNotFoundException;
 
     int getCapienzaAula(PrenotazioneAulaModel pab) throws SQLException;

@@ -7,10 +7,14 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 
 import it.uniroma2.ispw.enums.Orario;
-import it.uniroma2.ispw.utils.DateParser;
-import it.uniroma2.ispw.utils.exception.FormatoDataNonValidoException;
 
-import java.sql.Date;
+
+
+
+import java.time.LocalDate;
+
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class PrenotazioneAulaView {
@@ -28,45 +32,41 @@ public class PrenotazioneAulaView {
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
-        try {
 
-            Date dataLezione = richiediData();
-            Orario orario = richiediOrarioLezione();
+        LocalDate dataLezione = richiediData();
+        Orario orario = richiediOrarioLezione();
 
-            System.out.print("Descrizione della lezione: ");
-            String descrizione = scanner.nextLine();
-            System.out.print("Materia: ");
-            String materia = scanner.nextLine();
-            System.out.print("Prenotazione ricorrente (true/false): ");
-            boolean isRicorrente = scanner.nextBoolean();
+        System.out.print("Descrizione della lezione: ");
+        String descrizione = scanner.nextLine();
+        System.out.print("Materia: ");
+        String materia = scanner.nextLine();
+        System.out.print("Prenotazione ricorrente (true/false): ");
+        boolean isRicorrente = scanner.nextBoolean();
 
-            scanner.nextLine();
-            Date dataFine = null;
+        scanner.nextLine();
+        LocalDate dataFine = null;
 
-            if (isRicorrente) {
-                System.out.print("Inserisci la data di fine ricorrenza (yyyy-mm-dd): ");
-                String dataFineStr = scanner.nextLine();
-                dataFine = Date.valueOf(dataFineStr);
+        if (isRicorrente) {
+            System.out.print("Inserisci la data di fine ricorrenza (yyyy-mm-dd): ");
+            String dataFineStr = scanner.nextLine();
+            dataFine = LocalDate.parse(dataFineStr, DateTimeFormatter.ISO_LOCAL_DATE);
 
-            }
-            PrenotazioneAulaBean prenotazioneAulaBean = new PrenotazioneAulaBean();
-
-            prenotazioneAulaBean.setIdAula(aulaSelezionata.getIdAula());
-            prenotazioneAulaBean.setEmail(userBean.getEmail());
-            prenotazioneAulaBean.setOraLezione(orario);
-            prenotazioneAulaBean.setGiornoLezione(dataLezione);
-            prenotazioneAulaBean.setDescrizione(descrizione);
-            prenotazioneAulaBean.setMateria(materia);
-            prenotazioneAulaBean.setNomeDocente(userBean.getNome());
-            prenotazioneAulaBean.setRicorente(isRicorrente);
-            prenotazioneAulaBean.setDataFine(dataFine);
-            ConfermPrenotazioneView.confermaPrenotazione(prenotazioneAulaBean);
-            if (docenteFacade.prenota(prenotazioneAulaBean))
-                System.out.println("Prenotazione creata con successo.");
-
-        } catch (FormatoDataNonValidoException e) {
-            System.out.println(e.getMessage());
         }
+        PrenotazioneAulaBean prenotazioneAulaBean = new PrenotazioneAulaBean();
+
+        prenotazioneAulaBean.setIdAula(aulaSelezionata.getIdAula());
+        prenotazioneAulaBean.setEmail(userBean.getEmail());
+        prenotazioneAulaBean.setOraLezione(orario);
+        prenotazioneAulaBean.setGiornoLezione(dataLezione);
+        prenotazioneAulaBean.setDescrizione(descrizione);
+        prenotazioneAulaBean.setMateria(materia);
+        prenotazioneAulaBean.setNomeDocente(userBean.getNome());
+        prenotazioneAulaBean.setRicorente(isRicorrente);
+        prenotazioneAulaBean.setDataFine(dataFine);
+        ConfermPrenotazioneView.confermaPrenotazione(prenotazioneAulaBean);
+        if (docenteFacade.prenota(prenotazioneAulaBean))
+            System.out.println("Prenotazione creata con successo.");
+
 
     }
 
@@ -105,17 +105,17 @@ public class PrenotazioneAulaView {
         return orario;
     }
 
-    private Date richiediData() throws FormatoDataNonValidoException {
+    private LocalDate richiediData() {
         Scanner scanner = new Scanner(System.in);
-        Date dataLezione = null;
+        LocalDate dataLezione = null;
 
         while (dataLezione == null) {
             System.out.print("Inserisci la data della lezione nel formato (yyyy-mm-dd): ");
             String dataLezioneStr = scanner.nextLine();
 
             try {
-                dataLezione = DateParser.parseStringToDate(dataLezioneStr);
-            } catch (FormatoDataNonValidoException e) {
+                dataLezione = LocalDate.parse(dataLezioneStr, DateTimeFormatter.ISO_LOCAL_DATE);
+            } catch (DateTimeParseException e) {
                 System.out.println("Formato data non valido. Riprova.");
             }
         }

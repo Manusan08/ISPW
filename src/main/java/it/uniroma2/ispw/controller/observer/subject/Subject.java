@@ -15,17 +15,17 @@ public abstract class Subject {
         this.observers = observers;
     }
 
-    public Subject() {
+    protected Subject() {
         this((Observer) null);
     }
 
-    public Subject(Observer obs) {
+    protected Subject(Observer obs) {
         this(new ArrayList<>());
         if (obs != null)
             this.observers.add(obs);
     }
 
-    public Subject(List<Observer> observers) {
+    protected Subject(List<Observer> observers) {
         this.observers = observers;
         this.isPrenotata = false;
     }

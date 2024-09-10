@@ -16,7 +16,7 @@ public class PrenotazioneAulaFS implements PrenotazioneAulaDAO {
     }
 
     @Override
-    public boolean salvataggioPrenotazione(String email, String iDaula, Orario oraLezione, Date datalezione, String descrizione, String materia, String nomeProfessore, Date dataFine, String idPrenotazioneAula, Boolean isPrenotata) {
+    public boolean salvataggioPrenotazione(PrenotazioneAulaModel prenotazioneAulaModel) {
         return false;
     }
 

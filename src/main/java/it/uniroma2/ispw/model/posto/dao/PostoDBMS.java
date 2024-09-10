@@ -5,6 +5,7 @@ import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,18 +16,19 @@ public class PostoDBMS implements PostoDAO {
 
 
     public void postoNuovamenteDisponibile(PostoModel postoModel) throws SQLException {
-        PreparedStatement statement = null;
 
-        try {
+
+        try (Connection conn = ConnectionDB.getConnection()) {
             String sql = "update posto set stato=true where idPosto=? and Aule_idAula=?";
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
-            statement.setString(1, postoModel.getPostoId());
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
+
+                statement.setString(1, postoModel.getPostoId());
             statement.setString(2, postoModel.getIdAula());
 
             statement.executeUpdate();
 
-        } catch (SystemException | SQLException e) {
+        }} catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -34,28 +36,31 @@ public class PostoDBMS implements PostoDAO {
 
     @Override
     public List<PostoModel> getAvailablePosti(PrenotazioneAulaModel pam) throws SQLException {
-        PreparedStatement statement = null;
+
         ResultSet rs = null;
-        List<PostoModel> listaPosto = new ArrayList<PostoModel>();
+        List<PostoModel> listaPosto = new ArrayList<>();
 
-        try {
-            String sql ="SELECT idPosto, Aule_idAula\n" +
-                    "FROM posto\n" +
-                    "WHERE Aule_idAula = (\n" +
-                    "    SELECT Aule_idAula\n" +
-                    "    FROM professoreprenotaaula\n" +
-                    "    WHERE idPrenotazioneAula = ?\n" +
-                    ")\n" +
-                    "AND idPosto NOT IN (\n" +
-                    "    SELECT pp.idPosto\n" +
-                    "    FROM prenotazioneposto pp\n" +
-                    "    JOIN professoreprenotaaula pf ON pp.idPrenotazioneAula = pf.idPrenotazioneAula\n" +
-                    "    WHERE pf.idPrenotazioneAula = ?\n" +
-                    ");";
+        try (Connection conn = ConnectionDB.getConnection()){
+            String sql = """
+            SELECT p.idPosto, p.Aule_idAula
+            FROM posto p
+            WHERE p.Aule_idAula = (
+                SELECT pa.Aule_idAula
+                FROM professoreprenotaaula pa
+                WHERE pa.idPrenotazioneAula = ?
+            )
+            AND p.idPosto NOT IN (
+                SELECT pp.idPosto
+                FROM prenotazioneposto pp
+                JOIN professoreprenotaaula pf ON pp.idPrenotazioneAula = pf.idPrenotazioneAula
+                WHERE pf.idPrenotazioneAula = ?
+            );
+            """;
 
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
-            statement.setString(1, pam.getIdPrenotazioneAula());
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
+
+                statement.setString(1, pam.getIdPrenotazioneAula());
             statement.setString(2, pam.getIdPrenotazioneAula());
 
             rs = statement.executeQuery();
@@ -68,7 +73,7 @@ public class PostoDBMS implements PostoDAO {
 
                 listaPosto.add(postoModel);
             }
-        } catch (SystemException | SQLException e) {
+        } }catch (SystemException | SQLException e) {
             throw new RuntimeException(e.getMessage());
         }
             return listaPosto;

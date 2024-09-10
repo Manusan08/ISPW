@@ -77,7 +77,7 @@ public class GestisciPrenotazionePostoController {
         postiModel = prenotazionePostoDao.getAllReservations(userBean);
         for (PrenotazionePostoModel ppm : postiModel) {
             PrenotazionePostoBean prenotazioneBean = new PrenotazionePostoBean(
-                    ppm.getNomeDocente(),
+
                     ppm.getIdPosto(),
                     ppm.getIdAula(),
                     ppm.getMateria(),

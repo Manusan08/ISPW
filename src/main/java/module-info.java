@@ -20,6 +20,9 @@ module ispw {
     exports it.uniroma2.ispw.model.login;
     exports  it.uniroma2.ispw.model;
     exports  it.uniroma2.ispw.controller.observer.observers;
+    exports   it.uniroma2.ispw.model.prenotazioneaula;
+    exports  it.uniroma2.ispw.controller.observer;
+    exports it.uniroma2.ispw.view.cli;
 
     // Aprire i pacchetti dei controller grafici per FXML
     opens it.uniroma2.ispw.view.graphicalcontroller to javafx.fxml, javafx.graphics,javafx.base;
@@ -34,6 +37,7 @@ module ispw {
     opens it.uniroma2.ispw.view.graphicalcontroller.studente to javafx.fxml, javafx.graphics,javafx.base;
     opens it.uniroma2.ispw.view.graphicalcontroller.docente to javafx.fxml, javafx.graphics,javafx.base;
     opens it.uniroma2.ispw.bean to javafx.fxml, javafx.graphics,javafx.base;
+    exports it.uniroma2.ispw.controller.factory.strategy to javafx.base, javafx.fxml, javafx.graphics;
 
 
 }

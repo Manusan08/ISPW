@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 
 public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
+    @FXML
     public Button indietroButton;
     @FXML
     private Button avantiID;

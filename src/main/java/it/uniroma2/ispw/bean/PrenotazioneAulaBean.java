@@ -3,7 +3,8 @@ package it.uniroma2.ispw.bean;
 
 import it.uniroma2.ispw.enums.Orario;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class PrenotazioneAulaBean {
 
@@ -13,12 +14,12 @@ public class PrenotazioneAulaBean {
 
 
     private Orario oraLezione;
-    private Date giornoLezione;
+    private LocalDate giornoLezione;
     private String descrizione;
     private String nomeDocente;
     private String materia;
     private boolean isRicorente;
-    private Date dataFine;
+    private LocalDate dataFine;
     private int numeroPosti;
 
 
@@ -38,7 +39,7 @@ public class PrenotazioneAulaBean {
     public PrenotazioneAulaBean(String idPrenotazioneAula,
 
                                 String nomeDocente,
-                                java.sql.Date datalezione,
+                                LocalDate datalezione,
                                 Orario oraLezione,
                                 String descrizione,
                                 String materia, String idAula) {
@@ -68,11 +69,11 @@ public class PrenotazioneAulaBean {
         isRicorente = ricorente;
     }
 
-    public Date getDataFine() {
+    public LocalDate getDataFine() {
         return dataFine;
     }
 
-    public void setDataFine(Date dataFine) {
+    public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
 
@@ -88,11 +89,11 @@ public class PrenotazioneAulaBean {
         this.email = email;
     }
 
-    public Date getGiornoLezione() {
+    public LocalDate getGiornoLezione() {
         return giornoLezione;
     }
 
-    public void setGiornoLezione(Date giornoLezione) {
+    public void setGiornoLezione(LocalDate giornoLezione) {
         this.giornoLezione = giornoLezione;
     }
 

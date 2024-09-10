@@ -21,16 +21,15 @@ import java.util.Properties;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main extends Application {
-    private static TypesOfPersistenceLayer persistenceLayer;
-    private static TypesOfUIs ui;
+
 
     public static TypesOfPersistenceLayer getPersistenceLayer() {
-        return persistenceLayer;
+        return Conf.getConf().getTypesOfPersistenceLayer();
     }
 
     public static void main(String[] args) throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
         setPersistenceLayerAndUi();
-        if (Main.ui.equals(TypesOfUIs.JAVAFX))
+        if (Conf.getConf().getTypesOfUIs().equals(TypesOfUIs.JAVAFX))
             launch();
         else
             new CliController().start();
@@ -48,22 +47,23 @@ public class Main extends Application {
     }
 
     public static void setPersistenceLayerAndUi() {
+        Conf conf = Conf.getConf();
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
             //persistence layer
             if (properties.getProperty("persistence.layer").equals("FileSystem")) {
-                Main.persistenceLayer = TypesOfPersistenceLayer.FILE_SYSTEM;
+                conf.setPersistenceLayer(TypesOfPersistenceLayer.FILE_SYSTEM);
             } else {
-                Main.persistenceLayer = TypesOfPersistenceLayer.JDBC;
+                conf.setPersistenceLayer(TypesOfPersistenceLayer.JDBC);
             }
 
             //user interface
             if (properties.getProperty("ui").equals("javafx")) {
-                Main.ui = TypesOfUIs.JAVAFX;
+                conf.setTypesOfUIs(TypesOfUIs.JAVAFX);
             } else {
-                Main.ui = TypesOfUIs.CLI;
+                conf.setTypesOfUIs(TypesOfUIs.CLI);
             }
 
         } catch (IOException e) {

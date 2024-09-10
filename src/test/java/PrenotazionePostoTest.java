@@ -1,31 +1,46 @@
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-public class PrenotazionePostoTest {
+import static org.assertj.core.api.Assertions.assertThat;
 
-    @Test
-    public void testVisualizzaClassiDisponibili() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        {
+class PrenotazionePostoTest {
+
+    @BeforeAll
+    static void setup() {
+        try {
             startTheAppForPersistenceLayer();
-
-            ManIntheMiddleFacade facede = new ManIntheMiddleFacade();
-            List <PrenotazioneAulaBean> prenotazioni =facede.getAvailableClass();
-            for(PrenotazioneAulaBean i:prenotazioni )
-                System.out.println(i.getIdAula()+ " "+ i.getOraLezione1());
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to start the app for persistence layer setup.", e);
         }
     }
 
-    void startTheAppForPersistenceLayer() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    @Test
+    void testVisualizzaClassiDisponibili() {
+        ManIntheMiddleFacade facade = new ManIntheMiddleFacade();
+        List<PrenotazioneAulaBean> prenotazioni = facade.getAvailableClass();
+
+        // Asserzione per verificare che la lista di prenotazioni non sia vuota
+        assertThat(prenotazioni).isNotNull().isNotEmpty();
+
+        // Asserzione per verificare che le prenotazioni abbiano dati validi
+        for (PrenotazioneAulaBean prenotazione : prenotazioni) {
+            assertThat(prenotazione.getIdAula()).isNotNull().isNotEmpty();
+            assertThat(prenotazione.getOraLezione1()).isNotNull();
+            // Altre asserzioni possono essere aggiunte a seconda dei dettagli richiesti
+        }
+    }
+
+    static void startTheAppForPersistenceLayer() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Main application = new Main();
         Method prvPersistenceLayer = Main.class.getDeclaredMethod("setPersistenceLayerAndUi");
         prvPersistenceLayer.setAccessible(true);
         prvPersistenceLayer.invoke(application);
     }
-    }
-
-
+}

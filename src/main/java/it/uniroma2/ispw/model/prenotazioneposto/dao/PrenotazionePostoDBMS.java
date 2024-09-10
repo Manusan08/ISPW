@@ -8,6 +8,7 @@ import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,27 +20,28 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
     public List<PrenotazionePostoBean> getAulaByMateria(PrenotazionePostoBean postoBean) {
         return List.of();
     }
-
+    private static final String IDPOSTO = "idPosto";
     @Override
     public List<PrenotazionePostoModel> getAllReservations(UserBean us) throws ItemNotFoundException {
         List<PrenotazionePostoModel> prenotazioni = new ArrayList<>();
-        PreparedStatement statement;
+
         ResultSet rs;
 
-        try {
-            String sql = "select nomeProfessore,\n" +
-                    "idPosto,\n" +
-                    "idAula,\n" +
-                    "materia,dataLezione,\n" +
-                    " idPrenotazione,\n" +
-                    " ppa.oraLezione,ppa.idPrenotazioneAula\n" +
-                    "from \n" +
-                    "prenotazioneposto p\n" +
-                    "join professoreprenotaaula ppa on p.idPrenotazioneAula=ppa.idPrenotazioneAula\n" +
-                    " where p.Utenti_email=?;";
+        try (Connection conn = ConnectionDB.getConnection()) {
+            String sql = "SELECT ppa.nomeProfessore, " +
+                    "       p.idPosto, " +
+                    "       ppa.idAula, " +
+                    "       ppa.materia, " +
+                    "       ppa.dataLezione, " +
+                    "       ppa.idPrenotazione, " +
+                    "       ppa.oraLezione, " +
+                    "       ppa.idPrenotazioneAula " +
+                    "FROM prenotazioneposto p " +
+                    "JOIN professoreprenotaaula ppa ON p.idPrenotazioneAula = ppa.idPrenotazioneAula " +
+                    "WHERE p.Utenti_email = ?";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
             statement.setString(1, us.getEmail());
             rs = statement.executeQuery();
 
@@ -49,7 +51,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
                 PrenotazionePostoModel ppm = new PrenotazionePostoModel();
 
                 ppm.setNomeDocente(rs.getString("nomeProfessore"));
-                ppm.setIdPosto(rs.getString("idPosto"));
+                ppm.setIdPosto(rs.getString(IDPOSTO));
                 ppm.setIdAula(rs.getString("idAula"));
                 ppm.setMateria(rs.getString("materia"));
                 ppm.setGiornoLezione(rs.getDate("dataLezione"));
@@ -65,7 +67,8 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
             } while (rs.next());
 
-        } catch (SQLException | SystemException e) {
+        }
+    }catch (SQLException | SystemException e) {
             throw new RuntimeException(e);
         }
         return prenotazioni;
@@ -73,12 +76,12 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
     @Override
     public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) throws ItemNotFoundException {
-        PreparedStatement statement = null;
 
-        try {
+
+        try (Connection conn = ConnectionDB.getConnection()){
             String sql = "delete from prenotazioneposto where idPrenotazione=?";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
 
             statement.setString(1, ppm.getIdPrenotazionePosto());
 
@@ -86,7 +89,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             if (affectedRows == 0) {
                 throw new ItemNotFoundException("nessuna corrispondenza con la prenotazione" + ppm.getIdPrenotazionePosto());
             }
-        } catch (SystemException | SQLException e) {
+        } }catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -95,12 +98,13 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
     public PrenotazionePostoModel getPrenotazioneByid(String idPrenotazionePosto) throws ItemNotFoundException {
 
         PrenotazionePostoModel pp = null;
-        PreparedStatement statement = null;
+
         ResultSet rs = null;
 
-        try {
+        try(Connection conn = ConnectionDB.getConnection()) {
             String sql = "select * from prenotazioneposto where idPrenotazione= ?";
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, idPrenotazionePosto);
             rs = statement.executeQuery();
 
@@ -112,9 +116,9 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
             pp = new PrenotazionePostoModel();
             pp.setIdPrenotazionePosto(rs.getString("idPrenotazione"));
             pp.setIdAula(rs.getString("idAula"));
-            pp.setIdPosto(rs.getString("idPosto"));
+            pp.setIdPosto(rs.getString(IDPOSTO));
 
-        } catch (SystemException | SQLException e) {
+        } }catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
 
         }
@@ -124,17 +128,18 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
     @Override
     public String inserisciPrenotazione(PrenotazionePostoModel ppm) throws SystemException, SQLException {
-        PreparedStatement ps = null;
-        String sql = "insert into PrenotazionePosto (" +
+
+
+
+        try (Connection conn = ConnectionDB.getConnection()){
+            String sql = "insert into PrenotazionePosto (" +
                 "idPrenotazione," +
                 "idAula," +
                 "utenti_email," +
-                "idPosto" +
+                IDPOSTO +
                 ",idPrenotazioneAula)" +
                 " values (?,?,?,?,?)";
-
-        try {
-            ps = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, ppm.getIdPrenotazionePosto());
             ps.setString(2, ppm.getIdAula());
             ps.setString(3, ppm.getEmail());
@@ -144,7 +149,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
             return "La prenotazione è avvenuta con successo!\nid prenotazione :" + ppm.getIdPrenotazionePosto();
 
-        } catch (SQLException e) {
+        }} catch (SQLException e) {
             if (e.getErrorCode() == 1062) {
                 return "Sei già prenotato per questa lezione";
             }

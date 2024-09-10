@@ -2,19 +2,21 @@ package it.uniroma2.ispw.model.prenotazioneaula;
 
 import it.uniroma2.ispw.enums.Orario;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
+
 
 public  class PrenotazioneAulaModel {
     private  String email;
     private String idAula;
     private Orario oraLezione;
-    private Date datalezione;
+    private LocalDate datalezione;
     private String descrizione;
     private String materia;
     private String idPrenotazioneAula;
     private String nomeProfessore;
     private boolean isRicorente;
-    private java.util.Date dataFine;
+    private LocalDate dataFine;
 
     public PrenotazioneAulaModel(String idPrenotazioneAula) {
         this.idPrenotazioneAula = idPrenotazioneAula;
@@ -33,7 +35,7 @@ public  class PrenotazioneAulaModel {
         this.oraLezione = oraLezione;
     }
 
-    public Date getDatalezione() {
+    public LocalDate getDatalezione() {
         return datalezione;
     }
 
@@ -57,11 +59,11 @@ public  class PrenotazioneAulaModel {
         isRicorente = ricorente;
     }
 
-    public java.util.Date getDataFine() {
+    public LocalDate getDataFine() {
         return dataFine;
     }
 
-    public void setDataFine(java.util.Date dataFine) {
+    public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
 
@@ -98,7 +100,7 @@ public  class PrenotazioneAulaModel {
 
 
 
-    public void setDatalezione(Date datalezione) {
+    public void setDatalezione(LocalDate datalezione) {
         this.datalezione = datalezione;
     }
 

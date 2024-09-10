@@ -16,10 +16,11 @@ import it.uniroma2.ispw.utils.ChangePage;
 import java.sql.SQLException;
 
 public class MostraAulaPerIDController extends ControllerGrafico {
+    @FXML
     public Button indietroButton;
     private UserBean userBean;
 
-    private DocenteFacade docenteFacade = new DocenteFacade();
+    private final DocenteFacade docenteFacade = new DocenteFacade();
 
     @FXML
     private Button avantiID;

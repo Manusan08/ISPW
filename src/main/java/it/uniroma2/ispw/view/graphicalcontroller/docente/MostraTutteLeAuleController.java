@@ -21,10 +21,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MostraTutteLeAuleController extends ControllerGrafico {
+    @FXML
 
     public Button indietroButton;
     // Creazione di un'istanza del GestisciAuleController per recuperare le aule
-    private DocenteFacade docenteFacade = new DocenteFacade();
+    private final DocenteFacade docenteFacade = new DocenteFacade();
 
     private UserBean userBean;
 

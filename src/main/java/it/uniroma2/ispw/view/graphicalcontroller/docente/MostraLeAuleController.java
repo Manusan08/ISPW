@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MostraLeAuleController extends ControllerGrafico {
-
+    @FXML
     public Button indietroButton;
     private UserBean userBean;
     private List<AulaBean> aulaBeans;

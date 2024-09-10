@@ -20,6 +20,7 @@ import java.sql.SQLException;
 public class MostraLeAuleDisponibiliController extends ControllerGrafico {
 
     private UserBean userBean;
+    @FXML
     public Button indietroButton;
     @FXML
     private Button avantiID;
@@ -41,8 +42,7 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
 
     @Override
     public void inizializza(UserBean cred) {
-        UserBean userBean;
-        userBean = cred;
+        this.userBean = cred;
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
                         new ManIntheMiddleFacade().getAvailableClass());

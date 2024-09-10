@@ -13,10 +13,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class InserisciFiltriController extends ControllerGrafico {
+    @FXML
     public Button indietroButton;
     private UserBean userBean;
     private AulaBean aulaBean;
@@ -45,7 +47,7 @@ public class InserisciFiltriController extends ControllerGrafico {
     @FXML
     void avantiBottoneAction(ActionEvent event) {
         try {
-            Date dataLezione = Date.valueOf(dateID.getValue());
+            LocalDate dataLezione = dateID.getValue();
 
             Orario orario = Orario.fromString(orarioID.getValue());
             if (orario == null) {
@@ -55,7 +57,7 @@ public class InserisciFiltriController extends ControllerGrafico {
             String descrizione = descrizioneID.getText();
             String materia = materiaID.getText();
             boolean isRicorrente = ricorrenteID.isSelected();
-            Date dataFine = isRicorrente ? Date.valueOf(dateFineID.getValue()) : null;
+            LocalDate dataFine = isRicorrente ? dateFineID.getValue() : null;
 
             // Mostra il pop-up di conferma
             showConfirmationAlert(dataLezione, orario, descrizione, materia, isRicorrente, dataFine);
@@ -64,7 +66,7 @@ public class InserisciFiltriController extends ControllerGrafico {
         }
     }
 
-    private void showConfirmationAlert(Date dataLezione, Orario orario, String descrizione, String materia, boolean isRicorrente, Date dataFine) {
+    private void showConfirmationAlert(LocalDate dataLezione, Orario orario, String descrizione, String materia, boolean isRicorrente, LocalDate dataFine) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Conferma Prenotazione");
         alert.setHeaderText("Conferma i dati della prenotazione:");
@@ -89,7 +91,7 @@ public class InserisciFiltriController extends ControllerGrafico {
         });
     }
 
-    private void processPrenotazione(Date dataLezione, Orario orario, String descrizione, String materia, boolean isRicorrente, Date dataFine) {
+    private void processPrenotazione(LocalDate dataLezione, Orario orario, String descrizione, String materia, boolean isRicorrente, LocalDate dataFine) {
         try {
             // Creazione del bean per la prenotazione
             PrenotazioneAulaBean prenotazioneAulaBean = new PrenotazioneAulaBean();

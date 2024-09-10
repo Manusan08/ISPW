@@ -1,18 +1,23 @@
 package it.uniroma2.ispw.controller;
 
-import it.uniroma2.ispw.Main;
+
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 
 import it.uniroma2.ispw.controller.factory.PrenotazioneAulaFactory;
-import it.uniroma2.ispw.controller.factory.PrenotazioneAula;
-import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
+import it.uniroma2.ispw.controller.factory.PrenotazioneAulaPersistenceFactory;
+import it.uniroma2.ispw.controller.factory.PrenotazioneAulaVerificatoreFactory;
+
+import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaPersistenza;
+import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaVerificatore;
 import it.uniroma2.ispw.model.UserModel;
 
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
-import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDBMS;
-import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaFS;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
+
+
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,32 +27,26 @@ public class GestisciCreazionePrenotazioneAulaController {
 
 
     private final PrenotazioneAulaDAO prenotazioneAulaDAO;
+    private final PrenotazioneAulaVerificatoreFactory prenotazioneAulaVerificatoreFactory;
+    private final PrenotazioneAulaPersistenceFactory prenotazioneAulaPersistenceFactory;
+
 
     public GestisciCreazionePrenotazioneAulaController() {
-        if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
-
-            prenotazioneAulaDAO = new PrenotazioneAulaDBMS();
-        } else {
-            try {
-
-                prenotazioneAulaDAO = new PrenotazioneAulaFS();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-
-        }
+        PrenotazioneAulaDAOFactory daoFactory = new PrenotazioneAulaDAOFactory();
+        prenotazioneAulaDAO = daoFactory.getDao();
+        prenotazioneAulaVerificatoreFactory = new PrenotazioneAulaVerificatoreFactory();
+        prenotazioneAulaPersistenceFactory = new PrenotazioneAulaPersistenceFactory();
     }
 
     public boolean prenota(PrenotazioneAulaBean prenotazione) {
         PrenotazioneAulaFactory factory = new PrenotazioneAulaFactory();
-        PrenotazioneAula prenotazioneAula = factory.creaPrenotazione(prenotazione);
-        if (prenotazioneAula.verificaPrenotazione()) {
-
-            prenotazioneAula.salvaPrenotazione();
-            return true;
-        } return false;
-
+        PrenotazioneAulaModel prenotazioneAula = factory.creaPrenotazione(prenotazione);
+        PrenotazioneAulaVerificatore prenotazioneAulaVerificatore = prenotazioneAulaVerificatoreFactory.creaVerificatore(prenotazioneAula);
+        if (prenotazioneAulaVerificatore.verificaPrenotazione(prenotazioneAula)) {
+            PrenotazioneAulaPersistenza prenotazioneAulaPersistenza = prenotazioneAulaPersistenceFactory.creaPrentazioneAulaPersistence(prenotazioneAula);
+            return prenotazioneAulaPersistenza.salvaPrenotazione(prenotazioneAula);
+        }
+        return false;
     }
 
 

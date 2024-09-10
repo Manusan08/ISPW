@@ -35,18 +35,13 @@ public class PostoObserver implements Observer {
         this.isPrenotato = false;
     }
 
-//TODO forse anzichè posto contentex gli passero' un posto bean.
+
     @Override
     public void update(Context context) {
         if (context instanceof PrenotazionePostoContext ppc) {
             switch (this.pps.getStatus()) {
                 case EFFETTUATA:
-                    if (this.postoId.equals(ppc.getPostoId())) {
-                        this.setPrenotato(true);
-                    }
-                    else{
-                        this.setPrenotato(false);
-                    }
+                    this.setPrenotato(this.postoId.equals(ppc.getPostoId()));
                     break;
                 case NON_EFFETTUATA:
                     this.setPrenotato(false);

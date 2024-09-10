@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 public class CercaPostoPerIdController extends ControllerGrafico {
 
-
+    @FXML
     public Button indietroButton;
     @FXML
         private Button avantiid;

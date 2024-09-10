@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import java.sql.SQLException;
 
 public  class CercaAuleController extends ControllerGrafico {
-
+    @FXML
     public Button indietroButton;
     @FXML
 private Button cercaAulaID;

@@ -21,37 +21,38 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
     public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException, ItemNotFoundException {
         List<PrenotazioneAulaModel> prenotazioniAuleModel = new ArrayList<>();
-        PreparedStatement ps = null;
+
         ResultSet rs = null;
 
         String subName = "%" + pam.getNomeProfessore() + "%";
         String subSubject = "%" + pam.getMateria() + "%";
 
-        try {
+        try(Connection conn = ConnectionDB.getConnection()) {
             String sql = "SELECT * FROM professoreprenotaaula WHERE nomeProfessore LIKE ? AND materia LIKE ? " +
                     "AND idPrenotazioneAula NOT IN (SELECT idPrenotazioneAula FROM prenotazioneposto WHERE Utenti_email=?);";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
-            ps = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
-            ps.setString(1, subName);
-            ps.setString(2, subSubject);
-            ps.setString(3, usr.getEmail());
+                statement.setString(1, subName);
+                statement.setString(2, subSubject);
+                statement.setString(3, usr.getEmail());
 
-            rs = ps.executeQuery();
+                rs = statement.executeQuery();
 
-            if (!rs.next()) throw new ItemNotFoundException(
-                    "non ci sono corrispondenze con nome " + pam.getNomeProfessore()
-                            + " o con materia " + pam.getMateria());
-            while (rs.next()) {
-                PrenotazioneAulaModel prenotazione = new PrenotazioneAulaModel();
-                prenotazione.setMateria(rs.getString("materia"));
-                prenotazione.setIdPrenotazioneAula(rs.getString("idPrenotazioneAula"));
-                prenotazione.setIdAula(rs.getString("Aule_idAula"));
-                prenotazione.setOraLezione(rs.getString("oraLezione"));
-                prenotazione.setDatalezione(rs.getDate("dataLezione"));
-                prenotazione.setDescrizione(rs.getString("descrizione"));
-                prenotazione.setNomeProfessore(rs.getString("nomeProfessore"));
+                if (!rs.next()) throw new ItemNotFoundException(
+                        "non ci sono corrispondenze con nome " + pam.getNomeProfessore()
+                                + " o con materia " + pam.getMateria());
+                while (rs.next()) {
+                    PrenotazioneAulaModel prenotazione = new PrenotazioneAulaModel();
+                    prenotazione.setMateria(rs.getString("materia"));
+                    prenotazione.setIdPrenotazioneAula(rs.getString("idPrenotazioneAula"));
+                    prenotazione.setIdAula(rs.getString("Aule_idAula"));
+                    prenotazione.setOraLezione(rs.getString("oraLezione"));
+                    prenotazione.setDatalezione(rs.getDate("dataLezione").toLocalDate());
+                    prenotazione.setDescrizione(rs.getString("descrizione"));
+                    prenotazione.setNomeProfessore(rs.getString("nomeProfessore"));
 
-                prenotazioniAuleModel.add(prenotazione);
+                    prenotazioniAuleModel.add(prenotazione);
+                }
             }
         } catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
@@ -62,12 +63,14 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
     @Override
     public int getCapienzaAula(PrenotazioneAulaModel pam) {
-        PreparedStatement statement = null;
+
         ResultSet resultSet = null;
         int posti = 0;
-        try {
+        try (Connection conn = ConnectionDB.getConnection()){
             String sql = "select posti from aule where idAula=? ;";
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
+
+
 
             statement.setString(1, pam.getIdAula());
 
@@ -78,7 +81,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                 throw new RuntimeException("Nessuna corrispondenza trovata con: " + pam.getIdAula());
             }
 
-        } catch (SQLException e) {
+        }} catch (SQLException e) {
             throw new RuntimeException("Errore durante il controllo della prenotazione", e);
         } catch (SystemException e) {
             throw new RuntimeException(e);
@@ -89,10 +92,10 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
     @Override
     public List<PrenotazioneAulaModel> getAvailableClass() {
         List<PrenotazioneAulaModel> pams = new ArrayList<>();
-        PreparedStatement statement = null;
+
         ResultSet resultSet = null;
 
-        try {
+        try (Connection conn = ConnectionDB.getConnection()){
             String sql = "SELECT a.idAula, f.oraLezione " +
                     "FROM (SELECT DISTINCT oraLezione FROM stantoPrato.ProfessorePrenotaAula) f " +
                     "CROSS JOIN stantoPrato.Aule a " +
@@ -103,8 +106,9 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                     "WHERE p.idPrenotazioneAula IS NULL " +
                     "GROUP BY a.idAula, f.oraLezione " +
                     "ORDER BY a.idAula, f.oraLezione;";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -113,7 +117,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                 pam.setOraLezione(resultSet.getString("oraLezione"));
                 pams.add(pam);
             }
-        } catch (SystemException | SQLException e) {
+        } }catch (SystemException | SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -125,11 +129,11 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
     public boolean esistePrenotazione(String idAula, Date giornoLezione, Orario oraLezione) {
         boolean esistePrenotazione = false;
 
-        PreparedStatement statement = null;
+
         ResultSet resultSet = null;
-        try {
+        try (Connection conn = ConnectionDB.getConnection()){
             String sql = "SELECT COUNT(*) FROM professoreprenotaaula WHERE Aule_idAula = ? AND dataLezione = ? AND oraLezione = ?";
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
             statement.setString(1, idAula);
             statement.setDate(2, giornoLezione);
@@ -140,7 +144,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                 esistePrenotazione = true;
             }
 
-        } catch (SQLException e) {
+        } }catch (SQLException e) {
             throw new RuntimeException("Errore durante il controllo della prenotazione", e);
         } catch (SystemException e) {
             throw new RuntimeException(e);
@@ -150,25 +154,24 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
     }
 
     @Override
-    public boolean salvataggioPrenotazione(String email, String iDaula, Orario oraLezione, Date datalezione, String descrizione, String materia, String nomeProfessore, Date dataFine, String idPrenotazioneAula, Boolean isRicorrente) {
+    public boolean salvataggioPrenotazione(PrenotazioneAulaModel prenotazione) {
         boolean successo = false;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
 
-        try {
+
+
+        try (Connection conn = ConnectionDB.getConnection()) {
             String sql = "INSERT INTO professoreprenotaaula (Utenti_email, Aule_idaula, oraLezione, dataLezione, descrizione, materia, nomeProfessore,  idPrenotazioneAula) "
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
-            statement = ConnectionDB.getInstance().getConnection().prepareStatement(sql);
+            statement.setString(1, prenotazione.getEmail());
+            statement.setString(2, prenotazione.getIdAula());
+            statement.setString(3, String.valueOf(prenotazione.getOraLezione()));
+            statement.setDate(4, Date.valueOf(prenotazione.getDatalezione()));
+            statement.setString(5, prenotazione.getDescrizione());
 
-            statement.setString(1, email);
-            statement.setString(2, iDaula);
-            statement.setString(3, String.valueOf(oraLezione));
-            statement.setDate(4, datalezione);
-            statement.setString(5, descrizione);
-
-            statement.setString(6, materia);
-            statement.setString(7, nomeProfessore);
+            statement.setString(6, prenotazione.getMateria());
+            statement.setString(7, prenotazione.getNomeProfessore());
 
             statement.setString(8, RandomStringUtils.randomAlphanumeric(4));
 
@@ -176,7 +179,8 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
             int rowsAffected = statement.executeUpdate();
             successo = rowsAffected > 0;
 
-        } catch (SQLException e) {
+        }
+    }catch (SQLException e) {
             throw new RuntimeException("Errore durante il salvataggio della prenotazione", e);
         } catch (SystemException e) {
             throw new RuntimeException(e);

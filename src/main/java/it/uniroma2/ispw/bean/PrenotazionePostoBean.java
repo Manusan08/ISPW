@@ -17,14 +17,14 @@ public class PrenotazionePostoBean {
 
     private  String nomeDocente;
 
-    public PrenotazionePostoBean(String nomeDocente,String idPosto, String idAula, String materia, Date giornoLezione, String oraLezione, String idPrenotazionePosto,String idPrenotazioneAula) {
+    public PrenotazionePostoBean(String idPosto, String idAula, String materia, Date giornoLezione, String oraLezione, String idPrenotazionePosto,String idPrenotazioneAula) {
         this.idPosto=idPosto;
         this.idAula=idAula;
         this.materia=materia;
         this.giornoLezione=giornoLezione;
         this.oraLezione=oraLezione;
         this.idPrenotazionePosto=idPrenotazionePosto;
-        this.nomeDocente=nomeDocente;
+
         this.idPrenotazioneAula=idPrenotazioneAula;
 
     }

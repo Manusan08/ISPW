@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.LoginBean;
 
 
 public class LoginModel {
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -49,6 +50,9 @@ public class LoginModel {
         this.password = password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;

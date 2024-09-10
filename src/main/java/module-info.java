@@ -23,6 +23,7 @@ module ispw {
     exports   it.uniroma2.ispw.model.prenotazioneaula;
     exports  it.uniroma2.ispw.controller.observer;
     exports it.uniroma2.ispw.view.cli;
+    exports  it.uniroma2.ispw.controller.observer.subject;
 
     // Aprire i pacchetti dei controller grafici per FXML
     opens it.uniroma2.ispw.view.graphicalcontroller to javafx.fxml, javafx.graphics,javafx.base;

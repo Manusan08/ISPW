@@ -29,8 +29,9 @@ public class LoginController {
         loginDAO = daoFactory.getDao();
     }
     public UserBean login(LoginBean loginBean) throws ItemNotFoundException {
-        LoginModel u = loginDAO.auth(loginBean);
+        LoginModel loginM = new LoginModel(loginBean.getEmail(),loginBean.getPassword(),loginBean.getRole());
+        LoginModel lm = loginDAO.auth(loginM);
 
-        return new UserBean(u.getEmail(), u.getRole(),u.getNome());
+        return new UserBean(lm.getEmail(), lm.getRole(),lm.getNome());
     }
 }

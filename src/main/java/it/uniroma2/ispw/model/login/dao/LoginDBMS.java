@@ -15,14 +15,14 @@ import java.sql.SQLException;
 
 public class LoginDBMS implements LoginDAO {
 
-    public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException{
+    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException{
         LoginModel loginModel = null;
         ResultSet resultSet = null;
         try (Connection conn = ConnectionDB.getConnection()) {
             String query = "SELECT * FROM Utenti WHERE email = ? AND password = ?";
             try (PreparedStatement statement = conn.prepareStatement(query)) {
-                statement.setString(1, loginBean.getEmail());
-                statement.setString(2, loginBean.getPassword());
+                statement.setString(1, loginM.getEmail());
+                statement.setString(2, loginM.getPassword());
 
 
                 resultSet = statement.executeQuery();

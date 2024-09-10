@@ -34,7 +34,7 @@ public class LoginFS implements LoginDAO {
 
 
     @Override
-    public LoginModel auth(LoginBean loginBean) throws ItemNotFoundException {
+    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException {
         LoginModel u = null;
         CSVReader csvReader = null;
         try {
@@ -46,8 +46,8 @@ public class LoginFS implements LoginDAO {
 
             while ((rcrd = csvReader.readNext()) != null) {
                 //check if the user exists
-                if (rcrd[emIndex].equals(loginBean.getEmail()) &&
-                        rcrd[pwdIndex].equals(loginBean.getPassword())) {
+                if (rcrd[emIndex].equals(loginM.getEmail()) &&
+                        rcrd[pwdIndex].equals(loginM.getPassword())) {
                     u = setUtenteFromRecord(rcrd);
                     break;
                 }

@@ -4,7 +4,6 @@ package it.uniroma2.ispw.view.cli.studente;
 import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.view.cli.TemplateView;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -18,7 +17,7 @@ public class VisualizzaAuleDisponibiliView extends TemplateView {
     ManIntheMiddleFacade intheMiddle = new ManIntheMiddleFacade();
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+    public void control() throws SystemException, IOException, LoginException, ItemNotFoundException {
         visualizzaAuleDisponibili();
 
     }

@@ -1,10 +1,10 @@
 package it.uniroma2.ispw;
 
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.view.cli.CliController;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.enums.TypesOfUIs;
 import it.uniroma2.ispw.utils.ChangePage;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import javafx.application.Application;
@@ -27,7 +27,7 @@ public class Main extends Application {
         return Conf.getConf().getTypesOfPersistenceLayer();
     }
 
-    public static void main(String[] args) throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
+    public static void main(String[] args) throws SystemException, IOException, LoginException, ItemNotFoundException, SQLException, CampiVuotiExeption {
         setPersistenceLayerAndUi();
         if (Conf.getConf().getTypesOfUIs().equals(TypesOfUIs.JAVAFX))
             launch();

@@ -3,7 +3,6 @@ package it.uniroma2.ispw.view.cli.docente.cercaaule;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.view.cli.TemplateView;
 
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -23,7 +22,7 @@ public class CercaAulaView extends TemplateView {
     }
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+    public void control() throws SystemException, IOException, LoginException, ItemNotFoundException {
         int choice;
         while (true) {
             choice = this.userChoice();

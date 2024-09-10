@@ -1,9 +1,9 @@
 package it.uniroma2.ispw.view.cli.studente;
 
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
 import it.uniroma2.ispw.bean.*;
 import it.uniroma2.ispw.view.cli.TemplateView;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -21,7 +21,7 @@ public class PrenotaPostoView extends TemplateView {
     ManIntheMiddleFacade intheMiddle = new ManIntheMiddleFacade();
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException {
+    public void control() throws SystemException, IOException, LoginException, ItemNotFoundException, SQLException, CampiVuotiExeption {
         int choice;
         boolean cond = true;
         while (cond) {
@@ -35,20 +35,27 @@ public class PrenotaPostoView extends TemplateView {
         }
     }
 
-    private void carcaAulaByCognomeProfessoreEMateria() throws IOException, SQLException {
-        PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
+    private void carcaAulaByCognomeProfessoreEMateria() throws SQLException {
 
-        String cognomeProfessore = getDesiredIn("cognome professore", "inserisci cognome del professore: ");
-        String nomeMateria = getDesiredIn("materia", "inserisci nome materia: ");
-        pab.setNomeDocente(cognomeProfessore);
-        pab.setMateria(nomeMateria);
 
-        List<PrenotazioneAulaBean> pabs = null;
         try {
+
+            PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
+
+            String cognomeProfessore = getDesiredIn("cognome professore", "inserisci cognome del professore: ");
+            String nomeMateria = getDesiredIn("materia", "inserisci nome materia: ");
+            pab.setNomeDocente(cognomeProfessore);
+            pab.setMateria(nomeMateria);
+
+            List<PrenotazioneAulaBean> pabs = null;
+
+
             pabs = intheMiddle.searchBySurnameAndSubject(pab, this.usrBean);
             printTable(pabs);
         } catch (ItemNotFoundException e) {
             System.out.println(e.getMessage());
+        } catch (CampiVuotiExeption | IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -79,8 +86,10 @@ public class PrenotaPostoView extends TemplateView {
                     choice = false;
                 }
             } while (choice);
-        } catch (SQLException | IOException | SystemException e) {
+        } catch (SQLException | SystemException e) {
             throw new RuntimeException(e);
+        } catch (CampiVuotiExeption | IOException e1){
+            System.out.println(e1.getMessage());
         }
     }
 
@@ -116,8 +125,6 @@ public class PrenotaPostoView extends TemplateView {
         int index = 0;
         String postoId = posti.get(0).getIdPosto();
         char firstchar = postoId.charAt(0);
-
-
         System.out.println(ANSI_CYAN + "  " + "_".repeat(62) + ANSI_RESET);
         for (int i = 0; i < capienza / 10; i++) {
             System.out.print(ANSI_CYAN + " | " + ANSI_RESET);

@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.GestisciCreazionePrenotazioneAulaController;
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.view.cli.TemplateView;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class GestisciPrenotazioniView extends TemplateView {
     public GestisciPrenotazioniView(UserBean usrBean) {
         super(usrBean);
     }
-    public void control() throws IOException {
+    public void control() throws IOException, CampiVuotiExeption {
         int choice;
         boolean cond = true;
 
@@ -29,7 +30,7 @@ public class GestisciPrenotazioniView extends TemplateView {
         }
     }
 
-    private void modificaPrenotazione() throws IOException {
+    private void modificaPrenotazione() throws IOException, CampiVuotiExeption {
         AulaBean ab = new AulaBean();
         PrenotazioneAulaBean pb = new PrenotazioneAulaBean();
         mostraPrenotazioni();
@@ -45,7 +46,7 @@ public class GestisciPrenotazioniView extends TemplateView {
 
     }
 
-    private boolean modificaDescrizione(PrenotazioneAulaBean pb) throws IOException {
+    private boolean modificaDescrizione(PrenotazioneAulaBean pb) throws CampiVuotiExeption, IOException {
         String message = getDesiredIn("Modifica descrizione", "inserisci il messaggio ");
         pb.setDescrizione(message);
         return new GestisciCreazionePrenotazioneAulaController().modificaDescrizionePrenotazione();
@@ -56,8 +57,8 @@ public class GestisciPrenotazioniView extends TemplateView {
         try {
             pb.setIdPrenotazioneAula(getDesiredIn("id", "inserisci l'id della prenotazione"));
             new GestisciCreazionePrenotazioneAulaController().removePrenotazione();
-        } catch (IOException e) {
-            System.out.println("Impossibile leggere i dati ");
+        } catch (CampiVuotiExeption | IOException e){
+            System.out.println(e.getMessage());
         }
     }
 

@@ -2,7 +2,6 @@ package it.uniroma2.ispw.view.cli.docente.prenotaaula;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.view.cli.TemplateView;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
 import javax.security.auth.login.LoginException;
@@ -33,7 +32,7 @@ public class ConfermPrenotazioneView extends TemplateView {
 
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException {
+    public void control() throws SystemException, IOException, LoginException {
         //control
     }
 

@@ -2,7 +2,7 @@ package it.uniroma2.ispw.view.cli;
 
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -28,7 +28,7 @@ public abstract class TemplateView {
 
     protected UserBean usrBean;
 
-    public abstract void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException, SQLException;
+    public abstract void control() throws SystemException, IOException, LoginException, ItemNotFoundException, SQLException, CampiVuotiExeption;
 
     protected abstract List<String> getOptions();
 
@@ -90,13 +90,16 @@ public abstract class TemplateView {
         return choice;
     }
 
-    public String getDesiredIn(String title, String inMsg) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public String getDesiredIn(String title, String inMsg) throws CampiVuotiExeption, IOException {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            printHeader(title);
+            System.out.print(inMsg);
+            String input = reader.readLine();
+            if (input == null || input.trim().isEmpty()) {
+                throw new CampiVuotiExeption("Il campo non può essere vuoto."); // Eccezione personalizzata
+            }
+            return reader.readLine();
 
-        printHeader(title);
-
-        System.out.print(inMsg);
-        return reader.readLine();
     }
 
         public <T> void printTable(List<T> list) {

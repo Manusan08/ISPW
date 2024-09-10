@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.view.cli;
 
 
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.view.cli.docente.DocenteView;
 import it.uniroma2.ispw.view.cli.studente.StudenteView;
 
@@ -9,7 +10,6 @@ import it.uniroma2.ispw.bean.UserBean;
 
 
 import it.uniroma2.ispw.enums.Role;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -19,7 +19,7 @@ import java.sql.SQLException;
 
 public class CliController {
 
-    public void start() throws SystemException, InvalidDataException, IOException, LoginException, SQLException, ItemNotFoundException {
+    public void start() throws SystemException, IOException, LoginException, SQLException, ItemNotFoundException, CampiVuotiExeption {
         UserBean authUsr;
         boolean loopCond = false;
         LoginViewController2 loginView = new LoginViewController2();

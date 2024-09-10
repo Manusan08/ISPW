@@ -3,6 +3,7 @@ package it.uniroma2.ispw.view.cli.studente;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.GestisciPrenotazionePostoController;
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.view.cli.TemplateView;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
@@ -38,10 +39,10 @@ public class GestisciPrenotazionePostoView extends TemplateView {
             try{
                 ppb.setIdPrenotazionePosto(getDesiredIn("id","inserisci l'id della prenotazione: "));
                 new GestisciPrenotazionePostoController().removePrenotazione(ppb);
-            }catch (IOException e){
-                System.out.println("Impossibile leggere i dati ");
-            } catch (SQLException | ItemNotFoundException e) {
+            } catch (SQLException | ItemNotFoundException | CampiVuotiExeption e) {
                 System.out.println(e.getMessage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
     }
 

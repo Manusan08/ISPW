@@ -1,8 +1,8 @@
 package it.uniroma2.ispw.view.cli.studente;
 
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.view.cli.TemplateView;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -19,7 +19,7 @@ public class StudenteView extends TemplateView {
         super(userBean);
     }
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, ItemNotFoundException, LoginException, SQLException {
+    public void control() throws SystemException, IOException, ItemNotFoundException, LoginException, SQLException, CampiVuotiExeption {
         int choice;
         while (true) {
             choice = this.userChoice();

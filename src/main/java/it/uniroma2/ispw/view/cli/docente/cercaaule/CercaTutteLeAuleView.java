@@ -6,7 +6,6 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.view.cli.TemplateView;
 import it.uniroma2.ispw.view.cli.docente.prenotaaula.PrenotazioneAulaView;
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
-import it.uniroma2.ispw.utils.exception.InvalidDataException;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -24,7 +23,7 @@ public class CercaTutteLeAuleView extends TemplateView {
     }
 
     @Override
-    public void control() throws SystemException, InvalidDataException, IOException, LoginException, ItemNotFoundException {
+    public void control() throws SystemException, IOException, LoginException, ItemNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ecco tutte le Aule dell'edificio");
         List<AulaBean> aulabeanlist= docenteFacade.getAllAule();

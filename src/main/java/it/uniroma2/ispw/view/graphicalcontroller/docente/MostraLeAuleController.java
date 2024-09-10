@@ -22,6 +22,7 @@ import java.util.List;
 
 public class MostraLeAuleController extends ControllerGrafico {
 
+    public Button indietroButton;
     private UserBean userBean;
     private List<AulaBean> aulaBeans;
 
@@ -98,5 +99,14 @@ public class MostraLeAuleController extends ControllerGrafico {
 
         // Imposta i dati nella TableView
         tableViewAule.setItems(data);
+    }
+
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaFiltri.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
     }
 }

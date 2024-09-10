@@ -10,29 +10,34 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.docente.MostraTutteLeAuleController">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
-               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Studente/styling/SelectSeat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.view.graphicalcontroller.docente.MostraTutteLeAuleController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../images/pic2.png"/>
+        <Image url="@../../images/pic2.png" />
     </ImageView>
-    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0"
-           text="                                             Mostra tutte le Aule" textAlignment="CENTER"
-           textFill="#fcfcfc">
+    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0" text="                                             Mostra tutte le Aule" textAlignment="CENTER" textFill="#fcfcfc">
         <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
         </font>
     </Label>
-    <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
-            text="avanti"/>
+    <Button fx:id="indietroButton" layoutX="537.0" layoutY="5.0" mnemonicParsing="false" onAction="#indietro" prefHeight="42.0" prefWidth="40.0" styleClass="back-button">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Button>
+    <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" styleClass="goHead-button" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
     <TableView fx:id="tableViewAule" layoutX="35.0" layoutY="134.0" prefHeight="200.0" prefWidth="539.0">
         <columns>
-            <TableColumn fx:id="colonnaNome" prefWidth="150.0" text="idAula"/>
-            <TableColumn fx:id="colonnaPosti" prefWidth="100.0" text="Posti"/>
-            <TableColumn fx:id="colonnaProiettore" prefWidth="100.0" text="Proiettore"/>
-            <TableColumn fx:id="colonnaComputer" prefWidth="100.0" text="Computer"/>
-            <TableColumn fx:id="colonnaBanchi" prefWidth="100.0" text="Banchi Disegno"/>
+            <TableColumn fx:id="colonnaNome" prefWidth="150.0" text="idAula" />
+            <TableColumn fx:id="colonnaPosti" prefWidth="100.0" text="Posti" />
+            <TableColumn fx:id="colonnaProiettore" prefWidth="100.0" text="Proiettore" />
+            <TableColumn fx:id="colonnaComputer" prefWidth="100.0" text="Computer" />
+            <TableColumn fx:id="colonnaBanchi" prefWidth="100.0" text="Banchi Disegno" />
         </columns>
     </TableView>
+   <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="537.0">
+      <image>
+         <Image url="@../../images/211618_c_left_arrow_icon.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

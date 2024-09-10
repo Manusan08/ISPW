@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 
 public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
+    public Button indietroButton;
     @FXML
     private Button avantiID;
 
@@ -103,5 +104,12 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
         tableViewAule.setItems(data);
     }
 
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+    }
 }
 

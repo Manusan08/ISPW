@@ -20,7 +20,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public  class  CercaAulaFiltriController extends ControllerGrafico {
-private UserBean userBean;
+    public Button indietroButton;
+    private UserBean userBean;
 @FXML
 private CheckBox checkBanchi;
 
@@ -35,7 +36,7 @@ private Button avantiBottoneID;
 
 @FXML
 private TextField txtNumeroPosti;
-    private DocenteFacade docenteFacade = new DocenteFacade();
+    private final DocenteFacade docenteFacade = new DocenteFacade();
 
 @FXML
     void avantiAction(ActionEvent event) {
@@ -63,7 +64,7 @@ private TextField txtNumeroPosti;
     } catch (ItemNotFoundException e) {
         getAlert(e.getMessage());
     } catch (SQLException e) {
-        throw new RuntimeException(e);
+        getAlert().showAndWait();
     }
 
 }
@@ -75,4 +76,12 @@ private TextField txtNumeroPosti;
     }
 
 
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
+    }
 }

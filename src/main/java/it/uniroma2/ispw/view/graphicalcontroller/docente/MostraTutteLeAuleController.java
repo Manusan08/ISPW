@@ -22,6 +22,7 @@ import java.util.List;
 
 public class MostraTutteLeAuleController extends ControllerGrafico {
 
+    public Button indietroButton;
     // Creazione di un'istanza del GestisciAuleController per recuperare le aule
     private DocenteFacade docenteFacade = new DocenteFacade();
 
@@ -95,5 +96,13 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
 
         // Imposta i dati nella TableView
         tableViewAule.setItems(data);
+    }
+
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
     }
 }

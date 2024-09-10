@@ -3,6 +3,7 @@ package it.uniroma2.ispw.view.graphicalcontroller.studente;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.GestisciPrenotazionePostoController;
+import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import javafx.collections.FXCollections;
@@ -14,10 +15,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 public class MostraPrenotazioniController extends ControllerGrafico {
 
+    public Button indietroButton;
     private UserBean userBean;
 
     @FXML
@@ -69,4 +72,12 @@ public class MostraPrenotazioniController extends ControllerGrafico {
 
     }
 
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
+    }
 }

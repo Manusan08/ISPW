@@ -15,6 +15,7 @@ import java.sql.SQLException;
 public class CercaPostoPerNomeController extends ControllerGrafico {
     @FXML
     public Button avantiiD;
+    public Button indietroButton;
     private UserBean userBean;
     @FXML
     private Button annullaId;
@@ -56,6 +57,15 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             getAlert("qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
+        }
+    }
+
+    public void indietro(ActionEvent event) {
+
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
         }
     }
 }

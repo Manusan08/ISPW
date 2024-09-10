@@ -17,6 +17,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 
 public class InserisciFiltriController extends ControllerGrafico {
+    public Button indietroButton;
     private UserBean userBean;
     private AulaBean aulaBean;
     @FXML
@@ -146,5 +147,14 @@ public class InserisciFiltriController extends ControllerGrafico {
     @Override
     public void setAulaBean(AulaBean aulaBean) {
         this.aulaBean = aulaBean;
+    }
+
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
     }
 }

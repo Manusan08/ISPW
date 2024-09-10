@@ -11,7 +11,8 @@ import java.sql.SQLException;
 
 public  class CercaAuleController extends ControllerGrafico {
 
-@FXML
+    public Button indietroButton;
+    @FXML
 private Button cercaAulaID;
 
 @FXML
@@ -61,4 +62,11 @@ private UserBean userBean;
     }
 
 
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+    }
 }

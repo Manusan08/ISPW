@@ -3,6 +3,7 @@ package it.uniroma2.ispw.view.graphicalcontroller.docente;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 
+import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
@@ -12,7 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import it.uniroma2.ispw.utils.ChangePage;
 
+import java.sql.SQLException;
+
 public class MostraAulaPerIDController extends ControllerGrafico {
+    public Button indietroButton;
     private UserBean userBean;
 
     private DocenteFacade docenteFacade = new DocenteFacade();
@@ -43,5 +47,14 @@ public class MostraAulaPerIDController extends ControllerGrafico {
     @Override
     public void inizializza(UserBean cred)  {
         this.userBean = cred;
+    }
+
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
     }
 }

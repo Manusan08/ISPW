@@ -7,30 +7,33 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.GestisciPrenotazionePostoController">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
-               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styling/SelectSeat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.GestisciPrenotazionePostoController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../images/pic2.png"/>
+        <Image url="@../../images/pic2.png" />
     </ImageView>
-    <Button fx:id="visualizzaid" layoutX="300.0" layoutY="48.0" mnemonicParsing="false"
-            onAction="#visualizzaPrenotazioneAction" prefHeight="55.0" prefWidth="300.0"
-            style="-fx-background-color: transparent;" text="Visualizza Prenotazioni" textFill="WHITE">
+    <Button fx:id="indietroButton" layoutX="537.0" layoutY="5.0" mnemonicParsing="false" onAction="#indietro" prefHeight="42.0" prefWidth="40.0" styleClass="back-button">
         <font>
-            <Font size="18.0"/>
+            <Font size="14.0" />
         </font>
     </Button>
-    <Button fx:id="eliminaId" layoutY="48.0" mnemonicParsing="false" onAction="#eliminaPrenotazioneAction"
-            prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: transparent;" text="Elimina Prenotazione "
-            textFill="WHITE">
+    <Button fx:id="visualizzaid" layoutX="300.0" layoutY="48.0" mnemonicParsing="false" onAction="#visualizzaPrenotazioneAction" prefHeight="55.0" prefWidth="300.0" styleClass="my-button" text="Visualizza Prenotazioni" textFill="WHITE">
         <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
         </font>
     </Button>
-    <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true"
-               style="-fx-opacity: 80%;">
-        <Image url="@../../images/image-8778.png"/>
+    <Button fx:id="eliminaId" layoutY="48.0" mnemonicParsing="false" onAction="#eliminaPrenotazioneAction" prefHeight="55.0" prefWidth="300.0" styleClass="my-button" text="Elimina Prenotazione " textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 80%;">
+        <Image url="@../../images/image-8778.png" />
     </ImageView>
+   <ImageView fitHeight="47.0" fitWidth="40.0" layoutX="537.0">
+      <image>
+         <Image url="@../../images/211618_c_left_arrow_icon.png" />
+      </image>
+   </ImageView>
 
 </AnchorPane>

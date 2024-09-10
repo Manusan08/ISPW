@@ -10,30 +10,35 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.MostraPrenotazioniController">
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
-               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.MostraPrenotazioniController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../../images/pic2.png"/>
+        <Image url="@../../images/pic2.png" />
     </ImageView>
-    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0"
-           text="                                        Mostra tutte le Prenotazioni" textAlignment="CENTER"
-           textFill="#fcfcfc">
+    <Label layoutY="48.0" prefHeight="55.0" prefWidth="600.0" text="                                        Mostra tutte le Prenotazioni" textAlignment="CENTER" textFill="#fcfcfc">
         <font>
-          <Font size="18.0"/>
+          <Font size="18.0" />
         </font>
     </Label>
-    <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#avantiBottoneAction"
-            text="avanti"/>
+    <Button fx:id="indietroButton" layoutX="537.0" layoutY="5.0" mnemonicParsing="false" onAction="#indietro" prefHeight="42.0" prefWidth="40.0" styleClass="back-button" visible="false">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Button>
+    <Button fx:id="avantiID" layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#avantiBottoneAction" text="avanti" />
     <TableView fx:id="tableViewPrenotazioni" layoutX="35.0" layoutY="134.0" prefHeight="200.0" prefWidth="539.0">
         <columns>
-            <TableColumn fx:id="colonna1" maxWidth="150.0" text="orario lezione"/>
-            <TableColumn fx:id="colonna2" maxWidth="150.0" text="Docente"/>
-            <TableColumn fx:id="colonna3" maxWidth="150.0" text="ID prenotazione posto"/>
-            <TableColumn fx:id="colonna4" maxWidth="150.0" text="ID posto"/>
-            <TableColumn fx:id="colonna5" maxWidth="150.0" text="ID Aula"/>
+            <TableColumn fx:id="colonna1" maxWidth="150.0" text="orario lezione" />
+            <TableColumn fx:id="colonna2" maxWidth="150.0" text="Docente" />
+            <TableColumn fx:id="colonna3" maxWidth="150.0" text="ID prenotazione posto" />
+            <TableColumn fx:id="colonna4" maxWidth="150.0" text="ID posto" />
+            <TableColumn fx:id="colonna5" maxWidth="150.0" text="ID Aula" />
         </columns>
     </TableView>
+   <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="537.0">
+      <image>
+         <Image url="@../../images/211618_c_left_arrow_icon.png" />
+      </image>
+   </ImageView>
 
 </AnchorPane>

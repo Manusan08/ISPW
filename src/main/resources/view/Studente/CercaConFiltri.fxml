@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.CercaPostoPerNomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styling/SelectSeat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.uniroma2.ispw.view.graphicalcontroller.studente.CercaPostoPerNomeController">
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
     <ImageView fitHeight="55.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../../images/pic2.png" />
@@ -25,7 +25,12 @@
           <Font name="Arial" size="18.0" />
         </font>
     </Label>
-    <Button fx:id="avantiiD" alignment="CENTER" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#avantiBottoneAction" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #27ae60;" text="cerca" textFill="#fcfcfc" />
+    <Button fx:id="indietroButton" layoutX="537.0" layoutY="5.0" mnemonicParsing="false" onAction="#indietro" prefHeight="42.0" prefWidth="40.0" styleClass="back-button">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Button>
+    <Button fx:id="avantiiD" alignment="CENTER" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#avantiBottoneAction" prefHeight="26.0" prefWidth="69.0" styleClass="goHead-button" text="cerca" textFill="#fcfcfc" />
     <Label layoutX="63.0" layoutY="217.0" text="Materia">
         <font>
           <Font name="Arial" size="18.0" />
@@ -34,6 +39,11 @@
     <TextField fx:id="txtNome" layoutX="300.0" layoutY="156.0" prefHeight="26.0" prefWidth="190.0" />
     <TextField fx:id="txtMateria" layoutX="300.0" layoutY="218.0" prefHeight="26.0" prefWidth="190.0" />
    <Button fx:id="annullaId" alignment="CENTER" layoutX="63.0" layoutY="298.0" mnemonicParsing="false" onAction="#annullaBottoneAction" text="annulla" />
+   <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="537.0">
+      <image>
+         <Image url="@../../images/211618_c_left_arrow_icon.png" />
+      </image>
+   </ImageView>
    <Text fill="#f4f4f4f0" layoutX="192.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cerca aule con filtri" wrappingWidth="215.60113525390625">
       <font>
          <Font size="22.0" />

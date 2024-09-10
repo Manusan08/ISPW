@@ -12,7 +12,8 @@ import java.sql.SQLException;
 
 public  class GestisciPrenotazionePostoController extends ControllerGrafico {
 
-@FXML
+    public Button indietroButton;
+    @FXML
 private Button eliminaId;
 
 @FXML
@@ -51,4 +52,7 @@ private UserBean userBean;
 
     }
 
+    public void indietro(ActionEvent event) {
+
+    }
 }

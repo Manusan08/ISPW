@@ -22,7 +22,7 @@ public class PrenotaPostoController extends ControllerGrafico {
     @FXML
     void cercaAulaPerIDprenotazione(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaPerId.fxml", userBean);
+            ChangePage.getChangePage().cambiaPagina("view/Studente/PrenotaPosto.fxml", userBean);
         } catch (SQLException e) {
             getAlert("ops, qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
@@ -50,5 +50,13 @@ public class PrenotaPostoController extends ControllerGrafico {
     public void inizializza(UserBean cred) {
         this.userBean = cred;
 
+    }
+
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
     }
 }

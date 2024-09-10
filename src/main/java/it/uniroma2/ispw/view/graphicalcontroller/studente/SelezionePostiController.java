@@ -23,6 +23,7 @@ import java.util.List;
 
 public class SelezionePostiController extends ControllerGrafico {
 
+    public Button indietroButton;
     @FXML
     private HBox premiumHbox;
 
@@ -158,4 +159,12 @@ public class SelezionePostiController extends ControllerGrafico {
         return alert;
     }
 
+    public void indietro(ActionEvent event) {
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", this.usr);
+        } catch (SQLException | ItemNotFoundException e) {
+            getAlert().showAndWait();
+        }
+
+    }
 }

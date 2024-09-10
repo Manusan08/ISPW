@@ -5,8 +5,10 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
+import it.uniroma2.ispw.model.aula.dao.AulaDAOFactory;
 import it.uniroma2.ispw.model.aula.dao.AulaDBMS;
 import it.uniroma2.ispw.model.aula.dao.AulaFS;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.util.ArrayList;
@@ -16,17 +18,8 @@ public class GestisciAuleController {
     private final AulaDAO aulaDAO;
 
     public GestisciAuleController() {
-        if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
-            aulaDAO = new AulaDBMS();
-        } else {
-            try {
-                aulaDAO = new AulaFS();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-
-        }
+        AulaDAOFactory daoFactory = new AulaDAOFactory();
+        aulaDAO = daoFactory.getDao();
     }
 
 

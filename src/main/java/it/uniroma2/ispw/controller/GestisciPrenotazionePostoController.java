@@ -10,13 +10,16 @@ import it.uniroma2.ispw.controller.observer.observers.PostoObserver;
 import it.uniroma2.ispw.controller.observer.subject.PrenotazionePostoSubject;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.UserModel;
+import it.uniroma2.ispw.model.aula.dao.AulaDAOFactory;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
+import it.uniroma2.ispw.model.posto.dao.PostoDAOFactory;
 import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAO;
+import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAOFactory;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDBMS;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoFS;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -30,21 +33,14 @@ import java.util.List;
 
 public class GestisciPrenotazionePostoController {
     private final PrenotazionePostoDAO prenotazionePostoDao;
-    private PostoDAO postoDAO;
+    private final PostoDAO postoDAO;
 
 
     public GestisciPrenotazionePostoController() {
-        if (Main.getPersistenceLayer().equals(TypesOfPersistenceLayer.JDBC)) {
-            prenotazionePostoDao = new PrenotazionePostoDBMS();
-            postoDAO = new PostoDBMS();
-
-        } else {
-            try {
-                prenotazionePostoDao = new PrenotazionePostoFS();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
+        PostoDAOFactory daoFactory = new PostoDAOFactory();
+        postoDAO = daoFactory.getDao();
+        PrenotazionePostoDAOFactory daosFactory = new PrenotazionePostoDAOFactory();
+        prenotazionePostoDao = daosFactory.getDao();
     }
 
     public String prenotaPosto(PostoBean pb, PrenotazioneAulaBean pab, UserModel usrm) throws SystemException, SQLException {

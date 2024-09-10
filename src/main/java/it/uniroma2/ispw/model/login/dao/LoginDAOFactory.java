@@ -1,18 +1,23 @@
-package it.uniroma2.ispw.model.prenotazioneaula.dao;
+package it.uniroma2.ispw.model.login.dao;
+
 
 import it.uniroma2.ispw.Conf;
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 
-public class PrenotazioneAulaDAOFactory {
 
-    public PrenotazioneAulaDAO getDao() {
+import java.io.IOException;
+
+
+public class LoginDAOFactory {
+
+    public LoginDAO getDao() throws IOException {
         TypesOfPersistenceLayer typesOfPersistenceLayer = Conf.getConf().getTypesOfPersistenceLayer();
         switch (typesOfPersistenceLayer) {
             case JDBC -> {
-                return new PrenotazioneAulaDBMS();
+                return new LoginDBMS();
             }
             case FILE_SYSTEM -> {
-                return new PrenotazioneAulaFS();
+                return new LoginFS();
             }
             case null, default -> throw new IllegalArgumentException("typeOfPersistence Invalid, got " + typesOfPersistenceLayer);
         }

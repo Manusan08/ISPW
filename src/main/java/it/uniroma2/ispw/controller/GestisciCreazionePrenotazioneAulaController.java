@@ -3,9 +3,7 @@ package it.uniroma2.ispw.controller;
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 
-import it.uniroma2.ispw.controller.factory.PrenotazioneAulaFactory;
-import it.uniroma2.ispw.controller.factory.PrenotazioneAulaPersistenceFactory;
-import it.uniroma2.ispw.controller.factory.PrenotazioneAulaVerificatoreFactory;
+import it.uniroma2.ispw.controller.factory.*;
 
 import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaPersistenza;
 import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaVerificatore;
@@ -27,19 +25,19 @@ public class GestisciCreazionePrenotazioneAulaController {
 
 
     private final PrenotazioneAulaDAO prenotazioneAulaDAO;
-    private final PrenotazioneAulaVerificatoreFactory prenotazioneAulaVerificatoreFactory;
-    private final PrenotazioneAulaPersistenceFactory prenotazioneAulaPersistenceFactory;
+    private final PrenotazioneAulaVerificatoreFactoryImpl prenotazioneAulaVerificatoreFactory;
+    private final PrenotazioneAulaPersistenceFactoryImpl prenotazioneAulaPersistenceFactory;
 
 
     public GestisciCreazionePrenotazioneAulaController() {
         PrenotazioneAulaDAOFactory daoFactory = new PrenotazioneAulaDAOFactory();
         prenotazioneAulaDAO = daoFactory.getDao();
-        prenotazioneAulaVerificatoreFactory = new PrenotazioneAulaVerificatoreFactory();
-        prenotazioneAulaPersistenceFactory = new PrenotazioneAulaPersistenceFactory();
+        prenotazioneAulaVerificatoreFactory = new PrenotazioneAulaVerificatoreFactoryImpl();
+        prenotazioneAulaPersistenceFactory = new PrenotazioneAulaPersistenceFactoryImpl();
     }
 
     public boolean prenota(PrenotazioneAulaBean prenotazione) {
-        PrenotazioneAulaFactory factory = new PrenotazioneAulaFactory();
+        PrenotazioneAulaFactory factory = new PrenotazioneAulaFactoryImpl();
         PrenotazioneAulaModel prenotazioneAula = factory.creaPrenotazione(prenotazione);
         PrenotazioneAulaVerificatore prenotazioneAulaVerificatore = prenotazioneAulaVerificatoreFactory.creaVerificatore(prenotazioneAula);
         if (prenotazioneAulaVerificatore.verificaPrenotazione(prenotazioneAula)) {

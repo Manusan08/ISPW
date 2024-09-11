@@ -1,6 +1,7 @@
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ class PrenotazionePostoTest {
 
     @Test
     void testVisualizzaClassiDisponibili() {
-        ManIntheMiddleFacade facade = new ManIntheMiddleFacade();
+        StudenteFacade facade = new StudenteFacade();
         List<PrenotazioneAulaBean> prenotazioni = facade.getAvailableClass();
 
         // Asserzione per verificare che la lista di prenotazioni non sia vuota

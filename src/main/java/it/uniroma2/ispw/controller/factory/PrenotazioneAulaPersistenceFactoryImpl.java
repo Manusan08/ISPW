@@ -5,7 +5,7 @@ import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaRicorrentiPe
 import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaSingolaPersistence;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 
-public class PrenotazioneAulaPersistenceFactory {
+public class PrenotazioneAulaPersistenceFactoryImpl implements PrenotazioneAulaPersistenzaFactory {
 
     public PrenotazioneAulaPersistenza creaPrentazioneAulaPersistence(PrenotazioneAulaModel prenotazioneAulaModel) {
         if (prenotazioneAulaModel.isRicorente()) {

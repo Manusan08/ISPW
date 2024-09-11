@@ -1,27 +1,20 @@
 package it.uniroma2.ispw.controller;
 
-import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.controller.observer.observers.Observer;
 import it.uniroma2.ispw.controller.observer.observers.PostoObserver;
 import it.uniroma2.ispw.controller.observer.subject.PrenotazionePostoSubject;
-import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.model.UserModel;
-import it.uniroma2.ispw.model.aula.dao.AulaDAOFactory;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDAOFactory;
-import it.uniroma2.ispw.model.posto.dao.PostoDBMS;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAO;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAOFactory;
-import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDBMS;
-import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoFS;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -100,19 +93,6 @@ public class GestisciPrenotazionePostoController {
             pps.attach(po);
         }
         return pps;
-    }
-
-    public List<PostoBean> postoObserverToPostoBean(List<Observer> observers) {
-        List<PostoBean> postoBeans = new ArrayList<>();
-        if (observers.isEmpty())
-            return postoBeans;
-        for (Observer ob : observers) {
-            if (ob instanceof PostoObserver po) {
-                PostoBean postoBean = new PostoBean(po.getPostoId(), po.getIdAula(), po.isPrenotato());
-                postoBeans.add(postoBean);
-            }
-        }
-        return postoBeans;
     }
 
 }

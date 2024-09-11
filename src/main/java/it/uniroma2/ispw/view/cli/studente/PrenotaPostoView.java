@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.view.cli.studente;
 
 import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
-import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.bean.*;
 import it.uniroma2.ispw.view.cli.TemplateView;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -18,7 +18,7 @@ public class PrenotaPostoView extends TemplateView {
         super(userBean);
     }
 
-    ManIntheMiddleFacade intheMiddle = new ManIntheMiddleFacade();
+    StudenteFacade intheMiddle = new StudenteFacade();
 
     @Override
     public void control() throws SystemException, IOException, LoginException, ItemNotFoundException, SQLException, CampiVuotiExeption {

@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.view.graphicalcontroller.studente;
 
-import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
@@ -41,13 +41,13 @@ public class SelezionePostiController extends ControllerGrafico {
 
     private PrenotazioneAulaBean pab;
     private UserBean usr;
-    private final ManIntheMiddleFacade manIntheMiddleFacade = new ManIntheMiddleFacade();
+    private final StudenteFacade studenteFacade = new StudenteFacade();
     private List<PostoBean> postoBeans;
 
     @FXML
     void prenota(ActionEvent event) throws SystemException, SQLException {
     PostoBean postoBean= getPrenotato(postoBeans);
-    String msg= manIntheMiddleFacade.insertPostoIntodb(postoBean,pab,this.usr);
+    String msg= studenteFacade.insertPostoIntodb(postoBean,pab,this.usr);
         Alert alert = getAlert(msg);
         alert.showAndWait();
 
@@ -72,8 +72,8 @@ public class SelezionePostiController extends ControllerGrafico {
 
         int capienzaAula = 0;
         try {
-            capienzaAula = manIntheMiddleFacade.getCapienzaAula(pab.getIdAula());
-            this.postoBeans = manIntheMiddleFacade.getPostiBean(pab);
+            capienzaAula = studenteFacade.getCapienzaAula(pab.getIdAula());
+            this.postoBeans = studenteFacade.getPostiBean(pab);
             postiPrinter(postoBeans, capienzaAula);
         } catch (SQLException e) {
             getAlert();
@@ -131,7 +131,7 @@ public class SelezionePostiController extends ControllerGrafico {
     public void handleSelection(ActionEvent event, int capienza) {
         Button btn = ((Button) event.getSource());
         PrenotazionePostoContext ppc = new PrenotazionePostoContext(btn.getText());
-        postoBeans = manIntheMiddleFacade.selezionaPosto(ppc);
+        postoBeans = studenteFacade.selezionaPosto(ppc);
         premiumHbox.getChildren().clear();
         postiPrinter(postoBeans, capienza);
         confirmButton.setVisible(true);

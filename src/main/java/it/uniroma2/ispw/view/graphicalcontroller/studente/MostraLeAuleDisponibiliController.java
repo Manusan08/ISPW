@@ -2,7 +2,7 @@ package it.uniroma2.ispw.view.graphicalcontroller.studente;
 
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
@@ -45,7 +45,7 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
         this.userBean = cred;
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
-                        new ManIntheMiddleFacade().getAvailableClass());
+                        new StudenteFacade().getAvailableClass());
 
         colonna1.setCellValueFactory(
                 new PropertyValueFactory<>("IdAula"));

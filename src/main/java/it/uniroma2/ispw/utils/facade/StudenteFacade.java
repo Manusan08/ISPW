@@ -19,14 +19,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ManIntheMiddleFacade {
+public class StudenteFacade {
     private final GestisciPrenotazionePostoController gestisciPrenotazionePostoController;
     private PrenotazionePostoSubject prenotazionePostoSubject;
     private final GestisciCreazionePrenotazioneAulaController gestisciCreazionePrenotazioneAulaController;
 
 
 
-    public ManIntheMiddleFacade() {
+    public StudenteFacade() {
         this.gestisciPrenotazionePostoController = new GestisciPrenotazionePostoController();
 
         this.prenotazionePostoSubject = new PrenotazionePostoSubject();

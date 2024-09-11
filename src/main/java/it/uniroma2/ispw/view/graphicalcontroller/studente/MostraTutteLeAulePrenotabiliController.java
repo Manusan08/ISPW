@@ -1,6 +1,6 @@
 package it.uniroma2.ispw.view.graphicalcontroller.studente;
 
-import it.uniroma2.ispw.utils.facade.ManIntheMiddleFacade;
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
@@ -88,7 +88,7 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
     public void tableInitializator(UserBean userBean) throws SQLException, ItemNotFoundException {
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
-                        new ManIntheMiddleFacade().searchBySurnameAndSubject(pab, userBean));
+                        new StudenteFacade().searchBySurnameAndSubject(pab, userBean));
 
 
         colonna1.setCellValueFactory(

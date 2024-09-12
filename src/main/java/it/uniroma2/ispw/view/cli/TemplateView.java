@@ -96,7 +96,7 @@ public abstract class TemplateView {
             if (input == null || input.trim().isEmpty()) {
                 throw new CampiVuotiExeption("Il campo non può essere vuoto."); // Eccezione personalizzata
             }
-            return reader.readLine();
+            return input;
 
     }
 

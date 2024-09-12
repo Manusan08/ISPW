@@ -6,6 +6,7 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.AlertUtil;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public abstract class ControllerGrafico extends AlertUtil {
 
 
-    public abstract void inizializza(UserBean cred);
+    public abstract void inizializza(UserBean cred) throws SystemException;
 
     public void setAulaBeans(List<AulaBean> aulaBeans) {
 

@@ -1,13 +1,0 @@
-
-T
-java:S1128"2Remove this unused import 'it.uniroma2.ispw.Main'.(ÓèÛ¿şÿÿÿÿ8Şª·2
-h
-java:S1128"KRemove this unused import 'it.uniroma2.ispw.enums.TypesOfPersistenceLayer'.(““ù®8ßª·2
-m
-java:S1128"KRemove this unused import 'it.uniroma2.ispw.model.aula.dao.AulaDAOFactory'.(¾ç¤»ıÿÿÿÿ8àª·2
-d
-java:S1128"GRemove this unused import 'it.uniroma2.ispw.model.posto.dao.PostoDBMS'.(Š¸¶8àª·2
-|
-java:S1128"_Remove this unused import 'it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDBMS'.( Ê§Ì8áª·2
-
-java:S1128"]Remove this unused import 'it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoFS'.(é£ øÿÿÿÿ8âª·2

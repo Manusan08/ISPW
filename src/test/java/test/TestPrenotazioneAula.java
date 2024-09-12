@@ -1,17 +1,20 @@
+package test;
+
 import it.uniroma2.ispw.Conf;
-import it.uniroma2.ispw.Main;
+
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
 
-import org.junit.BeforeClass;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Method;
-import java.sql.Date;
+
+
 import java.time.LocalDate;
 
 
@@ -25,7 +28,7 @@ class TestPrenotazioneAula {
 
 
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() throws SystemException {
         Conf.getConf().readConf();
         docenteFacade = new DocenteFacade();
         // Initialize AulaBean and UserBean for the test
@@ -42,7 +45,7 @@ class TestPrenotazioneAula {
     }
 
     @Test
-    void testPrenotazioneAula() throws Exception {
+    void testPrenotazioneAula() {
         // Prepare the data for the test
         LocalDate dataLezione = LocalDate.parse("2024-09-10");
         Orario orario = Orario.FASCIAUNO; // 12:00-14:00

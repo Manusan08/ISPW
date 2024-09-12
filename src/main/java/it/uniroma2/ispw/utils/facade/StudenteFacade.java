@@ -93,7 +93,7 @@ public class StudenteFacade {
     }
 
 
-    public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws SQLException, ItemNotFoundException {
+    public List<PrenotazioneAulaBean> searchBySurnameAndSubject(PrenotazioneAulaBean pab, UserBean userBean) throws  ItemNotFoundException, SystemException {
         UserModel usm=usrBeanToUsrModel(userBean);
         return this.gestisciCreazionePrenotazioneAulaController.getBookedClassByteacherNameAndSubject(pab, usm);
     }

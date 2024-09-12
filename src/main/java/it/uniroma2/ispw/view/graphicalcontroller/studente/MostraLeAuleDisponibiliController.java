@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.collections.FXCollections;
@@ -61,7 +62,7 @@ public class MostraLeAuleDisponibiliController extends ControllerGrafico {
 
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", this.userBean);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
     }

@@ -1,3 +1,5 @@
+package test;
+
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 

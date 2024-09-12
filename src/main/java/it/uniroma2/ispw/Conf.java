@@ -2,6 +2,7 @@ package it.uniroma2.ispw;
 
 import it.uniroma2.ispw.enums.TypesOfPersistenceLayer;
 import it.uniroma2.ispw.enums.TypesOfUIs;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +37,7 @@ public class Conf {
         this.typesOfUIs = typesOfUIs;
     }
 
-    public void readConf() {
+    public void readConf() throws SystemException {
         try (InputStream input = Conf.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties properties = new Properties();
             properties.load(input);
@@ -56,7 +57,7 @@ public class Conf {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
+            throw new SystemException(e.getMessage());
         }
     }
 

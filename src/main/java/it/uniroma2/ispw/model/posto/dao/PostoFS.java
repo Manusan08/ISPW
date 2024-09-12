@@ -8,7 +8,7 @@ import java.util.List;
 public class PostoFS implements PostoDAO{
     @Override
     public void postoNuovamenteDisponibile(PostoModel postoModel) {
-        // TODO document why this method is empty
+        //da implementare
     }
 
     @Override

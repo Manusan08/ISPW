@@ -10,6 +10,7 @@ import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -47,14 +48,18 @@ public class GestisciCreazionePrenotazioneAulaController {
 
 
 
-    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws SQLException, ItemNotFoundException {
+    public List<PrenotazioneAulaBean> getBookedClassByteacherNameAndSubject(PrenotazioneAulaBean prenotazioneAulaBean, UserModel usr) throws ItemNotFoundException, SystemException {
         List<PrenotazioneAulaBean> prenotazioneAule = new ArrayList<>();
         PrenotazioneAulaModel pam = new PrenotazioneAulaModel(prenotazioneAulaBean.getNomeDocente(),prenotazioneAulaBean.getMateria());
 
         List<PrenotazioneAulaModel> pams;
 
+        try {
             pams = prenotazioneAulaDAO.getPrenotazioniAuleByProfessorAndSubject(pam, usr);
-            for (PrenotazioneAulaModel prenotazione : pams) {
+        } catch (SystemException e) {
+            throw new SystemException();
+        }
+        for (PrenotazioneAulaModel prenotazione : pams) {
                 PrenotazioneAulaBean pab = new PrenotazioneAulaBean(
                         prenotazione.getIdPrenotazioneAula(),
                         prenotazione.getNomeProfessore(),

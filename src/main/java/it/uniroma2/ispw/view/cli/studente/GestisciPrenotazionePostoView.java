@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.view.cli.TemplateView;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class GestisciPrenotazionePostoView extends TemplateView {
     }
 
     @Override
-    public void control() throws IOException {
+    public void control() throws IOException, SystemException {
         int choice;
         boolean cond= true;
 
@@ -34,7 +35,7 @@ public class GestisciPrenotazionePostoView extends TemplateView {
         System.exit(0);
     }
     //come gestisco il caso in cui non è stato possibile eliminare la prenotazione?
-    private void eliminaPrenotazione() {
+    private void eliminaPrenotazione() throws SystemException {
         PrenotazionePostoBean ppb=new PrenotazionePostoBean();
             try{
                 ppb.setIdPrenotazionePosto(getDesiredIn("id","inserisci l'id della prenotazione: "));
@@ -42,7 +43,7 @@ public class GestisciPrenotazionePostoView extends TemplateView {
             } catch (SQLException | ItemNotFoundException | CampiVuotiExeption e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new SystemException(e.getMessage());
             }
     }
 

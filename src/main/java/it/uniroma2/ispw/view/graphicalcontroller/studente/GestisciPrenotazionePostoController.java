@@ -3,6 +3,7 @@ package it.uniroma2.ispw.view.graphicalcontroller.studente;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ private UserBean userBean;
         ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
     } catch (SQLException e) {
             getAlert().showAndWait();
-    } catch (ItemNotFoundException e) {
+    } catch (ItemNotFoundException | SystemException e) {
         getAlert(e.getMessage());
     }
 
@@ -40,7 +41,7 @@ private UserBean userBean;
         ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraTutteLePrenotazioni.fxml", userBean);
     } catch (SQLException e) {
             getAlert().showAndWait();
-    } catch (ItemNotFoundException e) {
+    } catch (ItemNotFoundException | SystemException e) {
         getAlert(e.getMessage());
     }
 

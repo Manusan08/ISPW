@@ -39,7 +39,7 @@ public class PrenotaPostoView extends TemplateView {
         }
     }
 
-    private void carcaAulaByCognomeProfessoreEMateria() throws SQLException {
+    private void carcaAulaByCognomeProfessoreEMateria() {
 
 
         try {
@@ -56,10 +56,8 @@ public class PrenotaPostoView extends TemplateView {
 
             pabs = intheMiddle.searchBySurnameAndSubject(pab, this.usrBean);
             printTable(pabs);
-        } catch (ItemNotFoundException e) {
+        } catch (ItemNotFoundException | CampiVuotiExeption | IOException | SystemException e) {
             System.out.println(e.getMessage());
-        } catch (CampiVuotiExeption | IOException e) {
-            throw new RuntimeException(e);
         }
 
     }

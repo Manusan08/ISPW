@@ -1,7 +1,10 @@
+package test;
+
 import it.uniroma2.ispw.Conf;
 import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.PostoBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.view.cli.studente.PrenotaPostoView;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TestPrenotazionePosto {
 
     @BeforeAll
-    static void setup() {
+    static void setup() throws SystemException {
         // Se possibile, configura il layer di persistenza senza riflessione
         Conf.getConf().readConf(); // Assicurati che questo metodo sia accessibile
     }

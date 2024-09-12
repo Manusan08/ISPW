@@ -63,8 +63,6 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
                 getAlert();
             } catch (ItemNotFoundException e) {
                 showAlert("Attenzione!","nessuna aula trovata");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
             }
         } else {
             showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");
@@ -72,7 +70,7 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
     }
 
     @Override
-    public void inizializza(UserBean cred) {
+    public void inizializza(UserBean cred) throws SystemException {
         this.userBean = cred;
 
         aulaBeans = docenteFacade.getAllAule();
@@ -101,8 +99,9 @@ public class MostraTutteLeAuleController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SystemException | ItemNotFoundException | SQLException e) {
             getAlert().showAndWait();
         }
+
     }
 }

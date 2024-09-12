@@ -26,11 +26,8 @@ public abstract class AlertUtil {
         return alert;
     }
 
-    protected Alert getAlert(Boolean mod){
 
-        //To be implemented
-        return null;
-    }
+
 
     protected Alert showSuccess(String title,String msg)
     {

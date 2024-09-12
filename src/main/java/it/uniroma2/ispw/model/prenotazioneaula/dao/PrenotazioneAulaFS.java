@@ -22,7 +22,7 @@ public class PrenotazioneAulaFS implements PrenotazioneAulaDAO {
 
 
     @Override
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) {
         return List.of();
     }
 

@@ -23,16 +23,24 @@ public class CercaAulaView extends TemplateView {
     @Override
     public void control() throws SystemException, IOException, LoginException, ItemNotFoundException {
         int choice;
-        while (true) {
+        boolean running = true;  // Variabile per controllare l'esecuzione del loop
+
+        while (running) {
             choice = this.userChoice();
+
             switch (choice) {
                 case 1 -> cercaAulaPerFiltriView.control();
                 case 2 -> cercaTutteLeAuleView.control();
                 case 3 -> cercaAulePerIdView.control();
-                case 4 -> System.exit(0);
+                case 4 -> {
+                    System.out.println("Uscita dal programma...");
+                    running = false;  // Termina il loop impostando running a false
+                }
                 default -> System.out.println("Opzione non valida");
             }
         }
+
+        // Eventuali operazioni post-loop (se necessarie) possono essere aggiunte qui
     }
 
     @Override

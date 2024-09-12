@@ -1,3 +1,5 @@
+package test;
+
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -11,18 +13,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*
-    Il test utilizza il ManIntheMiddleFaçade per trovare un'Aula tramite il numero di posti e altri filtri;
-    Fallisce se l'aula trovata non ha come caratteristiche:
-    Numero posti => 150
-    proiettore = true
-    banchi disegno = false
-    computer = false
-*/
+
 class TestAula {
 
     @Test
-    void testAulaPerFiltri() throws SystemException, ItemNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException {
+    void testAulaPerFiltri() throws ItemNotFoundException, InvocationTargetException, NoSuchMethodException, IllegalAccessException, SystemException {
         // Crea un'istanza della facade
         startTheAppForPersistenceLayer();
         DocenteFacade docenteFacade = new DocenteFacade();

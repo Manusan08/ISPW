@@ -4,6 +4,7 @@ import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public interface PrenotazioneAulaDAO {
 
 
     boolean salvataggioPrenotazione(PrenotazioneAulaModel prenotazioneAulaModel);
-    List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException, ItemNotFoundException;
+    List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws ItemNotFoundException, SystemException;
 
     int getCapienzaAula(PrenotazioneAulaModel pab) throws SQLException;
 

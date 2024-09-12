@@ -154,6 +154,8 @@ public class SelezionePostiController extends ControllerGrafico {
                 getAlert();
             } catch (ItemNotFoundException e) {
                getAlert(e.getMessage());
+            } catch (SystemException e) {
+                getAlert().showAndWait();
             }
         });
         return alert;
@@ -162,7 +164,7 @@ public class SelezionePostiController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", this.usr);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
 

@@ -6,6 +6,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.event.ActionEvent;
@@ -125,7 +126,7 @@ public class InserisciFiltriController extends ControllerGrafico {
                 ChangePage.getChangePage().cambiaPagina("/view/HomeDocente.fxml", userBean);
             } catch (SQLException e) {
                 getAlert().showAndWait();
-            } catch (ItemNotFoundException e) {
+            } catch (ItemNotFoundException | SystemException e) {
                 showAlert("Errore", e.getMessage());
             }
         });
@@ -152,7 +153,7 @@ public class InserisciFiltriController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
 

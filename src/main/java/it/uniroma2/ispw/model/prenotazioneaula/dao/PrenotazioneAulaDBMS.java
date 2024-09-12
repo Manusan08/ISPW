@@ -14,7 +14,7 @@ import java.util.List;
 
 public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
 
-    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws SQLException, ItemNotFoundException {
+    public List<PrenotazioneAulaModel> getPrenotazioniAuleByProfessorAndSubject(PrenotazioneAulaModel pam, UserModel usr) throws ItemNotFoundException, SystemException {
         List<PrenotazioneAulaModel> prenotazioniAuleModel = new ArrayList<>();
 
         ResultSet rs = null;
@@ -50,7 +50,7 @@ public class PrenotazioneAulaDBMS implements PrenotazioneAulaDAO {
                 }
             }
         } catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+            throw new SystemException();
         }
         return prenotazioniAuleModel;
     }

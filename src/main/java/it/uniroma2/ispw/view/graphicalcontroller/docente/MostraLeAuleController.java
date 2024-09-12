@@ -57,8 +57,6 @@ public class MostraLeAuleController extends ControllerGrafico {
                 getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
                 getAlert(e.getMessage());
-            } catch (Exception e) {
-                throw new RuntimeException(e);
             }
         } else {
             showAlert("Errore","Per favore, seleziona un'aula prima di procedere.");
@@ -102,7 +100,7 @@ public class MostraLeAuleController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaFiltri.fxml", this.userBean);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
 

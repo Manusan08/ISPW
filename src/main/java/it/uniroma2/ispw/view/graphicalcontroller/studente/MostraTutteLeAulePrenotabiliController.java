@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.utils.facade.StudenteFacade;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.collections.FXCollections;
@@ -53,7 +54,7 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
         if (selected != null) {
             try {
                 ChangePage.getChangePage().cambiaPagina("/view/Studente/SelezionePosti.fxml", userBean, selected);
-            } catch (SQLException e) {
+            } catch (SQLException | SystemException e) {
                 getAlert().showAndWait();
             } catch (ItemNotFoundException e) {
                 getAlert(e.getMessage()).showAndWait();
@@ -78,14 +79,14 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
         this.pab = pab;
         try {
             tableInitializator(userBean);
-        } catch (SQLException e) {
+        } catch ( SystemException e) {
             getAlert("Ops, qualcosa è andato storto");
         } catch (ItemNotFoundException e) {
             getAlert(e.getMessage()).showAndWait();
         }
     }
 
-    public void tableInitializator(UserBean userBean) throws SQLException, ItemNotFoundException {
+    public void tableInitializator(UserBean userBean) throws  ItemNotFoundException, SystemException {
         final ObservableList<PrenotazioneAulaBean> data =
                 FXCollections.observableArrayList(
                         new StudenteFacade().searchBySurnameAndSubject(pab, userBean));
@@ -108,7 +109,7 @@ public class MostraTutteLeAulePrenotabiliController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
         try {
             ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", this.userBean);
-        } catch (SQLException | ItemNotFoundException e) {
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
     }

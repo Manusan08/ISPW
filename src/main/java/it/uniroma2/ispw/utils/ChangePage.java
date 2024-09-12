@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,21 +30,21 @@ public class ChangePage {
     }
 
     private Stage stage;
-    public void cambiaPagina(String fxml, UserBean cred) throws SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred) throws SQLException, ItemNotFoundException, SystemException {
         cambiaPagina(fxml, cred, null,null,null);  // Passa `null` per i parametri aggiuntivi
     }
-    public void cambiaPagina(String fxml, UserBean cred,AulaBean aulaBean) throws Exception {
+    public void cambiaPagina(String fxml, UserBean cred,AulaBean aulaBean) throws SystemException, SQLException, ItemNotFoundException {
         cambiaPagina(fxml, cred, aulaBean,null,null);  // Passa `null` per i parametri aggiuntivi
     }
-    public void cambiaPagina(String fxml, UserBean cred, List<AulaBean> aulaBeans) throws SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred, List<AulaBean> aulaBeans) throws SQLException, ItemNotFoundException, SystemException {
         cambiaPagina(fxml, cred, null,aulaBeans,null);  // Passa `null` per i parametri aggiuntivi
     }
 
-    public void cambiaPagina(String fxml, UserBean cred,PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred,PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException, SystemException {
         cambiaPagina(fxml, cred, null,null,pab);  // Passa `null` per i parametri aggiuntivi
     }
 
-    public void cambiaPagina(String fxml, UserBean cred, AulaBean aulaBean, List<AulaBean> aulaBeans,PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException {
+    public void cambiaPagina(String fxml, UserBean cred, AulaBean aulaBean, List<AulaBean> aulaBeans,PrenotazioneAulaBean pab) throws SQLException, ItemNotFoundException, SystemException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxml));
         Scene scene = null;
 

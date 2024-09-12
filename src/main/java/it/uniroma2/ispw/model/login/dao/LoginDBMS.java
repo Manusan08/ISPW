@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class LoginDBMS implements LoginDAO {
 
-    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException{
+    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException, SystemException {
         LoginModel loginModel = null;
         ResultSet resultSet = null;
         try (Connection conn = ConnectionDB.getConnection()) {
@@ -28,7 +28,7 @@ public class LoginDBMS implements LoginDAO {
                 loginModel = setUtenteFromResultSet(resultSet);
             }
         } catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+            throw new SystemException();
         }
         return loginModel;
     }

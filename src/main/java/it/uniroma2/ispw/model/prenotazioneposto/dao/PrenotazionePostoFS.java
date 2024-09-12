@@ -20,7 +20,7 @@ public class PrenotazionePostoFS implements PrenotazionePostoDAO {
 
     @Override
     public void rimuoviPrenotazionePosto(PrenotazionePostoModel ppm) {
-        // TODO document why this method is empty
+        // da implementare
     }
 
     @Override

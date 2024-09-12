@@ -22,13 +22,14 @@ public class AulaDBMS implements AulaDAO {
     private static final String BANCHI = "banchiDisegno";
     private static final String MSG = "Nessun corso con nome: ";
 
-    public AulaModel getAulaById(String nome) throws ItemNotFoundException {
+    public AulaModel getAulaById(String nome) throws ItemNotFoundException, SystemException {
 
         ResultSet resultSet = null;
         AulaModel aulaModel = new AulaModel();
 
         try (Connection conn = ConnectionDB.getConnection()){
-            String sql = "select * from Aule where idAula=?";
+            String sql = "SELECT idAula, posti, lim, banchiDisegno, computer FROM Aule WHERE idAula = ?";
+
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
 
@@ -43,60 +44,66 @@ public class AulaDBMS implements AulaDAO {
             aulaModel.setComputer(resultSet.getInt(COMPUTER) == 1);
             aulaModel.setBanchiDisegno(resultSet.getInt(BANCHI) == 1);
 
-        } }catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+        } }catch (SQLException e) {
+            throw new SystemException(e.getMessage());
         }
 
         return aulaModel;
     }
-    public List<AulaModel> getAllAule() {
+    public List<AulaModel> getAllAule() throws SystemException {
 
         ResultSet resultSet = null;
         List<AulaModel> corsoList = new ArrayList<>();
         boolean is;
         try(Connection conn = ConnectionDB.getConnection()) {
-            String sql = "select * from Aule";
+            String sql = "select  idAula, posti, lim, banchiDisegno, computer from Aule";
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
 
-            resultSet = statement.executeQuery();
+                resultSet = statement.executeQuery();
 
-            if (!resultSet.next()) return corsoList;
+                if (!resultSet.next()) return corsoList;
 
-            do {
-                AulaModel aulaModel = new AulaModel();
-                aulaModel.setIdAula(resultSet.getString(IDAULA));
-                aulaModel.setNumeroPosti(resultSet.getInt(POSTI));
-                if (resultSet.getInt("lim")==1){
-                    is= true;
-                }else {is=false;}
-                aulaModel.setProiettore(is);
-                if (resultSet.getInt(COMPUTER)==1){
-                    is= true;
-                }else {is=false;}
-                aulaModel.setComputer(is);
-                if (resultSet.getInt(BANCHI)==1){
-                    is= true;
-                }else {is=false;}
-                aulaModel.setBanchiDisegno(is);
-                corsoList.add(aulaModel);
-            } while (resultSet.next());
-
-        }} catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+                do {
+                    AulaModel aulaModel = new AulaModel();
+                    aulaModel.setIdAula(resultSet.getString(IDAULA));
+                    aulaModel.setNumeroPosti(resultSet.getInt(POSTI));
+                    if (resultSet.getInt("lim") == 1) {
+                        is = true;
+                    } else {
+                        is = false;
+                    }
+                    aulaModel.setProiettore(is);
+                    if (resultSet.getInt(COMPUTER) == 1) {
+                        is = true;
+                    } else {
+                        is = false;
+                    }
+                    aulaModel.setComputer(is);
+                    if (resultSet.getInt(BANCHI) == 1) {
+                        is = true;
+                    } else {
+                        is = false;
+                    }
+                    aulaModel.setBanchiDisegno(is);
+                    corsoList.add(aulaModel);
+                } while (resultSet.next());
+                }
+            } catch ( SQLException e) {
+            throw new SystemException();
         }
         return corsoList;
     }
 
     @Override
-    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) throws ItemNotFoundException {
+    public List<AulaModel> getAulaByFiltri(AulaModel aulaM) throws ItemNotFoundException, SystemException {
 
         ResultSet resultSet = null;
         List<AulaModel> corsoList = new ArrayList<>();
 
 
         try (Connection conn = ConnectionDB.getConnection()) {
-            String sql = "select * from aule where posti>=? and lim=? and computer=? and banchiDisegno=? ";
+            String sql = "select  idAula, posti, lim, banchiDisegno, computer from aule where posti>=? and lim=? and computer=? and banchiDisegno=? ";
 
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
@@ -124,20 +131,20 @@ public class AulaDBMS implements AulaDAO {
                 corsoList.add(c);
             } while (resultSet.next());
 
-        }} catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+        }} catch (SQLException e) {
+            throw new SystemException(e.getMessage());
         }
         return corsoList;
     }
 
 
 
-    public AulaModel getAulaByCognome(String nome) throws ItemNotFoundException {
+    public AulaModel getAulaByCognome(String nome) throws ItemNotFoundException, SystemException {
 
         ResultSet resultSet = null;
         AulaModel aulaModel = new AulaModel();
         try (Connection conn = ConnectionDB.getConnection()) {
-            String sql = "select * from Aule where nomeDocente=?";
+            String sql = "select  idAula, posti, lim, banchiDisegno, computer from Aule where nomeDocente=?";
 
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
 
@@ -151,19 +158,19 @@ public class AulaDBMS implements AulaDAO {
 
 
         }} catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+            throw new SystemException();
         }
 
         return aulaModel;
     }
 
 
-    public AulaModel getAulaByMateria(String nome) throws ItemNotFoundException {
+    public AulaModel getAulaByMateria(String nome) throws ItemNotFoundException, SystemException {
 
         ResultSet resultSet = null;
         AulaModel aulaModel = new AulaModel();
         try (Connection conn = ConnectionDB.getConnection()) {
-            String sql = "select * from Aule where materia=?";
+            String sql = "select  idAula, posti, lim, banchiDisegno, computer from Aule where materia=?";
 
             try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, nome);
@@ -176,7 +183,7 @@ public class AulaDBMS implements AulaDAO {
 
 
         } }catch (SystemException | SQLException e) {
-            throw new RuntimeException(e);
+            throw new SystemException();
         }
 
         return aulaModel;

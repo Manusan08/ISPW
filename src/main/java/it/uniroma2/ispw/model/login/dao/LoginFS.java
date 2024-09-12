@@ -7,6 +7,7 @@ import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +16,20 @@ import java.io.IOException;
 
 
 public class LoginFS implements LoginDAO {
-    private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "login.csv";
+    private static final String CSV_FILE_NAME;
+
+    static {
+        try {
+            CSV_FILE_NAME = CSVManager.getCsvDir() + "login.csv";
+        } catch (SystemException e) {
+            try {
+                throw new SystemException(e.getMessage());
+            } catch (SystemException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+
     private final File file;
     private static final int INDEX_RUOLO = 0;
     private static final int INDEX_EMAIL = 1;
@@ -34,18 +48,17 @@ public class LoginFS implements LoginDAO {
 
 
     @Override
-    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException {
+    public LoginModel auth(LoginModel loginM) throws ItemNotFoundException, SystemException {
         LoginModel u = null;
-        CSVReader csvReader = null;
-        try {
-            csvReader = new CSVReader(new BufferedReader(new FileReader(this.file)));
+
+        // Utilizzo del try-with-resources per gestire CSVReader
+        try (CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(this.file)))) {
             String[] rcrd;
             int emIndex = INDEX_EMAIL;
             int pwdIndex = INDEX_PWD;
 
-
             while ((rcrd = csvReader.readNext()) != null) {
-                //check if the user exists
+                // Verifica se l'utente esiste
                 if (rcrd[emIndex].equals(loginM.getEmail()) &&
                         rcrd[pwdIndex].equals(loginM.getPassword())) {
                     u = setUtenteFromRecord(rcrd);
@@ -54,12 +67,10 @@ public class LoginFS implements LoginDAO {
             }
 
         } catch (CsvValidationException | IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            CSVManager.closeCsvReader(csvReader);
+            throw new SystemException(e.getMessage());
         }
 
-        if(u == null) throw new ItemNotFoundException("Credenziali errate");
+        if (u == null) throw new ItemNotFoundException("Credenziali errate");
 
         return u;
     }

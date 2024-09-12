@@ -6,6 +6,7 @@ import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.model.login.dao.LoginDAO;
 import it.uniroma2.ispw.model.login.dao.LoginDAOFactory;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.utils.exception.SystemException;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class LoginController {
         LoginDAOFactory daoFactory = new LoginDAOFactory();
         loginDAO = daoFactory.getDao();
     }
-    public UserBean login(LoginBean loginBean) throws ItemNotFoundException {
+    public UserBean login(LoginBean loginBean) throws ItemNotFoundException, SystemException {
         LoginModel loginM = new LoginModel(loginBean.getEmail(),loginBean.getPassword(),loginBean.getRole());
         LoginModel lm = loginDAO.auth(loginM);
 

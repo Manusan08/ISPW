@@ -1,3 +1,5 @@
+package test;
+
 import it.uniroma2.ispw.view.cli.TemplateView;
 import org.junit.jupiter.api.Test;
 

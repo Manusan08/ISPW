@@ -3,15 +3,15 @@ package it.uniroma2.ispw.model.login.dao;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import it.uniroma2.ispw.bean.LoginBean;
-import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Role;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.utils.CSVManager;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class LoginFS implements LoginDAO {

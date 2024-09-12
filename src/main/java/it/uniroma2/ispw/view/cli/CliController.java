@@ -1,17 +1,13 @@
 package it.uniroma2.ispw.view.cli;
 
 
-import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
-import it.uniroma2.ispw.view.cli.docente.DocenteView;
-import it.uniroma2.ispw.view.cli.studente.StudenteView;
-
-
 import it.uniroma2.ispw.bean.UserBean;
-
-
 import it.uniroma2.ispw.enums.Role;
+import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.view.cli.docente.DocenteView;
+import it.uniroma2.ispw.view.cli.studente.StudenteView;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;

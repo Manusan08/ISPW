@@ -2,12 +2,11 @@ package it.uniroma2.ispw.view.cli.docente.cercaaule;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-
-import it.uniroma2.ispw.view.cli.TemplateView;
-import it.uniroma2.ispw.view.cli.docente.prenotaaula.PrenotazioneAulaView;
-import it.uniroma2.ispw.utils.facade.DocenteFacade;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.utils.facade.DocenteFacade;
+import it.uniroma2.ispw.view.cli.TemplateView;
+import it.uniroma2.ispw.view.cli.docente.prenotaaula.PrenotazioneAulaView;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;

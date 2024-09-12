@@ -205,8 +205,6 @@ G.idea/sonarlint/issuestore/2/1/21c2126493050f93022491732249935cadc9e165,7\c\7c
 Q.idea/sonarlint/securityhotspotstore/e/7/e722e7302d8c423533961754e1ffa46b67578cc8,4\5\459331196730781eb10c2311e2e58f7a69ee1d19
 w
 G.idea/sonarlint/issuestore/2/8/28f941d937a3f5a9605eb6cdbd3d2da0cea76ab5,1\d\1d6e180ee8519798509a64a23895f6432d6c3473
-â
-Ysrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenceFactory.java,8\f\8f1e7083dfc65c4f0c6cd75e0ddd88a515690da5
 w
 G.idea/sonarlint/issuestore/2/2/22ce563237f751722629bb62101c53ef8b79eeaf,3\2\321fc8445c45bac3c0c450968658b91d110baf3b
 w
@@ -2004,3 +2002,11 @@ d
 4src/main/java/it/uniroma2/ispw/utils/CSVManager.java,d\4\d447c28457b0acd57052c283da800409ac595d8e
 k
 ;src/main/java/it/uniroma2/ispw/model/posto/dao/PostoFS.java,9\3\9343a8c2c5b584bc772cfbcd53c6ba2e5cd21cc6
+é
+^src/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaVerificatoreFactoryImpl.java,0\e\0e5e8cb793a19f8e240ddf71516b78e9cadc33fe
+â
+Ysrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenzaFactory.java,7\a\7a8751309058d666baa6c1f7c32c9a105aa9dca4
+Ç
+Rsrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaFactoryImpl.java,7\7\771a654484d57e990a57a8e52d0966bb8eace4d8
+ç
+]src/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenceFactoryImpl.java,9\f\9f208e8c717d139888be6d7aec0298827400bfcf

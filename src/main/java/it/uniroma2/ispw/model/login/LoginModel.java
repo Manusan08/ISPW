@@ -1,6 +1,7 @@
 package it.uniroma2.ispw.model.login;
-import it.uniroma2.ispw.enums.Role;
+
 import it.uniroma2.ispw.bean.LoginBean;
+import it.uniroma2.ispw.enums.Role;
 
 
 public class LoginModel {

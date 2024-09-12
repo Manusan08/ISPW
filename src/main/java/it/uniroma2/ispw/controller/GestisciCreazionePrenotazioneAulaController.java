@@ -2,20 +2,14 @@ package it.uniroma2.ispw.controller;
 
 
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
-
 import it.uniroma2.ispw.controller.factory.*;
-
 import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaPersistenza;
 import it.uniroma2.ispw.controller.factory.strategy.PrenotazioneAulaVerificatore;
 import it.uniroma2.ispw.model.UserModel;
-
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
-
-
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,8 +19,8 @@ public class GestisciCreazionePrenotazioneAulaController {
 
 
     private final PrenotazioneAulaDAO prenotazioneAulaDAO;
-    private final PrenotazioneAulaVerificatoreFactoryImpl prenotazioneAulaVerificatoreFactory;
-    private final PrenotazioneAulaPersistenceFactoryImpl prenotazioneAulaPersistenceFactory;
+    private final PrenotazioneAulaVerificatoreFactory prenotazioneAulaVerificatoreFactory;
+    private final PrenotazioneAulaPersistenzaFactory prenotazioneAulaPersistenceFactory;
 
 
     public GestisciCreazionePrenotazioneAulaController() {

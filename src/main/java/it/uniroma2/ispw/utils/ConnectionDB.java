@@ -2,7 +2,6 @@ package it.uniroma2.ispw.utils;
 
 import it.uniroma2.ispw.utils.exception.SystemException;
 
-import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;

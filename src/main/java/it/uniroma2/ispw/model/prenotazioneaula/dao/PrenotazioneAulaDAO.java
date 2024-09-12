@@ -6,7 +6,6 @@ import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.sql.Date;
-
 import java.sql.SQLException;
 import java.util.List;
 

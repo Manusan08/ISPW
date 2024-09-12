@@ -2,16 +2,14 @@ package it.uniroma2.ispw.view.graphicalcontroller.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-
+import it.uniroma2.ispw.utils.ChangePage;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
-
 import it.uniroma2.ispw.utils.facade.DocenteFacade;
+import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import it.uniroma2.ispw.utils.ChangePage;
 
 import java.sql.SQLException;
 

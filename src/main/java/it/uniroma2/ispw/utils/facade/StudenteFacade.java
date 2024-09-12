@@ -9,10 +9,10 @@ import it.uniroma2.ispw.controller.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.controller.observer.observers.Observer;
 import it.uniroma2.ispw.controller.observer.observers.PostoObserver;
 import it.uniroma2.ispw.controller.observer.subject.PrenotazionePostoSubject;
-import it.uniroma2.ispw.view.cli.studente.PrenotazionePostoContext;
 import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.view.cli.studente.PrenotazionePostoContext;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -11,13 +11,11 @@ import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDAOFactory;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
-
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAO;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAOFactory;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
-
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.sql.SQLException;

@@ -1,14 +1,18 @@
 package it.uniroma2.ispw.view.cli.studente;
 
+import it.uniroma2.ispw.bean.PostoBean;
+import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
+import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
-import it.uniroma2.ispw.utils.facade.StudenteFacade;
-import it.uniroma2.ispw.bean.*;
-import it.uniroma2.ispw.view.cli.TemplateView;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.utils.facade.StudenteFacade;
+import it.uniroma2.ispw.view.cli.TemplateView;
 
 import javax.security.auth.login.LoginException;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

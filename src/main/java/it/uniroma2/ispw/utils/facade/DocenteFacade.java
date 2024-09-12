@@ -4,7 +4,6 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.controller.GestisciAuleController;
 import it.uniroma2.ispw.controller.GestisciCreazionePrenotazioneAulaController;
-
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 
 import java.util.List;

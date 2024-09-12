@@ -693,8 +693,6 @@ Nsrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaFactory.java
 Qsrc/main/java/it/uniroma2/ispw/model/prenotazioneaula/dao/PrenotazioneAulaFS.java,1\3\13ecb6b764f30559ac87cb6afb293bc00af08c5e
 Ä
 Psrc/main/java/it/uniroma2/ispw/model/prenotazioneaula/PrenotazioneAulaModel.java,c\8\c8ddb3277ded0cfeb4553c7493126dbbe0d97af4
-â
-Ysrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenceFactory.java,8\f\8f1e7083dfc65c4f0c6cd75e0ddd88a515690da5
 ã
 [src/main/java/it/uniroma2/ispw/controller/factory/strategy/PrenotazioneAulaPersistenza.java,6\2\62e71c6260d60af22bce293ba3304b7d0b96dc3e
 ï
@@ -2004,3 +2002,11 @@ d
 4src/main/java/it/uniroma2/ispw/utils/CSVManager.java,d\4\d447c28457b0acd57052c283da800409ac595d8e
 k
 ;src/main/java/it/uniroma2/ispw/model/posto/dao/PostoFS.java,9\3\9343a8c2c5b584bc772cfbcd53c6ba2e5cd21cc6
+é
+^src/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaVerificatoreFactoryImpl.java,0\e\0e5e8cb793a19f8e240ddf71516b78e9cadc33fe
+â
+Ysrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenzaFactory.java,7\a\7a8751309058d666baa6c1f7c32c9a105aa9dca4
+Ç
+Rsrc/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaFactoryImpl.java,7\7\771a654484d57e990a57a8e52d0966bb8eace4d8
+ç
+]src/main/java/it/uniroma2/ispw/controller/factory/PrenotazioneAulaPersistenceFactoryImpl.java,9\f\9f208e8c717d139888be6d7aec0298827400bfcf

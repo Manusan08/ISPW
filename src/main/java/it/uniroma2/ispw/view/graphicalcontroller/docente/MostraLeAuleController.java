@@ -2,11 +2,10 @@ package it.uniroma2.ispw.view.graphicalcontroller.docente;
 
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import it.uniroma2.ispw.utils.ChangePage;
-
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 
 import java.sql.SQLException;
 import java.util.List;

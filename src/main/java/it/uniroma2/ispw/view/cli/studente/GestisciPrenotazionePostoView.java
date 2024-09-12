@@ -4,8 +4,8 @@ import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.controller.GestisciPrenotazionePostoController;
 import it.uniroma2.ispw.utils.exception.CampiVuotiExeption;
-import it.uniroma2.ispw.view.cli.TemplateView;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+import it.uniroma2.ispw.view.cli.TemplateView;
 
 import java.io.IOException;
 import java.sql.SQLException;

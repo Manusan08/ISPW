@@ -3,9 +3,8 @@ package it.uniroma2.ispw.model.aula.dao;
 
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
+
 import java.util.Collections;
-
-
 import java.util.List;
 
 public class AulaFS implements AulaDAO {

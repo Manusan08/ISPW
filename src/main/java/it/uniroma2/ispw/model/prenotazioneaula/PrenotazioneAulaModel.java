@@ -2,7 +2,6 @@ package it.uniroma2.ispw.model.prenotazioneaula;
 
 import it.uniroma2.ispw.enums.Orario;
 
-
 import java.time.LocalDate;
 
 

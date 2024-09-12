@@ -1,18 +1,12 @@
 package it.uniroma2.ispw.view.cli.docente.prenotaaula;
 
-import it.uniroma2.ispw.utils.facade.DocenteFacade;
-
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-
 import it.uniroma2.ispw.enums.Orario;
-
-
-
+import it.uniroma2.ispw.utils.facade.DocenteFacade;
 
 import java.time.LocalDate;
-
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;

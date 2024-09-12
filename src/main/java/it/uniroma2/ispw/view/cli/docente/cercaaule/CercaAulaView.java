@@ -1,10 +1,9 @@
 package it.uniroma2.ispw.view.cli.docente.cercaaule;
 
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.view.cli.TemplateView;
-
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
+import it.uniroma2.ispw.view.cli.TemplateView;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;

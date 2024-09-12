@@ -1,12 +1,11 @@
 package it.uniroma2.ispw.utils;
 
+import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.bean.PrenotazioneAulaBean;
 import it.uniroma2.ispw.bean.UserBean;
-import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
-import it.uniroma2.ispw.Main;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
-
+import it.uniroma2.ispw.view.graphicalcontroller.ControllerGrafico;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

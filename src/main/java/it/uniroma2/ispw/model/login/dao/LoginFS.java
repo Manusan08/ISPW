@@ -16,19 +16,8 @@ import java.io.IOException;
 
 
 public class LoginFS implements LoginDAO {
-    private static final String CSV_FILE_NAME;
+    private static final String CSV_FILE_NAME = CSVManager.getCsvDir() + "login.csv";
 
-    static {
-        try {
-            CSV_FILE_NAME = CSVManager.getCsvDir() + "login.csv";
-        } catch (SystemException e) {
-            try {
-                throw new SystemException(e.getMessage());
-            } catch (SystemException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-    }
 
     private final File file;
     private static final int INDEX_RUOLO = 0;

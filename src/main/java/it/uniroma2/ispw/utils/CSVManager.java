@@ -15,7 +15,7 @@ public class CSVManager {
     private CSVManager() {
     }
 
-    public static String getCsvDir() throws SystemException {
+    public static String getCsvDir()  {
         try (InputStream input = ConnectionDB.class.getClassLoader().getResourceAsStream("config.properties")) {
             if(input == null) throw new ItemNotFoundException("Directory base non trovata");
 
@@ -24,7 +24,9 @@ public class CSVManager {
             return properties.getProperty("csv.dir");
 
         } catch (IOException | ItemNotFoundException e) {
-            throw new SystemException(e.getMessage());
+            System.out.println(e.getMessage());
+            return null;
+
         }
     }
 

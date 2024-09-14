@@ -38,7 +38,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/LoginProva.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 853, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         ChangePage istanza = ChangePage.getChangePage();
         istanza.setStage(stage);
         stage.setTitle("Login");

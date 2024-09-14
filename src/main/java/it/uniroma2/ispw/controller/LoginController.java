@@ -5,6 +5,7 @@ import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.model.login.LoginModel;
 import it.uniroma2.ispw.model.login.dao.LoginDAO;
 import it.uniroma2.ispw.model.login.dao.LoginDAOFactory;
+import it.uniroma2.ispw.model.login.dao.LoginDAOFactoryImpl;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -17,7 +18,7 @@ public class LoginController {
     private final LoginDAO loginDAO;
 
     public LoginController() throws IOException {
-        LoginDAOFactory daoFactory = new LoginDAOFactory();
+        LoginDAOFactory daoFactory = new LoginDAOFactoryImpl();
         loginDAO = daoFactory.getDao();
     }
     public UserBean login(LoginBean loginBean) throws ItemNotFoundException, SystemException {

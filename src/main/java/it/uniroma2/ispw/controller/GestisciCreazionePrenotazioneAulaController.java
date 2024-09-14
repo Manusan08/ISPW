@@ -9,6 +9,7 @@ import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactoryImpl;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -25,7 +26,7 @@ public class GestisciCreazionePrenotazioneAulaController {
 
 
     public GestisciCreazionePrenotazioneAulaController() {
-        PrenotazioneAulaDAOFactory daoFactory = new PrenotazioneAulaDAOFactory();
+        PrenotazioneAulaDAOFactory daoFactory = new PrenotazioneAulaDAOFactoryImpl();
         prenotazioneAulaDAO = daoFactory.getDao();
         prenotazioneAulaVerificatoreFactory = new PrenotazioneAulaVerificatoreFactoryImpl();
         prenotazioneAulaPersistenceFactory = new PrenotazioneAulaPersistenceFactoryImpl();

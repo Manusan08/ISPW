@@ -4,6 +4,7 @@ import it.uniroma2.ispw.bean.AulaBean;
 import it.uniroma2.ispw.model.aula.AulaModel;
 import it.uniroma2.ispw.model.aula.dao.AulaDAO;
 import it.uniroma2.ispw.model.aula.dao.AulaDAOFactory;
+import it.uniroma2.ispw.model.aula.dao.AulaDAOFactoryImpl;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 
@@ -14,7 +15,7 @@ public class GestisciAuleController {
     private final AulaDAO aulaDAO;
 
     public GestisciAuleController() {
-        AulaDAOFactory daoFactory = new AulaDAOFactory();
+        AulaDAOFactory daoFactory = new AulaDAOFactoryImpl();
         aulaDAO = daoFactory.getDao();
     }
 

@@ -10,10 +10,12 @@ import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.posto.PostoModel;
 import it.uniroma2.ispw.model.posto.dao.PostoDAO;
 import it.uniroma2.ispw.model.posto.dao.PostoDAOFactory;
+import it.uniroma2.ispw.model.posto.dao.PostoDAOFactoryImpl;
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAO;
 import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAOFactory;
+import it.uniroma2.ispw.model.prenotazioneposto.dao.PrenotazionePostoDAOFactoryImpl;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
 import it.uniroma2.ispw.utils.exception.SystemException;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -28,9 +30,9 @@ public class GestisciPrenotazionePostoController {
 
 
     public GestisciPrenotazionePostoController() {
-        PostoDAOFactory daoFactory = new PostoDAOFactory();
+        PostoDAOFactory daoFactory = new PostoDAOFactoryImpl();
         postoDAO = daoFactory.getDao();
-        PrenotazionePostoDAOFactory daosFactory = new PrenotazionePostoDAOFactory();
+        PrenotazionePostoDAOFactory daosFactory = new PrenotazionePostoDAOFactoryImpl();
         prenotazionePostoDao = daosFactory.getDao();
     }
 

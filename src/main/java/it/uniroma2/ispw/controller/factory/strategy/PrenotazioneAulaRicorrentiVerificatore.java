@@ -2,7 +2,7 @@ package it.uniroma2.ispw.controller.factory.strategy;
 
 import it.uniroma2.ispw.model.prenotazioneaula.PrenotazioneAulaModel;
 import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAO;
-import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactory;
+import it.uniroma2.ispw.model.prenotazioneaula.dao.PrenotazioneAulaDAOFactoryImpl;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ public class PrenotazioneAulaRicorrentiVerificatore implements PrenotazioneAulaV
 
     private PrenotazioneAulaDAO dao;
     public PrenotazioneAulaRicorrentiVerificatore() {
-        PrenotazioneAulaDAOFactory factory = new PrenotazioneAulaDAOFactory();
+        PrenotazioneAulaDAOFactoryImpl factory = new PrenotazioneAulaDAOFactoryImpl();
         dao = factory.getDao();
     }
 

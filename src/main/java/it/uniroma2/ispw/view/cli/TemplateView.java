@@ -100,9 +100,9 @@ public abstract class TemplateView {
 
     }
 
-        public <T> void printTable(List<T> list) {
+        public <T> void printTable(List<T> list) throws SystemException {
 
-            Method[] methods = list.get(0).getClass().getDeclaredMethods();
+            Method[] methods = list.getFirst().getClass().getDeclaredMethods();
             List<Method> getters = filterGetters(methods);
 
             List<String> headers = new ArrayList<>();
@@ -119,7 +119,7 @@ public abstract class TemplateView {
                         String valueString = String.valueOf(getter.invoke(item));
                         maxWidth = Math.max(maxWidth, valueString.length());
                     } catch (InvocationTargetException | IllegalAccessException e) {
-                        throw new RuntimeException(e);
+                        throw new SystemException();
                     }
                 }
                 columnWidths.add(maxWidth);

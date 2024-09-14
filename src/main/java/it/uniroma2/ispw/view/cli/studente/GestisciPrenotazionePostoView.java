@@ -50,8 +50,9 @@ public class GestisciPrenotazionePostoView extends TemplateView {
     void visualizzaPrenotazioni(){
         try {
             printTable(new GestisciPrenotazionePostoController().getAllReservation(this.usrBean));
-        } catch (ItemNotFoundException e) {
+        } catch (ItemNotFoundException | SystemException e) {
             System.out.println(e.getMessage());
+
         }
     }
 

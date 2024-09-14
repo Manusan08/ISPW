@@ -2,19 +2,16 @@ package it.uniroma2.ispw.model.prenotazioneposto.dao;
 
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
+import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class PrenotazionePostoFS implements PrenotazionePostoDAO {
-    @Override
-    public List<PrenotazionePostoBean> getAulaByMateria(PrenotazionePostoBean postoBean) {
-        return List.of();
-    }
 
     @Override
-    public List<PrenotazionePostoModel> getAllReservations(UserBean us) {
+    public List<PrenotazionePostoModel> getAllReservations(UserModel us) {
         return List.of();
     }
 

@@ -22,8 +22,6 @@ public class AulaBean {
 
     }
 
-
-
     public AulaBean(){}
     public AulaBean(int posti){
         this.posti=posti;

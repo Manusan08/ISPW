@@ -60,10 +60,12 @@ public class GestisciPrenotazionePostoController {
     }
 
     public List<PrenotazionePostoBean> getAllReservation(UserBean userBean) throws ItemNotFoundException {
+        UserModel usm=new UserModel(userBean.getEmail(),userBean.getRuolo(),userBean.getNome());
         List<PrenotazionePostoModel> postiModel;
         List<PrenotazionePostoBean> prenotazioniPostiBean = new ArrayList<>();
 
-        postiModel = prenotazionePostoDao.getAllReservations(userBean);
+
+        postiModel = prenotazionePostoDao.getAllReservations(usm);
         for (PrenotazionePostoModel ppm : postiModel) {
             PrenotazionePostoBean prenotazioneBean = new PrenotazionePostoBean(
 

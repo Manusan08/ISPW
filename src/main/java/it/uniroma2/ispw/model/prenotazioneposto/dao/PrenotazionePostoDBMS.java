@@ -3,6 +3,7 @@ package it.uniroma2.ispw.model.prenotazioneposto.dao;
 import it.uniroma2.ispw.bean.PrenotazionePostoBean;
 import it.uniroma2.ispw.bean.UserBean;
 import it.uniroma2.ispw.enums.Orario;
+import it.uniroma2.ispw.model.UserModel;
 import it.uniroma2.ispw.model.prenotazioneposto.PrenotazionePostoModel;
 import it.uniroma2.ispw.utils.ConnectionDB;
 import it.uniroma2.ispw.utils.exception.ItemNotFoundException;
@@ -16,13 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
-    @Override
-    public List<PrenotazionePostoBean> getAulaByMateria(PrenotazionePostoBean postoBean) {
-        return List.of();
-    }
     private static final String IDPOSTO = "idPosto";
     @Override
-    public List<PrenotazionePostoModel> getAllReservations(UserBean us) throws ItemNotFoundException {
+    public List<PrenotazionePostoModel> getAllReservations(UserModel us) throws ItemNotFoundException {
         List<PrenotazionePostoModel> prenotazioni = new ArrayList<>();
 
         ResultSet rs;

@@ -1,7 +1,7 @@
 package it.uniroma2.ispw.controller.observer.subject;
 
 public class PrenotazionePostoSubject extends Subject{
-Status status=Status.NON_EFFETTUATA;
+private Status status;
 String idPrenotazioneAula;
 
     public PrenotazionePostoSubject() {

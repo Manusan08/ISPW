@@ -34,7 +34,7 @@ public class PrenotaPostoView extends TemplateView {
                 case 1 -> carcaAulaByCognomeProfessoreEMateria();
                 case 2 -> cercaAulaByIdPrenotazione();
                 case 3 -> cond = false;
-                default -> System.out.println("Choice invalido");
+                default -> System.out.println("scela non valida");
             }
         }
     }
@@ -45,17 +45,21 @@ public class PrenotaPostoView extends TemplateView {
         try {
 
             PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
-
             String cognomeProfessore = getDesiredIn("cognome professore", "inserisci cognome del professore: ");
             String nomeMateria = getDesiredIn("materia", "inserisci nome materia: ");
             pab.setNomeDocente(cognomeProfessore);
             pab.setMateria(nomeMateria);
 
-            List<PrenotazioneAulaBean> pabs = null;
+            List<PrenotazioneAulaBean> pabs;
 
 
             pabs = intheMiddle.searchBySurnameAndSubject(pab, this.usrBean);
-            printTable(pabs);
+            if (pabs == null || pabs.isEmpty()) {
+                System.out.println("Nessuna prenotazione trovata per il professore e la materia inseriti.");
+            } else {
+                printTable(pabs);
+            }
+
         } catch (ItemNotFoundException | CampiVuotiExeption | IOException | SystemException e) {
             System.out.println(e.getMessage());
         }
@@ -64,7 +68,7 @@ public class PrenotaPostoView extends TemplateView {
 
     private void cercaAulaByIdPrenotazione() {
         PrenotazioneAulaBean pab = new PrenotazioneAulaBean();
-        List<PostoBean> postoBeans = new ArrayList<>();
+        List<PostoBean> postoBeans;
 
         try {
             String idPrenotazioneAula = getDesiredIn("inserisci Campi richiesti :", "inserisci l'id della prenotazione aula :");

@@ -1,8 +1,8 @@
 .booked-seats{
     -fx-background-color : red;
-    -fx-background-radius: 20.0;
-    -fx-pref-width: 90px;
-    -fx-pref-height: 20px;
+    -fx-background-radius: 30.0;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
     -fx-text-fill: white;
     -fx-padding:0;
     -fx-opacity: 1.0;
@@ -11,9 +11,9 @@
 }
 .available-seats{
     -fx-background-color : "#27ae60";
-    -fx-background-radius: 20.0;
-    -fx-pref-width: 20px;
-    -fx-pref-height: 20px;
+    -fx-background-radius: 30.0;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
     -fx-text-fill: white;
     -fx-padding:0;
 }
@@ -24,9 +24,9 @@
 }
 .selected-seats{
     -fx-background-color : "blue";
-    -fx-background-radius: 20.0;
-    -fx-pref-width: 20px;
-    -fx-pref-height: 20px;
+    -fx-background-radius: 30.0;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
     -fx-text-fill: white;
     -fx-padding:0;
 }

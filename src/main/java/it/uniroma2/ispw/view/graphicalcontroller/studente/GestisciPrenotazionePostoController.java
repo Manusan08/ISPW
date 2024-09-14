@@ -54,7 +54,10 @@ private UserBean userBean;
     }
 
     public void indietro(ActionEvent event) {
-    //DA FARE
-
+        try {
+            ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", this.userBean);
+        } catch (SQLException | ItemNotFoundException | SystemException e) {
+            getAlert().showAndWait();
+        }
     }
 }

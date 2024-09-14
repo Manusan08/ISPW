@@ -163,7 +163,7 @@ public class SelezionePostiController extends ControllerGrafico {
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", this.usr);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/PrenotaPosto.fxml", this.usr);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

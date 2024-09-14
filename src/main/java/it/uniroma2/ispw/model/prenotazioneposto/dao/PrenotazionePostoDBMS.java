@@ -27,10 +27,10 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
         try (Connection conn = ConnectionDB.getConnection()) {
             String sql = "SELECT ppa.nomeProfessore, " +
                     "       p.idPosto, " +
-                    "       ppa.idAula, " +
+                    "       ppa.Aule_idAula, " +
                     "       ppa.materia, " +
                     "       ppa.dataLezione, " +
-                    "       ppa.idPrenotazione, " +
+                    "       p.idPrenotazione, " +
                     "       ppa.oraLezione, " +
                     "       ppa.idPrenotazioneAula " +
                     "FROM prenotazioneposto p " +
@@ -49,7 +49,7 @@ public class PrenotazionePostoDBMS implements PrenotazionePostoDAO {
 
                 ppm.setNomeDocente(rs.getString("nomeProfessore"));
                 ppm.setIdPosto(rs.getString(IDPOSTO));
-                ppm.setIdAula(rs.getString("idAula"));
+                ppm.setIdAula(rs.getString("Aule_idAula"));
                 ppm.setMateria(rs.getString("materia"));
                 ppm.setGiornoLezione(rs.getDate("dataLezione"));
                 ppm.setIdPrenotazionePosto(rs.getString("idPrenotazione"));

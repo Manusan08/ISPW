@@ -33,7 +33,7 @@ public class MostraAulaPerIDController extends ControllerGrafico {
             String idAula = idAulaField.getText();
             AulaBean aulaBean = docenteFacade.getAulaById(idAula);
             if (aulaBean != null) {
-                ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, aulaBean);
+                ChangePage.getChangePage().cambiaPagina("/view/docente/FiltriInseriti.fxml", userBean, aulaBean);
             } else {
                 showAlert("Aula non trovata", "L'ID dell'aula inserito non è valido.");
             }
@@ -51,7 +51,7 @@ public class MostraAulaPerIDController extends ControllerGrafico {
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/docente/CercaAula.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

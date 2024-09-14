@@ -51,7 +51,7 @@ public class MostraLeAuleController extends ControllerGrafico {
         if (selectedAula != null) {
             try {
                 // Passa l'aula selezionata alla prossima pagina
-                ChangePage.getChangePage().cambiaPagina("/view/Docente/FiltriInseriti.fxml", userBean, selectedAula);
+                ChangePage.getChangePage().cambiaPagina("/view/docente/FiltriInseriti.fxml", userBean, selectedAula);
             } catch (SystemException | SQLException e) {
 
                 getAlert().showAndWait();
@@ -99,7 +99,7 @@ public class MostraLeAuleController extends ControllerGrafico {
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaFiltri.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/docente/CercaFiltri.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

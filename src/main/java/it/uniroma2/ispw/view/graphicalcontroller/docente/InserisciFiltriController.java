@@ -152,7 +152,7 @@ public class InserisciFiltriController extends ControllerGrafico {
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/docente/CercaAula.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

@@ -27,7 +27,7 @@ public class HomeStudenteController extends ControllerGrafico {
     void gestisciPrenotazioneAction(ActionEvent event) {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/GestionePosto.fxml", userBean);
         } catch (SQLException | SystemException e) {
             getAlert().showAndWait();
         } catch (ItemNotFoundException e) {
@@ -40,7 +40,7 @@ public class HomeStudenteController extends ControllerGrafico {
     void prenotaPostoAction(ActionEvent event) {
         try {
             // Ottieni l'istanza di ChangePage e cambia la pagina
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/PrenotaPosto.fxml", userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }
@@ -51,7 +51,7 @@ public class HomeStudenteController extends ControllerGrafico {
     void visualizzaAuleAction(ActionEvent event) {
         try {
 
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDisponibili.fxml", userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/MostraAuleDisponibili.fxml", userBean);
         } catch (SQLException | SystemException e) {
           getAlert().showAndWait();
         } catch (ItemNotFoundException e) {

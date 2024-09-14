@@ -75,7 +75,7 @@ public class MostraPrenotazioniController extends ControllerGrafico {
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/CercaConFiltri.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/HomeStudente.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

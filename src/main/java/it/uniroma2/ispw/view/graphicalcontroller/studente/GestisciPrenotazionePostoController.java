@@ -26,7 +26,7 @@ private UserBean userBean;
     void eliminaPrenotazioneAction(ActionEvent event) {
     try {
         // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/GestionePosto.fxml", userBean);
+        ChangePage.getChangePage().cambiaPagina("/view/studente/GestionePosto.fxml", userBean);
     } catch (SQLException e) {
             getAlert().showAndWait();
     } catch (ItemNotFoundException | SystemException e) {
@@ -38,7 +38,7 @@ private UserBean userBean;
 @FXML
     void visualizzaPrenotazioneAction(ActionEvent event) {
     try {
-        ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraTutteLePrenotazioni.fxml", userBean);
+        ChangePage.getChangePage().cambiaPagina("/view/studente/MostraTutteLePrenotazioni.fxml", userBean);
     } catch (SQLException e) {
             getAlert().showAndWait();
     } catch (ItemNotFoundException | SystemException e) {

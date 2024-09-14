@@ -59,7 +59,7 @@ private TextField txtNumeroPosti;
 
         List<AulaBean> auleDisponibili = docenteFacade.chekAula(aulaBean);
 
-        ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule.fxml", userBean, auleDisponibili);
+        ChangePage.getChangePage().cambiaPagina("/view/docente/MostratutteleAule.fxml", userBean, auleDisponibili);
     } catch (ItemNotFoundException e) {
         getAlert(e.getMessage());
     } catch (SQLException | SystemException e) {
@@ -77,7 +77,7 @@ private TextField txtNumeroPosti;
 
     public void indietro(ActionEvent event) {
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaAula.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/docente/CercaAula.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Studente/styling/SelectSeat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@studente/styling/SelectSeat.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="it.uniroma2.ispw.view.graphicalcontroller.docente.HomeDocenteController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#27ae60" height="55.0" layoutY="48.0" smooth="false"
               stroke="TRANSPARENT" strokeType="INSIDE" width="600.0"/>

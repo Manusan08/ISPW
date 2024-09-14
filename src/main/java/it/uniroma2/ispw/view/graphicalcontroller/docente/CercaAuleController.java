@@ -27,7 +27,7 @@ private UserBean userBean;
 @FXML
     void mostraAuleAction(ActionEvent event) { try {
     // Ottieni l'istanza di ChangePage e cambia la pagina
-    ChangePage.getChangePage().cambiaPagina("/view/Docente/MostratutteleAule2.fxml", userBean);
+    ChangePage.getChangePage().cambiaPagina("/view/docente/MostratutteleAule2.fxml", userBean);
 } catch (SQLException | ItemNotFoundException | SystemException e) {
     getAlert().showAndWait();
 }
@@ -38,7 +38,7 @@ private UserBean userBean;
     void cercaAulaPerFiltriAction(ActionEvent event) {
     try {
     // Ottieni l'istanza di ChangePage e cambia la pagina
-    ChangePage.getChangePage().cambiaPagina("/view/Docente/CercaFiltri.fxml", userBean);
+    ChangePage.getChangePage().cambiaPagina("/view/docente/CercaFiltri.fxml", userBean);
 } catch (SQLException | ItemNotFoundException | SystemException e) {
         throw new RuntimeException(e);
     }
@@ -49,7 +49,7 @@ private UserBean userBean;
     void cercaAulePerID(ActionEvent event) {
     try {
         // Ottieni l'istanza di ChangePage e cambia la pagina
-        ChangePage.getChangePage().cambiaPagina("/view/Docente/MostraAulePerId.fxml", userBean);
+        ChangePage.getChangePage().cambiaPagina("/view/docente/MostraAulePerId.fxml", userBean);
     } catch (SQLException e) {
         getAlert().showAndWait();
     } catch(ItemNotFoundException | SystemException e){

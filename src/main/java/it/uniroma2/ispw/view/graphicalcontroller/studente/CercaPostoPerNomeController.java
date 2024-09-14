@@ -35,7 +35,7 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             pab.setNomeDocente(txtNome.getText());
             pab.setMateria(txtMateria.getText());
 
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDaPrenotare.fxml",userBean, pab);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/MostraAuleDaPrenotare.fxml",userBean, pab);
         } catch (SQLException e) {
                 getAlert();
         } catch (ItemNotFoundException e) {
@@ -56,7 +56,7 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
             pab.setNomeDocente(txtNome.getText());
             pab.setMateria(txtMateria.getText());
 
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/MostraAuleDaPrenotare.fxml",userBean ,pab);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/MostraAuleDaPrenotare.fxml",userBean ,pab);
         } catch (SQLException e) {
             getAlert("qualcosa è andato storto").showAndWait();
         } catch (ItemNotFoundException e) {
@@ -69,7 +69,7 @@ public class CercaPostoPerNomeController extends ControllerGrafico {
     public void indietro(ActionEvent event) {
 
         try {
-            ChangePage.getChangePage().cambiaPagina("/view/Studente/PrenotaPosto.fxml", this.userBean);
+            ChangePage.getChangePage().cambiaPagina("/view/studente/PrenotaPosto.fxml", this.userBean);
         } catch (SQLException | ItemNotFoundException | SystemException e) {
             getAlert().showAndWait();
         }

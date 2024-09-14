@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
     Il test controlla la connessione con il DataBase.
     Ha successo se la connessione è correttamente stabilita, fallisce altrimenti
 
-    Manuel
+    Manuel Santapaola
 */
 
 class TestConnectionDB {

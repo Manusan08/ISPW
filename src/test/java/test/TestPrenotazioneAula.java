@@ -19,7 +19,7 @@ import java.time.LocalDate;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/* Manuel Santapaola*/
 class TestPrenotazioneAula {
 
     private DocenteFacade docenteFacade;
